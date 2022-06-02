@@ -6,7 +6,7 @@ export default function Header() {
       <nav className="nav-container">
         <div className="nav-div">
           <Link href="/">
-            <a className="nav-logo">The Drivers</a>
+            <a className="nav-logo">The Drivers HEADER</a>
           </Link>
         </div>
       </nav>
