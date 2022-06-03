@@ -15,10 +15,10 @@ export default function Header() {
         <Link href="/faq">
           <a className={HeaderStyle.link}>FAQ</a>
         </Link>
-        <Link href="/nosservices">
+        <Link href="/nos_services">
           <a className={HeaderStyle.link}>Nos Services</a>
         </Link>
-        <Link href="/notresociete">
+        <Link href="/notre_societe">
           <a className={HeaderStyle.link}>Notre société</a>
         </Link>
         <Link href="/articles">
