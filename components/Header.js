@@ -4,7 +4,7 @@ import HeaderStyle from "../styles/Header.module.css";
 export default function Header() {
   return (
     <header>
-      <nav className="navContainer">
+      <nav className="navContainer" data-cy="navbarCypress">
         <Link href="/">
           <a className={HeaderStyle.link}>Home</a>
         </Link>
