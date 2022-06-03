@@ -8,7 +8,7 @@ export default function Layout({ children, pageTitle }) {
       <Head>
         <title>{pageTitle}</title>
         <meta name="description" content="Welcome to the Driver Airport" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Header />
       {children}
