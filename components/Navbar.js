@@ -40,7 +40,7 @@ export default function Navbar() {
         </li>
       </ul>
       <button className={style.navbar_bar}>
-        <span className={style.nburger_bar}></span>
+        <span className={style.nburger_bar}>CLICK</span>
       </button>
     </nav>
   );

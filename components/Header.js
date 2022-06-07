@@ -1,10 +1,36 @@
-import Navbar from "./Navbar.js";
+import React from "react";
+import Link from "next/link";
+import Image from "next/image";
+import styles from "../styles/Header.module.css";
 
-export default function Header() {
+const Navbar = () => {
   return (
-    <div>
-      <h1>Logo Header</h1>
-      <Navbar />
-    </div>
+    <nav className={styles.navbar}>
+      <Link href="/">
+        <Image
+          alt={`logo`}
+          src={`/public/images/logo-lesdrivers.png`}
+          width={`50px`}
+          height={`50px`}
+        ></Image>
+      </Link>
+      <Link href="notre_societe">
+        <a> Notre société </a>
+      </Link>
+      <Link href="/nos_services">
+        <a> Nos services</a>
+      </Link>
+      <Link href="/infos-utiles">
+        <a> Infos utiles </a>
+      </Link>
+      <Link href="/contact">
+        <a> Contact </a>
+      </Link>
+      <Link href="/reservation">
+        <button className={styles.reserver}>Réserver</button>
+      </Link>
+    </nav>
   );
-}
+};
+
+export default Navbar;
