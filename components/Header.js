@@ -1,7 +1,13 @@
 import Link from "next/link";
 import HeaderStyle from "../styles/Header.module.css";
+import { useRouter } from "next/router";
+import { useTranslation } from "next-i18next";
 
 export default function Header() {
+  const { t } = useTranslation("home");
+  const router = useRouter();
+  const inFr = router.locale === "fr";
+
   return (
     <header>
       <nav className="navContainer" data-cy="navbarCypress">
@@ -23,6 +29,12 @@ export default function Header() {
         </Link>
         <Link href="/articles">
           <a className={HeaderStyle.link}>Articles</a>
+        </Link>
+        <Link href={router.asPath} locale={inFr ? "en" : "fr"}>
+          <a>{inFr ? "🇬🇧" : "🇫🇷"}</a>
+        </Link>
+        <Link href="/" locale={inFr ? "en" : "fr"}>
+          <button>{t("change-locale")}</button>
         </Link>
       </nav>
     </header>
