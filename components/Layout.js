@@ -11,7 +11,7 @@ export default function Layout({ children, pageTitle }) {
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
     </>
   );
