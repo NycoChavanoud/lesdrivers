@@ -9,9 +9,10 @@ const Navbar = () => {
       <Link href="/">
         <Image
           alt={`logo`}
-          src={`/public/images/logo-lesdrivers.png`}
-          width={`50px`}
-          height={`50px`}
+          className={styles.logo}
+          src={`/images/logo-lesdrivers.png`}
+          width={`70px`}
+          height={`70px`}
         ></Image>
       </Link>
       <Link href="notre_societe">

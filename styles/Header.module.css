@@ -9,13 +9,13 @@
 }
 
 .navbar a {
-  padding: 0 16px;
+  padding: 10px 16px;
   font-size: 20px;
-  color: #626262;
+  color: #3c3a3a;
 }
 .reserver {
   background-color: orangered;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 16px;
   border: 2px solid orange;
 }
