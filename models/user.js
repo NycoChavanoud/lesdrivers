@@ -13,6 +13,12 @@ const hashPassword = (plainPassword) =>
 
 module.exports.validateUser = (data, forUpdate = false) =>
   Joi.object({
+    firstname: Joi.string()
+      .max(255)
+      .presence(forUpdate ? "optional" : "required"),
+    lastname: Joi.string()
+      .max(255)
+      .presence(forUpdate ? "optional" : "required"),
     email: Joi.string()
       .email()
       .max(255)
@@ -21,17 +27,10 @@ module.exports.validateUser = (data, forUpdate = false) =>
       .min(8)
       .max(100)
       .presence(forUpdate ? "optional" : "required"),
-    firstname: Joi.string()
-      .max(255)
-      .presence(forUpdate ? "optional" : "required"),
-    lastname: Joi.string()
-      .max(255)
-      .presence(forUpdate ? "optional" : "required"),
     address: Joi.string()
       .max(255)
       .presence(forUpdate ? "optional" : "optional"),
     phoneNumber: Joi.string()
-      .phoneNumber()
       .max(20)
       .presence(forUpdate ? "optional" : "required"),
   }).validate(data, { abortEarly: false }).error;
@@ -57,10 +56,24 @@ module.exports.createUser = async ({
   });
 };
 
-module.exports.emailAlreadyExists = (email) => {
+module.exports.emailAlreadyExists = (email = "") => {
   return db.user.findUnique({ where: { email } }).then((user) => !!user);
 };
 
+module.exports.findUserByEmail = (email) =>
+  db.user.findUnique({ where: { email } }).catch(() => false);
+
 module.exports.deleteAllUsers = db.user.deleteMany;
 
+module.exports.deleteUserByEmail = (email) =>
+  db.user.delete({ where: { email } }).catch(() => false);
+
 module.exports.hashPassword = hashPassword;
+
+module.exports.verifyPassword = (hash, plain) =>
+  argon2.verify(hash, plain, hashingOptions);
+
+module.exports.getSafeAttributes = (user) => ({
+  ...user,
+  hashedPassword: undefined,
+});
