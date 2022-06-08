@@ -4,15 +4,14 @@ import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
 
 export default function Header() {
-  const { t } = useTranslation("home");
+  const { t } = useTranslation("header");
   const router = useRouter();
-  const inFr = router.locale === "fr";
 
   return (
     <header>
       <nav className="navContainer" data-cy="navbarCypress">
         <Link href="/">
-          <a className={HeaderStyle.link}>Home</a>
+          <a className={HeaderStyle.link}>{t("home")}</a>
         </Link>
 
         <Link href="/contact">
@@ -22,7 +21,7 @@ export default function Header() {
           <a className={HeaderStyle.link}>FAQ</a>
         </Link>
         <Link href="/nos_services">
-          <a className={HeaderStyle.link}>Nos Services</a>
+          <a className={HeaderStyle.link}>{t("Our Services")}</a>
         </Link>
         <Link href="/notre_societe">
           <a className={HeaderStyle.link}>Notre société</a>
@@ -30,11 +29,13 @@ export default function Header() {
         <Link href="/articles">
           <a className={HeaderStyle.link}>Articles</a>
         </Link>
-        <Link href={router.asPath} locale={inFr ? "en" : "fr"}>
-          <a>{inFr ? "🇬🇧" : "🇫🇷"}</a>
-        </Link>
-        <Link href="/" locale={inFr ? "en" : "fr"}>
-          <button>{t("change-locale")}</button>
+        <Link
+          href={router.asPath}
+          locale={router.locale === "fr" ? "en" : "fr"}
+        >
+          <a data-cy="translate-button">
+            {router.locale === "fr" ? "🇬🇧" : "🇫🇷"}
+          </a>
         </Link>
       </nav>
     </header>

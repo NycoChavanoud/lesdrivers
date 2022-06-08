@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <Layout pageTitle={t("pageTitle")}>
-      <h1> {t("h1")} </h1>
+      <h1>{t("titre")}</h1>
       <p>{t("description")}</p>
     </Layout>
   );
@@ -16,8 +16,7 @@ export default function Home() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common", "home"])),
-      // Will be passed to the page component as props
+      ...(await serverSideTranslations(locale, ["common", "header", "home"])),
     },
   };
 }
