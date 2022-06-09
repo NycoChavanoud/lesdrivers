@@ -1,7 +1,7 @@
 describe("login", () => {
   beforeEach(() => {
     cy.viewport("iphone-6");
-    cy.task("cleanAllUser");
+    cy.task("cleanDB");
   });
 
   it("is accessible from the menu", () => {
