@@ -6,6 +6,7 @@ import { useTranslation } from "next-i18next";
 export default function Header() {
   const { t } = useTranslation("header");
   const router = useRouter();
+  const inFr = router.locale === "fr";
 
   return (
     <header>
@@ -29,13 +30,8 @@ export default function Header() {
         <Link href="/articles">
           <a className={HeaderStyle.link}>Articles</a>
         </Link>
-        <Link
-          href={router.asPath}
-          locale={router.locale === "fr" ? "en" : "fr"}
-        >
-          <a data-cy="translate-button">
-            {router.locale === "fr" ? "🇬🇧" : "🇫🇷"}
-          </a>
+        <Link href={router.asPath} locale={inFr ? "en" : "fr"}>
+          <a data-cy="translate-button">{inFr ? "🇬🇧" : "🇫🇷"}</a>
         </Link>
       </nav>
     </header>
