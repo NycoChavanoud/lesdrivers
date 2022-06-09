@@ -33,6 +33,9 @@ module.exports.validateUser = (data, forUpdate = false) =>
     phoneNumber: Joi.string()
       .max(20)
       .presence(forUpdate ? "optional" : "required"),
+    society: Joi.string()
+      .max(20)
+      .presence(forUpdate ? "optional" : "optional"),
   }).validate(data, { abortEarly: false }).error;
 
 module.exports.createUser = async ({
@@ -42,6 +45,7 @@ module.exports.createUser = async ({
   lastname,
   address,
   phoneNumber,
+  society,
 }) => {
   const hashedPassword = await hashPassword(password);
   return db.user.create({
@@ -52,6 +56,7 @@ module.exports.createUser = async ({
       hashedPassword,
       address,
       phoneNumber,
+      society,
     },
   });
 };

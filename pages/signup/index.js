@@ -14,6 +14,7 @@ export default function SignupPage() {
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
   const [address, setAddress] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
+  const [society, setSociety] = useState("");
   const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
@@ -35,6 +36,7 @@ export default function SignupPage() {
         lastname,
         address,
         phoneNumber,
+        society,
       })
       .then(notifyRegisterSuccess)
       .catch((err) => {
@@ -101,6 +103,17 @@ export default function SignupPage() {
             data-cy="phoneNumber"
             value={phoneNumber}
             onChange={(e) => setPhoneNumber(e.target.value)}
+          />
+        </label>
+        <label htmlFor="Society">
+          Society :
+          <input
+            required
+            type="text"
+            id="society"
+            data-cy="society"
+            value={society}
+            onChange={(e) => setSociety(e.target.value)}
           />
         </label>
 

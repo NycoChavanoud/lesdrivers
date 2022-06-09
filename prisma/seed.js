@@ -12,6 +12,7 @@ async function seed() {
       hashedPassword: hashedPassword,
       phoneNumber: "0769422558",
       address: "7 turtle road",
+      society: "Credit Ecolo",
     },
   });
 }

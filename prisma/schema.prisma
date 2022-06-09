@@ -18,6 +18,7 @@ model User {
   hashedPassword String
   phoneNumber String
   address String? 
+  society String?
 
   @@unique([email])
 }
