@@ -9,9 +9,11 @@ export default function footer() {
       <div className={styles.footer}>
         <div>
           <h5 className={styles.footerTitle}>Nous contacter</h5>
-          <div className={styles.footerContact}>&#9990; +33 7 27 45 70 66 </div>
           <div className={styles.footerContact}>
-            &#9993; contact@lesdrivers-airport.fr
+            &#9990; + 33 4 69 96 60 80{" "}
+          </div>
+          <div className={styles.footerContact}>
+            &#9993; contact@navette-aeroport-lyon.fr
           </div>
 
           <div className={styles.socialIcons}>
@@ -20,7 +22,7 @@ export default function footer() {
                 <Link href="/">
                   <a>
                     <Image
-                      src="/icons/facebook.png"
+                      src="/images/oveus.png"
                       alt="facebook"
                       width={20}
                       height={20}
@@ -33,7 +35,7 @@ export default function footer() {
               <Link href="/">
                 <a>
                   <Image
-                    src="/icons/instagram.png"
+                    src="/images/frlangue.png"
                     alt="instagram"
                     width={20}
                     height={20}
@@ -45,7 +47,7 @@ export default function footer() {
               <Link href="/">
                 <a>
                   <Image
-                    src="/icons/linkedin.png"
+                    src="/images/traxion.png"
                     alt="linkedin"
                     width={20}
                     height={20}
@@ -57,7 +59,7 @@ export default function footer() {
               <Link href="/">
                 <a>
                   <Image
-                    src="/icons/whatsapp.png"
+                    src="/images/ebv.png"
                     alt="Whatsapp"
                     width={20}
                     height={20}
@@ -70,17 +72,12 @@ export default function footer() {
         <div>
           <h5 className={styles.footerTitle}>Plan du site</h5>
           <div className={styles.links}>
-            <Link href="/reservation">
-              <a>Réservation</a>
+            <Link href="/newslatter">
+              <a>Newslatter</a>
             </Link>
             <div>
               <Link href="/mentionlegale">
                 <a>Mentions légales</a>
-              </Link>
-            </div>
-            <div>
-              <Link href="/cgps">
-                <a>Plan du site</a>
               </Link>
             </div>
             <div>
@@ -95,7 +92,7 @@ export default function footer() {
           <div className={styles.links}>
             <div>
               <Link href="/commandes">
-                <a>Commandes</a>
+                <a>Réservation</a>
               </Link>
             </div>
             <div>
@@ -116,10 +113,12 @@ export default function footer() {
           alt={`logo`}
           className={styles.logo}
           src={`/images/logo-lesdrivers.png`}
-          width={`70px`}
-          height={`70px`}
+          width={`80px`}
+          height={`80px`}
         ></Image>
-        <p className={styles.logoText}>Voyager en toute sécurité</p>
+        <p className={styles.logoText}>
+          All Rights Reserved To The Drivers Airport
+        </p>
       </div>
     </div>
   );

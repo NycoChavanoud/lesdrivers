@@ -1,9 +1,6 @@
 .container {
   background: yellow;
   align-items: center;
-  position: relative;
-  /* left: 0; */
-  bottom: 0;
 }
 .footer {
   display: flex;
@@ -19,7 +16,7 @@
 .logoText {
   text-align: center;
   position: absolute;
-  padding-top: 55px;
+  padding-top: 70px;
   font-size: x-small;
   color: rgb(0, 0, 0);
 }
@@ -38,7 +35,7 @@
   line-height: 17px;
 }
 .footerTitle {
-  color: #ffffff;
+  color: #d81b1b;
 }
 
 @media screen and (min-width: 768px) {
@@ -59,11 +56,17 @@
   .footerContact {
     font-style: normal;
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 25px;
+  }
+
+  .logo {
+    width: 10%;
+    margin-left: auto;
+    margin-right: auto;
   }
   .logoText {
     font-size: small;
-    padding-top: 50px;
+    padding-top: 80px;
   }
 }
