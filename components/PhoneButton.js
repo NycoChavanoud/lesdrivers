@@ -1,11 +1,11 @@
 import stylePhoneSection from "../styles/PhoneSection.module.css";
 import React, { useState } from "react";
 
-export default function WelcomeSection() {
+export default function PhoneButton() {
   const [switchToggled, setSwitchToggled] = useState(false);
 
   const ToggleSwitch = () => {
-    switchToggled ? setSwitchToggled(false) : setSwitchToggled(true);
+    setSwitchToggled(!switchToggled);
     console.log(switchToggled);
   };
   return (
