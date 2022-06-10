@@ -39,7 +39,7 @@ const Navbar = () => {
             {/* pas encore cree*/}
             <Image
               alt={`user`}
-              className={styles.user}
+              className={styles.userImage}
               src={`/images/user.png`}
               width={`30px`}
               height={`30px`}
@@ -62,15 +62,9 @@ const Navbar = () => {
             width={`30px`}
             height={`30px`}
           ></Image>
-          <Link href="/">
-            <Image
-              alt={`btnBurger`}
-              className={styles.btnBurger}
-              src={`/images/Buttons menu.png`}
-              width={`30px`}
-              height={`30px`}
-            ></Image>
-          </Link>
+          <div className={styles.btnBurger}>
+            <span className={styles.Burger_Line} />
+          </div>
         </div>
       </nav>
     </>

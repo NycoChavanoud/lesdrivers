@@ -29,36 +29,74 @@
 }
 .reserver {
   background: rgb(64, 0, 255);
+  padding: 2px;
   cursor: pointer;
   color: white;
   border-radius: 20px;
+  margin: 10px;
   font-size: 16px;
   border: none;
   text-transform: uppercase;
 }
 
-.btnBurger {
+image.btnBurger {
   display: none;
+  position: relative;
+}
+
+.btnBurger {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+.btnBurger:hover {
+  cursor: pointer;
+}
+.Burger_Line {
+  display: block;
+  position: absolute;
+  right: 155px;
+  cursor: pointer;
+}
+.Burger_Line:hover {
+  cursor: pointer;
+}
+.Burger_Line,
+.Burger_Line::before,
+.Burger_Line::after {
+  display: block;
+  width: 45px;
+  height: 4px;
+  position: relative;
+  border-radius: 5px;
+  background: rgb(218, 23, 23);
+}
+
+.Burger_Line::before,
+.Burger_Line::after {
+  content: "";
+  position: absolute;
+  right: 0;
+}
+.Burger_Line::before {
+  transform: translateY(-12px);
+}
+.Burger_Line::after {
+  transform: translateY(12px) !important;
 }
 
 @media screen and (max-width: 765px) {
   .navbar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 1rem;
-    background: #ffffff;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-    font-family: "Gabriela", serif;
   }
-  .logo {
-    display: flex;
-    margin-top: 30px;
+
+  .btnBurger {
+    padding: 0 10px;
+    display: block;
+    position: absolute;
   }
 
   .navbar a {
     display: none;
-    font-size: 20px;
-    color: #3c3a3a;
   }
 }
