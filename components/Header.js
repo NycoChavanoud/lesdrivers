@@ -6,7 +6,14 @@ import { useTranslation } from "next-i18next";
 export default function Header() {
   const { t } = useTranslation("header");
   const router = useRouter();
-  const inFr = router.locale === "fr";
+
+  const onSelectChange = (e) => {
+    const locale = e.target.value;
+    router.push(router.asPath, router.asPath, {
+      locale,
+      scroll: false,
+    });
+  };
 
   return (
     <header>
@@ -14,7 +21,6 @@ export default function Header() {
         <Link href="/">
           <a className={HeaderStyle.link}>{t("home")}</a>
         </Link>
-
         <Link href="/contact">
           <a className={HeaderStyle.link}>Contact</a>
         </Link>
@@ -30,9 +36,19 @@ export default function Header() {
         <Link href="/articles">
           <a className={HeaderStyle.link}>Articles</a>
         </Link>
-        <Link href={router.asPath} locale={inFr ? "en" : "fr"}>
-          <a data-cy="translate-button">{inFr ? "🇬🇧" : "🇫🇷"}</a>
-        </Link>
+
+        <select
+          name="languages"
+          id="language-select"
+          onChange={onSelectChange}
+          value={router.locale}
+        >
+          {router.locales.map((language, index) => (
+            <option value={language} key={index}>
+              {language === "en" ? "🇬🇧" : language === "fr" ? "🇫🇷" : null}
+            </option>
+          ))}
+        </select>
       </nav>
     </header>
   );
