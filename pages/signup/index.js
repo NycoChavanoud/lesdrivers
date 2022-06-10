@@ -3,6 +3,7 @@ import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
 import { passwordStrength } from "check-password-strength";
 import Layout from "../../components/Layout";
+import style from "../../styles/signup.module.css";
 
 const notifyRegisterSuccess = () => toast("Thanks ! You can now log in !");
 
@@ -48,7 +49,7 @@ export default function SignupPage() {
     <Layout pageTitle="Sign up">
       <Toaster />
       <h1>Sign Up</h1>
-      <form onSubmit={handleSubmit}>
+      <form className={style.signUpForm} onSubmit={handleSubmit}>
         <label htmlFor="firstname">
           Firstname :
           <input
