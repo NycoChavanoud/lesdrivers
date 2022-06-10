@@ -26,7 +26,10 @@
 }
 
 .PhoneNumberAppear {
-  display: block;
   color: white;
   margin-right: 15px;
+}
+
+.PhoneNumberAppear:hover {
+  color: blue;
 }

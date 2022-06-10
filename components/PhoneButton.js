@@ -6,7 +6,6 @@ export default function PhoneButton() {
 
   const ToggleSwitch = () => {
     setSwitchToggled(!switchToggled);
-    console.log(switchToggled);
   };
   return (
     <div
