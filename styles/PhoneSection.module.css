@@ -1,7 +1,6 @@
 .PhoneSectionContainer {
   display: flex;
-  position: absolute;
-  flex-direction: row;
+  position: fixed;
   align-items: center;
   justify-content: center;
   height: 40px;
@@ -10,7 +9,6 @@
   top: 50vh;
   right: 0;
   z-index: 3;
-  opacity: 60%;
 }
 
 .PhoneImage {
@@ -25,12 +23,10 @@
 
 .PhoneNumberNotAppear {
   display: none;
-  color: white;
-  margin-right: 15px;
 }
 
 .PhoneNumberAppear {
   display: block;
-  color: red;
+  color: white;
   margin-right: 15px;
 }
