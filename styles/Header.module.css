@@ -27,16 +27,89 @@
   font-size: 20px;
   color: #3c3a3a;
 }
-.reserver {
+.reserverr {
   background: rgb(64, 0, 255);
   padding: 2px;
   cursor: pointer;
   color: white;
-  border-radius: 20px;
+  border-radius: 10px;
   margin: 10px;
   font-size: 16px;
-  border: none;
-  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* CSS */
+.reserver {
+  align-items: center;
+  margin: 8px;
+  appearance: none;
+  background-color: rgb(28, 49, 170);
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Gabriela", serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  padding: 2px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  touch-action: manipulation;
+  width: auto;
+  z-index: 0;
+}
+
+.reserver:hover {
+  background: #f6f9fe;
+  color: #174ea6;
+}
+
+.reserver:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.reserver:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.reserver:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.reserver:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+
+.reserver:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.reserver:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+
+.reserver:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
 }
 
 image.btnBurger {
@@ -48,41 +121,6 @@ image.btnBurger {
   display: block;
   position: absolute;
   cursor: pointer;
-}
-.btnBurger:hover {
-  cursor: pointer;
-}
-.Burger_Line {
-  display: block;
-  position: absolute;
-  right: 155px;
-  cursor: pointer;
-}
-.Burger_Line:hover {
-  cursor: pointer;
-}
-.Burger_Line,
-.Burger_Line::before,
-.Burger_Line::after {
-  display: block;
-  width: 45px;
-  height: 4px;
-  position: relative;
-  border-radius: 5px;
-  background: rgb(218, 23, 23);
-}
-
-.Burger_Line::before,
-.Burger_Line::after {
-  content: "";
-  position: absolute;
-  right: 0;
-}
-.Burger_Line::before {
-  transform: translateY(-12px);
-}
-.Burger_Line::after {
-  transform: translateY(12px) !important;
 }
 
 @media screen and (max-width: 765px) {

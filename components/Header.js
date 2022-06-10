@@ -62,9 +62,6 @@ const Navbar = () => {
             width={`30px`}
             height={`30px`}
           ></Image>
-          <div className={styles.btnBurger}>
-            <span className={styles.Burger_Line} />
-          </div>
         </div>
       </nav>
     </>
