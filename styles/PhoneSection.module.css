@@ -1,0 +1,36 @@
+.PhoneSectionContainer {
+  display: flex;
+  position: absolute;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  background-color: #242481;
+  border-radius: 30px 0px 0px 30px;
+  top: 50vh;
+  right: 0;
+  z-index: 3;
+  opacity: 60%;
+}
+
+.PhoneImage {
+  height: 20px;
+  width: 30px;
+  background-image: url(../public/images/phone.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 15px;
+  cursor: pointer;
+}
+
+.PhoneNumberNotAppear {
+  display: none;
+  color: white;
+  margin-right: 15px;
+}
+
+.PhoneNumberAppear {
+  display: block;
+  color: red;
+  margin-right: 15px;
+}
