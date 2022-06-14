@@ -17,11 +17,11 @@
   left: 0;
   right: 0;
   padding: 2rem;
-  background-color: #7585eb;
+  background-color: #2435a0;
   bottom: 0;
   font-size: 20px;
   align-items: center;
-  color: #000000;
+  color: #11b411;
 }
 .navItems li {
   display: inline-flex;
@@ -70,10 +70,10 @@
 .burger_Line::after {
   display: block;
   width: 45px;
-  height: 4px;
+  height: 5px;
   position: relative;
   border-radius: 5px;
-  background: rgb(81, 32, 239);
+  background: rgb(59, 21, 184);
 }
 
 .burger_Line::before,
@@ -88,28 +88,28 @@
 .burger_Line::after {
   transform: translateY(12px);
 }
-.show_nav .navItems {
+.show_menu .navItems {
   top: 65px;
   z-index: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
 }
-.show_nav .navItems li {
+.show_menu .navItems li {
   padding: 2rem;
 }
-.show_nav .navItems a {
+.show_menu .navItems a {
   color: #fff;
 }
-.show_nav .burger_Line {
+.show_menu .burger_Line {
   width: 0;
   background: transparent;
 }
-.show_nav .burger_Line::before {
+.show_menu .burger_Line::before {
   left: 0;
   transform: rotate(45deg) !important;
 }
-.show_nav .burger_Line::after {
+.show_menu .burger_Line::after {
   transform: rotate(-45deg) !important;
 }
 

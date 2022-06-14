@@ -18,7 +18,7 @@ const Navbar = () => {
   const currentRoute = router.pathname;
   return (
     <nav
-      className={`${styles.navbar} ${showLinks ? styles.show_nav : "hidden"}`}
+      className={`${styles.navbar} ${showLinks ? styles.show_menu : "hidden"}`}
     >
       <div className={styles.logocontainer}>
         <Link href="/" className={styles.logo}>
