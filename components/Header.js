@@ -1,5 +1,6 @@
 import Link from "next/link";
 import HeaderStyle from "../styles/Header.module.css";
+import { signIn } from "next-auth/react";
 
 export default function Header() {
   return (
@@ -24,6 +25,7 @@ export default function Header() {
         <Link href="/articles">
           <a className={HeaderStyle.link}>Articles</a>
         </Link>
+        <button onClick={() => signIn()}>Log in</button>
       </nav>
     </header>
   );
