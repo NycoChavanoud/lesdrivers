@@ -77,7 +77,7 @@ export default function footer() {
             </Link>
             <div>
               <Link href="/mentionlegale">
-                <a>Mentions légales</a>
+                <a>Blog</a>
               </Link>
             </div>
             <div>
