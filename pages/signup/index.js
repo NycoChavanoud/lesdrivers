@@ -52,79 +52,81 @@ export default function SignupPage() {
     <Layout pageTitle="Sign up">
       <Toaster />
       <h1>Sign Up</h1>
-      <form
-        className={style.signUpForm}
-        onSubmit={handleSubmit}
-        style={{ display: "flex", flexDirection: "column" }}
-      >
+      <form className={style.signUpForm} onSubmit={handleSubmit}>
         <label htmlFor="firstname">
-          Firstname :
+          <p>Firstname :</p>
           <input
             required
             type="text"
             id="firstname"
             data-cy="firstname"
             value={firstname}
+            placeholder="Firstname"
             onChange={(e) => setFirstname(e.target.value)}
           />
         </label>
         <label htmlFor="lastname">
-          Lastname :
+          <p>Lastname :</p>
           <input
             required
             type="text"
             id="lastname"
             data-cy="lastname"
             value={lastname}
+            placeholder="Lastname"
             onChange={(e) => setlastname(e.target.value)}
           />
         </label>
 
         <label htmlFor="email">
-          Email :
+          <p>Email :</p>
           <input
             required
             type="email"
             id="email"
             data-cy="email"
             value={email}
+            placeholder="Email"
             onChange={(e) => setEmail(e.target.value)}
           />
         </label>
         <label htmlFor="address">
-          Address :
+          <p>Address :</p>
           <input
             type="text"
             id="address"
             data-cy="address"
             value={address}
+            placeholder="Adress"
             onChange={(e) => setAddress(e.target.value)}
           />
         </label>
         <label htmlFor="PhoneNumber">
-          Phone Number :
+          <p>Phone Number :</p>
           <input
             required
             type="text"
             id="phoneNumber"
             data-cy="phoneNumber"
             value={phoneNumber}
+            placeholder="Phone Number"
             onChange={(e) => setPhoneNumber(e.target.value)}
           />
         </label>
         <label htmlFor="Society">
-          Society :
+          <p>Society :</p>
           <input
             type="text"
             id="society"
             data-cy="society"
             value={society}
+            placeholder="Society"
             onChange={(e) => setSociety(e.target.value)}
           />
         </label>
 
         <label htmlFor="password">
-          Password :
+          <p>Password :</p>
           <input
             required
             type="password"
@@ -136,7 +138,7 @@ export default function SignupPage() {
         </label>
 
         <label htmlFor="passwordConfirmation">
-          Password confirmation :
+          <p>Password confirmation :</p>
           <input
             required
             type="password"

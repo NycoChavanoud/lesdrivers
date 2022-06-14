@@ -4,6 +4,7 @@ import { signOut } from "next-auth/react";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useContext } from "react";
+import style from "../styles/signup.module.css";
 
 export default function LoginPage({ csrfToken }) {
   const { currentUserProfile } = useContext(CurrentUserContext);
@@ -23,6 +24,7 @@ export default function LoginPage({ csrfToken }) {
           <>
             <h1>Log in</h1>
             <form
+              className={style.signUpForm}
               method="post"
               action="/api/auth/callback/credentials"
               data-cy="loginForm"
@@ -34,7 +36,7 @@ export default function LoginPage({ csrfToken }) {
                 defaultValue={csrfToken}
               />
               <label>
-                Email :
+                <p>Email :</p>
                 <input
                   id="username"
                   name="username"
@@ -44,7 +46,7 @@ export default function LoginPage({ csrfToken }) {
                 />
               </label>
               <label>
-                Password :
+                <p>Password :</p>
                 <input
                   name="password"
                   type="password"
@@ -58,9 +60,11 @@ export default function LoginPage({ csrfToken }) {
               {query.error === "CredentialsSignin" && (
                 <p>Incorrect credentials</p>
               )}
-              <Link href="/signup">
-                <a>Not registered ?</a>
-              </Link>
+              <button>
+                <Link href="/signup">
+                  <a>Not registered ?</a>
+                </Link>
+              </button>
             </form>
           </>
         </>
