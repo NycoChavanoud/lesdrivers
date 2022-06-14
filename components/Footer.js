@@ -108,7 +108,7 @@ export default function footer() {
           </div>
         </div>
       </div>
-      <div className={styles.logo}>
+      <div className={styles.logoContainer}>
         <Image
           alt={`logo`}
           className={styles.logo}

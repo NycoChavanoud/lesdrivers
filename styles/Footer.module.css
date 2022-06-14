@@ -8,7 +8,7 @@
   margin: auto 5px;
   justify-content: space-between;
 }
-.logo {
+.logoContainer {
   display: flex;
   justify-content: center;
   padding-bottom: 18px;

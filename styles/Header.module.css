@@ -1,140 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .navbar {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-  font-family: "Gabriela", serif;
-}
-.navbarDiv {
-  display: flex;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  font-family: "Gabriela", serif;
-}
-.navbarLogin {
-  display: flex;
-  padding: 0 10px;
-  justify-content: space-between;
-  margin-right: auto;
-}
-
-.navbar a {
-  margin: 0 14px;
-  font-size: 20px;
-  color: #3c3a3a;
-}
-.reserverr {
-  background: rgb(64, 0, 255);
-  padding: 2px;
-  cursor: pointer;
-  color: white;
-  border-radius: 10px;
-  margin: 10px;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
-
-/* CSS */
-.reserver {
-  align-items: center;
-  margin: 8px;
-  appearance: none;
-  background-color: rgb(28, 49, 170);
-  border-radius: 10px;
-  border-style: none;
-  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
-    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-flex;
-  fill: currentcolor;
-  font-family: "Gabriela", serif;
-  font-size: 14px;
-  font-weight: 500;
-  height: 30px;
   justify-content: center;
-  letter-spacing: 0.25px;
-  line-height: normal;
-  padding: 2px 20px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
-    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
-  touch-action: manipulation;
-  width: auto;
-  z-index: 0;
+  align-items: center;
+  flex-direction: column;
+  background: #ffffff;
+  height: 75px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  font-size: 3vw;
 }
-
-.reserver:hover {
-  background: #f6f9fe;
-  color: #174ea6;
-}
-
-.reserver:active {
-  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
-    0 8px 12px 6px rgb(60 64 67 / 15%);
-  outline: none;
-}
-
-.reserver:focus {
-  outline: none;
-  border: 2px solid #4285f4;
-}
-
-.reserver:not(:disabled) {
-  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-}
-
-.reserver:not(:disabled):hover {
-  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
-    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
-}
-
-.reserver:not(:disabled):focus {
-  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-}
-
-.reserver:not(:disabled):active {
-  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
-    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
-}
-
-.reserver:disabled {
-  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
-    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
-}
-
-image.btnBurger {
+.navItems {
   display: none;
-  position: relative;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  right: 0;
+  padding: 2rem;
+  background-color: #7585eb;
+  bottom: 0;
+  font-size: 20px;
+  align-items: center;
+  color: #000000;
+}
+.navItems li {
+  display: inline-flex;
+}
+.burgerLogo a {
+  display: flex;
+  position: fixed;
+  visibility: visible;
+  align-items: center;
+  justify-content: center;
+}
+.burgerLogo {
+  padding-right: 12%;
+  padding-bottom: 12px;
+}
+.userIcon {
+  padding-left: 64%;
+  display: flex;
+  align-items: center;
+}
+
+.logocontainer {
+  display: none;
 }
 
 .btnBurger {
+  width: 45px;
+  display: block;
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+}
+.btnBurger:hover {
+  cursor: pointer;
+}
+.burger_Line {
   display: block;
   position: absolute;
   cursor: pointer;
 }
+.burger_Line:hover {
+  cursor: pointer;
+}
+.burger_Line,
+.burger_Line::before,
+.burger_Line::after {
+  display: block;
+  width: 45px;
+  height: 4px;
+  position: relative;
+  border-radius: 5px;
+  background: rgb(81, 32, 239);
+}
 
-@media screen and (max-width: 765px) {
+.burger_Line::before,
+.burger_Line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burger_Line::before {
+  transform: translateY(-12px);
+}
+.burger_Line::after {
+  transform: translateY(12px);
+}
+.show_nav .navItems {
+  top: 65px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.show_nav .navItems li {
+  padding: 2rem;
+}
+.show_nav .navItems a {
+  color: #fff;
+}
+.show_nav .burger_Line {
+  width: 0;
+  background: transparent;
+}
+.show_nav .burger_Line::before {
+  left: 0;
+  transform: rotate(45deg) !important;
+}
+.show_nav .burger_Line::after {
+  transform: rotate(-45deg) !important;
+}
+
+@media screen and (min-width: 765px) {
   .navbar {
-    padding: 1rem;
+    display: flex;
+    height: 80px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+    flex-direction: initial;
+    font-size: 1vw;
+  }
+  .navItems {
+    display: initial;
+    position: relative;
+    font-family: "Gabriela", serif;
+    font-weight: 500;
+    font-size: 18px;
+    width: 60;
+    color: #3f3f3f;
+    background-color: initial;
   }
 
+  .navItems li {
+    padding: 8px;
+    display: initial;
+  }
+
+  .navItems .non_active {
+    color: #434343;
+  }
+  .navItems .active {
+    color: #ca6116;
+  }
   .btnBurger {
-    padding: 0 10px;
-    display: block;
-    position: absolute;
+    display: none;
   }
 
-  .navbar a {
+  .logocontainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .reserver {
+    height: 32px;
+    display: initial;
+    background: #2831b1;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .burgerLogo {
     display: none;
+  }
+
+  .userIcon {
+    display: flex;
+    margin-left: -450px;
   }
 }
