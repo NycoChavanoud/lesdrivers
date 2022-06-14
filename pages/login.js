@@ -16,51 +16,53 @@ export default function LoginPage({ csrfToken }) {
           Connecté en tant que {currentUserProfile.email} <br />
           <button data-cy="disconnectBtn" onClick={() => signOut()}>
             Log out
-          </button>
+          </button>{" "}
         </>
       ) : (
         <>
-          <h1>Log in</h1>
-          <form
-            method="post"
-            action="/api/auth/callback/credentials"
-            data-cy="loginForm"
-          >
-            <input
-              id="csrfToken"
-              name="csrfToken"
-              type="hidden"
-              defaultValue={csrfToken}
-            />
-            <label>
-              Email :
+          <>
+            <h1>Log in</h1>
+            <form
+              method="post"
+              action="/api/auth/callback/credentials"
+              data-cy="loginForm"
+            >
               <input
-                id="username"
-                name="username"
-                type="text"
-                placeholder="me@something.com"
-                data-cy="email"
+                id="csrfToken"
+                name="csrfToken"
+                type="hidden"
+                defaultValue={csrfToken}
               />
-            </label>
-            <label>
-              Password :
-              <input
-                name="password"
-                type="password"
-                id="password"
-                data-cy="password"
-              />
-            </label>
-            <button data-cy="credentials-login-btn" type="submit">
-              Try those credentials
-            </button>
-            {query.error === "CredentialsSignin" && (
-              <p>Incorrect credentials</p>
-            )}
-            <Link href="/signup">
-              <a>Not registered ?</a>
-            </Link>
-          </form>
+              <label>
+                Email :
+                <input
+                  id="username"
+                  name="username"
+                  type="text"
+                  placeholder="me@something.com"
+                  data-cy="email"
+                />
+              </label>
+              <label>
+                Password :
+                <input
+                  name="password"
+                  type="password"
+                  id="password"
+                  data-cy="password"
+                />
+              </label>
+              <button data-cy="credentials-login-btn" type="submit">
+                Try those credentials
+              </button>
+              {query.error === "CredentialsSignin" && (
+                <p>Incorrect credentials</p>
+              )}
+              <Link href="/signup">
+                <a>Not registered ?</a>
+              </Link>
+            </form>
+          </>
         </>
       )}
     </Layout>
