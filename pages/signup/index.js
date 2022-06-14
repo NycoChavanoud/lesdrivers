@@ -4,6 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { passwordStrength } from "check-password-strength";
 import Layout from "../../components/Layout";
 import style from "../../styles/signup.module.css";
+import { useRouter } from "next/router";
 
 const notifyRegisterSuccess = () => toast("Thanks ! You can now log in !");
 
@@ -17,6 +18,7 @@ export default function SignupPage() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [society, setSociety] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const handleSubmit = (e) => {
     setError("");
@@ -40,6 +42,7 @@ export default function SignupPage() {
         society,
       })
       .then(notifyRegisterSuccess)
+      .then(() => router.push("/login"))
       .catch((err) => {
         if (err.response.status === 409) setError("This email already exists");
       });
@@ -49,7 +52,11 @@ export default function SignupPage() {
     <Layout pageTitle="Sign up">
       <Toaster />
       <h1>Sign Up</h1>
-      <form className={style.signUpForm} onSubmit={handleSubmit}>
+      <form
+        className={style.signUpForm}
+        onSubmit={handleSubmit}
+        style={{ display: "flex", flexDirection: "column" }}
+      >
         <label htmlFor="firstname">
           Firstname :
           <input
@@ -87,7 +94,6 @@ export default function SignupPage() {
         <label htmlFor="address">
           Address :
           <input
-            required
             type="text"
             id="address"
             data-cy="address"
@@ -109,7 +115,6 @@ export default function SignupPage() {
         <label htmlFor="Society">
           Society :
           <input
-            required
             type="text"
             id="society"
             data-cy="society"
