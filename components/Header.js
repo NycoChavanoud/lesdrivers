@@ -21,7 +21,7 @@ const Navbar = () => {
       className={`${styles.navbar} ${showLinks ? styles.show_menu : "hidden"}`}
     >
       <div className={styles.logocontainer}>
-        <Link href="/" className={styles.logo}>
+        <Link href="/" className={styles.logoLink}>
           <a>
             <Image
               src={Logo}
@@ -154,7 +154,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.btnBurger} onClick={handleShowLinks}>
-        <span className={styles.burgerBars} />
+        <span className={styles.burger_Line} />
       </div>
     </nav>
   );
