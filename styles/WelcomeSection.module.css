@@ -75,6 +75,10 @@
   font-weight: 600;
 }
 
+.chauffeur {
+  margin-top: 90px;
+}
+
 /* version desktop */
 
 @media screen and (min-width: 600px) {
