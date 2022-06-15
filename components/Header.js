@@ -105,19 +105,6 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className={styles.burgerLogo}>
-        <Link href="/" className={styles.linklogotransparent}>
-          <a>
-            <Image
-              alt={`burgerLogo`}
-              className={styles.logo}
-              src={`/images/logo-lesdrivers.png`}
-              width={`64px`}
-              height={`64px`}
-            ></Image>
-          </a>
-        </Link>
-      </div>
       <div className={styles.userIcon}>
         <Link href="/">
           <a>

@@ -5,9 +5,8 @@
   align-items: center;
   flex-direction: column;
   background: #ffffff;
-  height: 75px;
+
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
-  font-size: 3vw;
 }
 .navItems {
   display: none;
@@ -21,10 +20,14 @@
   bottom: 0;
   font-size: 20px;
   align-items: center;
-  color: #11b411;
+  color: #56b856;
 }
 .navItems li {
   display: inline-flex;
+}
+.userIcon {
+  display: flex;
+  align-items: center;
 }
 .burgerLogo a {
   display: flex;
@@ -32,19 +35,6 @@
   visibility: visible;
   align-items: center;
   justify-content: center;
-}
-.burgerLogo {
-  padding-right: 12%;
-  padding-bottom: 12px;
-}
-.userIcon {
-  padding-left: 64%;
-  display: flex;
-  align-items: center;
-}
-
-nav .logo_img {
-  display: none;
 }
 
 .btnBurger {
@@ -182,6 +172,4 @@ nav .logo_img {
     display: flex;
     margin-left: -450px;
   }
-}
-@media screen and (min-width: 450px) {
 }

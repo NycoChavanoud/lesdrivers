@@ -73,16 +73,16 @@ export default function footer() {
           <h5 className={styles.footerTitle}>Plan du site</h5>
           <div className={styles.links}>
             <Link href="/newslatter">
-              <a>Newslatter</a>
+              <a style={{ opacity: "0.4" }}>Newslatter</a>
             </Link>
             <div>
               <Link href="/mentionlegale">
-                <a>Blog</a>
+                <a style={{ opacity: "0.4" }}>Blog</a>
               </Link>
             </div>
             <div>
               <Link href="/pconfidentialite">
-                <a>Politique de confidentialité</a>
+                <a style={{ opacity: "0.4" }}>Politique de confidentialité</a>
               </Link>
             </div>
           </div>
@@ -92,17 +92,17 @@ export default function footer() {
           <div className={styles.links}>
             <div>
               <Link href="/commandes">
-                <a>Réservation</a>
+                <a style={{ opacity: "0.4" }}>Réservation</a>
               </Link>
             </div>
             <div>
               <Link href="/Mes informations">
-                <a>Politique de confidentialite</a>
+                <a style={{ opacity: "0.4" }}>Politique de confidentialite</a>
               </Link>
             </div>
             <div>
               <Link href="/newsletter">
-                <a>Newsletter</a>
+                <a style={{ opacity: "0.4" }}>Newsletter</a>
               </Link>
             </div>
           </div>
