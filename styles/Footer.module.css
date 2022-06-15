@@ -1,6 +1,7 @@
 .container {
   background: yellow;
   align-items: center;
+  margin-top: 180px;
 }
 .footer {
   display: flex;
@@ -45,6 +46,7 @@
     padding: 0 100px;
     flex-direction: row-reverse;
     justify-content: space-between;
+    margin-top: 75px;
   }
   .footer {
     margin-right: 100px;

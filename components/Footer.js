@@ -117,7 +117,7 @@ export default function footer() {
           height={`80px`}
         ></Image>
         <p className={styles.logoText}>
-          All Rights Reserved To The Drivers Airport
+          All Rights Reserved To The Drivers Airport 2022
         </p>
       </div>
     </div>
