@@ -50,3 +50,28 @@
   font-size: 30px;
   font-weight: 600;
 }
+
+@media screen and (min-width: 600px) {
+  .url1,
+  .url2,
+  .url3 {
+    width: 350px;
+    height: 200px;
+  }
+
+  .resaContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #2a2a92;
+    padding: 20px;
+  }
+
+  .buttonsResaChauff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 1200px;
+  }
+}

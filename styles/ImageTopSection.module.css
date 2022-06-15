@@ -6,3 +6,13 @@
   background-size: cover;
   z-index: -1;
 }
+
+@media screen and (min-width: 600px) {
+  .ImageTopSectionContainer {
+    background-image: url(../public/images/bgtoppage_desktop.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+  }
+}

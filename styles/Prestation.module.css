@@ -104,3 +104,32 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+@media screen and (min-width: 600px) {
+  .prestationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .prestationContainerButton {
+    margin: 15px 25px 5px -10px;
+    padding: 20px 20px 0px 20px;
+    box-shadow: 5px 5px 10px #d8d6d7, -5px -5px 10px #d8d6d7;
+    width: 450px;
+    height: 400px;
+  }
+  .ButtPrestaWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+  }
+  .prestationh1 {
+    font-size: 30px;
+  }
+}

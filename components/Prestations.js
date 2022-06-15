@@ -12,48 +12,52 @@ import map from "../public/images/maplyon.png";
 export default function Prestation() {
   return (
     <div className={stylePrestation.prestationContainer}>
-      <h1 className={stylePrestation.prestationh1}>Nos prestations</h1>
-      <ButtPresta
-        icon={icon1}
-        textePrestation={
-          "Notre parc voiture est composé de berlines standards ou de luxes, de minis-vans, de vans et de minibus"
-        }
-        titleBlock={"Nos véhicules"}
-        bgPrestaWidth={200}
-        bgPrestaHeight={100}
-        callToActionTexte={"DÉCOUVREZ NOS VÉHICULES"}
-        bgPresta={ourVehicles}
-      />
-      <ButtPresta
-        icon={icon2}
-        titleBlock={"Le service comme vocation"}
-        bgPrestaWidth={200}
-        bgPrestaHeight={130}
-        callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
-        bgPresta={serviceVocation}
-      />
-      <ButtPresta
-        icon={icon3}
-        titleBlock={"Nos différents services"}
-        textePrestation={
-          "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
-        }
-        bgPrestaWidth={200}
-        bgPrestaHeight={130}
-        callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
-        bgPresta={diffVocation}
-      />
-      <ButtPresta
-        icon={icon4}
-        titleBlock={"Combien ça coûte ?"}
-        textePrestation={
-          "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
-        }
-        bgPrestaWidth={200}
-        bgPrestaHeight={130}
-        callToActionTexte={"ESTIMER VOTRE TRAJET"}
-        bgPresta={map}
-      />
+      <div className={stylePrestation.title}>
+        <h1 className={stylePrestation.prestationh1}>Nos prestations</h1>
+      </div>
+      <div className={stylePrestation.ButtPrestaWrapper}>
+        <ButtPresta
+          icon={icon1}
+          textePrestation={
+            "Notre parc voiture est composé de berlines standards ou de luxes, de minis-vans, de vans et de minibus"
+          }
+          titleBlock={"Nos véhicules"}
+          bgPrestaWidth={200}
+          bgPrestaHeight={100}
+          callToActionTexte={"DÉCOUVREZ NOS VÉHICULES"}
+          bgPresta={ourVehicles}
+        />
+        <ButtPresta
+          icon={icon2}
+          titleBlock={"Le service comme vocation"}
+          bgPrestaWidth={200}
+          bgPrestaHeight={130}
+          callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
+          bgPresta={serviceVocation}
+        />
+        <ButtPresta
+          icon={icon3}
+          titleBlock={"Nos différents services"}
+          textePrestation={
+            "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
+          }
+          bgPrestaWidth={200}
+          bgPrestaHeight={130}
+          callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
+          bgPresta={diffVocation}
+        />
+        <ButtPresta
+          icon={icon4}
+          titleBlock={"Combien ça coûte ?"}
+          textePrestation={
+            "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
+          }
+          bgPrestaWidth={200}
+          bgPrestaHeight={130}
+          callToActionTexte={"ESTIMER VOTRE TRAJET"}
+          bgPresta={map}
+        />
+      </div>
     </div>
   );
 }

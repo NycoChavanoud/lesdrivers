@@ -7,7 +7,9 @@ import crew from "../public/images/crew.png";
 export default function Caroussel() {
   return (
     <div className={styleCaroussel.carousselContainer}>
-      <h1 className={styleCaroussel.carousselh1}>Actualités</h1>
+      <div className={styleCaroussel.title}>
+        <h1 className={styleCaroussel.carousselh1}>Actualités</h1>
+      </div>
       <div className={styleCaroussel.carousselOver}>
         <CarousselCards
           ImageAct={beaujolais}
