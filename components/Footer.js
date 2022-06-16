@@ -1,6 +1,6 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
 import styles from "../styles/Footer.module.css";
 
 export default function footer() {
@@ -111,7 +111,7 @@ export default function footer() {
       <div className={styles.logoContainer}>
         <Image
           alt={`logo`}
-          className={styles.logo}
+          className={styles.footerLogo}
           src={`/images/logo-lesdrivers.png`}
           width={`80px`}
           height={`80px`}

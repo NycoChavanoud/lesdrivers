@@ -1,13 +1,13 @@
 import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import User from "../public/images/user.png";
 import LogoFR from "../public/images/fr.png";
 import LogoANG from "../public/images/ang.png";
-import User from "../public/images/user.png";
-import Logo from "../public/images/logo-lesdrivers.png";
 import styles from "../styles/Header.module.css";
+import Logo from "../public/images/logo-lesdrivers.png";
 
 const Navbar = () => {
   const [showLinks, setshowLinks] = useState(false);
