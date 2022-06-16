@@ -44,6 +44,7 @@ export default function Header() {
           id="language-select"
           onChange={onSelectChange}
           value={router.locale}
+          data-cy="translate-button"
         >
           {router.locales.map((language, index) => (
             <option value={language} key={index}>

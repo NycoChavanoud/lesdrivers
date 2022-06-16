@@ -6,7 +6,7 @@ describe("translation", () => {
   });
   it("has a translation in en", () => {
     cy.visit("/");
-    cy.get('[data-cy="translate-button"]').click();
-    cy.contains("Home");
+    cy.get('[data-cy="translate-button"]').select("en");
+    cy.url().should("include", "/en");
   });
 });
