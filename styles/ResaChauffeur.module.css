@@ -1,0 +1,77 @@
+.url1,
+.url2,
+.url3 {
+  position: relative;
+  height: 150px;
+  color: white;
+  margin: 15px 0px 15px 0px;
+  text-align: left;
+  padding: 70px 70px 0px 40px;
+  font-size: 10px;
+}
+
+.url1 {
+  background-image: url(../public/images/bgpoint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.url2 {
+  background-image: url(../public/images/binh.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.url3 {
+  background-image: url(../public/images/welcome.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.resaContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #2a2a92;
+  padding: 20px;
+  opacity: 80%;
+}
+
+.resaContainerp {
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.new {
+  position: absolute;
+  top: 0;
+  right: 20px;
+  color: #ffec00;
+  font-size: 30px;
+  font-weight: 600;
+}
+
+@media screen and (min-width: 600px) {
+  .url1,
+  .url2,
+  .url3 {
+    width: 350px;
+    height: 200px;
+  }
+
+  .resaContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #2a2a92;
+    padding: 20px;
+  }
+
+  .buttonsResaChauff {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 1200px;
+  }
+}
