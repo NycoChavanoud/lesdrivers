@@ -59,34 +59,34 @@ export default function SignupPage() {
       <Toaster />
       <h1 className={style.mainTitle}>Inscription :</h1>
       <form className={style.signUpForm} onSubmit={handleSubmit}>
-        <div className={style.inputDiv}>
-          <label htmlFor="firstname">
-            <Image src={profilePicture} alt="Prénom" />
-          </label>
-          <input
-            required
-            type="text"
-            id="firstname"
-            data-cy="firstname"
-            value={firstname}
-            placeholder="Prénom (*)"
-            onChange={(e) => setFirstname(e.target.value)}
-          />
-        </div>
-
-        <div className={style.inputDiv}>
-          <label htmlFor="lastname">
-            <Image src={profilePicture} alt="Nom" />
-          </label>
-          <input
-            required
-            type="text"
-            id="lastname"
-            data-cy="lastname"
-            value={lastname}
-            placeholder="Nom (*)"
-            onChange={(e) => setLastname(e.target.value)}
-          />
+        <div className={style.inputDivWith2InputsContainer}>
+          <div className={style.inputDivWith2Inputs}>
+            <label htmlFor="firstname">
+              <Image src={profilePicture} alt="Prénom" />
+            </label>
+            <input
+              required
+              type="text"
+              id="firstname"
+              data-cy="firstname"
+              value={firstname}
+              placeholder="Prénom (*)"
+              onChange={(e) => setFirstname(e.target.value)}
+            />
+          </div>
+          <div className={style.border} />
+          <div className={style.inputDivWith2Inputs}>
+            <label htmlFor="lastname"></label>
+            <input
+              required
+              type="text"
+              id="lastname"
+              data-cy="lastname"
+              value={lastname}
+              placeholder="Nom (*)"
+              onChange={(e) => setLastname(e.target.value)}
+            />
+          </div>
         </div>
 
         <div className={style.inputDiv}>
@@ -146,34 +146,34 @@ export default function SignupPage() {
           />
         </div>
 
-        <div className={style.inputDiv}>
-          <label htmlFor="password">
-            <Image src={passwordPicture} alt="Password" />
-          </label>
-          <input
-            required
-            type="password"
-            id="password"
-            data-cy="password"
-            value={password}
-            placeholder="Mot de passe"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-
-        <div className={style.inputDiv}>
-          <label htmlFor="passwordConfirmation">
-            <Image src={passwordPicture} alt="Password" />
-          </label>
-          <input
-            required
-            type="password"
-            id="passwordConfirmation"
-            data-cy="passwordConfirmation"
-            value={passwordConfirmation}
-            placeholder="Confirmation du mot de passe"
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
+        <div className={style.inputDivWith2InputsContainer}>
+          <div className={style.inputDivWith2Inputs}>
+            <label htmlFor="password">
+              <Image src={passwordPicture} alt="Password" />
+            </label>
+            <input
+              required
+              type="password"
+              id="password"
+              data-cy="password"
+              value={password}
+              placeholder="Mot de passe"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+          </div>
+          <div className={style.border} />
+          <div className={style.inputDivWith2Inputs}>
+            <label htmlFor="passwordConfirmation"></label>
+            <input
+              required
+              type="password"
+              id="passwordConfirmation"
+              data-cy="passwordConfirmation"
+              value={passwordConfirmation}
+              placeholder="Confirmation du mot de passe"
+              onChange={(e) => setPasswordConfirmation(e.target.value)}
+            />
+          </div>
         </div>
 
         <p className={style.wrongDatas}>{error}</p>

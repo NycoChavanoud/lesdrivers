@@ -79,7 +79,9 @@ export default function LoginPage({ csrfToken }) {
               </button>
               <button>
                 <Link href="/signup_invite">
-                  <a>Continuer en tant qu&rsquo;invité</a>
+                  <a style={{ opacity: "0.4" }}>
+                    Continuer en tant qu&rsquo;invité
+                  </a>
                 </Link>
               </button>
             </form>
