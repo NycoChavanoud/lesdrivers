@@ -6,7 +6,6 @@ describe("login", () => {
 
   it("is accessible from the menu", () => {
     cy.visit("/");
-    cy.contains("Log in").click();
     cy.url().should("include", "/login");
   });
 
