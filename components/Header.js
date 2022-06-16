@@ -1,15 +1,18 @@
+import React from "react";
 import Link from "next/link";
-import HeaderStyle from "../styles/Header.module.css";
-import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
-// FROM MUI (for the select translation):
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import Image from "next/image";
+import { useState } from "react";
+import { useRouter } from "next/router";
+import User from "../public/images/user.png";
+import styles from "../styles/Header.module.css";
+import Logo from "../public/images/logo-lesdrivers.png";
 
-export default function Header() {
+const Navbar = () => {
   const { t } = useTranslation("header");
   const router = useRouter();
-
   const onSelectChange = (e) => {
     const locale = e.target.value;
     router.push(router.asPath, router.asPath, {
@@ -17,46 +20,114 @@ export default function Header() {
       scroll: false,
     });
   };
-
+  const [showLinks, setshowLinks] = useState(false);
+  const handleShowLinks = () => {
+    setshowLinks(!showLinks);
+  };
+  const currentRoute = router.pathname;
   return (
-    <header>
-      <nav className="navContainer" data-cy="navbarCypress">
+    <nav
+      className={`${styles.navbar} ${showLinks ? styles.show_menu : "hidden"}`}
+    >
+      <div className={styles.logocontainer}>
+        <Link href="/" className={styles.logoLink}>
+          <a>
+            <Image
+              src={Logo}
+              width={60}
+              height={60}
+              className={styles.logo_img}
+              alt="logo"
+            />
+          </a>
+        </Link>
+        <ul className={styles.navItems}>
+          <li>
+            <Link href="/notre_societe" className={styles.navLinks}>
+              <a
+                className={
+                  currentRoute === "/notre_societe"
+                    ? styles.active
+                    : styles.non_active
+                }
+              >
+                {t("Who we are")}
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="nos_services" className={styles.navbarlink}>
+              <a
+                className={
+                  currentRoute === "/nos_services"
+                    ? styles.active
+                    : styles.non_active
+                }
+              >
+                Nos services
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="infos_utiles" className={styles.navbarlink}>
+              <a
+                className={
+                  currentRoute === "/infos_utiles"
+                    ? styles.active
+                    : styles.non_active
+                }
+              >
+                Infos utiles
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="faq" className={styles.navbarlink}>
+              <a
+                className={
+                  currentRoute === "/faq" ? styles.active : styles.non_active
+                }
+              >
+                Faq
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="contact" className={styles.navbarlink}>
+              <a
+                className={
+                  currentRoute === "/contact"
+                    ? styles.active
+                    : styles.non_active
+                }
+              >
+                Contact
+              </a>
+            </Link>
+          </li>
+          <li>
+            <Link href="reservation" className={styles.navbarlink}>
+              <a>
+                <button className={styles.reserver}>Reserver</button>
+              </a>
+            </Link>
+          </li>
+        </ul>
+      </div>
+      <div className={styles.userIcon}>
         <Link href="/">
-          <a className={HeaderStyle.link}>{t("home")}</a>
+          <a>
+            <Image
+              src={User}
+              className={styles.logo_icon}
+              alt="user"
+              height={40}
+              width={40}
+            />
+          </a>
         </Link>
-        <Link href="/contact">
-          <a className={HeaderStyle.link}>Contact</a>
-        </Link>
-        <Link href="/faq">
-          <a className={HeaderStyle.link}>FAQ</a>
-        </Link>
-        <Link href="/nos_services">
-          <a className={HeaderStyle.link}>{t("Our Services")}</a>
-        </Link>
-        <Link href="/notre_societe">
-          <a className={HeaderStyle.link}>Notre société</a>
-        </Link>
-        <Link href="/articles">
-          <a className={HeaderStyle.link}>Articles</a>
-        </Link>
-        <Link href="/transfert_aeroport">
-          <a className={HeaderStyle.link}>Transfert aeroport</a>
-        </Link>
-        <select
-          name="languages"
-          id="language-select"
-          onChange={onSelectChange}
-          value={router.locale}
-          data-cy="translate-button"
-        >
-          {router.locales.map((language, index) => (
-            <option value={language} key={index}>
-              {language === "en" ? "🇬🇧" : language === "fr" ? "🇫🇷" : null}
-            </option>
-          ))}
-        </select>
         <Select
-          // sx={{ border: 0 }}
+          sx={{ border: "transparent" }}
           name="languages"
           id="language-select"
           value={router.locale}
@@ -70,7 +141,11 @@ export default function Header() {
             </MenuItem>
           ))}
         </Select>
-      </nav>
-    </header>
+      </div>
+      <div className={styles.btnBurger} onClick={handleShowLinks}>
+        <span className={styles.burger_Line} />
+      </div>
+    </nav>
   );
-}
+};
+export default Navbar;
