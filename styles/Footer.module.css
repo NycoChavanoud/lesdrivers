@@ -2,7 +2,7 @@
   background: yellow;
   align-items: center;
   margin-top: 180px;
-  padding: 0 60px;
+  padding: 10px;
 }
 .footer {
   display: flex;
@@ -43,11 +43,8 @@
 @media screen and (min-width: 980px) {
   .container {
     display: flex;
-
     padding: 0 100px;
-
     justify-content: space-between;
-    margin-top: 90px;
   }
   .footer {
     margin-right: 100px;
