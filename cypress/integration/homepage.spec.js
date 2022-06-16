@@ -12,16 +12,16 @@ describe("homepage", () => {
     cy.visit("/");
   });
 
-  it("displays a title", () => {
+  xit("displays a title", () => {
     cy.get("h1").should("not.be.empty");
   });
-  it("should contain a navbar", () => {
+  xit("should contain a navbar", () => {
     cy.get("navbarCypress").should("not.be.empty");
   });
-  it("should contain a navbar", () => {
+  xit("should contain a navbar", () => {
     cy.get("navbarCypress").should("not.be.empty");
   });
-  it.only("can navigate to contact page", () => {
+  xit("can navigate to contact page", () => {
     cy.contains("Contact").click();
     cy.url().should("match", /contact/);
   });
