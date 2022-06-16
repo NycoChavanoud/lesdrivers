@@ -1,10 +1,13 @@
-import Layout from "../components/Layout";
-import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import Layout from "../../components/Layout";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { signOut } from "next-auth/react";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import { useContext } from "react";
-import style from "../styles/signup.module.css";
+import style from "../../styles/signup.module.css";
+import Image from "next/image";
+import emailPicture from "../../public/images/input_email.png";
+import passwordPicture from "../../public/images/input_password.png";
 
 export default function LoginPage({ csrfToken }) {
   const { currentUserProfile } = useContext(CurrentUserContext);
@@ -22,7 +25,7 @@ export default function LoginPage({ csrfToken }) {
       ) : (
         <>
           <>
-            <h1>Log in</h1>
+            <h1 className={style.mainTitle}>Identification :</h1>
             <form
               className={style.signUpForm}
               method="post"
@@ -35,34 +38,48 @@ export default function LoginPage({ csrfToken }) {
                 type="hidden"
                 defaultValue={csrfToken}
               />
-              <label>
-                <p>Email :</p>
+              <div className={style.inputDiv}>
+                <label htmlFor="email">
+                  <Image src={emailPicture} alt="Email" />
+                </label>
                 <input
-                  id="username"
-                  name="username"
+                  id="email"
+                  name="email"
                   type="text"
-                  placeholder="me@something.com"
+                  placeholder="Email"
                   data-cy="email"
                 />
-              </label>
-              <label>
-                <p>Password :</p>
+              </div>
+              <div className={style.inputDiv}>
+                <label htmlFor="password">
+                  <Image src={passwordPicture} alt="Email" />
+                </label>
                 <input
                   name="password"
                   type="password"
                   id="password"
                   data-cy="password"
+                  placeholder="Mot de passe"
                 />
-              </label>
-              <button data-cy="credentials-login-btn" type="submit">
-                Try those credentials
-              </button>
+              </div>
               {query.error === "CredentialsSignin" && (
-                <p>Incorrect credentials</p>
+                <p className={style.wrongDatas}>
+                  Identifiants incorrects ! Merci de rééssayer
+                </p>
               )}
+              <button data-cy="credentials-login-btn" type="submit">
+                Se connecter
+              </button>
+
+              <h2 className={style.mainTitle}>Ou :</h2>
               <button>
                 <Link href="/signup">
-                  <a>Not registered ?</a>
+                  <a>S&rsquo;inscrire</a>
+                </Link>
+              </button>
+              <button>
+                <Link href="/signup_invite">
+                  <a>Continuer en tant qu&rsquo;invité</a>
                 </Link>
               </button>
             </form>

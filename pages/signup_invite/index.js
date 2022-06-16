@@ -59,35 +59,34 @@ export default function SignupPage() {
       <Toaster />
       <h1 className={style.mainTitle}>Inscription :</h1>
       <form className={style.signUpForm} onSubmit={handleSubmit}>
-        <div className={`${style.inputDiv} ${style.wrongDatas}`}>
-          <div>
-            <label htmlFor="firstname">
-              <Image src={profilePicture} alt="Prénom" />
-            </label>
-            <input
-              required
-              type="text"
-              id="firstname"
-              data-cy="firstname"
-              value={firstname}
-              placeholder="Prénom (*)"
-              onChange={(e) => setFirstname(e.target.value)}
-            />
-          </div>
-          <div>
-            <label htmlFor="lastname">
-              <Image src={profilePicture} alt="Nom" />
-            </label>
-            <input
-              required
-              type="text"
-              id="lastname"
-              data-cy="lastname"
-              value={lastname}
-              placeholder="Nom (*)"
-              onChange={(e) => setLastname(e.target.value)}
-            />
-          </div>
+        <div className={style.inputDiv}>
+          <label htmlFor="firstname">
+            <Image src={profilePicture} alt="Prénom" />
+          </label>
+          <input
+            required
+            type="text"
+            id="firstname"
+            data-cy="firstname"
+            value={firstname}
+            placeholder="Prénom (*)"
+            onChange={(e) => setFirstname(e.target.value)}
+          />
+        </div>
+
+        <div className={style.inputDiv}>
+          <label htmlFor="lastname">
+            <Image src={profilePicture} alt="Nom" />
+          </label>
+          <input
+            required
+            type="text"
+            id="lastname"
+            data-cy="lastname"
+            value={lastname}
+            placeholder="Nom (*)"
+            onChange={(e) => setLastname(e.target.value)}
+          />
         </div>
 
         <div className={style.inputDiv}>
