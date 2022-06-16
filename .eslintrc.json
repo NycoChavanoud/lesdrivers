@@ -1,11 +1,25 @@
+// INITIAL : {
+//   "env": {
+//     "node": true,
+//     "cypress/globals": true
+//   },
+//   "extends": ["next/core-web-vitals", "eslint:recommended"],
+//   "plugins": ["cypress", "prettier"],
+//   "rules": {
+//     "prettier/prettier": "error"
+//   }
+// }
+
+// CELUI DE THIERNO POUR TENTER DE CORRIGER PB ESLINT CRLF / LF
 {
   "env": {
     "node": true,
-    "cypress/globals": true
+    "cypress/globals": true,
+    "es6": true
   },
   "extends": ["next/core-web-vitals", "eslint:recommended"],
   "plugins": ["cypress", "prettier"],
   "rules": {
-    "prettier/prettier": "error"
+    "react/no-unescaped-entities": "off"
   }
 }

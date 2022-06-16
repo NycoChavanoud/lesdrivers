@@ -2,6 +2,9 @@ import Link from "next/link";
 import HeaderStyle from "../styles/Header.module.css";
 import { useRouter } from "next/router";
 import { useTranslation } from "next-i18next";
+// FROM MUI (for the select translation):
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 export default function Header() {
   const { t } = useTranslation("header");
@@ -52,6 +55,21 @@ export default function Header() {
             </option>
           ))}
         </select>
+        <Select
+          // sx={{ border: 0 }}
+          name="languages"
+          id="language-select"
+          value={router.locale}
+          label="Languages"
+          onChange={onSelectChange}
+          data-cy="translate-button"
+        >
+          {router.locales.map((language, index) => (
+            <MenuItem value={language} key={index}>
+              {language === "en" ? "🇬🇧" : language === "fr" ? "🇫🇷" : null}
+            </MenuItem>
+          ))}
+        </Select>
       </nav>
     </header>
   );
