@@ -88,7 +88,12 @@ export default function Trajectform() {
         </div>
         <div className={styleTransfert.InputDepartArrive}>
           <label className={styleTransfert.label}>Lieu d{"'"}arrivée</label>
-          <label>Aéroport Lyon-Saint Exupéry</label>
+          <select>
+            <option selected value="aeroport">
+              Aéroport Lyon-Saint Exupéry
+            </option>
+            <option value="gare">Gare Lyon-Saint Exupéry</option>
+          </select>
         </div>
         <div className={styleTransfert.InputTimeLeave}>
           <label className={styleTransfert.label}>Heure de départ</label>
@@ -155,8 +160,8 @@ export default function Trajectform() {
           </div>
         </div>
         <div className={styleTransfert.InputFlightNumber}>
-          <label className={styleTransfert.label}>N° Vol</label>
-          <input type="text" placeholder="ex : KE453JR"></input>
+          <label className={styleTransfert.label}>N° Vol (obligatoire)</label>
+          <input type="text" placeholder="ex : KE453JR" required></input>
         </div>
         <div className={styleTransfert.InputSomethingToSay}>
           <label className={styleTransfert.label}>
@@ -196,7 +201,12 @@ export default function Trajectform() {
         </div>
         <div className={styleTransfert.InputDepartLieu}>
           <label className={styleTransfert.label}>Lieu de départ</label>
-          <label>Aéroport Lyon-Saint Exupéry</label>
+          <select>
+            <option selected value="aeroport">
+              Aéroport Lyon-Saint Exupéry
+            </option>
+            <option value="gare">Gare Lyon-Saint Exupéry</option>
+          </select>
         </div>
         <div className={styleTransfert.InputDepartArrive}>
           <label className={styleTransfert.label}>Lieu d{"'"}arrivée</label>
@@ -270,8 +280,8 @@ export default function Trajectform() {
           </div>
         </div>
         <div className={styleTransfert.InputFlightNumber}>
-          <label className={styleTransfert.label}>N° Vol</label>
-          <input type="text" placeholder="ex : KE453JR"></input>
+          <label className={styleTransfert.label}>N° Vol (obligatoire)</label>
+          <input type="text" placeholder="ex : KE453JR" required></input>
         </div>
         <div className={styleTransfert.InputSomethingToSay}>
           <label className={styleTransfert.label}>
