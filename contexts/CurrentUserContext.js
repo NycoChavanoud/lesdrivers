@@ -17,7 +17,6 @@ export default function CurrentUserContextProvider({ children }) {
         setCurrentUserProfile(data);
       })
       .catch(() => {
-        // when we have a stale cookie, disconnect
         signOut();
       });
   }, []);
