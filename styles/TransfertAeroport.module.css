@@ -126,3 +126,9 @@
 .tarifOff {
   display: none;
 }
+
+@media screen and (min-width: 600px) {
+  .ButtForm {
+    width: 40%;
+  }
+}

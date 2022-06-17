@@ -45,28 +45,34 @@ export default function Trajectform() {
     <div className={styleTransfert.trajectFormContainer}>
       <h3 className={styleTransfert.titleForm}>Votre trajet</h3>
       {/* Ensemble button */}
-      <div
-        className={button ? styleTransfert.buttonOn : styleTransfert.buttonOff}
-      >
-        <div className={styleTransfert.ButtForm} onClick={AppearGoAirport}>
-          <p className={styleTransfert.titleButton}>Je vais à l{"'"}aéroport</p>
-          <Image
-            src={imgButt1}
-            alt="Picture of the author"
-            width={60}
-            height={40}
-          />
-        </div>
-        <div className={styleTransfert.ButtForm} onClick={AppearLeaveAirport}>
-          <p className={styleTransfert.titleButton}>
-            Je pars de l{"'"}aéroport
-          </p>
-          <Image
-            src={imgButt2}
-            alt="Picture of the author"
-            width={60}
-            height={40}
-          />
+      <div className={styleTransfert.buttonContainer}>
+        <div
+          className={
+            button ? styleTransfert.buttonOn : styleTransfert.buttonOff
+          }
+        >
+          <div className={styleTransfert.ButtForm} onClick={AppearGoAirport}>
+            <p className={styleTransfert.titleButton}>
+              Je vais à l{"'"}aéroport
+            </p>
+            <Image
+              src={imgButt1}
+              alt="Picture of the author"
+              width={60}
+              height={40}
+            />
+          </div>
+          <div className={styleTransfert.ButtForm} onClick={AppearLeaveAirport}>
+            <p className={styleTransfert.titleButton}>
+              Je pars de l{"'"}aéroport
+            </p>
+            <Image
+              src={imgButt2}
+              alt="Picture of the author"
+              width={60}
+              height={40}
+            />
+          </div>
         </div>
       </div>
       {/* Go Airport*/}
