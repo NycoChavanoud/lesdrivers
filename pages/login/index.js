@@ -43,8 +43,8 @@ export default function LoginPage({ csrfToken }) {
                   <Image src={emailPicture} alt="Email" />
                 </label>
                 <input
-                  id="email"
-                  name="email"
+                  id="username"
+                  name="username"
                   type="text"
                   placeholder="Email"
                   data-cy="email"
