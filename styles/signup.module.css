@@ -1,0 +1,82 @@
+.mainTitle {
+  text-align: center;
+  font-family: "Gabriela", serif;
+}
+
+.signUpForm {
+  margin: 20px auto;
+  max-width: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputDiv {
+  display: flex;
+  justify-content: flex-start;
+  width: 80%;
+  height: 35px;
+  margin: 10px;
+  align-items: center;
+  box-shadow: 0px 0px 10px 5px rgba(142, 142, 142, 0.25);
+  border-radius: 18px;
+}
+
+.inputDivWith2InputsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  height: 70px;
+  margin: 10px;
+  align-items: center;
+  box-shadow: 0px 0px 10px 5px rgba(142, 142, 142, 0.25);
+  border-radius: 18px;
+}
+
+.inputDivWith2Inputs {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  height: 35px;
+  margin: 0px;
+  align-items: center;
+}
+
+.border {
+  margin-left: 25px;
+  border: 1px solid lightgrey;
+  width: 80%;
+}
+
+.inputDiv label,
+.inputDivWith2Inputs label {
+  display: flex;
+  justify-content: center;
+  margin-left: 10px;
+  width: 30px;
+}
+
+.inputDiv input,
+.inputDivWith2Inputs input {
+  margin: auto 10px;
+  width: 100%;
+  border: 0px;
+}
+
+.signUpForm button {
+  margin: 10px;
+  width: 180px;
+  background: linear-gradient(180deg, #fcc666 0%, #fc7e18 100%);
+  border-radius: 30px;
+  border: 0px;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.wrongDatas {
+  color: red;
+}

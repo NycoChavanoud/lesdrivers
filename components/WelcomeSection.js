@@ -6,7 +6,7 @@ export default function WelcomeSection() {
       <div className={styleWelcomeSection.welcomeFirstSection}>
         <h1>Les Drivers Airport</h1>
         <div className={styleWelcomeSection.stroke}></div>
-        <h1>
+        <h1 data-cy="h1Lyon">
           Lyon
           <span className={styleWelcomeSection.spanRed}>Saint Exupéry</span>
         </h1>
