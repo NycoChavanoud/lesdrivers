@@ -24,68 +24,66 @@ export default function LoginPage({ csrfToken }) {
         </>
       ) : (
         <>
-          <>
-            <h1 className={style.mainTitle}>Identification :</h1>
-            <form
-              className={style.signUpForm}
-              method="post"
-              action="/api/auth/callback/credentials"
-              data-cy="loginForm"
-            >
+          <h1 className={style.mainTitle}>Identification :</h1>
+          <form
+            className={style.signUpForm}
+            method="post"
+            action="/api/auth/callback/credentials"
+            data-cy="loginForm"
+          >
+            <input
+              id="csrfToken"
+              name="csrfToken"
+              type="hidden"
+              defaultValue={csrfToken}
+            />
+            <div className={style.inputDiv}>
+              <label htmlFor="email">
+                <Image src={emailPicture} alt="Email" />
+              </label>
               <input
-                id="csrfToken"
-                name="csrfToken"
-                type="hidden"
-                defaultValue={csrfToken}
+                id="username"
+                name="username"
+                type="text"
+                placeholder="Email"
+                data-cy="email"
               />
-              <div className={style.inputDiv}>
-                <label htmlFor="email">
-                  <Image src={emailPicture} alt="Email" />
-                </label>
-                <input
-                  id="username"
-                  name="username"
-                  type="text"
-                  placeholder="Email"
-                  data-cy="email"
-                />
-              </div>
-              <div className={style.inputDiv}>
-                <label htmlFor="password">
-                  <Image src={passwordPicture} alt="Email" />
-                </label>
-                <input
-                  name="password"
-                  type="password"
-                  id="password"
-                  data-cy="password"
-                  placeholder="Mot de passe"
-                />
-              </div>
-              {query.error === "CredentialsSignin" && (
-                <p className={style.wrongDatas}>
-                  Identifiants incorrects ! Merci de rééssayer
-                </p>
-              )}
-              <button data-cy="credentials-login-btn" type="submit">
-                Se connecter
-              </button>
+            </div>
+            <div className={style.inputDiv}>
+              <label htmlFor="password">
+                <Image src={passwordPicture} alt="Email" />
+              </label>
+              <input
+                name="password"
+                type="password"
+                id="password"
+                data-cy="password"
+                placeholder="Mot de passe"
+              />
+            </div>
+            {query.error === "CredentialsSignin" && (
+              <p className={style.wrongDatas}>
+                Identifiants incorrects ! Merci de rééssayer
+              </p>
+            )}
+            <button data-cy="credentials-login-btn" type="submit">
+              Se connecter
+            </button>
 
-              <h2 className={style.mainTitle}>Ou :</h2>
-              <button>
-                <Link href="/signup">
-                  <a>S&rsquo;inscrire</a>
-                </Link>
-              </button>
-              <button>
-                <Link href="/signup_invite">
-                  <a style={{ opacity: "0.4" }}>
-                    Continuer en tant qu&rsquo;invité
-                  </a>
-                </Link>
-              </button>
-            </form>
-          </>
+            <h2 className={style.mainTitle}>Ou :</h2>
+            <button>
+              <Link href="/signup">
+                <a>S&rsquo;inscrire</a>
+              </Link>
+            </button>
+            <button>
+              <Link href="/signup_invite">
+                <a style={{ opacity: "0.4" }}>
+                  Continuer en tant qu&rsquo;invité
+                </a>
+              </Link>
+            </button>
+          </form>
         </>
       )}
     </Layout>

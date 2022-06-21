@@ -28,12 +28,14 @@ module.exports.validateUser = (data, forUpdate = false) =>
       .max(100)
       .presence(forUpdate ? "optional" : "required"),
     address: Joi.string()
+      .allow("")
       .max(255)
       .presence(forUpdate ? "optional" : "optional"),
     phoneNumber: Joi.string()
       .max(20)
       .presence(forUpdate ? "optional" : "required"),
     society: Joi.string()
+      .allow("")
       .max(20)
       .presence(forUpdate ? "optional" : "optional"),
   }).validate(data, { abortEarly: false }).error;
