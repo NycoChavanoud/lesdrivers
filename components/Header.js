@@ -141,7 +141,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.btnBurger} onClick={handleShowLinks}>
-        <span className={styles.burger_Line} />
+        <span className={styles.burger_Line} data-cy="btnBurger" />
       </div>
     </nav>
   );
