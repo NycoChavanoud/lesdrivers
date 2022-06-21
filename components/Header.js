@@ -8,7 +8,6 @@ import LogoFR from "../public/images/fr.png";
 import LogoANG from "../public/images/ang.png";
 import styles from "../styles/Header.module.css";
 import Logo from "../public/images/logo-lesdrivers.png";
-import { signIn } from "next-auth/react";
 
 const Navbar = () => {
   const [showLinks, setshowLinks] = useState(false);
@@ -115,7 +114,6 @@ const Navbar = () => {
               alt="user"
               height={36}
               width={36}
-              onClick={() => signIn()}
             />
           </a>
         </Link>

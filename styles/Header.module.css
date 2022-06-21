@@ -27,6 +27,10 @@
 .userIcon {
   right: 0;
   position: absolute;
+  display: flex;
+}
+.logo_icon {
+  cursor: pointer;
 }
 
 .btnBurger {
