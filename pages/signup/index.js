@@ -48,7 +48,7 @@ export default function SignupPage() {
         society,
       })
       .then(notifyRegisterSuccess)
-      .then(() => router.push("/login"))
+      .then(() => router.push("/"))
       .catch((err) => {
         if (err.response.status === 409) setError("This email already exists");
       });
