@@ -72,12 +72,12 @@ export default function LoginPage({ csrfToken }) {
 
             <h2 className={style.mainTitle}>Ou :</h2>
             <button>
-              <Link href="/signup">
-                <a>S&rsquo;inscrire</a>
+              <Link href="/signup" passHref>
+                S&rsquo;inscrire
               </Link>
             </button>
             <button>
-              <Link href="/signup_invite">
+              <Link href="/signup_invite" passHref>
                 <a style={{ opacity: "0.4" }}>
                   Continuer en tant qu&rsquo;invité
                 </a>
