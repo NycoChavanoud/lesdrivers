@@ -96,7 +96,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputDepartArrive}>
           <label className={styleTransfert.label}>Lieu d{"'"}arrivée</label>
           <select>
-            <option selected value="aeroport">
+            <option defaultValue value="aeroport">
               Aéroport Lyon-Saint Exupéry
             </option>
             <option value="gare">Gare Lyon-Saint Exupéry</option>
@@ -109,7 +109,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputNumberPerson}>
           <label className={styleTransfert.label}>Nombre de personnes</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="1">1</option>
@@ -128,7 +128,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputNumberLuggage}>
           <label className={styleTransfert.label}>Nombre de bagages</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="0 - 5">Entre 0 et 5 bagages</option>
@@ -140,7 +140,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputVehiculeType}>
           <label className={styleTransfert.label}>Type de véhicule</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="berline">Berline</option>
@@ -209,7 +209,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputDepartLieu}>
           <label className={styleTransfert.label}>Lieu de départ</label>
           <select>
-            <option selected value="aeroport">
+            <option defaultValue value="aeroport">
               Aéroport Lyon-Saint Exupéry
             </option>
             <option value="gare">Gare Lyon-Saint Exupéry</option>
@@ -229,7 +229,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputNumberPerson}>
           <label className={styleTransfert.label}>Nombre de personnes</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="1">1</option>
@@ -248,7 +248,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputNumberLuggage}>
           <label className={styleTransfert.label}>Nombre de bagages</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="0 - 5">Entre 0 et 5 bagages</option>
@@ -260,7 +260,7 @@ export default function Trajectform() {
         <div className={styleTransfert.InputVehiculeType}>
           <label className={styleTransfert.label}>Type de véhicule</label>
           <select>
-            <option selected value="nothing">
+            <option defaultValue value="nothing">
               -
             </option>
             <option value="berline">Berline</option>
