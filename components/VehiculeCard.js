@@ -4,15 +4,10 @@ export default function VehiculeCard({
   classeImage,
   nomVehicule,
   descriptionVehicule,
-  isSelected,
+  showText,
 }) {
   return (
-    <div
-      className={styleVehiculesCard.cardContainer}
-      onClick={() => {
-        isSelected;
-      }}
-    >
+    <div className={styleVehiculesCard.cardContainer} onClick={showText}>
       <div className={styleVehiculesCard.cardHeaderContainer}>
         <div className={classeImage}></div>
         <p className={styleVehiculesCard.cardHeaderContainerp}>{nomVehicule}</p>
