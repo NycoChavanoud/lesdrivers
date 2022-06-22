@@ -2,7 +2,7 @@ import styleTransfert from "../styles/TransfertAeroport.module.css";
 import styleTarif from "../styles/Tarif.module.css";
 import imgButt1 from "../public/images/plane.png";
 import imgButt2 from "../public/images/airport.png";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Image from "next/image";
 
 export default function Trajectform() {
@@ -11,17 +11,17 @@ export default function Trajectform() {
   const [leaveAirport, setLeaveAirport] = useState(false);
   const [button, setButton] = useState(true);
 
-  /* const tarifSection = useRef(null);*/
+  const tarifSection = useRef();
 
-  /*const goToTarif = () =>
-    window.scrollTo({
-      top: tarifSection.current.offsetTop,
+  const goToTarif = () => {
+    tarifSection.current.scrollIntoView({
       behavior: "smooth",
-    });*/
+    });
+  };
 
   const AppearTarif = () => {
-    tarifAppear ? setTarifAppear(false) : setTarifAppear(true);
-    /* goToTarif(); */
+    setTarifAppear(true);
+    goToTarif();
   };
 
   const ToggleButton = () => {
@@ -44,6 +44,7 @@ export default function Trajectform() {
   return (
     <div className={styleTransfert.trajectFormContainer}>
       <h3 className={styleTransfert.titleForm}>Votre trajet</h3>
+
       {/* Ensemble button */}
       <div className={styleTransfert.buttonContainer}>
         <div
@@ -313,6 +314,7 @@ export default function Trajectform() {
           </div>
         </div>
       </div>
+      <span ref={tarifSection} />
     </div>
   );
 }
