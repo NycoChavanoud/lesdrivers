@@ -25,7 +25,7 @@ const Navbar = () => {
           <a>
             <Image
               src={Logo}
-              width={60}
+              width={51}
               height={60}
               className={styles.logo_img}
               alt="logo"
@@ -47,7 +47,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="nos_services" className={styles.navbarlink}>
+            <Link href="/nos_services" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/nos_services"
@@ -60,7 +60,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="infos_utiles" className={styles.navbarlink}>
+            <Link href="/infos_utiles" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/infos_utiles"
@@ -73,7 +73,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="faq" className={styles.navbarlink}>
+            <Link href="/faq" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/faq" ? styles.active : styles.non_active
@@ -84,7 +84,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="contact" className={styles.navbarlink}>
+            <Link href="/contact" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/contact"
@@ -97,7 +97,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="reservation" className={styles.navbarlink}>
+            <Link href="/reservation" className={styles.navbarlink}>
               <a>
                 <button className={styles.reserver}>Reserver</button>
               </a>
@@ -106,14 +106,14 @@ const Navbar = () => {
         </ul>
       </div>
       <div className={styles.userIcon}>
-        <Link href="/">
+        <Link href="/login">
           <a>
             <Image
               src={User}
               className={styles.logo_icon}
               alt="user"
-              height={40}
-              width={40}
+              height={36}
+              width={36}
             />
           </a>
         </Link>
@@ -141,7 +141,7 @@ const Navbar = () => {
         </Link>
       </div>
       <div className={styles.btnBurger} onClick={handleShowLinks}>
-        <span className={styles.burger_Line} />
+        <span className={styles.burger_Line} data-cy="btnBurger" />
       </div>
     </nav>
   );

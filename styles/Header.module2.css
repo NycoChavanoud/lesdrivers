@@ -27,18 +27,7 @@
   font-size: 20px;
   color: #3c3a3a;
 }
-.reserverr {
-  background: rgb(64, 0, 255);
-  padding: 2px;
-  cursor: pointer;
-  color: white;
-  border-radius: 10px;
-  margin: 10px;
-  font-size: 16px;
-  letter-spacing: 1px;
-}
 
-/* CSS */
 .reserver {
   align-items: center;
   margin: 8px;
