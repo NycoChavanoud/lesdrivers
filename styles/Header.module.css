@@ -1,3 +1,167 @@
-.link {
-  color: red;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  height: 70px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+}
+.navItems {
+  display: none;
+  position: fixed;
+  flex-direction: column;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2435a0;
+  font-size: 20px;
+  align-items: center;
+  color: #56b856;
+}
+.navItems li {
+  display: inline-flex;
+}
+
+.userIcon {
+  right: 0;
+  position: absolute;
+  display: flex;
+}
+.logo_icon {
+  cursor: pointer;
+}
+
+.btnBurger {
+  width: 45px;
+  display: block;
+  position: absolute;
+  left: 15px;
+  cursor: pointer;
+}
+.btnBurger:hover {
+  cursor: pointer;
+}
+.burger_Line {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+.burger_Line:hover {
+  cursor: pointer;
+}
+.burger_Line,
+.burger_Line::before,
+.burger_Line::after {
+  display: block;
+  width: 45px;
+  height: 5px;
+  position: relative;
+  border-radius: 5px;
+  background: rgb(59, 21, 184);
+}
+
+.burger_Line::before,
+.burger_Line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+}
+.burger_Line::before {
+  transform: translateY(-12px);
+}
+.burger_Line::after {
+  transform: translateY(12px);
+}
+.show_menu .navItems {
+  top: 50px;
+  bottom: -20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.show_menu .navItems li {
+  padding: 2rem;
+}
+.show_menu .navItems a {
+  color: #fff;
+}
+.show_menu .burger_Line {
+  width: 0;
+  background: transparent;
+}
+.show_menu .burger_Line::before {
+  left: 0;
+  transform: rotate(45deg) !important;
+}
+.show_menu .burger_Line::after {
+  transform: rotate(-45deg) !important;
+}
+
+@media screen and (min-width: 1030px) {
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    height: 80px;
+    background: #ffffff;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  }
+  .navItems {
+    display: initial;
+    position: relative;
+    font-family: "Gabriela", serif;
+    font-weight: 500;
+    font-size: 18px;
+
+    color: #3f3f3f;
+    background-color: initial;
+  }
+
+  .navItems li {
+    padding: 8px;
+    display: initial;
+  }
+
+  .navItems .non_active {
+    color: #3b3a3a;
+  }
+  .navItems .active {
+    color: #ca6116;
+  }
+  .btnBurger {
+    display: none;
+  }
+
+  .logocontainer {
+    display: flex;
+    align-items: center;
+  }
+
+  .logo_img {
+    display: flex;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+  }
+
+  .reserver {
+    height: 26px;
+    display: initial;
+    background: #2831b1;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.05);
+  }
+  .burgerLogo {
+    display: none;
+  }
 }
