@@ -1,9 +1,10 @@
 import Layout from "../../components/Layout";
+import styleService from "../../styles/Services.module.css";
 
 export default function NosServices() {
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
-      <h1>Nos Services</h1>
+      <div className={styleService.containerService}></div>
     </Layout>
   );
 }
