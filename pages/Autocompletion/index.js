@@ -1,5 +1,5 @@
-import Autocompletion2 from "../../components/Autocompletion2";
+import Autocompletion from "../../components/Autocompletion";
 
 export default function searchAddress() {
-  return Autocompletion2();
+  return Autocompletion();
 }
