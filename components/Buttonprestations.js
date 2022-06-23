@@ -28,10 +28,8 @@ export default function blocPrestation({
           width={bgPrestaWidth}
           height={bgPrestaHeight}
         />
-
         <div className={stylePrestation.callToAction}>
           <p className={stylePrestation.callToActionp}>{callToActionTexte}</p>
-
           <span className={stylePrestation.arrow} />
         </div>
       </div>

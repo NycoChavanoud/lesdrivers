@@ -11,17 +11,8 @@ export default function Trajectform() {
   const [leaveAirport, setLeaveAirport] = useState(false);
   const [button, setButton] = useState(true);
 
-  /* const tarifSection = useRef(null);*/
-
-  /*const goToTarif = () =>
-    window.scrollTo({
-      top: tarifSection.current.offsetTop,
-      behavior: "smooth",
-    });*/
-
   const AppearTarif = () => {
     tarifAppear ? setTarifAppear(false) : setTarifAppear(true);
-    /* goToTarif(); */
   };
 
   const ToggleButton = () => {

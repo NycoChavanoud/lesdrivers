@@ -143,6 +143,7 @@
     align-items: center;
     justify-content: center;
     width: 1000px;
+    max-height: 300px;
   }
 
   .img1 {
