@@ -12,6 +12,7 @@
   margin: 15px 10px 15px -10px;
   padding: 20px 20px 0px 20px;
   box-shadow: 5px 5px 10px #d8d6d7, -5px -5px 10px #d8d6d7;
+  cursor: pointer;
 }
 
 .headerContainer {
