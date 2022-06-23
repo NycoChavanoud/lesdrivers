@@ -4,25 +4,42 @@ import styleVehicules from "../../styles/Vehicules.module.css";
 import React, { useState } from "react";
 
 export default function Vehicules() {
+  const [textCallToAction, setTextCallToAction] = useState(true);
   const [textOne, setTextOne] = useState(false);
   const [textTwo, setTextTwo] = useState(false);
   const [textThree, setTextThree] = useState(false);
   const [textFour, setTextFour] = useState(false);
 
   const showText1 = () => {
-    setTextOne(!textOne);
+    setTextOne(true);
+    setTextTwo(false);
+    setTextThree(false);
+    setTextFour(false);
+    setTextCallToAction(false);
   };
 
   const showText2 = () => {
-    setTextTwo(!textTwo);
+    setTextOne(false);
+    setTextTwo(true);
+    setTextThree(false);
+    setTextFour(false);
+    setTextCallToAction(false);
   };
 
   const showText3 = () => {
-    setTextThree(!textThree);
+    setTextOne(false);
+    setTextTwo(false);
+    setTextThree(true);
+    setTextFour(false);
+    setTextCallToAction(false);
   };
 
   const showText4 = () => {
-    setTextFour(!textFour);
+    setTextOne(false);
+    setTextTwo(false);
+    setTextThree(false);
+    setTextFour(true);
+    setTextCallToAction(false);
   };
 
   return (
@@ -36,10 +53,77 @@ export default function Vehicules() {
         </h3>
         <div className={styleVehicules.mainCardContainer}>
           <div className={styleVehicules.textDesktopContainer}>
-            {textOne ? <p>texte 1</p> : ""}
-            {textTwo ? <p>texte 2</p> : ""}
-            {textThree ? <p>texte 3</p> : ""}
-            {textFour ? <p>texte 4</p> : ""}
+            <div className={styleVehicules.textDesktop}>
+              {textCallToAction ? (
+                <div className={styleVehicules.wrapperTitle}>
+                  <p className={styleVehicules.textDesktopTitle}>
+                    Découvrez tous nos modèles
+                  </p>
+                  <p className={styleVehicules.textDesktopSubTitle}>
+                    Plus de détails en cliquant sur le modèle de votre choix !
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {textOne ? (
+                <div>
+                  <h1>L{"'"}hybride électrique</h1>
+                  <p>
+                    Vous serez séduits par le silence et le confort de nos
+                    véhicules hybrides électriques. En ville ces véhicules
+                    peuvent rouler jusqu’à 50 % du trajet en mode électrique.
+                    Exemple pour une Toyota Prius + Hybride ou Peugeot 508
+                    hybride Break
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {textTwo ? (
+                <div>
+                  <h1>La berline grand tourisme</h1>
+                  <p>
+                    Nous avons également des berlines grand tourisme type
+                    Renault TALISMAN. Le véhicule haut de gamme de RENAULT !
+                    Vous apprécierez le confort toutes options et son intérieur
+                    cuir. Débutez votre voyage de la meilleure des manières ou
+                    prenez place à bord après votre vol. Et laissez-vous
+                    simplement conduire…
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {textThree ? (
+                <div>
+                  <h1>Les vans</h1>
+                  <p>
+                    Profitez de la location de van avec chauffeur pour voyager
+                    sereinement et efficacement en groupe à Lyon et sa région.Au
+                    contraire d’une location de véhicule classique, ne vous
+                    souciez pas des formalités de prise en charge (Etat des
+                    lieux, cautions, assurance) chez nous, tout est inclus dans
+                    le prix. En plus, la location de van comprend le service
+                    d’un chauffeur professionnel formé et expérimenté.
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+              {textFour ? (
+                <div>
+                  <h1>Les mini-bus</h1>
+                  <p>
+                    Vous avez besoin de vous déplacer en groupe ? Découvrez
+                    notre service de location de mini-bus ! Chaque mini-bus peut
+                    acceuillir une douzaine de personnes assises.
+                  </p>
+                </div>
+              ) : (
+                ""
+              )}
+            </div>
           </div>
           <div className={styleVehicules.vehiculeCardContainer}>
             <VehiculeCard
