@@ -13,7 +13,7 @@ export default function Trajectform() {
   const [tarifAppear, setTarifAppear] = useState(false);
   const [goAirport, setGoAirport] = useState(false);
   const [leaveAirport, setLeaveAirport] = useState(false);
-  const [button, setButton] = useState(true);
+  const [itenarychoice, setItenarychoice] = useState(true);
   const { currentUserProfile } = useContext(CurrentUserContext);
 
   const tarifSection = useRef();
@@ -30,21 +30,17 @@ export default function Trajectform() {
   };
 
   const ToggleButton = () => {
-    button ? setButton(false) : setButton(true);
+    itenarychoice ? setItenarychoice(false) : setItenarychoice(true);
   };
 
   const AppearGoAirport = () => {
     goAirport ? setGoAirport(false) : setGoAirport(true);
     ToggleButton();
-    console.log(goAirport);
-    console.log(button);
   };
 
   const AppearLeaveAirport = () => {
     leaveAirport ? setLeaveAirport(false) : setLeaveAirport(true);
     ToggleButton();
-    console.log(goAirport);
-    console.log(button);
   };
   return (
     <div className={styleTransfert.trajectFormContainer}>
@@ -53,7 +49,7 @@ export default function Trajectform() {
       <div className={styleTransfert.buttonContainer}>
         <div
           className={
-            button ? styleTransfert.buttonOn : styleTransfert.buttonOff
+            itenarychoice ? styleTransfert.buttonOn : styleTransfert.buttonOff
           }
         >
           <div className={styleTransfert.ButtForm} onClick={AppearGoAirport}>
