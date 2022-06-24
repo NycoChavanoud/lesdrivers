@@ -82,6 +82,10 @@ export default function Trajectform() {
           goAirport ? styleTransfert.goAirportOn : styleTransfert.goAirportOff
         }
       >
+        <div className={styleTransfert.InputDepartDate}>
+          <label className={styleTransfert.label}>Date de départ</label>
+          <input type="text" placeholder="ex : jj/mm/aaaa"></input>
+        </div>
         <div className={styleTransfert.InputDepartLieu}>
           <label className={styleTransfert.label}>Lieu de départ</label>
           <input
