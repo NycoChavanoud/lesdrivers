@@ -1,0 +1,87 @@
+.carousselContainer {
+  margin: 0px 20px 0px 20px;
+  opacity: 80%;
+}
+
+.carousselh1 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.carousselOver {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 450px;
+  overflow-y: hidden;
+}
+
+.carousselCardContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: #2a2a92;
+  width: 300px;
+  height: 100%;
+  margin-right: 15px;
+}
+
+.carousselCardImage {
+  width: 100%;
+  height: 210px;
+  background-color: yellow;
+}
+
+.carousselCardText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: 200px;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.carousselCardCallToAction {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #ed071d;
+  font-size: 20px;
+  font-weight: 600;
+  height: 40px;
+  margin: 0px 3px 3px 3px;
+}
+
+.carousselCardArrowCallToAction {
+  background-image: url(../public/images/arrowactualite.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+  margin-left: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .carousselContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .carousselOver {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+
+  .carousselh1 {
+    font-size: 30px;
+  }
+}

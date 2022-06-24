@@ -1,0 +1,129 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
+  font-family: "Gabriela", serif;
+}
+.navbarDiv {
+  display: flex;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  align-items: center;
+  font-family: "Gabriela", serif;
+}
+.navbarLogin {
+  display: flex;
+  padding: 0 10px;
+  justify-content: space-between;
+  margin-right: auto;
+}
+
+.navbar a {
+  margin: 0 14px;
+  font-size: 20px;
+  color: #3c3a3a;
+}
+
+.reserver {
+  align-items: center;
+  margin: 8px;
+  appearance: none;
+  background-color: rgb(28, 49, 170);
+  border-radius: 10px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0 3px 5px -1px,
+    rgba(0, 0, 0, 0.14) 0 6px 10px 0, rgba(0, 0, 0, 0.12) 0 1px 18px 0;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-flex;
+  fill: currentcolor;
+  font-family: "Gabriela", serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 30px;
+  justify-content: center;
+  letter-spacing: 0.25px;
+  line-height: normal;
+  padding: 2px 20px;
+  position: relative;
+  text-align: center;
+  text-transform: none;
+  transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 15ms linear 30ms, transform 270ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+  touch-action: manipulation;
+  width: auto;
+  z-index: 0;
+}
+
+.reserver:hover {
+  background: #f6f9fe;
+  color: #174ea6;
+}
+
+.reserver:active {
+  box-shadow: 0 4px 4px 0 rgb(60 64 67 / 30%),
+    0 8px 12px 6px rgb(60 64 67 / 15%);
+  outline: none;
+}
+
+.reserver:focus {
+  outline: none;
+  border: 2px solid #4285f4;
+}
+
+.reserver:not(:disabled) {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.reserver:not(:disabled):hover {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 2px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 6px 10px 4px;
+}
+
+.reserver:not(:disabled):focus {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+.reserver:not(:disabled):active {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 4px 4px 0,
+    rgba(60, 64, 67, 0.15) 0 8px 12px 6px;
+}
+
+.reserver:disabled {
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 3px 0,
+    rgba(60, 64, 67, 0.15) 0 4px 8px 3px;
+}
+
+image.btnBurger {
+  display: none;
+  position: relative;
+}
+
+.btnBurger {
+  display: block;
+  position: absolute;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 765px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .btnBurger {
+    padding: 0 10px;
+    display: block;
+    position: absolute;
+  }
+
+  .navbar a {
+    display: none;
+  }
+}

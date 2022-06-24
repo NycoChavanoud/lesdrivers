@@ -1,0 +1,125 @@
+.prestationContainer {
+  margin-left: 20px;
+  opacity: 80%;
+}
+
+.prestationh1 {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.prestationContainerButton {
+  margin: 15px 10px 15px -10px;
+  padding: 20px 20px 0px 20px;
+  box-shadow: 5px 5px 10px #d8d6d7, -5px -5px 10px #d8d6d7;
+  cursor: pointer;
+}
+
+.headerContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 20px;
+  border-left: 2px solid;
+}
+
+.round {
+  background-color: #ffee19;
+  width: 40px;
+  height: 40px;
+  border-radius: 40px;
+}
+
+.imageAndTitle p {
+  font-size: 20px;
+  margin: 0px 0px 20px 0px;
+  color: #363799;
+}
+
+.texte {
+  margin: -10px 0px 20px 20px;
+}
+
+.bodyPresta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ImgagebodyPresta {
+  display: flex;
+}
+
+.callToAction {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 30px 0px 30px 0px;
+}
+
+.callToActionp {
+  margin-right: 10px;
+  color: #363799;
+  font-weight: 600;
+}
+
+.arrow {
+  background-image: url(../public/images/arrow.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px;
+}
+
+.ico1 {
+  background-image: url(../public/images/bgpoint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ico2 {
+  background-image: url(../public/images/bgpoint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ico3 {
+  background-image: url(../public/images/bgpoint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.ico4 {
+  background-image: url(../public/images/bgpoint.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@media screen and (min-width: 600px) {
+  .prestationContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .prestationContainerButton {
+    margin: 15px 25px 5px -10px;
+    padding: 20px 20px 0px 20px;
+    box-shadow: 5px 5px 10px #d8d6d7, -5px -5px 10px #d8d6d7;
+    width: 450px;
+    height: 400px;
+  }
+  .ButtPrestaWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 80%;
+  }
+  .prestationh1 {
+    font-size: 30px;
+  }
+}

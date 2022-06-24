@@ -9,10 +9,19 @@
 
 describe("homepage", () => {
   beforeEach(() => {
+    cy.viewport("iphone-6");
     cy.visit("/");
   });
 
-  it("displays a title", () => {
-    cy.get("h1").should("not.be.empty");
+  xit("displays a title", () => {
+    cy.get('[data-cy="h1Lyon"]').should("not.be.empty");
+  });
+  xit("should contain a navbar", () => {
+    cy.get("navbarCypress").should("not.be.empty");
+  });
+  xit("can navigate to contact page", () => {
+    cy.get('[data-cy="btnBurger"]').click();
+    cy.contains("Contact").click();
+    cy.url().should("include", "/contact");
   });
 });
