@@ -4,12 +4,17 @@ import imgButt1 from "../public/images/plane.png";
 import imgButt2 from "../public/images/airport.png";
 import React, { useState, useRef } from "react";
 import Image from "next/image";
+import ProfilForm from "./ProfileForm";
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { useContext } from "react";
+import Link from "next/link";
 
 export default function Trajectform() {
   const [tarifAppear, setTarifAppear] = useState(false);
   const [goAirport, setGoAirport] = useState(false);
   const [leaveAirport, setLeaveAirport] = useState(false);
   const [button, setButton] = useState(true);
+  const { currentUserProfile } = useContext(CurrentUserContext);
 
   const tarifSection = useRef();
 
@@ -44,7 +49,6 @@ export default function Trajectform() {
   return (
     <div className={styleTransfert.trajectFormContainer}>
       <h3 className={styleTransfert.titleForm}>Votre trajet</h3>
-
       {/* Ensemble button */}
       <div className={styleTransfert.buttonContainer}>
         <div
@@ -82,10 +86,6 @@ export default function Trajectform() {
           goAirport ? styleTransfert.goAirportOn : styleTransfert.goAirportOff
         }
       >
-        <div className={styleTransfert.InputDepartDate}>
-          <label className={styleTransfert.label}>Date de départ</label>
-          <input type="text" placeholder="ex : jj/mm/aaaa"></input>
-        </div>
         <div className={styleTransfert.InputDepartLieu}>
           <label className={styleTransfert.label}>Lieu de départ</label>
           <input
@@ -102,9 +102,13 @@ export default function Trajectform() {
             <option value="gare">Gare Lyon-Saint Exupéry</option>
           </select>
         </div>
+        <div className={styleTransfert.InputDepartDate}>
+          <label className={styleTransfert.label}>Date de départ</label>
+          <input type="date" placeholder="ex : jj/mm/aaaa"></input>
+        </div>
         <div className={styleTransfert.InputTimeLeave}>
           <label className={styleTransfert.label}>Heure de départ</label>
-          <input type="text" placeholder="ex : 14h40"></input>
+          <input type="time" placeholder="ex : 14h40"></input>
         </div>
         <div className={styleTransfert.InputNumberPerson}>
           <label className={styleTransfert.label}>Nombre de personnes</label>
@@ -190,6 +194,45 @@ export default function Trajectform() {
             <div className={styleTarif.stroke} />
             <div className={styleTarif.yellowRound} />
             <div className={styleTarif.price}>30 €</div>
+          </div>
+          <div className={styleTransfert.profile}>
+            {currentUserProfile ? (
+              <>
+                <h3 className={styleTransfert.titleForm}>
+                  Vérifier les informations issues de votre compte, puis valider
+                  pour réserver :
+                </h3>
+                <ProfilForm
+                  firstNameDefault={currentUserProfile.firstname}
+                  lastnameDefault={currentUserProfile.lastname}
+                  emailDefault={currentUserProfile.email}
+                  phoneNumberDefault={currentUserProfile.phoneNumber}
+                  adressDefault={currentUserProfile.address}
+                  societyDefault={currentUserProfile.society}
+                />
+              </>
+            ) : (
+              <>
+                <h3 className={styleTransfert.titleForm}>
+                  Pour réserver, vous pouvez vous{" "}
+                  <Link href="/login" passHref>
+                    connecter à un compte existant
+                  </Link>
+                  , créer un nouveau compte, ou directement renseigner les
+                  informations suivantes:
+                </h3>
+                <h1>Se connecter</h1>
+                <button type="button"></button>
+                <h1>Voulez-vous créer un compte ?</h1>
+                <button type="button">
+                  <Link href="/signup" passHref>
+                    S&rsquo;inscrire
+                  </Link>
+                </button>
+                <h1>Continuer sans compte</h1>
+                <ProfilForm />
+              </>
+            )}
             <button className={styleTarif.buttonResa}>Réserver</button>
           </div>
         </div>
@@ -299,7 +342,6 @@ export default function Trajectform() {
         <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
           Valider mes informations
         </button>
-
         <div
           className={
             tarifAppear ? styleTransfert.tarifOn : styleTransfert.tarifOff
