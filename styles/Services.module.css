@@ -74,7 +74,6 @@
     width: 1500px;
     height: 500px;
     flex-wrap: wrap;
-    background-color: aqua;
   }
 
   .containerCardService1 {
@@ -133,8 +132,8 @@
     position: absolute;
     align-items: center;
     justify-content: center;
-    left: 450px;
-    top: 190px;
+    left: 430px;
+    top: 200px;
     width: 150px;
     height: 150px;
     margin: 30px;
@@ -145,11 +144,94 @@
     cursor: pointer;
   }
 
-  .testService {
+  .backgroundCard1,
+  .backgroundCard2,
+  .backgroundCard3,
+  .backgroundCard4 {
+    position: relative;
+    width: 510px;
+    height: 35%;
+  }
+
+  .backgroundCard1 h1,
+  .backgroundCard2 h1,
+  .backgroundCard3 h1,
+  .backgroundCard4 h1 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    color: white;
+  }
+
+  .backgroundCard1 {
+    background-image: url(../public/images/service1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60%;
+  }
+
+  .backgroundCard2 {
+    background-image: url(../public/images/service2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .backgroundCard3 {
+    background-image: url(../public/images/service3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .backgroundCard4 {
+    background-image: url(../public/images/service4.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  .backgroundCardBase {
+    display: flex;
+    align-items: center;
+    padding-bottom: 150px;
+    height: 100%;
+  }
+
+  .serviceContainer {
     display: flex;
     width: 100%;
     height: 500px;
-    background-color: blue;
+    box-shadow: 5px 5px 10px #14141446, -5px -5px 10px #14141446;
+  }
+
+  .serviceContainerOff {
+    display: flex;
+    width: 100%;
+    height: 500px;
+    box-shadow: none;
+  }
+
+  .textService {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    padding: 20px;
+  }
+
+  .buttService {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #2a2a92;
+    border: none;
+    color: #ffffff;
+    padding: 15px;
+    font-size: 15px;
+    border-radius: 40px;
+    margin-top: 8px;
+  }
+
+  .buttService:hover {
+    background-color: #16165a;
   }
 
   .descriptionService {
@@ -160,7 +242,6 @@
     display: flex;
     flex-direction: row;
     width: 80%;
-    background-color: yellow;
   }
 
   .containerCardService1:hover,
