@@ -32,11 +32,11 @@
   left: 50%;
   transform: translateX(-50%);
   border-radius: 30px;
-  background-color: #2a2a92;
+  background-color: white;
+  border-color: #16165a;
   width: 150px;
   height: 40px;
-  border: none;
-  color: white;
+  color: #16165a;
 }
 
 .titleService {
@@ -62,6 +62,14 @@
   background-color: red;
   width: 30px;
   height: 30px;
+}
+
+.serviceContainer {
+  display: none;
+}
+
+.serviceContainerOff {
+  display: none;
 }
 
 @media screen and (min-width: 600px) {
@@ -165,26 +173,26 @@
   }
 
   .backgroundCard1 {
-    background-image: url(../public/images/service1.jpg);
+    background-image: url(../public/images/service1.webp);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 60%;
   }
 
   .backgroundCard2 {
-    background-image: url(../public/images/service2.jpg);
+    background-image: url(../public/images/service2.webp);
     background-size: cover;
     background-repeat: no-repeat;
   }
 
   .backgroundCard3 {
-    background-image: url(../public/images/service3.jpg);
+    background-image: url(../public/images/service3.webp);
     background-size: cover;
     background-repeat: no-repeat;
   }
 
   .backgroundCard4 {
-    background-image: url(../public/images/service4.jpg);
+    background-image: url(../public/images/service4.webp);
     background-size: cover;
     background-repeat: no-repeat;
   }
