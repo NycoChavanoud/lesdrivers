@@ -235,6 +235,7 @@
     font-size: 15px;
     border-radius: 40px;
     margin-top: 8px;
+    cursor: pointer;
   }
 
   .buttService:hover {

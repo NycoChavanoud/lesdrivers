@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import ServicesCard from "../../components/ServicesCard.js";
 import styleService from "../../styles/Services.module.css";
 import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function NosServices() {
   const [serviceOne, setServiceOne] = useState(false);
@@ -39,6 +40,8 @@ export default function NosServices() {
     setServiceBase(false);
   };
 
+  const router = useRouter();
+
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
       <div className={styleService.containerService}>
@@ -56,6 +59,7 @@ export default function NosServices() {
               style={styleService.containerCardService1}
               showService={showService1}
             />
+
             <ServicesCard
               titreService1={"Course dans Lyon "}
               titreService2={"et ses alentours"}
@@ -112,7 +116,10 @@ export default function NosServices() {
                     pourquoi les chauffeurs Drivers Airport sont à votre
                     disposition dès votre sortie des terminaux.
                   </p>
-                  <button className={styleService.buttService}>
+                  <button
+                    className={styleService.buttService}
+                    onClick={() => router.push("/transfert_aeroport")}
+                  >
                     Accéder au service
                   </button>
                 </div>
