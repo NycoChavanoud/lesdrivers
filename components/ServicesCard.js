@@ -5,9 +5,10 @@ export default function ServicesCard({
   titreService2,
   contenuService,
   style,
+  showService,
 }) {
   return (
-    <div className={style}>
+    <div className={style} onClick={showService}>
       <div className={styleService.titleService}>
         {titreService1}
         <br />
