@@ -71,7 +71,7 @@ export default function LoginPage({ csrfToken }) {
             </button>
 
             <h2 className={style.mainTitle}>Ou :</h2>
-            <button>
+            <button type="button">
               <Link href="/signup" passHref>
                 S&rsquo;inscrire
               </Link>
