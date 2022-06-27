@@ -157,8 +157,9 @@
   .backgroundCard3,
   .backgroundCard4 {
     position: relative;
-    width: 510px;
+    width: 100%;
     height: 35%;
+    background-color: #ed071d;
   }
 
   .backgroundCard1 h1,
