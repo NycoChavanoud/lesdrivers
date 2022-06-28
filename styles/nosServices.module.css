@@ -1,82 +1,97 @@
-.mainTitle {
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.mainContainer {
   text-align: center;
   font-family: "Gabriela", serif;
 }
 
-.signUpForm {
-  margin: 20px auto;
-  max-width: 450px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.mainTitle {
+  font-size: 36px;
+  color: rgb(31, 31, 144);
 }
 
-.inputDiv {
-  display: flex;
-  justify-content: flex-start;
+.top_text {
   width: 80%;
-  height: 35px;
-  margin: 10px;
-  align-items: center;
-  box-shadow: 0px 0px 10px 5px rgba(142, 142, 142, 0.25);
-  border-radius: 18px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.inputDivWith2InputsContainer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 80%;
-  height: 70px;
-  margin: 10px;
-  align-items: center;
-  box-shadow: 0px 0px 10px 5px rgba(142, 142, 142, 0.25);
-  border-radius: 18px;
-}
-
-.inputDivWith2Inputs {
-  display: flex;
-  justify-content: flex-start;
-  width: 100%;
-  height: 35px;
-  margin: 0px;
-  align-items: center;
-}
-
-.border {
-  margin-left: 25px;
-  border: 1px solid lightgrey;
-  width: 80%;
-}
-
-.inputDiv label,
-.inputDivWith2Inputs label {
-  display: flex;
-  justify-content: center;
-  margin-left: 10px;
-  width: 30px;
-}
-
-.inputDiv input,
-.inputDivWith2Inputs input {
-  margin: auto 10px;
-  width: 100%;
-  border: 0px;
-}
-
-.signUpForm button {
-  margin: 10px;
-  width: 180px;
-  background: linear-gradient(180deg, #fcc666 0%, #fc7e18 100%);
-  border-radius: 30px;
-  border: 0px;
-  padding: 10px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.wrongDatas {
+.titleColor {
   color: red;
+}
+
+.photo_container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo_divs {
+  margin-top: 64px;
+  /*background-color: rgb(218, 129, 27);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  border-radius: 5px;*/
+}
+
+.logo_img {
+  margin: 0;
+}
+.description_div {
+  padding: 10px;
+  margin-top: 14px;
+  color: aliceblue;
+  background-color: rgb(27, 27, 157);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.name_title {
+  color: aliceblue;
+  font-size: 20px;
+  padding: 10px;
+}
+
+.name_description {
+  padding: 5px;
+}
+.photo_title {
+  text-align: center;
+}
+
+.bgLines {
+  background-color: red;
+}
+
+@media screen and (min-width: 490px) {
+  .photo_divs {
+    text-align: center;
+    /*background-color: rgb(218, 129, 27);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  border-radius: 5px;*/
+  }
+  .description_div {
+    width: 452px;
+    padding: 14px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .name_title {
+    text-align: left;
+  }
+
+  .name_description {
+    text-align: left;
+  }
+}
+
+@media screen and (min-width: 964px) {
+  .top_text {
+    width: 40%;
+  }
+  .photo_divs {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: flex;
+  }
+
+  .description_div {
+    padding: 10px;
+  }
 }
