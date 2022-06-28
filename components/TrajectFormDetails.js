@@ -9,11 +9,14 @@ export default function TrajectFormDetails({
   const [destinationAdress, setDestinationAdress] = useState(
     destinationAdressDefault
   );
-  const [departureDate, setDepartureDate] = useState();
-  const [departureTime, setDepartureTime] = useState();
+  const [departureDate, setDepartureDate] = useState("");
+  const [departureTime, setDepartureTime] = useState("");
   const [numberPassengers, setNumberPassengers] = useState("0");
   const [numberLuggages, setNumberLuggages] = useState("0");
   const [vehicule, setVehicule] = useState("");
+  const [siegeBebe, setSiegeBebe] = useState(false);
+  const [rehausseur, setRehausseur] = useState(false);
+  const [porteSki, setPorteSki] = useState(false);
 
   let isNumFlightRequired = true;
 
@@ -138,16 +141,31 @@ export default function TrajectFormDetails({
       <div className={styleTransfert.InputEquipments}>
         <label className={styleTransfert.label}>Equipements spécifiques</label>
         <div className={styleTransfert.FormInput}>
-          <input type="checkbox" />
-          <label>Siège bébé</label>
+          <input
+            type="checkbox"
+            id="siegeBebe"
+            checked={siegeBebe}
+            onChange={(e) => setSiegeBebe(e.target.checked)}
+          />
+          <label htmlFor="siegeBebe">Siège bébé</label>
         </div>
         <div className={styleTransfert.FormInput}>
-          <input type="checkbox" />
-          <label>Réhausseur</label>
+          <input
+            type="checkbox"
+            id="rehausseur"
+            checked={rehausseur}
+            onChange={(e) => setRehausseur(e.target.checked)}
+          />
+          <label htmlFor="rehausseur">Réhausseur</label>
         </div>
         <div className={styleTransfert.FormInput}>
-          <input type="checkbox" />
-          <label>Porte-skis</label>
+          <input
+            type="checkbox"
+            id="porteSki"
+            checked={porteSki}
+            onChange={(e) => setPorteSki(e.target.checked)}
+          />
+          <label htmlFor="porteSki">Porte-skis</label>
         </div>
       </div>
       <div className={styleTransfert.InputFlightNumber}>
