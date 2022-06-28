@@ -6,17 +6,19 @@ export default function ServicesCard({
   contenuService,
   style,
   showService,
+  linkTo,
+  backgroundDesktopMobile,
 }) {
   return (
     <div className={style} onClick={showService}>
-      <div className={styleService.titleService}>
+      <div className={backgroundDesktopMobile}>
         {titreService1}
         <br />
         {titreService2}
       </div>
       <div className={styleService.descriptionService}>
         <p>{contenuService}</p>
-        <button className={styleService.buttonService}>
+        <button className={styleService.buttonService} onClick={linkTo}>
           Accéder au service
         </button>
       </div>
