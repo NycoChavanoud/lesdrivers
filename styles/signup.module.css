@@ -13,6 +13,7 @@
 
 .inputDiv {
   display: flex;
+  background-color: white;
   justify-content: flex-start;
   width: 80%;
   height: 35px;
@@ -23,6 +24,7 @@
 }
 
 .inputDivWith2InputsContainer {
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;

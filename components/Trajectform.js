@@ -113,7 +113,7 @@ export default function Trajectform() {
         <div className={styleTarif.tarifContainer}>
           <p className={styleTarif.title}>TARIF</p>
           <div className={styleTarif.stroke} />
-          <div className={styleTarif.yellowRound} />
+          {/* <div className={styleTarif.yellowRound} /> */}
           <div className={styleTarif.price}>30 €</div>
         </div>
         <div className={styleTransfert.profile}>
@@ -125,7 +125,7 @@ export default function Trajectform() {
               </h3>
               <ProfilForm
                 firstNameDefault={currentUserProfile.firstname}
-                lastnameDefault={currentUserProfile.lastname}
+                lastNameDefault={currentUserProfile.lastname}
                 emailDefault={currentUserProfile.email}
                 phoneNumberDefault={currentUserProfile.phoneNumber}
                 adressDefault={currentUserProfile.address}
@@ -135,20 +135,25 @@ export default function Trajectform() {
           ) : (
             <>
               <h3 className={styleTransfert.titleForm}>
-                Pour réserver, vous pouvez vous{" "}
-                <Link href="/login" passHref>
-                  connecter
-                </Link>
-                ,{" "}
-                <Link href="/signup" passHref>
-                  créer un nouveau compte
-                </Link>
-                , ou directement renseigner les informations suivantes:
+                Pour réserver, vous pouvez :{" "}
+                <ul>
+                  <li>
+                    <Link href="/login" passHref>
+                      <a>vous connecter</a>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/signup" passHref>
+                      <a>créer un nouveau compte</a>
+                    </Link>
+                  </li>
+                  <li>... ou renseigner vos informations :</li>
+                </ul>
               </h3>
               <ProfilForm />
             </>
           )}
-          <button className={styleTarif.buttonResa}>Réserver</button>
+          <button className={styleTransfert.buttonValidate}>Réserver</button>
         </div>
       </div>
       <span ref={tarifSection} />
