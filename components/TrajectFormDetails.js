@@ -165,7 +165,6 @@ export default function TrajectFormDetails({
             checked={porteSki}
             onChange={(e) => setPorteSki(e.target.checked)}
           />
-          {console}
           <label htmlFor="porteSki">Porte-skis</label>
         </div>
       </div>
