@@ -1,30 +1,31 @@
 import React from "react";
 import Link from "next/link";
-import { useTranslation } from "next-i18next";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import User from "../public/images/user.png";
 import styles from "../styles/Header.module.css";
 import Logo from "../public/images/logo-lesdrivers.png";
+import { useTranslation } from "next-i18next";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
 
 const Navbar = () => {
-  const { t } = useTranslation("header");
+  const [showLinks, setshowLinks] = useState(false);
+  const handleShowLinks = () => {
+    setshowLinks(!showLinks);
+  };
   const router = useRouter();
-  const onSelectChange = (e) => {
+  const currentRoute = router.pathname;
+  const { t } = useTranslation("header");
+  const onSelectChangeLang = (e) => {
     const locale = e.target.value;
     router.push(router.asPath, router.asPath, {
       locale,
       scroll: false,
     });
   };
-  const [showLinks, setshowLinks] = useState(false);
-  const handleShowLinks = () => {
-    setshowLinks(!showLinks);
-  };
-  const currentRoute = router.pathname;
+
   return (
     <nav
       className={`${styles.navbar} ${showLinks ? styles.show_menu : "hidden"}`}
@@ -34,7 +35,7 @@ const Navbar = () => {
           <a>
             <Image
               src={Logo}
-              width={60}
+              width={51}
               height={60}
               className={styles.logo_img}
               alt="logo"
@@ -56,7 +57,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="nos_services" className={styles.navbarlink}>
+            <Link href="/nos_services" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/nos_services"
@@ -69,7 +70,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="infos_utiles" className={styles.navbarlink}>
+            <Link href="/infos_utiles" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/infos_utiles"
@@ -82,7 +83,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="faq" className={styles.navbarlink}>
+            <Link href="/faq" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/faq" ? styles.active : styles.non_active
@@ -93,7 +94,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="contact" className={styles.navbarlink}>
+            <Link href="/contact" className={styles.navbarlink}>
               <a
                 className={
                   currentRoute === "/contact"
@@ -106,7 +107,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="reservation" className={styles.navbarlink}>
+            <Link href="/reservation" className={styles.navbarlink}>
               <a>
                 <button className={styles.reserver}>Reserver</button>
               </a>
@@ -115,14 +116,14 @@ const Navbar = () => {
         </ul>
       </div>
       <div className={styles.userIcon}>
-        <Link href="/">
+        <Link href="/login">
           <a>
             <Image
               src={User}
               className={styles.logo_icon}
               alt="user"
-              height={40}
-              width={40}
+              height={36}
+              width={36}
             />
           </a>
         </Link>
@@ -132,7 +133,7 @@ const Navbar = () => {
           id="language-select"
           value={router.locale}
           label="Languages"
-          onChange={onSelectChange}
+          onChange={onSelectChangeLang}
           data-cy="translate-button"
         >
           {router.locales.map((language, index) => (
@@ -143,7 +144,7 @@ const Navbar = () => {
         </Select>
       </div>
       <div className={styles.btnBurger} onClick={handleShowLinks}>
-        <span className={styles.burger_Line} />
+        <span className={styles.burger_Line} data-cy="btnBurger" />
       </div>
     </nav>
   );

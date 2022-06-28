@@ -27,6 +27,10 @@
 .userIcon {
   right: 0;
   position: absolute;
+  display: flex;
+}
+.logo_icon {
+  cursor: pointer;
 }
 
 .btnBurger {
@@ -111,7 +115,6 @@
     font-family: "Gabriela", serif;
     font-weight: 500;
     font-size: 18px;
-
     color: #3f3f3f;
     background-color: initial;
   }
@@ -160,18 +163,4 @@
   .burgerLogo {
     display: none;
   }
-
-  /*.userIcon {
-    right: 0;
-    position: absolute;
-
-  }*/
-}
-
-.select {
-  background-color: aqua;
-}
-
-.option {
-  background-color: aqua;
 }
