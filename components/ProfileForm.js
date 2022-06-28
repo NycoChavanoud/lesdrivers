@@ -1,4 +1,4 @@
-import { useState } from "react";
+import createPersistedState from "use-persisted-state";
 import style from "../styles/signup.module.css";
 import Image from "next/image";
 import emailPicture from "../public/images/input_email.png";
@@ -8,19 +8,25 @@ import adressPicture from "../public/images/input_adress.png";
 import societyPicture from "../public/images/input_society.png";
 
 export default function ProfilForm({
-  firstNameDefault,
-  lastnameDefault,
-  emailDefault,
-  adressDefault,
-  phoneNumberDefault,
-  societyDefault,
+  firstNameDefault = "",
+  lastNameDefault = "",
+  emailDefault = "",
+  adressDefault = "",
+  phoneNumberDefault = "",
+  societyDefault = "",
 }) {
-  const [firstname, setFirstname] = useState(firstNameDefault);
-  const [lastname, setLastname] = useState(lastnameDefault);
-  const [email, setEmail] = useState(emailDefault);
-  const [address, setAddress] = useState(adressDefault);
-  const [phoneNumber, setPhoneNumber] = useState(phoneNumberDefault);
-  const [society, setSociety] = useState(societyDefault);
+  const useFirsNameState = createPersistedState("invite_form_firstName");
+  const useLastNameState = createPersistedState("invite_form_lastName");
+  const useEmailState = createPersistedState("invite_form_email");
+  const useAdressState = createPersistedState("invite_form_adress");
+  const usePhoneNumberState = createPersistedState("invite_form_phoneNumber");
+  const useSocietyState = createPersistedState("invite_form_society");
+  const [firstname, setFirstname] = useFirsNameState(firstNameDefault);
+  const [lastname, setLastname] = useLastNameState(lastNameDefault);
+  const [email, setEmail] = useEmailState(emailDefault);
+  const [address, setAddress] = useAdressState(adressDefault);
+  const [phoneNumber, setPhoneNumber] = usePhoneNumberState(phoneNumberDefault);
+  const [society, setSociety] = useSocietyState(societyDefault);
 
   return (
     <form className={style.signUpForm}>
@@ -74,7 +80,7 @@ export default function ProfilForm({
         </label>
         <input
           required
-          type="text"
+          type="tel"
           id="phoneNumber"
           data-cy="phoneNumber"
           value={phoneNumber}

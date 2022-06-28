@@ -2,8 +2,8 @@ import styleTransfert from "../styles/TransfertAeroport.module.css";
 import React, { useState } from "react";
 
 export default function TrajectFormDetails({
-  originAdressDefault,
-  destinationAdressDefault,
+  originAdressDefault = "",
+  destinationAdressDefault = "",
 }) {
   const [originAdress, setOriginAdress] = useState(originAdressDefault);
   const [destinationAdress, setDestinationAdress] = useState(
