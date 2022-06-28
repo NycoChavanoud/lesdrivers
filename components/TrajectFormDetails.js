@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import Autocompletion from "./Autocompletion";
 
 export default function TrajectFormDetails({
-  originAdressDefault,
-  destinationAdressDefault,
+  originAdressDefault = "",
+  destinationAdressDefault = "",
 }) {
   const [originAdress, setOriginAdress] = useState(originAdressDefault);
   const [destinationAdress, setDestinationAdress] = useState(

@@ -40,10 +40,19 @@
 .titleButton {
   margin-right: 10px;
 }
+
 .titleForm {
   color: white;
   font-weight: 500;
   font-size: 25px;
+  text-align: center;
+}
+.titleForm a {
+  text-decoration: underline;
+}
+.titleForm li {
+  text-justify: none;
+  text-align: left;
 }
 
 .ButtForm {
