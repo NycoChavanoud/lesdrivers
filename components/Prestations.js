@@ -41,17 +41,20 @@ export default function Prestation() {
           callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
           bgPresta={serviceVocation}
         />
-        <ButtPresta
-          icon={icon3}
-          titleBlock={"Nos différents services"}
-          textePrestation={
-            "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
-          }
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
-          bgPresta={diffVocation}
-        />
+
+        <div onClick={() => router.push("/nos_services")}>
+          <ButtPresta
+            icon={icon3}
+            titleBlock={"Nos différents services"}
+            textePrestation={
+              "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
+            }
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
+            bgPresta={diffVocation}
+          />
+        </div>
         <ButtPresta
           icon={icon4}
           titleBlock={"Combien ça coûte ?"}
