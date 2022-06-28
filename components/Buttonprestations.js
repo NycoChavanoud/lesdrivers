@@ -30,7 +30,7 @@ export default function blocPrestation({
         />
         <div className={stylePrestation.callToAction}>
           <p className={stylePrestation.callToActionp}>{callToActionTexte}</p>
-          <div className={stylePrestation.arrow}></div>
+          <span className={stylePrestation.arrow} />
         </div>
       </div>
     </div>

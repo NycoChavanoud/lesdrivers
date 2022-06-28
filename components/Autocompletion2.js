@@ -31,7 +31,7 @@ export default function Autocompletion() {
     <div className="container">
       <input
         className="input"
-        style={{ marginTop: 10, width: 400 }}
+        style={{ marginTop: 10, width: 250 }}
         type="text"
         onChange={(e) => setText(e.target.value)}
         value={text}

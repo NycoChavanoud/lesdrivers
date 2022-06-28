@@ -1,0 +1,131 @@
+.transfertContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: justify;
+}
+
+.mainTitle {
+  font-family: "Gabriela", serif;
+}
+
+.secondTitle {
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.transfertFirstSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75%;
+}
+
+.gras {
+  font-weight: 700;
+}
+
+.grasRed {
+  color: red;
+}
+
+.trajectFormContainer {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 0px 20px 0px 20px;
+  background-color: #2a2a92;
+}
+
+.titleButton {
+  margin-right: 10px;
+}
+.titleForm {
+  color: white;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+.ButtForm {
+  display: flex;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border-radius: 20px;
+  width: 80%;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+
+/*Form Block*/
+.InputDepartDate,
+.InputDeparturePlace,
+.InputArrivalPlace,
+.InputTimeLeave,
+.InputNumberPerson,
+.InputNumberLuggage,
+.InputVehiculeType,
+.InputEquipments,
+.InputFlightNumber,
+.InputSomethingToSay {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0px 15px 0px;
+}
+
+.InputSomethingToSay textarea {
+  height: 120px;
+}
+
+.buttonValidate {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 130px;
+  border-radius: 40px;
+  border: none;
+  padding: 5px 0px 5px 0px;
+  margin-bottom: 50px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.label {
+  font-weight: 100;
+  margin-bottom: 10px;
+}
+.goAirportOn,
+.leaveAirportOn {
+  display: block;
+  color: white;
+}
+
+.goAirportOff,
+.leaveAirportOff {
+  display: none;
+}
+
+.buttonOn {
+  display: block;
+}
+
+.buttonOff {
+  display: none;
+}
+.tarifOn {
+  display: block;
+}
+
+.tarifOff {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .ButtForm {
+    width: 40%;
+  }
+}
