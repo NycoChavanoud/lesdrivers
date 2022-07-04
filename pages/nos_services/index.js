@@ -107,11 +107,12 @@ export default function NosServices() {
           <div className={styles.description_div}>
             <h2 className={styles.name_title}>TAYEB</h2>
             <p className={styles.name_description}>
-              Le spécialiste du transport aérien. De par mon expérience de 20
-              ans acquise au sein du groupe Air France, je suis passionné par le
-              secteur du transport et du tourisme en général, j’apprécie
-              particulièrement les échanges et de partager les atouts de ma
-              région
+              54 ans, autodidacte. Technicien frigoriste, freelance marketing
+              hôtelier, chef d’entreprise déménagement, responsable logistique
+              pièce détachées automobile. Aujourd’hui je mets mon expérience et
+              mes qualités au service du transport de personnes. Un travail que
+              j’apprécie particulièrement pour son côté relationnel avec des
+              personnes de tout horizons.
             </p>
           </div>
         </div>
