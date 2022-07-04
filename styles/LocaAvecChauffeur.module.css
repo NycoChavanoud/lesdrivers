@@ -1,0 +1,126 @@
+.containerService {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.title {
+  font-family: "Gabriela", serif;
+  font-size: 20px;
+  color: #2a2a92;
+}
+
+.title span {
+  font-family: "Gabriela", serif;
+  font-size: 20px;
+  color: #ed071d;
+}
+
+.containerSection {
+  background-color: #2a2a92;
+  width: 100%;
+  padding: 30px;
+}
+
+.containerForm {
+  background-color: white;
+  width: 100%;
+
+  border-radius: 20px;
+  padding: 30px 30px 30px 30px;
+}
+
+.containerInput {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f4f4fc;
+  width: 100%;
+  height: 30px;
+  padding: 30px 0px 30px 0px;
+  font-weight: 600;
+  color: #696999;
+  font-size: 14px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 20px #bebebe, -1px -1px 20px #bebebe;
+  margin: 0px 0px 15px 0px;
+}
+
+.containerInput input {
+  width: 150px;
+  margin-right: 30px;
+}
+.containerInput p {
+  margin-left: 30px;
+}
+.containerTime {
+  font-size: 20px;
+}
+
+.containerTime input {
+  margin-left: 10px;
+  width: 25px;
+}
+
+.containerCatVehicles {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.containerCardVehicules {
+  display: flex;
+  width: 100%;
+
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.cardContainer {
+  display: flex;
+  align-items: space-around;
+  justify-content: flex-start;
+  width: 50%;
+  margin-top: 15px;
+}
+
+.vehi1,
+.vehi2,
+.vehi3,
+.vehi4 {
+  background-color: #f4f4fc;
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.vehi1 {
+  background-image: url(../public/images/vehiLoca1.png);
+}
+
+.vehi2 {
+  background-image: url(../public/images/vehiLoca2.png);
+}
+
+.vehi3 {
+  background-image: url(../public/images/vehiLoca3.png);
+}
+
+.vehi4 {
+  background-image: url(../public/images/vehiLoca4.png);
+}
+
+.textVehicule {
+  margin: 0;
+  padding-left: 10px;
+  width: 60%;
+  color: #696999;
+}
+
+@media screen and (min-width: 1140px) {
+}
