@@ -2,7 +2,7 @@ import Image from "next/image";
 import Layout from "../../components/Layout";
 import logo from "../../public/images/logo-lesdrivers.png";
 import binh from "../../public/images/binh.png";
-import ameur from "../../public/images/ameur.jpg";
+import amr from "../../public/images/amr.png";
 import maxime from "../../public/images/maxime.jpg";
 import tayeb from "../../public/images/tayeb.jpg";
 import magid from "../../public/images/magid.jpg";
@@ -12,6 +12,7 @@ export default function NosServices() {
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
       <div className={styles.mainContainer}>
+        <div className={styles.bgImage} />
         <Image
           src={logo}
           width={100}
@@ -50,13 +51,16 @@ export default function NosServices() {
           </div>
         </div>
         <div className={styles.photo_divs}>
-          <Image
-            src={ameur}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
+          <div className={styles.photo_ameur}>
+            <Image
+              src={amr}
+              width={450}
+              height={350}
+              className={styles.logo_ameur}
+              alt="logo"
+            />
+          </div>
+
           <div className={styles.description_div}>
             <h2 className={styles.name_title}>AMEUR</h2>
             <p className={styles.name_description}>
@@ -103,12 +107,11 @@ export default function NosServices() {
           <div className={styles.description_div}>
             <h2 className={styles.name_title}>TAYEB</h2>
             <p className={styles.name_description}>
-              54 ans, autodidacte. Technicien frigoriste, freelance marketing
-              hôtelier, chef d’entreprise déménagement, responsable logistique
-              pièce détachées automobile. Aujourd’hui je mets mon expérience et
-              mes qualités au service du transport de personnes. Un travail que
-              j’apprécie particulièrement pour son côté relationnel avec des
-              personnes de tout horizons.
+              Le spécialiste du transport aérien. De par mon expérience de 20
+              ans acquise au sein du groupe Air France, je suis passionné par le
+              secteur du transport et du tourisme en général, j’apprécie
+              particulièrement les échanges et de partager les atouts de ma
+              région
             </p>
           </div>
         </div>
