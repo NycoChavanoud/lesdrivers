@@ -1,137 +1,213 @@
-import Image from "next/image";
 import Layout from "../../components/Layout";
-import logo from "../../public/images/logo-lesdrivers.png";
-import binh from "../../public/images/binh.png";
-import amr from "../../public/images/amr.png";
-import maxime from "../../public/images/maxime.jpg";
-import tayeb from "../../public/images/tayeb.jpg";
-import magid from "../../public/images/magid.jpg";
-import styles from "../../styles/nosServices.module.css";
+import ServicesCard from "../../components/ServicesCard.js";
+import styleService from "../../styles/Services.module.css";
+import React, { useState } from "react";
+import { useRouter } from "next/router";
 
 export default function NosServices() {
+  const [serviceOne, setServiceOne] = useState(false);
+  const [serviceTwo, setServiceTwo] = useState(false);
+  const [serviceThree, setServiceThree] = useState(false);
+  const [serviceFour, setServiceFour] = useState(false);
+  const [serviceBase, setServiceBase] = useState(true);
+
+  const showService1 = () => {
+    setServiceOne(true);
+    setServiceTwo(false);
+    setServiceThree(false);
+    setServiceFour(false);
+    setServiceBase(false);
+  };
+  const showService2 = () => {
+    setServiceOne(false);
+    setServiceTwo(true);
+    setServiceThree(false);
+    setServiceFour(false);
+    setServiceBase(false);
+  };
+  const showService3 = () => {
+    setServiceOne(false);
+    setServiceTwo(false);
+    setServiceThree(true);
+    setServiceFour(false);
+    setServiceBase(false);
+  };
+  const showService4 = () => {
+    setServiceOne(false);
+    setServiceTwo(false);
+    setServiceThree(false);
+    setServiceFour(true);
+    setServiceBase(false);
+  };
+
+  const router = useRouter();
+
+  const linkToService1 = () => {
+    router.push("/transfert_aeroport");
+  };
+
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
-      <div className={styles.mainContainer}>
-        <div className={styles.bgImage} />
-        <Image
-          src={logo}
-          width={100}
-          height={100}
-          className={styles.logo}
-          alt="bgLines"
-        />
-        <h1 className={styles.mainTitle}>
-          Qui sommes <span className={styles.titleColor}>nous ?</span>
-        </h1>
-        <p className={styles.top_text}>
-          Nous sommes un réseau de chauffeurs privés indépendants à Lyon,
-          originaires de la ville et ayant travaillés dans différents services
-          et compagnies.
+      <div className={styleService.containerService}>
+        <p className={styleService.title}>
+          Nos différents <span>services</span>
         </p>
-      </div>
-      <div className={styles.photo_container}>
-        <h2 className={styles.photo_title}>Les services comme vocation</h2>
-        <div className={styles.photo_divs}>
-          <Image
-            src={binh}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>BINH</h2>
-            <p className={styles.name_description}>
-              Le spécialiste du transport aérien. De par mon expérience de 20
-              ans acquise au sein du groupe Air France, je suis passionné par le
-              secteur du transport et du tourisme en général, j’apprécie
-              particulièrement les échanges et de partager les atouts de ma
-              région
-            </p>
-          </div>
-        </div>
-        <div className={styles.photo_divs}>
-          <div className={styles.photo_ameur}>
-            <Image
-              src={amr}
-              width={450}
-              height={350}
-              className={styles.logo_ameur}
-              alt="logo"
+        <div className={styleService.cardWrapperandtext}>
+          <div className={styleService.cardWrapper}>
+            <div className={styleService.linkMobile}>
+              <ServicesCard
+                titreService1={"Transfert à l’aéroport"}
+                titreService2={"Lyon Saint-Exupéry"}
+                contenuService={
+                  "Quand il est question de se rendre à l’aéroport de Saint-Exupéry ou d’en revenir en pleine nuit, les moyens de transport disponibles se font beaucoup plus rares. C’est pourquoi les chauffeurs Drivers Airport sont à votre disposition dès votre sortie des terminaux."
+                }
+                style={styleService.containerCardService1}
+                showService={showService1}
+                linkTo={linkToService1}
+                backgroundDesktopMobile={styleService.titleService1}
+              />
+            </div>
+
+            <ServicesCard
+              titreService1={"Course dans Lyon "}
+              titreService2={"et ses alentours"}
+              contenuService={
+                "Déplacez-vous dans Lyon et ses alentours à bord de véhicules prestige et des chauffeurs tous professionnels qui travaillent selon nos standards de qualité : Tenue en costume et sens du service."
+              }
+              style={styleService.containerCardService2}
+              showService={showService2}
+              backgroundDesktopMobile={styleService.titleService2}
+            />
+            <ServicesCard
+              titreService1={"Location de véhicule "}
+              titreService2={" avec chauffeur"}
+              contenuService={
+                "Les drivers sont heureux de vous présenter le prolongement de leur expérience transfert aéroport avec la location de véhicule avec chauffeur, Les drivers deviennent un peu les « drive heures » ! L’idée est de disposer de votre berline ou van avec chauffeur selon le temps et l’itinéraire que vous avez choisi …"
+              }
+              style={styleService.containerCardService3}
+              showService={showService3}
+              backgroundDesktopMobile={styleService.titleService3}
+            />
+            <ServicesCard
+              titreService1={"Location de vans "}
+              contenuService={
+                "La location de van avec chauffeur est le moyen pour votre groupe de voyager sereinement et efficacement à Lyon et sa région. Au contraire d’une location de véhicule classique, ne vous souciez pas des formalités de prise en charge (Etat des lieux, cautions, assurance) chez nous, tout est inclus dans le prix . En plus, la location de van comprend le service d’un chauffeur professionnel formé et expérimenté. Nos chauffeurs en plus de vous conduire, apprécient l’échange et le service qu’ils apportent au quotidien. Bref, que ce soit pour une visite touristique de Lyon, un transfert en van pour l’aéroport St Exupéry ou un salon à Eurexpo, choisissez notre formule location van à Lyon !"
+              }
+              style={styleService.containerCardService4}
+              showService={showService4}
+              backgroundDesktopMobile={styleService.titleService4}
             />
           </div>
-
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>AMEUR</h2>
-            <p className={styles.name_description}>
-              L’adjudant chef. Après avoir exercé une quinzaine d’années à
-              l’aéroport comme agent de piste et de régulation, j’ai choisi de
-              m’orienter vers un métier de service qui me convient. Aujourd’hui,
-              je ne guide plus les avions vers leur parking mais je conduis les
-              passagers vers leur terminal de départ. J’apprécie le contact
-              humain et de revêtir mon costume chaque matin ! Dans le civil,
-              j’aime le calme de la vie à la campagne et écouter de la musique
-              classique.
-            </p>
-          </div>
-        </div>
-        <div className={styles.photo_divs}>
-          <Image
-            src={magid}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>MAGID</h2>
-            <p className={styles.name_description}>
-              Le doyen de l’équipe et jeune papa. J’ai aussi exercé une
-              quinzaine d’années à l’aéroport comme chauffeur de bus et
-              chauffeur de la navette Satobus, j’ai une grande expérience du
-              transport sous ses différentes formes. Et pourtant à la base, j’ai
-              une formation de cuisinier et exercé 7 ans en gastronomie
-              traditionnelle, ce qui m’a inculqué une grande rigueur et un sens
-              de l’effort qui sont toujours utiles !
-            </p>
-          </div>
-        </div>
-        <div className={styles.photo_divs}>
-          <Image
-            src={tayeb}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>TAYEB</h2>
-            <p className={styles.name_description}>
-              54 ans, autodidacte. Technicien frigoriste, freelance marketing
-              hôtelier, chef d’entreprise déménagement, responsable logistique
-              pièce détachées automobile. Aujourd’hui je mets mon expérience et
-              mes qualités au service du transport de personnes. Un travail que
-              j’apprécie particulièrement pour son côté relationnel avec des
-              personnes de tout horizons.
-            </p>
-          </div>
-        </div>
-        <div className={styles.photo_divs}>
-          <Image
-            src={maxime}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>MAXIME</h2>
-            <p className={styles.name_description}>
-              Le gestionnaire de l’équipe. C’est moi qui suis chargé de réguler
-              les réservations et la bonne marche au quotidien de l’activité.
-              Mon expérience acquise au sein des sapeurs-pompiers volontaires me
-              permet de gérer cette gymnastique !
-            </p>
+          <div
+            className={
+              serviceBase
+                ? styleService.serviceContainerOff
+                : styleService.serviceContainer
+            }
+          >
+            {serviceBase ? (
+              <div>
+                <div className={styleService.backgroundCardBase}>
+                  <h1>Découvrez tous nos services !</h1>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {serviceOne ? (
+              <div>
+                <div className={styleService.backgroundCard1}>
+                  <h1>Transfert à l’aéroport.</h1>
+                </div>
+                <div>
+                  <p className={styleService.textService}>
+                    Quand il est question de se rendre à l’aéroport de
+                    Saint-Exupéry ou d’en revenir en pleine nuit, les moyens de
+                    transport disponibles se font beaucoup plus rares. C’est
+                    pourquoi les chauffeurs Drivers Airport sont à votre
+                    disposition dès votre sortie des terminaux.
+                  </p>
+                  <button
+                    className={styleService.buttService}
+                    onClick={() => router.push("/transfert_aeroport")}
+                  >
+                    Accéder au service
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {serviceTwo ? (
+              <div>
+                <div className={styleService.backgroundCard2}>
+                  <h1>Course dans Lyon.</h1>
+                </div>
+                <div>
+                  <p className={styleService.textService}>
+                    Déplacez-vous dans Lyon et ses alentours à bord de véhicules
+                    prestige et des chauffeurs tous professionnels qui
+                    travaillent selon nos standards de qualité : Tenue en
+                    costume et sens du service.
+                  </p>
+                  <button className={styleService.buttService}>
+                    Accéder au service
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {serviceThree ? (
+              <div>
+                <div className={styleService.backgroundCard3}>
+                  <h1>Location de véhicule avec chauffeur.</h1>
+                </div>
+                <div>
+                  <p className={styleService.textService}>
+                    Les drivers sont heureux de vous présenter le prolongement
+                    de leur expérience transfert aéroport avec la location de
+                    véhicule avec chauffeur, Les drivers deviennent un peu les «
+                    drive heures » ! L’idée est de disposer de votre berline ou
+                    van avec chauffeur selon le temps et l’itinéraire que vous
+                    avez choisi …
+                  </p>
+                  <button className={styleService.buttService}>
+                    Accéder au service
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
+            {serviceFour ? (
+              <div>
+                <div className={styleService.backgroundCard4}>
+                  <h1>Location de vans.</h1>
+                </div>
+                <div>
+                  <p className={styleService.textService}>
+                    La location de van avec chauffeur est le moyen pour votre
+                    groupe de voyager sereinement et efficacement à Lyon et sa
+                    région. Au contraire d’une location de véhicule classique,
+                    ne vous souciez pas des formalités de prise en charge (Etat
+                    des lieux, cautions, assurance) chez nous, tout est inclus
+                    dans le prix . En plus, la location de van comprend le
+                    service d’un chauffeur professionnel formé et expérimenté.
+                    Nos chauffeurs en plus de vous conduire, apprécient
+                    l’échange et le service qu’ils apportent au quotidien. Bref,
+                    que ce soit pour une visite touristique de Lyon, un
+                    transfert en van pour l’aéroport St Exupéry ou un salon à
+                    Eurexpo, choisissez notre formule location van à Lyon !
+                  </p>
+                  <button className={styleService.buttService}>
+                    Accéder au service
+                  </button>
+                </div>
+              </div>
+            ) : (
+              ""
+            )}
           </div>
         </div>
       </div>
