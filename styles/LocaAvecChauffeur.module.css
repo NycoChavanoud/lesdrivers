@@ -118,19 +118,19 @@
 }
 
 .vehi1 {
-  background-image: url(../public/images/vehiLoca1.png);
+  background-image: url(../public/images/vehiLoca1.webp);
 }
 
 .vehi2 {
-  background-image: url(../public/images/vehiLoca2.png);
+  background-image: url(../public/images/vehiLoca2.webp);
 }
 
 .vehi3 {
-  background-image: url(../public/images/vehiLoca3.png);
+  background-image: url(../public/images/vehiLoca3.webp);
 }
 
 .vehi4 {
-  background-image: url(../public/images/vehiLoca4.png);
+  background-image: url(../public/images/vehiLoca4.webp);
 }
 
 .textVehicule {
@@ -152,7 +152,7 @@
 }
 
 .nbrPeople {
-  background-image: url(../public/images/NbrPeople.png);
+  background-image: url(../public/images/NbrPeople.webp);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
@@ -253,7 +253,7 @@
     padding: 220px 60px 0px 120px;
     width: 1200px;
     margin-right: 30px;
-    background-image: url(../public/images/BgPageLocaVehi.png);
+    background-image: url(../public/images/BgPageLocaVehi.webp);
     background-position: center;
     background-size: cover;
     color: white;
