@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.mainContainer {
+  text-align: center;
+  font-family: "Gabriela", serif;
+}
+
+.mainTitle {
+  font-size: 36px;
+  color: rgb(31, 31, 144);
+}
+
+.top_text {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleColor {
+  color: red;
+}
+
+.photo_title {
+  margin-top: 60px;
+}
+.photo_container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.photo_divs {
+  margin-top: 64px;
+  /*background-color: rgb(218, 129, 27);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  border-radius: 5px;*/
+}
+
+.logo_img {
+  margin: 0;
+}
+.description_div {
+  padding: 10px;
+  color: aliceblue;
+  background-color: rgb(27, 27, 157);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.name_title {
+  color: aliceblue;
+  font-size: 20px;
+  padding: 10px;
+}
+s .name_description {
+  padding: 5px;
+}
+.photo_title {
+  text-align: center;
+}
+
+.bgLines {
+  background-color: red;
+}
+
+.logo_ameur {
+  background-size: contain;
+}
+
+.bgImage {
+  position: fixed;
+  z-index: -1;
+  top: 300px;
+  background-image: url(../public/images/ligne.png);
+  background-size: cover;
+  background-repeat: repeat-y;
+  width: 100%;
+  height: 300px;
+  opacity: 0.7;
+}
+
+@media screen and (min-width: 490px) {
+  .photo_divs {
+    text-align: center;
+    /*background-color: rgb(218, 129, 27);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;  border-radius: 5px;*/
+  }
+  .description_div {
+    width: 452px;
+    padding: 14px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .name_title {
+    text-align: left;
+  }
+
+  .name_description {
+    text-align: left;
+  }
+
+  .bgImage {
+    position: fixed;
+    z-index: -1;
+  }
+}
+
+@media screen and (min-width: 966px) {
+  .top_text {
+    width: 40%;
+  }
+  .photo_divs {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: flex;
+    padding: 10px;
+  }
+
+  .description_div {
+    padding: 10px;
+    margin-left: 24px;
+  }
+
+  .bgImage {
+    top: 300px;
+    width: 100%;
+    height: 300px;
+    opacity: 0.7;
+  }
+
+  .photo_container2 {
+    display: flex;
+  }
+}

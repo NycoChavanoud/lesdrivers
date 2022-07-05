@@ -105,7 +105,7 @@ export default function LocationAvecChauffeur() {
                 </p>
                 <div className={styleLocation.containerImageAndInput}>
                   <div className={styleLocation.nbrPeople} />
-                  <select>
+                  <select className={styleLocation.inputNbrPeople}>
                     <option selected value="base">
                       -
                     </option>

@@ -230,6 +230,12 @@
   color: #696999;
 }
 
+.inputNbrPeople {
+  background-color: #ffffff;
+  border: none;
+  border-bottom: 1px solid #696999;
+  color: #696999;
+}
 .inputPlace {
   background-color: #f4f4fc;
   border: none;
