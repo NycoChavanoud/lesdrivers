@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import logo from "../../public/images/logo-lesdrivers.png";
-import binh from "../../public/images/binh.png";
-import amr from "../../public/images/amr.png";
-import maxime from "../../public/images/maxime.jpg";
-import tayeb from "../../public/images/tayeb.jpg";
-import magid from "../../public/images/magid.jpg";
+import binh from "../../public/images/bihn.webp";
+import amr from "../../public/images/amr.webp";
+import maxime from "../../public/images/maxime.webp";
+import tayeb from "../../public/images/tayeb2.webp";
+import magid from "../../public/images/magid.webp";
 import styles from "../../styles/nosServices.module.css";
 
 export default function NosServices() {
