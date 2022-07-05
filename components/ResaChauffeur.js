@@ -11,7 +11,7 @@ export default function ResaChauf() {
   return (
     <div className={HeaderResa.resaContainer}>
       <div className={HeaderResa.title}>
-        <p className={HeaderResa.resaContainerp}>RESERVER UN CHAUFFEUR</p>
+        <p className={HeaderResa.resaContainerp}>RÉSERVER UN CHAUFFEUR</p>
       </div>
       <div className={HeaderResa.buttonsResaChauff}>
         <ButtNavResa
