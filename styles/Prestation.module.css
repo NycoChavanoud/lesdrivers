@@ -1,6 +1,7 @@
 .prestationContainer {
   margin-left: 20px;
   opacity: 80%;
+  cursor: pointer;
 }
 
 .prestationh1 {
@@ -101,8 +102,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 100%;
     flex-wrap: wrap;
+    margin: 0;
   }
   .prestationContainerButton {
     margin: 15px 25px 5px -10px;
