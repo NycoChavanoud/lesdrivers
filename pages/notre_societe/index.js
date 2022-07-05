@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Layout from "../../components/Layout";
 import logo from "../../public/images/logo-lesdrivers.png";
-import binh from "../../public/images/bihn.webp";
+import binh from "../../public/images/binh.webp";
 import amr from "../../public/images/amr.webp";
 import maxime from "../../public/images/maxime.webp";
-import tayeb from "../../public/images/tayeb2.webp";
+import tayeb from "../../public/images/tayeb.webp";
 import magid from "../../public/images/magid.webp";
 import styles from "../../styles/nosServices.module.css";
 
