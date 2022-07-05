@@ -113,8 +113,8 @@ export default function footer() {
           alt={`logo`}
           className={styles.footerLogo}
           src={`/images/logo-lesdrivers.png`}
-          width={`80px`}
-          height={`80px`}
+          width={80}
+          height={80}
         ></Image>
         <p className={styles.logoText}>
           All Rights Reserved To The Drivers Airport 2022
