@@ -1,7 +1,13 @@
 import ButtNavResa from "./ButtonNavResa";
 import HeaderResa from "../styles/ResaChauffeur.module.css";
+import { useRouter } from "next/router";
 
 export default function ResaChauf() {
+  const router = useRouter();
+
+  const linkToServiceAvcChauff = () => {
+    router.push("/location_avec_chauffeur");
+  };
   return (
     <div className={HeaderResa.resaContainer}>
       <div className={HeaderResa.title}>
@@ -20,6 +26,7 @@ export default function ResaChauf() {
           classe={HeaderResa.url3}
           phrase1="Location de véhicule avec chauffeur"
           phrase2="NOUVEAU"
+          linkTo={linkToServiceAvcChauff}
         />
       </div>
     </div>
