@@ -69,7 +69,7 @@
 }
 
 .img4 {
-  background-image: url(../public/images/vehicule3_bis.webp);
+  background-image: url(../public/images/vehicule3.webp);
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: 30px;
@@ -188,7 +188,7 @@
   }
 
   .img4 {
-    background-image: url(../public/images/vehicule3_bis.webp);
+    background-image: url(../public/images/vehicule3.webp);
     background-position: center;
     position: absolute;
     transform: rotateY(180deg);

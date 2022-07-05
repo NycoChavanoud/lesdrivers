@@ -4,7 +4,7 @@ import icon1 from "../public/images/car.png";
 import icon2 from "../public/images/ourvocation.png";
 import icon3 from "../public/images/ourservices.png";
 import icon4 from "../public/images/traject.png";
-import ourVehicles from "../public/images/allcars.png";
+import ourVehicles from "../public/images/allcars.webp";
 import serviceVocation from "../public/images/serviceVocation.png";
 import diffVocation from "../public/images/lyon.png";
 import map from "../public/images/maplyon.png";
