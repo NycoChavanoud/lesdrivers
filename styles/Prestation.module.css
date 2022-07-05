@@ -1,6 +1,7 @@
 .prestationContainer {
   margin-left: 20px;
   opacity: 80%;
+  cursor: pointer;
 }
 
 .prestationh1 {
