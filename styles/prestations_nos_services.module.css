@@ -1,0 +1,62 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+.mainContainer {
+  text-align: center;
+  font-family: "Gabriela", serif;
+}
+
+.mainTitle {
+  font-size: 36px;
+  color: rgb(31, 31, 144);
+}
+
+.top_text {
+  width: 80%;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titleColor {
+  color: red;
+}
+.titleColor2 {
+  color: red;
+  font-weight: bolder;
+}
+.bold_text {
+  font-weight: bolder;
+}
+.photo_title {
+  margin-top: 60px;
+}
+.calculator_container {
+  width: 90%;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.calculator_text {
+  color: aliceblue;
+  text-align: center;
+  font-size: 12px;
+}
+.calculator_text2 {
+  color: aliceblue;
+  text-align: start;
+  font-size: 12px;
+  padding: 10px 0 6px 12px;
+}
+.bg_calculator {
+  background-color: blue;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.btn {
+  background-color: rgb(26, 26, 66);
+  color: white;
+  border-radius: 10px;
+  border: none;
+  padding: 4px;
+}
