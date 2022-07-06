@@ -15,6 +15,14 @@ async function seed() {
       society: "Credit Ecolo",
     },
   });
+
+  await db.itineraryAirport.deleteMany();
+  await db.itineraryAirport.create({
+    data: {
+      originAdress: "Departure place sample, injected by the seed file",
+      // destinationAdress: "destination form seed",
+    },
+  });
 }
 
 seed();

@@ -1,5 +1,6 @@
 import styleTransfert from "../styles/TransfertAeroport.module.css";
 import React, { useState } from "react";
+import axios from "axios";
 
 export default function TrajectFormDetails({
   originAdressDefault = "",
@@ -31,6 +32,18 @@ export default function TrajectFormDetails({
   const changeDestinationAdress = (newDestination) => {
     setDestinationAdress(newDestination);
     changeRequiredNumFlight(newDestination);
+  };
+
+  const handleCreateItin = (e) => {
+    e.preventDefault();
+    console.log(originAdress);
+    axios
+      .post(`/api/itineraryAirport`, {
+        originAdress,
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -185,6 +198,7 @@ export default function TrajectFormDetails({
         </label>
         <textarea type="text" />
       </div>
+      <button onClick={handleCreateItin}>Valider envoi requête</button>
     </>
   );
 }
