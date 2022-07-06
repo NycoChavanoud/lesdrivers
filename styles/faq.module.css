@@ -1,0 +1,42 @@
+.faqMainContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.faqMainTitre {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-family: "Gabriela", serif;
+  font-size: 20px;
+  color: #2a2a92;
+}
+
+.title span {
+  font-family: "Gabriela", serif;
+  font-size: 20px;
+  color: #ed071d;
+}
+
+.faqContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 15px 0px 15px;
+}
+
+.gras {
+  font-weight: 900;
+}
+
+@media screen and (min-width: 600px) {
+  .faqContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 450px 0px 450px;
+  }
+}

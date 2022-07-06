@@ -33,7 +33,6 @@
 .texteGabriela {
   text-align: center;
   font-family: "Gabriela", serif;
-
   width: 340px;
   font-size: 28px;
 }
@@ -106,7 +105,8 @@
   }
 
   .texteGabriela {
-    color: white;
+    color: #000000;
+    font-weight: 900;
   }
 
   .chauffeur {
