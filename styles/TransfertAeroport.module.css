@@ -71,9 +71,12 @@
 }
 
 /*Form Block*/
+.FormBlockGoToAirportContainer {
+  color: white;
+}
 .InputDepartDate,
-.InputDeparturePlace,
-.InputArrivalPlace,
+.InputDepartLieu,
+.InputDepartArrive,
 .InputTimeLeave,
 .InputNumberPerson,
 .InputNumberLuggage,

@@ -4,7 +4,7 @@ import icon1 from "../public/images/car.png";
 import icon2 from "../public/images/ourvocation.png";
 import icon3 from "../public/images/ourservices.png";
 import icon4 from "../public/images/traject.png";
-import ourVehicles from "../public/images/allcars.png";
+import ourVehicles from "../public/images/allcars.webp";
 import serviceVocation from "../public/images/serviceVocation.png";
 import diffVocation from "../public/images/lyon.png";
 import map from "../public/images/maplyon.png";
@@ -41,17 +41,20 @@ export default function Prestation() {
           callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
           bgPresta={serviceVocation}
         />
-        <ButtPresta
-          icon={icon3}
-          titleBlock={"Nos différents services"}
-          textePrestation={
-            "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
-          }
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
-          bgPresta={diffVocation}
-        />
+
+        <div onClick={() => router.push("/nos_services")}>
+          <ButtPresta
+            icon={icon3}
+            titleBlock={"Nos différents services"}
+            textePrestation={
+              "Nous proposons différents services comme les transports jusqu’à l’aéroport de Lyon Saint-Exupéry ou encore des circuits dans Lyon et ses alentours."
+            }
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"ACCÉDEZ A NOS DIFFÉRENTS SERVICES"}
+            bgPresta={diffVocation}
+          />
+        </div>
         <ButtPresta
           icon={icon4}
           titleBlock={"Combien ça coûte ?"}

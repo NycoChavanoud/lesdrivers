@@ -1,16 +1,28 @@
 import ButtNavResa from "./ButtonNavResa";
 import HeaderResa from "../styles/ResaChauffeur.module.css";
+import { useRouter } from "next/router";
 
 export default function ResaChauf() {
+  const router = useRouter();
+
+  const linkToServiceAvcChauff = () => {
+    router.push("/location_avec_chauffeur");
+  };
+
+  const linkToTransfertAirport = () => {
+    router.push("/transfert_aeroport");
+  };
+
   return (
     <div className={HeaderResa.resaContainer}>
       <div className={HeaderResa.title}>
-        <p className={HeaderResa.resaContainerp}>RESERVER UN CHAUFFEUR</p>
+        <p className={HeaderResa.resaContainerp}>RÉSERVER UN CHAUFFEUR</p>
       </div>
       <div className={HeaderResa.buttonsResaChauff}>
         <ButtNavResa
           classe={HeaderResa.url1}
           phrase1="Transfert à l'aéroport Lyon Saint Exupéry"
+          linkTo={linkToTransfertAirport}
         />
         <ButtNavResa
           classe={HeaderResa.url2}
@@ -20,6 +32,7 @@ export default function ResaChauf() {
           classe={HeaderResa.url3}
           phrase1="Location de véhicule avec chauffeur"
           phrase2="NOUVEAU"
+          linkTo={linkToServiceAvcChauff}
         />
       </div>
     </div>

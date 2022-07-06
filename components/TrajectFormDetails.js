@@ -35,7 +35,7 @@ export default function TrajectFormDetails({
 
   return (
     <>
-      <div className={styleTransfert.InputDeparturePlace}>
+      <div className={styleTransfert.InputDepartLieu}>
         <label className={styleTransfert.label}>Lieu de départ</label>
         {originAdressDefault === "originAdressDefaultAirport" ? (
           <select onChange={(e) => setOriginAdress(e.target.value)}>
@@ -54,7 +54,7 @@ export default function TrajectFormDetails({
         )}
       </div>
 
-      <div className={styleTransfert.InputArrivalPlace}>
+      <div className={styleTransfert.InputDepartArrive}>
         <label className={styleTransfert.label}>Lieu d&apos;arrivée</label>
         {destinationAdressDefault === "destinationAdressDefaultAirport" ? (
           <select onChange={(e) => changeDestinationAdress(e.target.value)}>
