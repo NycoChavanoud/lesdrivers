@@ -3,33 +3,33 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 
-export default function CourseDansLyon() {
+export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("");
   const [buttonHandle, setButtonHandle] = useState(false);
-
-  const [selectedForfait, setSelectedForfait] = useState("");
 
   const handlefunctionButton = () => {
     setButtonHandle(true);
   };
 
   return (
-    <Layout pageTitle="Les Drivers - Course dans Lyon">
+    <Layout pageTitle="Les Drivers - Location avec chauffeur">
       <div className={styleLocation.containerService}>
-        <p className={styleLocation.titleloc}>
-          Location <span>avec chauffeur</span>
+        <p className={styleLocation.titlecourse}>
+          Course dans Lyon <br />
+          <span>et ses alentours</span>
         </p>
         <div className={styleLocation.containerSection}>
-          <div className={styleLocation.containerSectionLeftLoca}>
-            Nous avons hâte de vous faire découvrir notre belle ville de Lyon !
+          <div className={styleLocation.containerSectionLeftCourse}>
+            Laissez vous conduire, de jour comme de nuit en toute sécurité !
           </div>
           <div className={styleLocation.containerSectionRight}>
             <div className={styleLocation.containerForm}>
               <div className={styleLocation.containerInput}>
-                <p>
-                  Point de <br />
-                  rendez-vous
-                </p>
+                <p>Départ</p>
+                <input className={styleLocation.inputPlace} />
+              </div>
+              <div className={styleLocation.containerInput}>
+                <p>Arrivée</p>
                 <input className={styleLocation.inputPlace} />
               </div>
               <div className={styleLocation.containerInput}>
@@ -38,8 +38,13 @@ export default function CourseDansLyon() {
               </div>
               <div className={styleLocation.containerTime}>
                 <p>
-                  Je souhaite être pris en charge à <br />
-                  partir de{" "}
+                  Je souhaite réserver mon chauffeur de{" "}
+                  <input
+                    id="test"
+                    className={styleLocation.inputTime}
+                    type="time"
+                  />
+                  à{" "}
                   <input
                     id="test"
                     className={styleLocation.inputTime}
@@ -120,31 +125,6 @@ export default function CourseDansLyon() {
                     <option value="neufPersonnes">9</option>
                     <option value="dixPersonnes">10</option>
                   </select>
-                </div>
-              </div>
-              <div className={styleLocation.containerForfait}>
-                <p className={styleLocation.sectionTitle}>Forfait</p>
-                <div className={styleLocation.containerButton}>
-                  <button
-                    onClick={() => setSelectedForfait("forfait1")}
-                    className={
-                      selectedForfait === "forfait1"
-                        ? styleLocation.buttonForfaitActive
-                        : styleLocation.buttonForfaitNormal
-                    }
-                  >
-                    Demi-journée
-                  </button>
-                  <button
-                    onClick={() => setSelectedForfait("forfait2")}
-                    className={
-                      selectedForfait === "forfait2"
-                        ? styleLocation.buttonForfaitActive
-                        : styleLocation.buttonForfaitNormal
-                    }
-                  >
-                    Journée entière
-                  </button>
                 </div>
               </div>
               <div className={styleLocation.containerEndingButton}>
