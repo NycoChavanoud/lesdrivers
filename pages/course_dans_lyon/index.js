@@ -38,13 +38,7 @@ export default function LocationAvecChauffeur() {
               </div>
               <div className={styleLocation.containerTime}>
                 <p>
-                  Je souhaite réserver mon chauffeur de{" "}
-                  <input
-                    id="test"
-                    className={styleLocation.inputTime}
-                    type="time"
-                  />
-                  à{" "}
+                  Je souhaite réserver mon chauffeur à{" "}
                   <input
                     id="test"
                     className={styleLocation.inputTime}
