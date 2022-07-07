@@ -24,15 +24,17 @@ model User {
 }
 
 model ItineraryAirport {
-  id                Int    @id @default(autoincrement())
+  id                Int      @id @default(autoincrement())
   originAdress      String
   destinationAdress String
-  // departureDate     String
-  // departureTime DateTime
-  // numberPassengers Int
-  // numberLuggages Int
-  // vehicule String
-  // siegeBebe Boolean
-  // rehausseur  Boolean
-  // porteski  Boolean
+  departureDate     String?
+  departureTime     String?
+  numberPassengers  Int?
+  numberLuggages    String?
+  vehicule          String?
+  siegeBebe         Boolean?
+  rehausseur        Boolean?
+  porteSki          Boolean?
+  flightNumber      String?
+  somethingToSay    String?
 }

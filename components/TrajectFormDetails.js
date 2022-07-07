@@ -10,14 +10,16 @@ export default function TrajectFormDetails({
   const [destinationAdress, setDestinationAdress] = useState(
     destinationAdressDefault
   );
-  const [departureDate, setDepartureDate] = useState("");
-  const [departureTime, setDepartureTime] = useState("");
-  const [numberPassengers, setNumberPassengers] = useState("0");
-  const [numberLuggages, setNumberLuggages] = useState("0");
-  const [vehicule, setVehicule] = useState("");
+  const [departureDate, setDepartureDate] = useState("2023-01-01");
+  const [departureTime, setDepartureTime] = useState("12:00");
+  const [numberPassengers, setNumberPassengers] = useState("1");
+  const [numberLuggages, setNumberLuggages] = useState("0 - 5");
+  const [vehicule, setVehicule] = useState("berline");
   const [siegeBebe, setSiegeBebe] = useState(false);
   const [rehausseur, setRehausseur] = useState(false);
   const [porteSki, setPorteSki] = useState(false);
+  const [flightNumber, setFlightNumber] = useState("");
+  const [somethingToSay, setSomethingToSay] = useState("");
 
   let isNumFlightRequired = true;
 
@@ -36,15 +38,20 @@ export default function TrajectFormDetails({
 
   const handleCreateItin = (e) => {
     e.preventDefault();
-
-    // CONSOLE.LOG A SUPPRIMER QUAND TESTS FONCTIONNELS :
-    console.log(originAdress);
-    console.log(destinationAdress);
-
     axios
       .post(`/api/itineraryAirport`, {
         originAdress,
         destinationAdress,
+        departureDate,
+        departureTime,
+        numberPassengers,
+        numberLuggages,
+        vehicule,
+        siegeBebe,
+        rehausseur,
+        porteSki,
+        flightNumber,
+        somethingToSay,
       })
       .catch((err) => {
         console.error(err);
@@ -107,27 +114,12 @@ export default function TrajectFormDetails({
       </div>
       <div className={styleTransfert.InputNumberPerson}>
         <label className={styleTransfert.label}>Nombre de passagers</label>
-        <select
+        <input
+          type="number"
           value={numberPassengers}
           onChange={(e) => setNumberPassengers(e.target.value)}
-        >
-          <option defaultValue value="0">
-            {/* MODIFIER ET METTRE UN INPUT type Number */}-
-          </option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-          <option value="10">10</option>
-          <option value="NR">Plus de 10 personnes</option>
-        </select>
+        />
       </div>
-      {console.log(typeof departureDate)}
       <div className={styleTransfert.InputNumberLuggage}>
         <label className={styleTransfert.label}>Nombre de bagages</label>
         <select
@@ -194,13 +186,19 @@ export default function TrajectFormDetails({
           placeholder="ex : KE453JR"
           id="numFlight"
           required={isNumFlightRequired}
+          value={flightNumber}
+          onChange={(e) => setFlightNumber(e.target.value)}
         />
       </div>
       <div className={styleTransfert.InputSomethingToSay}>
         <label className={styleTransfert.label}>
           Quelque chose à nous spécifier ?
         </label>
-        <textarea type="text" />
+        <textarea
+          type="text"
+          value={somethingToSay}
+          onChange={(e) => setSomethingToSay(e.target.value)}
+        />
       </div>
       <button onClick={handleCreateItin}>Valider envoi requête</button>
     </>

@@ -22,6 +22,15 @@ async function seed() {
       originAdress: "originAdress sample from the seed",
       destinationAdress: "destinationSample from the seed",
       departureDate: "2022-01-01",
+      departureTime: "19:05",
+      numberPassengers: 2,
+      numberLuggages: "0-5",
+      vehicule: "berline",
+      siegeBebe: false,
+      rehausseur: true,
+      porteSki: false,
+      flightNumber: "195-Easyjet",
+      somethingToSay: "je suis très pressé",
     },
   });
 }
