@@ -19,25 +19,24 @@
   font-size: 20px;
   align-items: center;
   color: #56b856;
+  padding: 0;
 }
 .navItems li {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
 }
 
 .userIcon {
-  right: 0;
+  left: 0;
   position: absolute;
-  display: flex;
-}
-.logo_icon {
-  cursor: pointer;
 }
 
 .btnBurger {
   width: 45px;
   display: block;
   position: absolute;
-  left: 15px;
+  right: 15px;
   cursor: pointer;
 }
 .btnBurger:hover {
@@ -106,6 +105,7 @@
     justify-content: space-between;
     padding: 10px;
     height: 80px;
+    margin-left: 80px;
     background: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.05);
   }
@@ -115,7 +115,6 @@
     font-family: "Gabriela", serif;
     font-weight: 500;
     font-size: 18px;
-
     color: #3f3f3f;
     background-color: initial;
   }
@@ -163,5 +162,12 @@
   }
   .burgerLogo {
     display: none;
+  }
+
+  .userIcon {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-right: 40px;
   }
 }
