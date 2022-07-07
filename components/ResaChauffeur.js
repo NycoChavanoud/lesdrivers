@@ -8,6 +8,10 @@ export default function ResaChauf() {
   const linkToServiceAvcChauff = () => {
     router.push("/location_avec_chauffeur");
   };
+
+  const linkToLocaAvecChauff = () => {
+    router.push("/course_dans_lyon");
+  };
   return (
     <div className={HeaderResa.resaContainer}>
       <div className={HeaderResa.title}>
@@ -21,6 +25,7 @@ export default function ResaChauf() {
         <ButtNavResa
           classe={HeaderResa.url2}
           phrase1="Courses dans Lyon et ses alentours"
+          linkTo={linkToLocaAvecChauff}
         />
         <ButtNavResa
           classe={HeaderResa.url3}
