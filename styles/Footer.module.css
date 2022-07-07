@@ -1,7 +1,7 @@
 .container {
   background: yellow;
   align-items: center;
-  margin-top: 180px;
+  margin-top: 50px;
   padding: 10px;
 }
 .footer {
@@ -19,7 +19,7 @@
   text-align: center;
   position: absolute;
   padding-top: 70px;
-  font-size: x-small;
+  font-size: small;
   color: rgb(0, 0, 0);
 }
 .socialIcons {

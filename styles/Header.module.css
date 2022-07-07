@@ -21,7 +21,9 @@
   color: #56b856;
 }
 .navItems li {
-  display: inline-flex;
+  display: flex;
+  align-items: center;
+  margin-left: 0;
 }
 
 .userIcon {

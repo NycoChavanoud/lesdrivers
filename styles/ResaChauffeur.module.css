@@ -8,6 +8,7 @@
   text-align: left;
   padding: 70px 70px 0px 40px;
   font-size: 10px;
+  cursor: pointer;
 }
 
 .url1 {
@@ -33,7 +34,6 @@
   flex-direction: column;
   background-color: #2a2a92;
   padding: 20px;
-  opacity: 80%;
 }
 
 .resaContainerp {
@@ -70,8 +70,8 @@
   .buttonsResaChauff {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
-    width: 1200px;
+    width: 100%;
   }
 }
