@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 import toast, { Toaster } from "react-hot-toast";
-import { passwordStrength } from "check-password-strength";
 import Layout from "../../components/Layout";
 import style from "../../styles/contact.module.css";
 import { useRouter } from "next/router";
@@ -11,16 +10,13 @@ import profilePicture from "../../public/images/input_profil.png";
 import phonePicture from "../../public/images/input_phone.png";
 import adressPicture from "../../public/images/input_adress.png";
 import societyPicture from "../../public/images/input_society.png";
-import passwordPicture from "../../public/images/input_password.png";
 const notifyRegisterSuccess = () => toast("Thanks ! You can now log in !");
 
 export default function SignupPage() {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [address, setAddress] = useState("");
+  const [message, setMessage] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [society, setSociety] = useState("");
   const [error, setError] = useState("");
@@ -29,23 +25,13 @@ export default function SignupPage() {
   const handleSubmit = (e) => {
     setError("");
     e.preventDefault();
-    if (password !== passwordConfirmation)
-      return setError("passwords do not match");
-
-    if (["Too Weak", "Weak"].includes(passwordStrength(password).value))
-      return setError(
-        "password is too weak. It must contain an uppercase letter, a lowercase letter, a symbol and a number"
-      );
-
     axios
       .post("/api/users", {
-        password,
         firstname,
         email,
         lastname,
-        address,
+        message,
         phoneNumber,
-        society,
       })
       .then(() => router.push("/login"))
       .then(notifyRegisterSuccess)
@@ -119,16 +105,19 @@ export default function SignupPage() {
         </div>
 
         <div className={style.inputDiv}>
-          <label htmlFor="address">
-            <Image src={adressPicture} alt="Phone number" />
+          <label htmlFor="message">
+            <Image src={adressPicture} alt="message" />
           </label>
           <input
             type="text"
-            id="address"
-            data-cy="address"
-            value={address}
-            placeholder="Adresse"
-            onChange={(e) => setAddress(e.target.value)}
+            id="message"
+            data-cy="message"
+            value={message}
+            minLength="50"
+            maxLength="500"
+            size="500"
+            placeholder="Message"
+            onChange={(e) => setMessage(e.target.value)}
           />
         </div>
 
@@ -145,40 +134,9 @@ export default function SignupPage() {
             onChange={(e) => setSociety(e.target.value)}
           />
         </div>
-
-        <div className={style.inputDivWith2InputsContainer}>
-          <div className={style.inputDivWith2Inputs}>
-            <label htmlFor="password">
-              <Image src={passwordPicture} alt="Password" />
-            </label>
-            <input
-              required
-              type="password"
-              id="password"
-              data-cy="password"
-              value={password}
-              placeholder="Mot de passe"
-              onChange={(e) => setPassword(e.target.value)}
-            />
-          </div>
-          <div className={style.border} />
-          <div className={style.inputDivWith2Inputs}>
-            <label htmlFor="passwordConfirmation"></label>
-            <input
-              required
-              type="password"
-              id="passwordConfirmation"
-              data-cy="passwordConfirmation"
-              value={passwordConfirmation}
-              placeholder="Confirmation du mot de passe"
-              onChange={(e) => setPasswordConfirmation(e.target.value)}
-            />
-          </div>
-        </div>
-
         <p className={style.wrongDatas}>{error}</p>
         <button data-cy="registerBtn" type="submit">
-          Register
+          Envoyer
         </button>
       </form>
     </Layout>
