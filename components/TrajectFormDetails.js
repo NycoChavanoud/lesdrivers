@@ -36,10 +36,15 @@ export default function TrajectFormDetails({
 
   const handleCreateItin = (e) => {
     e.preventDefault();
+
+    // CONSOLE.LOG A SUPPRIMER QUAND TESTS FONCTIONNELS :
     console.log(originAdress);
+    console.log(destinationAdress);
+
     axios
       .post(`/api/itineraryAirport`, {
         originAdress,
+        destinationAdress,
       })
       .catch((err) => {
         console.error(err);
@@ -66,7 +71,6 @@ export default function TrajectFormDetails({
           />
         )}
       </div>
-
       <div className={styleTransfert.InputDepartArrive}>
         <label className={styleTransfert.label}>Lieu d&apos;arrivée</label>
         {destinationAdressDefault === "destinationAdressDefaultAirport" ? (
@@ -85,7 +89,6 @@ export default function TrajectFormDetails({
           />
         )}
       </div>
-
       <div className={styleTransfert.InputDepartDate}>
         <label className={styleTransfert.label}>Date de départ</label>
         <input
@@ -109,7 +112,7 @@ export default function TrajectFormDetails({
           onChange={(e) => setNumberPassengers(e.target.value)}
         >
           <option defaultValue value="0">
-            -
+            {/* MODIFIER ET METTRE UN INPUT type Number */}-
           </option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -124,6 +127,7 @@ export default function TrajectFormDetails({
           <option value="NR">Plus de 10 personnes</option>
         </select>
       </div>
+      {console.log(typeof departureDate)}
       <div className={styleTransfert.InputNumberLuggage}>
         <label className={styleTransfert.label}>Nombre de bagages</label>
         <select

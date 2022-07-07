@@ -19,8 +19,9 @@ async function seed() {
   await db.itineraryAirport.deleteMany();
   await db.itineraryAirport.create({
     data: {
-      originAdress: "Departure place sample, injected by the seed file",
-      // destinationAdress: "destination form seed",
+      originAdress: "originAdress sample from the seed",
+      destinationAdress: "destinationSample from the seed",
+      departureDate: "2022-01-01",
     },
   });
 }
