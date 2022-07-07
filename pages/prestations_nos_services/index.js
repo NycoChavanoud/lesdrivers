@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function NosServices() {
-  const [state, setState] = useState("Rillieux-la-Pape");
+  const [state, setState] = useState("");
 
   const handleInput = (e) => {
     setState(e.target.value);
