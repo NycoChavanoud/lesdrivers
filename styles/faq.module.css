@@ -1,6 +1,7 @@
 .faqMainContainer {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 100%;
 }
 .faqMainTitre {
@@ -25,22 +26,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px 15px 0px 15px;
+  width: 80%;
 }
 
 .gras {
   font-weight: 900;
-}
-
-@media screen and (min-width: 600px) {
-  .faqMainContainer {
-    display: flex;
-    align-items: center;
-  }
-  .faqContainer {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 80%;
-  }
 }
