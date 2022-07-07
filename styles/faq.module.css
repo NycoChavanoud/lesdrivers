@@ -33,10 +33,14 @@
 }
 
 @media screen and (min-width: 600px) {
+  .faqMainContainer {
+    display: flex;
+    align-items: center;
+  }
   .faqContainer {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 450px 0px 450px;
+    width: 80%;
   }
 }
