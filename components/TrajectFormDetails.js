@@ -192,10 +192,10 @@ export default function TrajectFormDetails({
           <option defaultValue value="0">
             -
           </option>
-          <option value="0 - 5">Entre 0 et 5 bagages</option>
-          <option value="5 - 10">Entre 5 et 10 bagages</option>
-          <option value="10 - 15">Entre 10 et 15 bagages</option>
-          <option value="15 - 20">Entre 15 et 20 bagages</option>
+          <option value="0 - 2">Entre 0 et 2 bagages</option>
+          <option value="2 - 4">Entre 2 et 4 bagages</option>
+          <option value="4 - 6">Entre 4 et 6 bagages</option>
+          <option value="+ de 6">Plus de 6 bagages</option>
         </select>
       </div>
       <div className={styleTransfert.InputVehiculeType}>
