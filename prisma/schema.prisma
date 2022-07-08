@@ -11,14 +11,14 @@ datasource db {
 }
 
 model User {
-  id      Int     @id @default(autoincrement())
-  firstname   String 
-  lastname String 
-  email String
+  id             Int     @id @default(autoincrement())
+  firstname      String
+  lastname       String
+  email          String
   hashedPassword String
-  phoneNumber String
-  address String? 
-  society String?
+  phoneNumber    String
+  address        String?
+  society        String?
 
   @@unique([email])
 }
