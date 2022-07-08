@@ -15,6 +15,17 @@ async function seed() {
       society: "Credit Ecolo",
     },
   });
+
+  await db.FormLocaChauff.deleteMany();
+  await db.FormLocaChauff.create({
+    data: {
+      departureAdress: "3 rue de la république",
+      arrivalAdress: "12 avenue des commissaires",
+      departureOfDate: "2022-21-03",
+      departureOfTime: "18:30",
+      numberOfPassengers: 5,
+    },
+  });
 }
 
 seed();
