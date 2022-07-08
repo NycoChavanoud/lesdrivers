@@ -3,7 +3,10 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 
-export default function LocationAvecChauffeur() {
+export default function LocationAvecChauffeur({
+  departure = "",
+  arrival = "",
+}) {
   const [selectedItem, setSelectedItem] = useState("");
   const [buttonHandle, setButtonHandle] = useState(false);
 
@@ -11,6 +14,26 @@ export default function LocationAvecChauffeur() {
     setButtonHandle(true);
   };
 
+  // all behind is useful for fetch data
+
+  const [departureAdress, setDepartureAdress] = useState(departure);
+  const [arrivalAdress, setArrivalAdress] = useState(arrival);
+
+  const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
+  const [departureOfTime, setDepartureOfTime] = useState("10:00");
+  //const [typeCar, setTypeCar] = useState("1");
+  const [numberOfPassengers, setNumberOfPassengers] = useState("1");
+
+  const fetchData = (e) => {
+    e.preventDefault();
+    console.log("c'est envoyé");
+  };
+
+  console.log(departureAdress);
+  console.log(arrivalAdress);
+  console.log(departureOfDate);
+  console.log(departureOfTime);
+  console.log(numberOfPassengers);
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">
       <div className={styleLocation.containerService}>
@@ -26,23 +49,39 @@ export default function LocationAvecChauffeur() {
             <div className={styleLocation.containerForm}>
               <div className={styleLocation.containerInput}>
                 <p>Départ</p>
-                <input className={styleLocation.inputPlace} />
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={departureAdress}
+                  onChange={(e) => setDepartureAdress(e.target.value)}
+                />
               </div>
               <div className={styleLocation.containerInput}>
                 <p>Arrivée</p>
-                <input className={styleLocation.inputPlace} />
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={arrivalAdress}
+                  onChange={(e) => setArrivalAdress(e.target.value)}
+                />
               </div>
               <div className={styleLocation.containerInput}>
                 <p>Date</p>
-                <input type="date" className={styleLocation.inputDate} />
+                <input
+                  type="date"
+                  className={styleLocation.inputDate}
+                  value={departureOfDate}
+                  onChange={(e) => setDepartureOfDate(e.target.value)}
+                />
               </div>
               <div className={styleLocation.containerTime}>
                 <p>
                   Je souhaite réserver mon chauffeur à{" "}
                   <input
-                    id="test"
                     className={styleLocation.inputTime}
                     type="time"
+                    value={departureOfTime}
+                    onChange={(e) => setDepartureOfTime(e.target.value)}
                   />
                 </p>
               </div>
@@ -56,6 +95,7 @@ export default function LocationAvecChauffeur() {
                     classPicture={styleLocation.vehi1}
                     vehiculeName={"Hybride électrique"}
                     handlefunction={() => setSelectedItem("vehicule1")}
+                    VehicId={"1"}
                     classContainer={
                       selectedItem === "vehicule1"
                         ? styleLocation.active
@@ -65,6 +105,7 @@ export default function LocationAvecChauffeur() {
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi2}
                     vehiculeName={"Berline"}
+                    VehicId={"2"}
                     handlefunction={() => setSelectedItem("vehicule2")}
                     classContainer={
                       selectedItem === "vehicule2"
@@ -75,6 +116,7 @@ export default function LocationAvecChauffeur() {
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi3}
                     vehiculeName={"Van"}
+                    VehicId={"3"}
                     handlefunction={() => setSelectedItem("vehicule3")}
                     classContainer={
                       selectedItem === "vehicule3"
@@ -85,6 +127,7 @@ export default function LocationAvecChauffeur() {
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi4}
                     vehiculeName={"Mini-bus"}
+                    VehicId={"4"}
                     handlefunction={() => setSelectedItem("vehicule4")}
                     classContainer={
                       selectedItem === "vehicule4"
@@ -109,12 +152,14 @@ export default function LocationAvecChauffeur() {
                     min="0"
                     max="500"
                     className={styleLocation.inputNbrPeople}
+                    value={numberOfPassengers}
+                    onChange={(e) => setNumberOfPassengers(e.target.value)}
                   />
                 </div>
               </div>
               <div className={styleLocation.containerEndingButton}>
                 <button
-                  onClick={handlefunctionButton}
+                  onClick={(handlefunctionButton, fetchData)}
                   className={
                     buttonHandle
                       ? styleLocation.buttonActive
