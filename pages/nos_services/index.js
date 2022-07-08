@@ -46,6 +46,10 @@ export default function NosServices() {
     router.push("/transfert_aeroport");
   };
 
+  const linkToService2 = () => {
+    router.push("/transfert_aeroport");
+  };
+
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
       <div className={styleService.containerService}>
@@ -76,6 +80,7 @@ export default function NosServices() {
               }
               style={styleService.containerCardService2}
               showService={showService2}
+              linkTo={linkToService2}
               backgroundDesktopMobile={styleService.titleService2}
             />
             <ServicesCard
@@ -150,7 +155,10 @@ export default function NosServices() {
                     travaillent selon nos standards de qualité : Tenue en
                     costume et sens du service.
                   </p>
-                  <button className={styleService.buttService}>
+                  <button
+                    className={styleService.buttService}
+                    onClick={() => router.push("/course_dans_lyon")}
+                  >
                     Accéder au service
                   </button>
                 </div>
@@ -172,7 +180,10 @@ export default function NosServices() {
                     van avec chauffeur selon le temps et l’itinéraire que vous
                     avez choisi …
                   </p>
-                  <button className={styleService.buttService}>
+                  <button
+                    className={styleService.buttService}
+                    onClick={() => router.push("location_avec_chauffeur")}
+                  >
                     Accéder au service
                   </button>
                 </div>

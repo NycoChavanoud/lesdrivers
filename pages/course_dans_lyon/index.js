@@ -104,21 +104,12 @@ export default function LocationAvecChauffeur() {
                 </p>
                 <div className={styleLocation.containerImageAndInput}>
                   <div className={styleLocation.nbrPeople} />
-                  <select className={styleLocation.inputNbrPeople}>
-                    <option selected value="base">
-                      -
-                    </option>
-                    <option value="unePersonne">1</option>
-                    <option value="deuxPersonnes">2</option>
-                    <option value="troisPersonnes">3</option>
-                    <option value="quatrePersonne">4</option>
-                    <option value="cinqPersonnes">5</option>
-                    <option value="sixPersonnes">6</option>
-                    <option value="septPersonnes">7</option>
-                    <option value="huitPersonnes">8</option>
-                    <option value="neufPersonnes">9</option>
-                    <option value="dixPersonnes">10</option>
-                  </select>
+                  <input
+                    type="number"
+                    min="0"
+                    max="500"
+                    className={styleLocation.inputNbrPeople}
+                  />
                 </div>
               </div>
               <div className={styleLocation.containerEndingButton}>
