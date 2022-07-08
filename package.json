@@ -21,30 +21,19 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.9.3",
-    "@mui/material": "^5.8.4",
     "@prisma/client": "^3.14.0",
     "argon2": "^0.28.5",
     "axios": "^0.27.2",
     "check-password-strength": "^2.0.5",
-    "cors": "^2.8.5",
     "csrf": "^3.1.0",
-    "express": "^4.18.1",
     "joi": "^17.6.0",
     "next": "12.1.6",
     "next-auth": "^4.5.0",
-    "nextjs-cors": "^2.1.1",
     "npm-run-all": "^4.1.5",
     "prisma": "^3.14.0",
-    "query-string": "^7.1.1",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-hot-toast": "^2.2.0",
-    "react-router-dom": "^6.3.0",
-    "react-select": "^5.3.2",
-    "use-url-search-params": "^2.5.1",
-    "use-persisted-state": "^0.3.3"
+    "react-hot-toast": "^2.2.0"
   },
   "devDependencies": {
     "cypress": "^9.6.1",

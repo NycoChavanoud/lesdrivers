@@ -117,7 +117,7 @@ export default function Vehicules() {
                   <p>
                     Vous avez besoin de vous déplacer en groupe ? Découvrez
                     notre service de location de mini-bus ! Chaque mini-bus peut
-                    acceuillir une douzaine de personnes assises.
+                    acceuillir une vingtaine de personnes assises.
                   </p>
                 </div>
               ) : (

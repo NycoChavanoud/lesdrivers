@@ -1,6 +1,6 @@
 import styleTransfert from "../styles/TransfertAeroport.module.css";
-import React, { useState } from "react";
-import Autocompletion from "./Autocompletion";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export default function TrajectFormDetails({
   originAdressDefault = "",
@@ -34,6 +34,53 @@ export default function TrajectFormDetails({
     changeRequiredNumFlight(newDestination);
   };
 
+  const [latitude, setLatitude] = useState([""]);
+  const [longitude, setLongitude] = useState([""]);
+  const [text, setText] = useState("");
+  const [suggestions, setSuggestions] = useState([]);
+  useEffect(() => {
+    const loadAddress = async () => {
+      if (text.length > 6) {
+        const response = await axios.get(
+          `/api/autocomplete/?address=${encodeURIComponent(text)}`
+        );
+        setSuggestions(response.data.features);
+        setLatitude(response.data.features[0].geometry.coordinates[1]);
+        setLongitude(response.data.features[0].geometry.coordinates[0]);
+      }
+    };
+    loadAddress();
+  }, [text]);
+  console.log(latitude);
+  console.log(longitude);
+  const onSuggestHandler = (text) => {
+    setText(text);
+    setSuggestions([]);
+    setLatitude([""]);
+    setLongitude([""]);
+  };
+
+  console.log(suggestions);
+  console.log(originAdress);
+
+  const [distance, setDistance] = useState("");
+  const aeroportCoordinates = "45.7220,5.0753";
+  useEffect(() => {
+    const loadDistance = async () => {
+      const response = await axios.get(
+        `https://maps.open-street.com/api/route/?origin=${latitude},${longitude}&destination=${aeroportCoordinates}&mode=driving&key=b3a2ba39c14fa86f221d83a472f6b281`
+      );
+      setDistance(response.data.total_distance);
+    };
+    loadDistance();
+  }, [latitude, longitude]);
+  console.log(distance);
+
+  let price = Math.round((distance / 1000) * 1.8);
+
+  if (departureTime > "21:00" || departureTime < "6:00")
+    price = Math.round(price * 1.15);
+
   return (
     <>
       <div className={styleTransfert.InputDeparturePlace}>
@@ -46,12 +93,36 @@ export default function TrajectFormDetails({
             <option value="Train">Gare Lyon-Saint Exupéry</option>
           </select>
         ) : (
-          <Autocompletion
-            type="button"
-            placeholder="ex : 14 rue des oliviers, Villeurbanne"
-            value={originAdress}
-            onChange={(e) => setOriginAdress(e.target.value)}
-          />
+          <div className="container">
+            <input
+              className={styleTransfert.InputDepartDate}
+              style={{ marginTop: 10, width: 400 }}
+              type="text"
+              onChange={(e) => setText(e.target.value)}
+              value={text}
+              onBlur={() => {
+                setTimeout(() => {
+                  setSuggestions([]);
+                }, 100);
+              }}
+            />
+            <div>
+              {suggestions.map((i, index) => {
+                return (
+                  <div key={index}>
+                    <div
+                      type="button"
+                      className="col-md-12 input"
+                      style={{ marginTop: 12, width: 400 }}
+                      onClick={() => onSuggestHandler(i.properties.label)}
+                    >
+                      {i.properties.label}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
         )}
       </div>
 
@@ -186,6 +257,7 @@ export default function TrajectFormDetails({
         </label>
         <textarea type="text" />
       </div>
+      <div>{price}</div>
     </>
   );
 }
