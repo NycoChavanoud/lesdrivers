@@ -75,6 +75,7 @@ export default function TrajectFormDetails({
             placeholder="ex : 14 rue des oliviers, Villeurbanne"
             value={originAdress}
             onChange={(e) => setOriginAdress(e.target.value)}
+            required
           />
         )}
       </div>
@@ -93,6 +94,7 @@ export default function TrajectFormDetails({
             placeholder="ex : 14 rue des oliviers, Villeurbanne"
             value={destinationAdress}
             onChange={(e) => setDestinationAdress(e.target.value)}
+            required
           />
         )}
       </div>
@@ -126,10 +128,9 @@ export default function TrajectFormDetails({
           value={numberLuggages}
           onChange={(e) => setNumberLuggages(e.target.value)}
         >
-          <option defaultValue value="0">
-            -
+          <option defaultValue value="0 - 5">
+            Entre 0 et 5 bagages
           </option>
-          <option value="0 - 5">Entre 0 et 5 bagages</option>
           <option value="5 - 10">Entre 5 et 10 bagages</option>
           <option value="10 - 15">Entre 10 et 15 bagages</option>
           <option value="15 - 20">Entre 15 et 20 bagages</option>
@@ -138,10 +139,9 @@ export default function TrajectFormDetails({
       <div className={styleTransfert.InputVehiculeType}>
         <label className={styleTransfert.label}>Type de véhicule</label>
         <select value={vehicule} onChange={(e) => setVehicule(e.target.value)}>
-          <option defaultValue value="">
-            -
+          <option defaultValue value="berline">
+            Berline
           </option>
-          <option value="berline">Berline</option>
           <option value="van">Van</option>
           <option value="mini-van">Mini-van</option>
           <option value="car">Car</option>
@@ -200,7 +200,9 @@ export default function TrajectFormDetails({
           onChange={(e) => setSomethingToSay(e.target.value)}
         />
       </div>
-      <button>Valider envoi requête</button>
+      <button className={styleTransfert.buttonValidate}>
+        Valider mes informations
+      </button>
     </form>
   );
 }

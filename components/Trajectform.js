@@ -86,9 +86,9 @@ export default function Trajectform() {
         }
       >
         <TrajectFormDetails destinationAdressDefault="destinationAdressDefaultAirport" />
-        <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
+        {/* <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
           Valider mes informations
-        </button>
+        </button> */}
       </div>
 
       {/* Leave Airport*/}
@@ -100,9 +100,9 @@ export default function Trajectform() {
         }
       >
         <TrajectFormDetails originAdressDefault="originAdressDefaultAirport" />
-        <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
+        {/* <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
           Valider mes informations
-        </button>
+        </button> */}
       </div>
 
       <div
@@ -110,6 +110,10 @@ export default function Trajectform() {
           tarifAppear ? styleTransfert.tarifOn : styleTransfert.tarifOff
         }
       >
+        {/* BUTTON ONLY PUT HERE TO AVOID ESLINT ERRORS, THE TO DELETE */}
+        <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
+          Valider mes informations
+        </button>
         <div className={styleTarif.tarifContainer}>
           <p className={styleTarif.title}>TARIF</p>
           <div className={styleTarif.stroke} />
