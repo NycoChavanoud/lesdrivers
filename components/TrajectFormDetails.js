@@ -12,7 +12,7 @@ export default function TrajectFormDetails({
   );
   const [departureDate, setDepartureDate] = useState("2023-01-01");
   const [departureTime, setDepartureTime] = useState("12:00");
-  const [numberPassengers, setNumberPassengers] = useState("1");
+  const [numberPassengers, setNumberPassengers] = useState(1);
   const [numberLuggages, setNumberLuggages] = useState("0 - 5");
   const [vehicule, setVehicule] = useState("berline");
   const [siegeBebe, setSiegeBebe] = useState(false);
@@ -59,7 +59,7 @@ export default function TrajectFormDetails({
   };
 
   return (
-    <>
+    <form onSubmit={handleCreateItin}>
       <div className={styleTransfert.InputDepartLieu}>
         <label className={styleTransfert.label}>Lieu de départ</label>
         {originAdressDefault === "originAdressDefaultAirport" ? (
@@ -117,7 +117,7 @@ export default function TrajectFormDetails({
         <input
           type="number"
           value={numberPassengers}
-          onChange={(e) => setNumberPassengers(e.target.value)}
+          onChange={(e) => setNumberPassengers(parseInt(e.target.value, 10))}
         />
       </div>
       <div className={styleTransfert.InputNumberLuggage}>
@@ -200,7 +200,7 @@ export default function TrajectFormDetails({
           onChange={(e) => setSomethingToSay(e.target.value)}
         />
       </div>
-      <button onClick={handleCreateItin}>Valider envoi requête</button>
-    </>
+      <button>Valider envoi requête</button>
+    </form>
   );
 }
