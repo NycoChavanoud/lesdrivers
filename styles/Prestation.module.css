@@ -105,6 +105,7 @@
     flex-wrap: wrap;
     margin: 0;
   }
+
   .prestationContainerButton {
     margin: 15px 25px 5px -10px;
     padding: 20px 20px 0px 20px;
@@ -118,7 +119,7 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
-    width: 80%;
+    width: 70%;
   }
   .prestationh1 {
     font-size: 30px;
