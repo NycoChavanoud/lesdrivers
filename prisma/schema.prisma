@@ -30,4 +30,22 @@ model FormLocaChauff {
   departureOfDate    String?
   departureOfTime    String?
   numberOfPassengers Int?
+
+
+}
+
+model ItineraryAirport {
+  id                Int     @id @default(autoincrement())
+  originAdress      String
+  destinationAdress String
+  departureDate     String
+  departureTime     String
+  numberPassengers  Int
+  numberLuggages    String
+  vehicule          String
+  siegeBebe         Boolean
+  rehausseur        Boolean
+  porteSki          Boolean
+  flightNumber      String?
+  somethingToSay    String?
 }
