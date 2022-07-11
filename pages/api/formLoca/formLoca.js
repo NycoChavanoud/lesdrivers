@@ -1,17 +1,9 @@
-/* eslint-disable no-unused-vars */
-import { createBackFormLoca } from "../../../models/backformLocaModel";
+import { createFormLoca } from "../../../models/backformLocaModel.js";
 
 async function handler(req, res) {
   if (req.method === "POST") {
-    const {
-      departureAdress,
-      arrivalAdress,
-      departureOfDate,
-      departureOfTime,
-      numberOfPassengers,
-    } = req.body;
-    const itin = await createBackFormLoca(req.body);
-    return res.status(201).send(itin);
+    const course = await createFormLoca(req.body);
+    return res.status(201).send(course);
   }
 }
 
