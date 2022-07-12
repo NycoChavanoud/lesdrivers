@@ -98,8 +98,13 @@ export default function TrajectFormDetails({
 
   let price = Math.round((distance / 1000) * 1.8);
 
-  // if (departureTime > "21:00" || departureTime < "6:00")
-  //   price = Math.round(price * 1.15);
+  if (departureTime > "21:00" || departureTime < "6:00")
+    price = Math.round(price * 1.15);
+
+  if (vehicule === "berline-luxe") price = Math.round((distance / 1000) * 2.2);
+  if (vehicule === "mini-van") price = Math.round((distance / 1000) * 2.2);
+  if (vehicule === "van") price = Math.round((distance / 1000) * 2.7);
+  if (vehicule === "van-luxe") price = Math.round((distance / 1000) * 3.2);
 
   const handleCreateItin = (e) => {
     e.preventDefault();
@@ -171,7 +176,7 @@ export default function TrajectFormDetails({
           </div>
           <div className={styleTransfert.InputDepartArrive}>
             <label className={styleTransfert.label}>Lieu d&apos;arrivée</label>
-            {destinationAdressDefault === "destinationAdressDefault" ? (
+            {destinationAdressDefault === "destinationAdressDefaultAirport" ? (
               <select onChange={(e) => changeDestinationAdress(e.target.value)}>
                 <option defaultValue value="Airport">
                   Aéroport Lyon-Saint Exupéry
@@ -230,9 +235,7 @@ export default function TrajectFormDetails({
             <input
               type="number"
               value={numberPassengers}
-              onChange={(e) =>
-                setNumberPassengers(parseInt(e.target.value, 10))
-              }
+              onChange={(e) => setNumberPassengers(e.target.value, 10)}
             />
           </div>
           <div className={styleTransfert.InputNumberLuggage}>
@@ -259,9 +262,10 @@ export default function TrajectFormDetails({
               <option defaultValue value="berline">
                 Berline
               </option>
-              <option value="van">Van</option>
+              <option value="berline-luxe">Berline Luxe</option>
               <option value="mini-van">Mini-van</option>
-              <option value="car">Car</option>
+              <option value="van">Van</option>
+              <option value="van-luxe">Van Luxe</option>
             </select>
           </div>
           <div className={styleTransfert.InputEquipments}>
@@ -334,7 +338,9 @@ export default function TrajectFormDetails({
       >
         <div className={styleTarif.tarifContainer}>
           <p className={styleTarif.title}>Tarif</p>
-          <div className={styleTarif.price}>{price}€</div>
+          <div className={styleTarif.price}>
+            {isNaN(price) ? <span>...</span> : price}€
+          </div>
         </div>
         <div className={styleTransfert.profile}>
           {currentUserProfile ? (
