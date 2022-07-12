@@ -98,7 +98,10 @@ export default function TrajectFormDetails({
 
   let price = Math.round((distance / 1000) * 1.8);
 
-  if (departureTime > "21:00" || departureTime < "6:00")
+  if (
+    parseFloat(departureTime) > parseFloat("21:00") ||
+    parseFloat(departureTime) < parseFloat("6:00")
+  )
     price = Math.round(price * 1.15);
 
   if (vehicule === "berline-luxe") price = Math.round((distance / 1000) * 2.2);
