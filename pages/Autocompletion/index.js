@@ -1,9 +1,9 @@
-import Autocompletion2 from "../../components/Autocompletion2";
+import Autocompletion from "../../components/Autocompletion";
 
 export default function searchAddress() {
   return (
     <div className="autocompletion">
-      <Autocompletion2 />
+      <Autocompletion />
     </div>
   );
 }
