@@ -5,9 +5,18 @@ import { useRouter } from "next/router";
 export default function ResaChauf() {
   const router = useRouter();
 
+  const linkToTransfertAirport = () => {
+    router.push("/transfert_aeroport");
+  };
+
   const linkToServiceAvcChauff = () => {
     router.push("/location_avec_chauffeur");
   };
+
+  const linkToLocaAvecChauff = () => {
+    router.push("/course_dans_lyon");
+  };
+
   return (
     <div className={HeaderResa.resaContainer}>
       <div className={HeaderResa.title}>
@@ -17,10 +26,12 @@ export default function ResaChauf() {
         <ButtNavResa
           classe={HeaderResa.url1}
           phrase1="Transfert à l'aéroport Lyon Saint Exupéry"
+          linkTo={linkToTransfertAirport}
         />
         <ButtNavResa
           classe={HeaderResa.url2}
           phrase1="Courses dans Lyon et ses alentours"
+          linkTo={linkToLocaAvecChauff}
         />
         <ButtNavResa
           classe={HeaderResa.url3}
