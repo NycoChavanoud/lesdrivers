@@ -3,9 +3,10 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function LocationAvecChauffeur() {
-  const [selectedItem, setSelectedItem] = useState("");
+  const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
 
   const handlefunctionButton = () => {
@@ -16,22 +17,25 @@ export default function LocationAvecChauffeur() {
 
   const [departureAdress, setDepartureAdress] = useState("");
   const [arrivalAdress, setArrivalAdress] = useState("");
-
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   //const [catCar, setCatCar] = useState("1");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
-  const handleCreateLoca = (e) => {
+  const router = useRouter();
+
+  const handleCreateCourse = (e) => {
     e.preventDefault();
     axios
-      .post(`/api/formLoca.js`, {
-        departureAdress,
-        arrivalAdress,
-        departureOfDate,
-        departureOfTime,
-        numberOfPassengers,
+      .post(`/api/courseLyon`, {
+        departureAdress: departureAdress,
+        arrivalAdress: arrivalAdress,
+        departureOfDate: departureOfDate,
+        departureOfTime: departureOfTime,
+        numberOfPassengers: parseInt(numberOfPassengers, 10),
+        vehiculeNeeded: selectedItem,
       })
+      .then(() => router.push("/"))
       .catch((err) => {
         console.error(err);
       });
@@ -47,6 +51,8 @@ export default function LocationAvecChauffeur() {
   console.log(departureOfDate);
   console.log(departureOfTime);
   console.log(numberOfPassengers);
+  console.log(selectedItem);
+
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">
       <div className={styleLocation.containerService}>
@@ -104,50 +110,51 @@ export default function LocationAvecChauffeur() {
                     Catégorie de véhicule souhaitée
                   </p>
                   <div className={styleLocation.containerCardVehicules}>
-                    {" "}
                     <TypeVehiculeCard
                       classPicture={styleLocation.vehi1}
                       vehiculeName={"Hybride électrique"}
-                      handlefunction={() => setSelectedItem("vehicule1")}
-                      VehicId={"1"}
+                      handlefunction={() =>
+                        setSelectedItem("Hybride électrique")
+                      }
                       classContainer={
-                        selectedItem === "vehicule1"
+                        selectedItem === "Hybride électrique"
                           ? styleLocation.active
                           : styleLocation.normal
                       }
+                      onChange={(e) => setSelectedItem(e.target.value)}
                     />
                     <TypeVehiculeCard
                       classPicture={styleLocation.vehi2}
                       vehiculeName={"Berline"}
-                      VehicId={"2"}
-                      handlefunction={() => setSelectedItem("vehicule2")}
+                      handlefunction={() => setSelectedItem("Berline")}
                       classContainer={
-                        selectedItem === "vehicule2"
+                        selectedItem === "Berline"
                           ? styleLocation.active
                           : styleLocation.normal
                       }
+                      onChange={(e) => setSelectedItem(e.target.value)}
                     />
                     <TypeVehiculeCard
                       classPicture={styleLocation.vehi3}
                       vehiculeName={"Van"}
-                      VehicId={"3"}
-                      handlefunction={() => setSelectedItem("vehicule3")}
+                      handlefunction={() => setSelectedItem("Van")}
                       classContainer={
-                        selectedItem === "vehicule3"
+                        selectedItem === "Van"
                           ? styleLocation.active
                           : styleLocation.normal
                       }
+                      onChange={(e) => setSelectedItem(e.target.value)}
                     />
                     <TypeVehiculeCard
                       classPicture={styleLocation.vehi4}
                       vehiculeName={"Mini-bus"}
-                      VehicId={"4"}
-                      handlefunction={() => setSelectedItem("vehicule4")}
+                      handlefunction={() => setSelectedItem("Mini-bus")}
                       classContainer={
-                        selectedItem === "vehicule4"
+                        selectedItem === "Mini-bus"
                           ? styleLocation.active
                           : styleLocation.normal
                       }
+                      onChange={(e) => setSelectedItem(e.target.value)}
                     />
                   </div>
                 </div>
@@ -175,7 +182,7 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerEndingButton}>
                   <button
                     onClick={
-                      (handlefunctionButton, fetchData, handleCreateLoca)
+                      (handlefunctionButton, fetchData, handleCreateCourse)
                     }
                     className={
                       buttonHandle

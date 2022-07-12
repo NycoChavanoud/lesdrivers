@@ -23,15 +23,24 @@ model User {
   @@unique([email])
 }
 
-model FormLocaChauff {
-  id                 Int     @id @default(autoincrement())
+model FormCourseLyon {
+  id                 Int    @id @default(autoincrement())
   departureAdress    String
   arrivalAdress      String
-  departureOfDate    String?
-  departureOfTime    String?
-  numberOfPassengers Int?
+  departureOfDate    String
+  departureOfTime    String
+  numberOfPassengers Int
+  vehiculeNeeded     String
+}
 
-
+model FormLocaChauff {
+  id                 Int    @id @default(autoincrement())
+  departureAdress    String
+  departureOfDate    String
+  departureOfTime    String
+  numberOfPassengers Int
+  vehiculeNeeded     String
+  forfait            String
 }
 
 model ItineraryAirport {

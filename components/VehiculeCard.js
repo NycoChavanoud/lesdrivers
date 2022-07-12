@@ -5,14 +5,9 @@ export default function VehiculeCard({
   nomVehicule,
   descriptionVehicule,
   showText,
-  VehicId,
 }) {
   return (
-    <div
-      className={styleVehiculesCard.cardContainer}
-      onClick={showText}
-      id={VehicId}
-    >
+    <div className={styleVehiculesCard.cardContainer} onClick={showText}>
       <div className={styleVehiculesCard.cardHeaderContainer}>
         <div className={classeImage}></div>
         <p className={styleVehiculesCard.cardHeaderContainerp}>{nomVehicule}</p>

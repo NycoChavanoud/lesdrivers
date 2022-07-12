@@ -1,19 +1,22 @@
 const db = require("../lib/prisma");
 
-module.exports.createFormLoca = async ({
+module.exports.createFormCourse = async ({
   departureAdress,
   arrivalAdress,
   departureOfDate,
   departureOfTime,
   numberOfPassengers,
+  vehiculeNeeded,
 }) => {
-  return await db.FormLocaChauff.create({
+  console.log("VRAI MODEL");
+  return await db.FormCourseLyon.create({
     data: {
       departureAdress,
       arrivalAdress,
       departureOfDate,
       departureOfTime,
       numberOfPassengers,
+      vehiculeNeeded,
     },
   });
 };

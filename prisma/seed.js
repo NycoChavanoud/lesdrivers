@@ -16,14 +16,27 @@ async function seed() {
     },
   });
 
+  await db.FormCourseLyon.deleteMany();
+  await db.FormCourseLyon.create({
+    data: {
+      departureAdress: "3 rue de la république",
+      arrivalAdress: "12 avenue des commissaires",
+      departureOfDate: "2022-01-01",
+      departureOfTime: "18:30",
+      numberOfPassengers: 5,
+      vehiculeNeeded: "Berline",
+    },
+  });
+
   await db.FormLocaChauff.deleteMany();
   await db.FormLocaChauff.create({
     data: {
       departureAdress: "3 rue de la république",
-      arrivalAdress: "12 avenue des commissaires",
-      departureOfDate: "2022-21-03",
+      departureOfDate: "2022-01-01",
       departureOfTime: "18:30",
       numberOfPassengers: 5,
+      vehiculeNeeded: "Berline",
+      forfait: "journée entière",
     },
   });
 
