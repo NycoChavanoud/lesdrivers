@@ -72,17 +72,12 @@ export default function TrajectFormDetails({
     };
     loadAddress();
   }, [text]);
-  console.log(latitude);
-  console.log(longitude);
   const onSuggestHandler = (text) => {
     setText(text);
     setSuggestions([]);
     setLatitude([""]);
     setLongitude([""]);
   };
-
-  console.log(suggestions);
-  console.log(originAdress);
 
   const [distance, setDistance] = useState("");
   const aeroportCoordinates = "45.7220,5.0753";
@@ -95,7 +90,6 @@ export default function TrajectFormDetails({
     };
     loadDistance();
   }, [latitude, longitude]);
-  console.log(distance);
 
   let price = Math.round((distance / 1000) * 1.8);
 

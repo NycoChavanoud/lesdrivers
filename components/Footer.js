@@ -72,8 +72,8 @@ export default function footer() {
         <div>
           <h5 className={styles.footerTitle}>Plan du site</h5>
           <div className={styles.links}>
-            <Link href="/newslatter">
-              <a style={{ opacity: "0.4" }}>Newslatter</a>
+            <Link href="/newsletter">
+              <a style={{ opacity: "0.4" }}>Newsletter</a>
             </Link>
             <div>
               <Link href="/mentionlegale">
