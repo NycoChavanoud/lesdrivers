@@ -44,9 +44,9 @@ export default function TrajectFormDetails({
   let isNumFlightRequired = true;
 
   const changeRequiredNumFlight = (destination) => {
-    if (destination === "Airport") {
+    if (destination === "Aéroport Lyon-Saint Exupéry") {
       isNumFlightRequired = true;
-    } else if (destination === "Train") {
+    } else if (destination === "Gare Lyon-Saint Exupéry") {
       isNumFlightRequired = false;
     }
   };
@@ -110,6 +110,12 @@ export default function TrajectFormDetails({
   if (vehicule === "van") price = Math.round((distance / 1000) * 2.7);
   if (vehicule === "van-luxe") price = Math.round((distance / 1000) * 3.2);
 
+  const setTextAndOriginAdress = (address) => {
+    setText(address);
+    setOriginAdress(address);
+    // destinationAdress();
+  };
+
   const handleCreateItin = (e) => {
     e.preventDefault();
     AppearTarif();
@@ -146,10 +152,12 @@ export default function TrajectFormDetails({
             <label className={styleTransfert.label}>Lieu de départ</label>
             {originAdressDefault === "originAdressDefaultAirport" ? (
               <select onChange={(e) => setOriginAdress(e.target.value)}>
-                <option defaultValue value="Airport">
+                <option defaultValue value="Aéroport Lyon-Saint Exupéry">
                   Aéroport Lyon-Saint Exupéry
                 </option>
-                <option value="Train"> Gare Lyon-Saint Exupéry</option>
+                <option value="Gare Lyon-Saint Exupéry">
+                  Gare Lyon-Saint Exupéry
+                </option>
               </select>
             ) : (
               <>
@@ -157,7 +165,7 @@ export default function TrajectFormDetails({
                   className={styleTransfert.InputDeparturePlace}
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
-                  onChange={(e) => setText(e.target.value)}
+                  onChange={(e) => setTextAndOriginAdress(e.target.value)}
                   value={text}
                   required
                   onBlur={() => {
@@ -188,10 +196,12 @@ export default function TrajectFormDetails({
             <label className={styleTransfert.label}>Lieu d&apos;arrivée</label>
             {destinationAdressDefault === "destinationAdressDefaultAirport" ? (
               <select onChange={(e) => changeDestinationAdress(e.target.value)}>
-                <option defaultValue value="Airport">
+                <option defaultValue value="Aéroport Lyon-Saint Exupéry">
                   Aéroport Lyon-Saint Exupéry
                 </option>
-                <option value="Train">Gare Lyon-Saint Exupéry</option>
+                <option value="Gare Lyon-Saint Exupéry">
+                  Gare Lyon-Saint Exupéry
+                </option>
               </select>
             ) : (
               <>
