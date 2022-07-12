@@ -7,6 +7,7 @@ import ProfilForm from "./ProfileForm";
 import Link from "next/link";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { useContext } from "react";
+import RecapItinerary from "./RecapItinerary";
 
 export default function TrajectFormDetails({
   originAdressDefault = "",
@@ -56,8 +57,14 @@ export default function TrajectFormDetails({
     changeRequiredNumFlight(newDestination);
   };
 
+  // RECAP :
+  // AppearTarif non plus sur le bouton mais dans la fonction handleCreateItin
+  // tarifAppear sur le form
+  // dans le tarif Appear : recap avec les useState
+
   const handleCreateItin = (e) => {
     e.preventDefault();
+    AppearTarif();
     axios
       .post(`/api/itineraryAirport`, {
         originAdress,
@@ -80,7 +87,12 @@ export default function TrajectFormDetails({
 
   return (
     <div>
-      <form onSubmit={handleCreateItin}>
+      <form
+        onSubmit={handleCreateItin}
+        className={
+          tarifAppear ? styleTransfert.tarifOff : styleTransfert.tarifOn
+        }
+      >
         <div className={styleTransfert.InputDepartLieu}>
           <label className={styleTransfert.label}>Lieu de départ</label>
           {originAdressDefault === "originAdressDefaultAirport" ? (
@@ -226,7 +238,7 @@ export default function TrajectFormDetails({
             onChange={(e) => setSomethingToSay(e.target.value)}
           />
         </div>
-        <button className={styleTransfert.buttonValidate} onClick={AppearTarif}>
+        <button className={styleTransfert.buttonValidate}>
           Valider mes informations
         </button>
       </form>
@@ -235,6 +247,28 @@ export default function TrajectFormDetails({
           tarifAppear ? styleTransfert.tarifOn : styleTransfert.tarifOff
         }
       >
+        <RecapItinerary
+          originAdress={originAdress}
+          destinationAdress={destinationAdress}
+          departureDate={departureDate}
+          departureTime={departureTime}
+          numberPassengers={numberPassengers}
+          numberLuggages={numberLuggages}
+          vehicule={vehicule}
+          siegeBebe={siegeBebe}
+          rehausseur={rehausseur}
+          porteSki={porteSki}
+          flightNumber={flightNumber}
+          somethingToSay={somethingToSay}
+        />
+        <button
+          type="button"
+          onClick={() => setTarifAppear()}
+          className={styleTransfert.buttonValidate}
+        >
+          Modifier mon trajet
+        </button>
+
         <div className={styleTarif.tarifContainer}>
           <p className={styleTarif.title}>TARIF</p>
           <div className={styleTarif.stroke} />
