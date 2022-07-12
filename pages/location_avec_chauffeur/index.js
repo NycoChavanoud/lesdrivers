@@ -195,7 +195,7 @@ export default function CourseDansLyon() {
                       : styleLocation.buttonNormal
                   }
                 >
-                  Réserver
+                  Réservers
                 </button>
               </div>
             </div>
