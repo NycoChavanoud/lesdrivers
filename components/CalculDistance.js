@@ -12,7 +12,7 @@ export default function CalculDistance({ latitude, longitude }) {
       setDistance(response.data.total_distance);
     };
     loadDistance();
-  }, []);
+  }, [latitude, longitude]);
   console.log(distance);
   return <div>{Math.round((distance / 1000) * 1.8)}</div>;
 }
