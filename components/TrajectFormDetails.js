@@ -26,13 +26,26 @@ export default function TrajectFormDetails({
     setTarifAppear(true);
     goToTarif();
   };
-  const [originAdress, setOriginAdress] = useState(originAdressDefault);
+  const [originAdress, setOriginAdress] = useState("");
   const [destinationAdress, setDestinationAdress] = useState(
     destinationAdressDefault
   );
+
+  useEffect(() => {
+    if (originAdressDefault === "originAdressDefaultAirport") {
+      setOriginAdress("Aéroport Lyon-Saint Exupéry");
+    }
+  }, [originAdressDefault]);
+
+  useEffect(() => {
+    if (destinationAdressDefault === "destinationAdressDefaultAirport") {
+      setDestinationAdress("Aéroport Lyon-Saint Exupéry");
+    }
+  }, [destinationAdressDefault]);
+
   const [departureDate, setDepartureDate] = useState("");
   const [departureTime, setDepartureTime] = useState("");
-  const [numberPassengers, setNumberPassengers] = useState("1");
+  const [numberPassengers, setNumberPassengers] = useState(1);
   const [numberLuggages, setNumberLuggages] = useState("0");
   const [vehicule, setVehicule] = useState("Berline");
   const [siegeBebe, setSiegeBebe] = useState(false);
@@ -107,7 +120,11 @@ export default function TrajectFormDetails({
   const setTextAndOriginAdress = (address) => {
     setText(address);
     setOriginAdress(address);
-    // destinationAdress();
+  };
+
+  const setTextAndDestinationAdress = (address) => {
+    setText(address);
+    setDestinationAdress(address);
   };
 
   const handleCreateItin = (e) => {
@@ -202,7 +219,7 @@ export default function TrajectFormDetails({
                 <input
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
-                  onChange={(e) => setText(e.target.value)}
+                  onChange={(e) => setTextAndDestinationAdress(e.target.value)}
                   value={text}
                   onBlur={() => {
                     setTimeout(() => {
@@ -249,7 +266,9 @@ export default function TrajectFormDetails({
             <input
               type="number"
               value={numberPassengers}
-              onChange={(e) => setNumberPassengers(e.target.value, 10)}
+              onChange={(e) =>
+                setNumberPassengers(parseInt(e.target.value, 10))
+              }
             />
           </div>
           <div className={styleTransfert.InputNumberLuggage}>
