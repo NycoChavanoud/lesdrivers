@@ -136,6 +136,10 @@
   display: none;
 }
 
+.RecapItinerary {
+  text-align: center;
+}
+
 @media screen and (min-width: 600px) {
   .ButtForm {
     width: 40%;

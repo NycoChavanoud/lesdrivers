@@ -61,6 +61,7 @@ export default function TrajectFormDetails({
   // AppearTarif non plus sur le bouton mais dans la fonction handleCreateItin
   // tarifAppear sur le form
   // dans le tarif Appear : recap avec les useState
+  // CSS dans TransfertAerport.module.css
 
   const handleCreateItin = (e) => {
     e.preventDefault();
@@ -266,7 +267,7 @@ export default function TrajectFormDetails({
           onClick={() => setTarifAppear()}
           className={styleTransfert.buttonValidate}
         >
-          Modifier mon trajet
+          Modifier
         </button>
 
         <div className={styleTarif.tarifContainer}>
