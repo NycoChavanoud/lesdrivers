@@ -6,11 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function NosServices() {
-  const [state, setState] = useState("");
-
-  const handleInput = (e) => {
-    setState(e.target.value);
-  };
+  const [isActive, setIsActive] = useState(false);
 
   return (
     <Layout pageTitle="prestations_nos_services">
@@ -42,13 +38,36 @@ export default function NosServices() {
             </h3>
             <h3 className={styles.calculator_text2}>Votre ville</h3>
             <form>
-              <input
-                type="text"
-                id="city"
-                value={state}
-                onChange={handleInput}
-                className={styles.calculator_input}
-              />
+              <div className={styles.dropdown}>
+                <div
+                  className={styles.dropdown_btn}
+                  onClick={() => setIsActive(!isActive)}
+                >
+                  Choissisez votre ville
+                  <span className={styles.spans}></span>
+                </div>
+                {isActive && (
+                  <div className={styles.dropdown_content}>
+                    <div className={styles.dropdown_item}>Bron</div>
+                    <div className={styles.dropdown_item}>Caluire-et-Cuire</div>
+                    <div className={styles.dropdown_item}>Décines</div>
+                    <div className={styles.dropdown_item}>La Mulatière</div>
+                    <div className={styles.dropdown_item}>Lyon</div>
+                    <div className={styles.dropdown_item}>Meyzieu</div>
+                    <div className={styles.dropdown_item}>
+                      Neuville-sur-Saône
+                    </div>
+                    <div className={styles.dropdown_item}>Décines-Charpieu</div>
+                    <div className={styles.dropdown_item}>Feyzin</div>
+                    <div className={styles.dropdown_item}>Lyon</div>
+                    <div className={styles.dropdown_item}>Rillieux-la-Pape</div>
+                    <div className={styles.dropdown_item}>Oullins</div>
+                    <div className={styles.dropdown_item}>Villeurbanne</div>
+                    <div className={styles.dropdown_item}>Vaulx-en-Velin</div>
+                    <div className={styles.dropdown_item}>Vennissieux</div>
+                  </div>
+                )}
+              </div>
               <button type="button" className={styles.btn}>
                 <Link href="/signup" passHref>
                   Valider
@@ -61,8 +80,8 @@ export default function NosServices() {
           <div className={styles.map_div}>
             <Image
               src={map}
-              width={750}
-              height={550}
+              width={650}
+              height={450}
               className={styles.map_img}
               alt="logo"
             />

@@ -48,7 +48,7 @@
   padding: 10px 0 6px 18px;
 }
 .bg_calculator {
-  background-color: blue;
+  background-color: rgb(11, 11, 177);
   border-radius: 10px;
   padding: 10px;
 }
@@ -61,7 +61,7 @@
 }
 
 .btn {
-  background-color: rgb(26, 26, 66);
+  background-color: rgb(27, 26, 66);
   color: white;
   border-radius: 10px;
   border: none;
@@ -86,6 +86,37 @@
 
 .map_container {
   margin-top: 40px;
+}
+
+.dropdown_btn {
+  background: white;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.dropdown_content {
+  width: 80%;
+  padding: 15px;
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  left: 0;
+  background: rgb(32, 38, 110);
+}
+.dropdown_item {
+  padding: 10px;
+  cursor: pointer;
+  color: rgb(213, 213, 213);
+}
+.dropdown_item:hover {
+  background: rgb(18, 18, 76);
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 490px) {
@@ -117,7 +148,7 @@
 
 @media screen and (min-width: 964px) {
   .calculator_container {
-    width: 60%;
+    width: 54%;
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
