@@ -19,7 +19,6 @@ export default function LocationAvecChauffeur() {
   const [arrivalAdress, setArrivalAdress] = useState("");
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
-  //const [catCar, setCatCar] = useState("1");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
   const router = useRouter();
@@ -45,13 +44,6 @@ export default function LocationAvecChauffeur() {
     e.preventDefault();
     console.log("c'est envoyé");
   };
-
-  console.log(departureAdress);
-  console.log(arrivalAdress);
-  console.log(departureOfDate);
-  console.log(departureOfTime);
-  console.log(numberOfPassengers);
-  console.log(selectedItem);
 
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">

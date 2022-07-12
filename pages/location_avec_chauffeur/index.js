@@ -22,13 +22,6 @@ export default function CourseDansLyon() {
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
-  console.log(departureAdress);
-  console.log(departureOfDate);
-  console.log(departureOfTime);
-  console.log(numberOfPassengers);
-  console.log(selectedItem);
-  console.log(selectedForfait);
-
   const router = useRouter();
 
   const handleCreateLocaChauff = (e) => {
