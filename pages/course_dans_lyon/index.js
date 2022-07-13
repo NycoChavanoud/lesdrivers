@@ -5,6 +5,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
+import ConfirmationCourseAndLoca from "../../components/ConfirmationCourseAndLoca";
+
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
@@ -34,7 +36,7 @@ export default function LocationAvecChauffeur() {
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
       })
-      .then(() => router.push("/"))
+      .then(() => router.push("/confirmation_course"))
       .catch((err) => {
         console.error(err);
       });
@@ -46,7 +48,7 @@ export default function LocationAvecChauffeur() {
   };
 
   return (
-    <Layout pageTitle="Les Drivers - Location avec chauffeur">
+    <Layout pageTitle="Les Drivers - Course dans Lyon">
       <div className={styleLocation.containerService}>
         <p className={styleLocation.titlecourse}>
           Course dans Lyon <br />
@@ -187,6 +189,56 @@ export default function LocationAvecChauffeur() {
                 </div>
               </div>
             </form>
+          </div>
+        </div>
+        <div className={styleLocation.containerRecap}>
+          <ConfirmationCourseAndLoca
+            dataDepart={"test"}
+            dataArrive={"test"}
+            dataDate={"test"}
+            dataTime={"test"}
+            dataVehicule={"test"}
+            dataNbrPeople={"test"}
+          />
+          <div className={styleLocation.containerUserInfo}>
+            <h1>Merci de remplir ces dernières informations !</h1>
+            <div className={styleLocation.containerInput}>
+              <p>Nom</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={departureAdress}
+                onChange={(e) => setDepartureAdress(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Prénom</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={departureAdress}
+                onChange={(e) => setDepartureAdress(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Numéro de téléphone</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={departureAdress}
+                onChange={(e) => setDepartureAdress(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Adresse mail</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={departureAdress}
+                onChange={(e) => setDepartureAdress(e.target.value)}
+              />
+            </div>
+            <button>Valider mes informations</button>
           </div>
         </div>
       </div>
