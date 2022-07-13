@@ -98,7 +98,7 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/course_dans_Lyon" className={styles.navbarlink}>
+            <Link href="/transfert_aeroport" className={styles.navbarlink}>
               <a>
                 <button
                   onClick={() => router.push("/transfert_aeroport")}
