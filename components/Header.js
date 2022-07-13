@@ -16,6 +16,7 @@ const Navbar = () => {
   };
   const router = useRouter();
   const currentRoute = router.pathname;
+
   return (
     <nav
       className={`${styles.navbar} ${showLinks ? styles.show_menu : "hidden"}`}
@@ -97,9 +98,14 @@ const Navbar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/reservation" className={styles.navbarlink}>
+            <Link href="/transfert_aeroport" className={styles.navbarlink}>
               <a>
-                <button className={styles.reserver}>Reserver</button>
+                <button
+                  onClick={() => router.push("/transfert_aeroport")}
+                  className={styles.reserver}
+                >
+                  Reserver
+                </button>
               </a>
             </Link>
           </li>

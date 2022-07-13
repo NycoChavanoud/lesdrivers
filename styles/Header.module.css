@@ -1,3 +1,11 @@
+.logo_icon2 {
+  visibility: hidden;
+}
+
+.logo_icon3 {
+  visibility: hidden;
+}
+
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 .navbar {
   display: flex;
