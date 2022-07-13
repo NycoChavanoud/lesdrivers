@@ -3,6 +3,9 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 import axios from "axios";
+
+import ConfirmationLoca from "../../components/ConfirmationLoca.js";
+
 import { useRouter } from "next/router";
 
 export default function CourseDansLyon() {
@@ -10,6 +13,11 @@ export default function CourseDansLyon() {
   const [buttonHandle, setButtonHandle] = useState(false);
 
   const [selectedForfait, setSelectedForfait] = useState("");
+
+  const [passengerName, setPassengerName] = useState("");
+  const [passengerFirstname, setPassengerFirstname] = useState("");
+  const [passengerMail, setPassengerMail] = useState("");
+  const [passengerPhoneNumber, setPassengerPhoneNumber] = useState("");
 
   const handlefunctionButton = () => {
     setButtonHandle(true);
@@ -199,6 +207,56 @@ export default function CourseDansLyon() {
                 </button>
               </div>
             </div>
+          </div>
+        </div>
+        <div className={styleLocation.containerRecap}>
+          <ConfirmationLoca
+            dataDepart={departureAdress}
+            dataDate={departureOfDate}
+            dataTime={departureOfTime}
+            dataVehicule={selectedItem}
+            dataNbrPeople={numberOfPassengers}
+            dataForfait={selectedForfait}
+          />
+          <div className={styleLocation.containerUserInfo}>
+            <h1>Merci de remplir ces dernières informations !</h1>
+            <div className={styleLocation.containerInput}>
+              <p>Nom</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={passengerName}
+                onChange={(e) => setPassengerName(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Prénom</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={passengerFirstname}
+                onChange={(e) => setPassengerFirstname(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Numéro de téléphone</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={passengerPhoneNumber}
+                onChange={(e) => setPassengerPhoneNumber(e.target.value)}
+              />
+            </div>
+            <div className={styleLocation.containerInput}>
+              <p>Adresse mail</p>
+              <input
+                className={styleLocation.inputPlace}
+                type="text"
+                value={passengerMail}
+                onChange={(e) => setPassengerMail(e.target.value)}
+              />
+            </div>
+            <button>Valider mes informations</button>
           </div>
         </div>
       </div>

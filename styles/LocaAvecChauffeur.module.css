@@ -269,7 +269,8 @@
 .url3,
 .url4,
 .url5,
-.url6 {
+.url6,
+.url7 {
   height: 60px;
   width: 60px;
 }
@@ -300,6 +301,11 @@
 
 .url6 {
   background-image: url(../public/images/confi_people.png);
+  background-size: contain;
+}
+
+.url7 {
+  background-image: url(../public/images/confi_forfait.png);
   background-size: contain;
 }
 

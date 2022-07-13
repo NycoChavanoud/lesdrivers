@@ -1,13 +1,13 @@
 import styleLocation from "../styles/LocaAvecChauffeur.module.css";
-import ButtonConfirmationCourseAndLoca from "../components/ButtonConfirmationCourseAndLoca";
+import ButtonConfirmationCourseAndLoca from "./ButtonConfirmationCourseAndLoca";
 
 export default function ConfirmationCourseAndLoca({
   dataDepart,
-  dataArrive,
   dataDate,
   dataTime,
   dataVehicule,
   dataNbrPeople,
+  dataForfait,
 }) {
   return (
     <div className={styleLocation.mainContainer}>
@@ -19,11 +19,6 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url1}
             title={"Lieu de départ"}
             data={dataDepart}
-          />
-          <ButtonConfirmationCourseAndLoca
-            logo={styleLocation.url2}
-            title={"Lieu d'arrivée"}
-            data={dataArrive}
           />
           <ButtonConfirmationCourseAndLoca
             logo={styleLocation.url3}
@@ -47,6 +42,12 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url6}
             title={"Nombre de personne"}
             data={dataNbrPeople}
+          />
+
+          <ButtonConfirmationCourseAndLoca
+            logo={styleLocation.url7}
+            title={"Forfait"}
+            data={dataForfait}
           />
         </div>
       </div>

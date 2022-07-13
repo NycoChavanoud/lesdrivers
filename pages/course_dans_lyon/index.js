@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 
-import ConfirmationCourseAndLoca from "../../components/ConfirmationCourseAndLoca";
+import ConfirmationCourse from "../../components/ConfirmationCourse";
 
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
@@ -197,7 +197,7 @@ export default function LocationAvecChauffeur() {
           </div>
         </div>
         <div className={styleLocation.containerRecap}>
-          <ConfirmationCourseAndLoca
+          <ConfirmationCourse
             dataDepart={departureAdress}
             dataArrive={arrivalAdress}
             dataDate={departureOfDate}
