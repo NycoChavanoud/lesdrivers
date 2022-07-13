@@ -6,8 +6,6 @@ import axios from "axios";
 
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 
-import { useRouter } from "next/router";
-
 export default function CourseDansLyon() {
   const [selectedItem, setSelectedItem] = useState("");
   const [buttonHandle, setButtonHandle] = useState(false);
@@ -18,6 +16,9 @@ export default function CourseDansLyon() {
   const [passengerFirstname, setPassengerFirstname] = useState("");
   const [passengerMail, setPassengerMail] = useState("");
   const [passengerPhoneNumber, setPassengerPhoneNumber] = useState("");
+
+  const [showConfirmation, setShowConfirmation] = useState(true);
+  const [showMain, setShowMain] = useState(true);
 
   const handlefunctionButton = () => {
     setButtonHandle(true);
@@ -30,10 +31,10 @@ export default function CourseDansLyon() {
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
-  const router = useRouter();
-
   const handleCreateLocaChauff = (e) => {
     e.preventDefault();
+    setShowConfirmation();
+    setShowMain();
     axios
       .post(`/api/locaChauff`, {
         departureAdress: departureAdress,
@@ -43,7 +44,6 @@ export default function CourseDansLyon() {
         vehiculeNeeded: selectedItem,
         forfait: selectedForfait,
       })
-      .then(() => router.push("/"))
       .catch((err) => {
         console.error(err);
       });
@@ -55,7 +55,13 @@ export default function CourseDansLyon() {
         <p className={styleLocation.titleloc}>
           Location <span>avec chauffeur</span>
         </p>
-        <div className={styleLocation.containerSection}>
+        <div
+          className={
+            showMain
+              ? styleLocation.containerSectionOn
+              : styleLocation.containerSectionOff
+          }
+        >
           <div className={styleLocation.containerSectionLeftLoca}>
             Nous avons hâte de vous faire découvrir notre belle ville de Lyon !
           </div>
@@ -209,7 +215,13 @@ export default function CourseDansLyon() {
             </div>
           </div>
         </div>
-        <div className={styleLocation.containerRecap}>
+        <div
+          className={
+            showConfirmation
+              ? styleLocation.containerRecapOff
+              : styleLocation.containerRecapOn
+          }
+        >
           <ConfirmationLoca
             dataDepart={departureAdress}
             dataDate={departureOfDate}
@@ -256,7 +268,9 @@ export default function CourseDansLyon() {
                 onChange={(e) => setPassengerMail(e.target.value)}
               />
             </div>
-            <button>Valider mes informations</button>
+            <button className={styleLocation.btnRecap}>
+              Valider mes informations
+            </button>
           </div>
         </div>
       </div>

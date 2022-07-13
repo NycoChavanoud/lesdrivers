@@ -3,7 +3,6 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 import axios from "axios";
-import { useRouter } from "next/router";
 
 import ConfirmationCourse from "../../components/ConfirmationCourse";
 
@@ -28,10 +27,13 @@ export default function LocationAvecChauffeur() {
   const [passengerMail, setPassengerMail] = useState("");
   const [passengerPhoneNumber, setPassengerPhoneNumber] = useState("");
 
-  const router = useRouter();
+  const [showConfirmation, setShowConfirmation] = useState(true);
+  const [showMain, setShowMain] = useState(true);
 
   const handleCreateCourse = (e) => {
     e.preventDefault();
+    setShowConfirmation();
+    setShowMain();
     axios
       .post(`/api/courseLyon`, {
         departureAdress: departureAdress,
@@ -41,15 +43,10 @@ export default function LocationAvecChauffeur() {
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
       })
-      .then(() => router.push("/confirmation_course"))
+
       .catch((err) => {
         console.error(err);
       });
-  };
-
-  const fetchData = (e) => {
-    e.preventDefault();
-    console.log("c'est envoyé");
   };
 
   return (
@@ -59,7 +56,13 @@ export default function LocationAvecChauffeur() {
           Course dans Lyon <br />
           <span>et ses alentours</span>
         </p>
-        <div className={styleLocation.containerSection}>
+        <div
+          className={
+            showMain
+              ? styleLocation.containerSectionOn
+              : styleLocation.containerSectionOff
+          }
+        >
           <div className={styleLocation.containerSectionLeftCourse}>
             Laissez vous conduire, de jour comme de nuit en toute sécurité !
           </div>
@@ -181,7 +184,10 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerEndingButton}>
                   <button
                     onClick={
-                      (handlefunctionButton, fetchData, handleCreateCourse)
+                      (handlefunctionButton,
+                      setShowConfirmation,
+                      setShowMain,
+                      handleCreateCourse)
                     }
                     className={
                       buttonHandle
@@ -196,7 +202,13 @@ export default function LocationAvecChauffeur() {
             </form>
           </div>
         </div>
-        <div className={styleLocation.containerRecap}>
+        <div
+          className={
+            showConfirmation
+              ? styleLocation.containerRecapOff
+              : styleLocation.containerRecapOn
+          }
+        >
           <ConfirmationCourse
             dataDepart={departureAdress}
             dataArrive={arrivalAdress}
@@ -243,7 +255,9 @@ export default function LocationAvecChauffeur() {
                 onChange={(e) => setPassengerMail(e.target.value)}
               />
             </div>
-            <button>Valider mes informations</button>
+            <button className={styleLocation.btnRecap}>
+              Valider mes informations
+            </button>
           </div>
         </div>
       </div>
