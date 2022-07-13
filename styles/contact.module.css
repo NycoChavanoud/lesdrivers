@@ -90,3 +90,23 @@
   font-weight: 600;
   width: 180px;
 }
+
+@media screen and (max-width: 660px) {
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 90%;
+    height: 300px;
+    margin: 10px;
+  }
+
+  .mainText {
+    text-align: center;
+    font-family: "Gabriela", serif;
+    font-weight: 500;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
