@@ -23,6 +23,11 @@ export default function LocationAvecChauffeur() {
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
+  const [passengerName, setPassengerName] = useState("");
+  const [passengerFirstname, setPassengerFirstname] = useState("");
+  const [passengerMail, setPassengerMail] = useState("");
+  const [passengerPhoneNumber, setPassengerPhoneNumber] = useState("");
+
   const router = useRouter();
 
   const handleCreateCourse = (e) => {
@@ -193,12 +198,12 @@ export default function LocationAvecChauffeur() {
         </div>
         <div className={styleLocation.containerRecap}>
           <ConfirmationCourseAndLoca
-            dataDepart={"test"}
-            dataArrive={"test"}
-            dataDate={"test"}
-            dataTime={"test"}
-            dataVehicule={"test"}
-            dataNbrPeople={"test"}
+            dataDepart={departureAdress}
+            dataArrive={arrivalAdress}
+            dataDate={departureOfDate}
+            dataTime={departureOfTime}
+            dataVehicule={selectedItem}
+            dataNbrPeople={numberOfPassengers}
           />
           <div className={styleLocation.containerUserInfo}>
             <h1>Merci de remplir ces dernières informations !</h1>
@@ -207,8 +212,8 @@ export default function LocationAvecChauffeur() {
               <input
                 className={styleLocation.inputPlace}
                 type="text"
-                value={departureAdress}
-                onChange={(e) => setDepartureAdress(e.target.value)}
+                value={passengerName}
+                onChange={(e) => setPassengerName(e.target.value)}
               />
             </div>
             <div className={styleLocation.containerInput}>
@@ -216,8 +221,8 @@ export default function LocationAvecChauffeur() {
               <input
                 className={styleLocation.inputPlace}
                 type="text"
-                value={departureAdress}
-                onChange={(e) => setDepartureAdress(e.target.value)}
+                value={passengerFirstname}
+                onChange={(e) => setPassengerFirstname(e.target.value)}
               />
             </div>
             <div className={styleLocation.containerInput}>
@@ -225,8 +230,8 @@ export default function LocationAvecChauffeur() {
               <input
                 className={styleLocation.inputPlace}
                 type="text"
-                value={departureAdress}
-                onChange={(e) => setDepartureAdress(e.target.value)}
+                value={passengerPhoneNumber}
+                onChange={(e) => setPassengerPhoneNumber(e.target.value)}
               />
             </div>
             <div className={styleLocation.containerInput}>
@@ -234,8 +239,8 @@ export default function LocationAvecChauffeur() {
               <input
                 className={styleLocation.inputPlace}
                 type="text"
-                value={departureAdress}
-                onChange={(e) => setDepartureAdress(e.target.value)}
+                value={passengerMail}
+                onChange={(e) => setPassengerMail(e.target.value)}
               />
             </div>
             <button>Valider mes informations</button>
