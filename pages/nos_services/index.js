@@ -211,7 +211,10 @@ export default function NosServices() {
                     transfert en van pour l’aéroport St Exupéry ou un salon à
                     Eurexpo, choisissez notre formule location van à Lyon !
                   </p>
-                  <button className={styleService.buttService}>
+                  <button
+                    className={styleService.buttService}
+                    onClick={() => router.push("location_avec_chauffeur")}
+                  >
                     Accéder au service
                   </button>
                 </div>
