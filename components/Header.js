@@ -101,7 +101,7 @@ const Navbar = () => {
             <Link href="/course_dans_Lyon" className={styles.navbarlink}>
               <a>
                 <button
-                  onClick={() => router.push("/course_dans_lyon")}
+                  onClick={() => router.push("/transfert_aeroport")}
                   className={styles.reserver}
                 >
                   Reserver

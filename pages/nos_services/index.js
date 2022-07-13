@@ -182,7 +182,7 @@ export default function NosServices() {
                   </p>
                   <button
                     className={styleService.buttService}
-                    onClick={() => router.push("location_avec_chauffeur")}
+                    onClick={() => router.push("/location_avec_chauffeur")}
                   >
                     Accéder au service
                   </button>
