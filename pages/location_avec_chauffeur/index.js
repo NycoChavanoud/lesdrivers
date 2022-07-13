@@ -2,6 +2,8 @@ import Layout from "../../components/Layout";
 import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
+import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function CourseDansLyon() {
   const [selectedItem, setSelectedItem] = useState("");
@@ -11,6 +13,32 @@ export default function CourseDansLyon() {
 
   const handlefunctionButton = () => {
     setButtonHandle(true);
+  };
+
+  // all behind is useful for fetch data
+
+  const [departureAdress, setDepartureAdress] = useState("");
+  const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
+  const [departureOfTime, setDepartureOfTime] = useState("10:00");
+  const [numberOfPassengers, setNumberOfPassengers] = useState("0");
+
+  const router = useRouter();
+
+  const handleCreateLocaChauff = (e) => {
+    e.preventDefault();
+    axios
+      .post(`/api/locaChauff`, {
+        departureAdress: departureAdress,
+        departureOfDate: departureOfDate,
+        departureOfTime: departureOfTime,
+        numberOfPassengers: parseInt(numberOfPassengers, 10),
+        vehiculeNeeded: selectedItem,
+        forfait: selectedForfait,
+      })
+      .then(() => router.push("/"))
+      .catch((err) => {
+        console.error(err);
+      });
   };
 
   return (
@@ -30,20 +58,30 @@ export default function CourseDansLyon() {
                   Point de <br />
                   rendez-vous
                 </p>
-                <input className={styleLocation.inputPlace} />
+                <input
+                  className={styleLocation.inputPlace}
+                  value={departureAdress}
+                  onChange={(e) => setDepartureAdress(e.target.value)}
+                />
               </div>
               <div className={styleLocation.containerInput}>
                 <p>Date</p>
-                <input type="date" className={styleLocation.inputDate} />
+                <input
+                  type="date"
+                  className={styleLocation.inputDate}
+                  value={departureOfDate}
+                  onChange={(e) => setDepartureOfDate(e.target.value)}
+                />
               </div>
               <div className={styleLocation.containerTime}>
                 <p>
                   Je souhaite être pris en charge à <br />
                   partir de{" "}
                   <input
-                    id="test"
-                    className={styleLocation.inputTime}
+                    className={styleLocation.setDepartureOfDate}
                     type="time"
+                    value={departureOfTime}
+                    onChange={(e) => setDepartureOfTime(e.target.value)}
                   />
                 </p>
               </div>
@@ -56,42 +94,46 @@ export default function CourseDansLyon() {
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi1}
                     vehiculeName={"Hybride électrique"}
-                    handlefunction={() => setSelectedItem("vehicule1")}
+                    handlefunction={() => setSelectedItem("Hybride électrique")}
                     classContainer={
-                      selectedItem === "vehicule1"
+                      selectedItem === "Hybride électrique"
                         ? styleLocation.active
                         : styleLocation.normal
                     }
+                    onChange={(e) => setSelectedItem(e.target.value)}
                   />
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi2}
                     vehiculeName={"Berline"}
-                    handlefunction={() => setSelectedItem("vehicule2")}
+                    handlefunction={() => setSelectedItem("Berline")}
                     classContainer={
-                      selectedItem === "vehicule2"
+                      selectedItem === "Berline"
                         ? styleLocation.active
                         : styleLocation.normal
                     }
+                    onChange={(e) => setSelectedItem(e.target.value)}
                   />
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi3}
                     vehiculeName={"Van"}
-                    handlefunction={() => setSelectedItem("vehicule3")}
+                    handlefunction={() => setSelectedItem("Van")}
                     classContainer={
-                      selectedItem === "vehicule3"
+                      selectedItem === "Van"
                         ? styleLocation.active
                         : styleLocation.normal
                     }
+                    onChange={(e) => setSelectedItem(e.target.value)}
                   />
                   <TypeVehiculeCard
                     classPicture={styleLocation.vehi4}
                     vehiculeName={"Mini-bus"}
-                    handlefunction={() => setSelectedItem("vehicule4")}
+                    handlefunction={() => setSelectedItem("Mini-bus")}
                     classContainer={
-                      selectedItem === "vehicule4"
+                      selectedItem === "Mini-bus"
                         ? styleLocation.active
                         : styleLocation.normal
                     }
+                    onChange={(e) => setSelectedItem(e.target.value)}
                   />
                 </div>
               </div>
@@ -110,6 +152,8 @@ export default function CourseDansLyon() {
                     min="0"
                     max="500"
                     className={styleLocation.inputNbrPeople}
+                    value={numberOfPassengers}
+                    onChange={(e) => setNumberOfPassengers(e.target.value)}
                   />
                 </div>
               </div>
@@ -117,22 +161,26 @@ export default function CourseDansLyon() {
                 <p className={styleLocation.sectionTitle}>Forfait</p>
                 <div className={styleLocation.containerButton}>
                   <button
-                    onClick={() => setSelectedForfait("forfait1")}
+                    onClick={() => setSelectedForfait("forfait demi-journée")}
                     className={
-                      selectedForfait === "forfait1"
+                      selectedForfait === "forfait demi-journée"
                         ? styleLocation.buttonForfaitActive
                         : styleLocation.buttonForfaitNormal
                     }
+                    onChange={(e) => setSelectedForfait(e.target.value)}
                   >
                     Demi-journée
                   </button>
                   <button
-                    onClick={() => setSelectedForfait("forfait2")}
+                    onClick={() =>
+                      setSelectedForfait("forfait journée entière")
+                    }
                     className={
-                      selectedForfait === "forfait2"
+                      selectedForfait === "forfait journée entière"
                         ? styleLocation.buttonForfaitActive
                         : styleLocation.buttonForfaitNormal
                     }
+                    onChange={(e) => setSelectedForfait(e.target.value)}
                   >
                     Journée entière
                   </button>
@@ -140,7 +188,7 @@ export default function CourseDansLyon() {
               </div>
               <div className={styleLocation.containerEndingButton}>
                 <button
-                  onClick={handlefunctionButton}
+                  onClick={(handlefunctionButton, handleCreateLocaChauff)}
                   className={
                     buttonHandle
                       ? styleLocation.buttonActive

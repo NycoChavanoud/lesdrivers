@@ -1,4 +1,3 @@
-import createPersistedState from "use-persisted-state";
 import style from "../styles/signup.module.css";
 import Image from "next/image";
 import emailPicture from "../public/images/input_email.png";
@@ -6,6 +5,7 @@ import profilePicture from "../public/images/input_profil.png";
 import phonePicture from "../public/images/input_phone.png";
 import adressPicture from "../public/images/input_adress.png";
 import societyPicture from "../public/images/input_society.png";
+import createPersistedState from "use-persisted-state";
 
 export default function ProfilForm({
   firstNameDefault = "",
