@@ -21,7 +21,6 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@emailjs/browser": "^3.6.2",
     "@prisma/client": "^3.14.0",
     "argon2": "^0.28.5",
     "axios": "^0.27.2",

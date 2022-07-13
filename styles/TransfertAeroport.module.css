@@ -40,7 +40,6 @@
 .titleButton {
   margin-right: 10px;
 }
-
 .titleForm {
   color: white;
   font-weight: 500;
@@ -134,6 +133,9 @@
 
 .tarifOff {
   display: none;
+}
+.RecapItinerary {
+  text-align: center;
 }
 
 @media screen and (min-width: 600px) {
