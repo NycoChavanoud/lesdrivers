@@ -138,21 +138,22 @@ export default function infos_utiles() {
       </div>
       <div className={style.covidContainer}>
         <div className={style.title}>
-          Se rendre à laéroport<span className={style.redText}> de Lyon</span>
+          Les circuits tourisitiques
+          <span className={style.redText}> de Lyon</span>
         </div>
 
         <div className={style.airportDiv}>
           <div className={style.ButtPrestaWrapper}>
             <div>
               <h1 className={style.title}>
-                Les avantages de
-                <span className={style.redText}> The Drivers airport</span>
+                Les circuits touristiques de
+                <span className={style.redText}> Lyon et sa region</span>
               </h1>
               <h3 className={style.titleText}>
-                Voici les avantages des
+                Voici les circuits touristiques que notre équipe
                 <span className={style.redText}> VTC </span>
-                pour votre Trajet depuis l’aéroport
-                <span className={style.redText}> Lyon Saint-Exupéry</span>,
+                vous propose
+                <span className={style.redText}> aux aletours de Lyon</span>,
               </h3>
             </div>
             <div className={style.covidText}>
@@ -252,7 +253,7 @@ export default function infos_utiles() {
       </div>
       <div className={style.covidContainer}>
         <div className={style.title}>
-          Se rendre à laéroport<span className={style.redText}> de Lyon</span>
+          Les avantages <span className={style.redText}> de Lyon</span>
         </div>
 
         <div className={style.airportDiv}>
