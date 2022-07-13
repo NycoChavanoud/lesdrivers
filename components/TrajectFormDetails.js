@@ -220,7 +220,7 @@ export default function TrajectFormDetails({
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
                   onChange={(e) => setTextAndDestinationAdress(e.target.value)}
-                  value={text}
+                  value={text + ""}
                   onBlur={() => {
                     setTimeout(() => {
                       setSuggestions([]);
