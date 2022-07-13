@@ -44,6 +44,14 @@
   color: white;
   font-weight: 500;
   font-size: 25px;
+  text-align: center;
+}
+.titleForm a {
+  text-decoration: underline;
+}
+.titleForm li {
+  text-justify: none;
+  text-align: left;
 }
 
 .ButtForm {
@@ -125,6 +133,9 @@
 
 .tarifOff {
   display: none;
+}
+.RecapItinerary {
+  text-align: center;
 }
 
 @media screen and (min-width: 600px) {
