@@ -65,11 +65,12 @@
 .inputDivWith2Inputs input {
   margin: auto 10px;
   border: 0px;
+  width: 300px;
 }
 .inputDiv2 textarea {
   height: 60px;
   border: none;
-  max-width: 300px;
+  width: 500px;
   margin-left: 14px;
 }
 
