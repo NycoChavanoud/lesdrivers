@@ -1,0 +1,149 @@
+.mainTitle {
+  text-align: center;
+  font-family: "Gabriela", serif;
+}
+
+.mainText {
+  text-align: center;
+  font-family: "Gabriela", serif;
+  font-weight: 500;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  color: rgb(0, 0, 0);
+}
+
+.title {
+  text-align: center;
+  margin-top: 50px;
+  font-family: "Gabriela", serif;
+}
+.titleText {
+  text-align: center;
+  margin-top: 50px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  width: 82%;
+  font-family: "Gabriela", serif;
+}
+.redText {
+  color: rgb(233, 17, 17);
+}
+
+/***********************Covid ***********************/
+
+.covidContainer {
+  box-shadow: 5px 5px 10px #d8d6d7, -5px -5px 10px #d8d6d7;
+  width: 98%;
+  padding: 10px;
+  border-radius: 10px;
+  margin: 50px;
+  margin-left: 10px;
+  margin-right: auto;
+}
+
+.covidDiv {
+  width: 96%;
+
+  margin-left: 14px;
+  margin-right: auto;
+}
+
+.covidImage {
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.covidText {
+  padding: 10px;
+  color: white;
+  background-color: rgb(0, 0, 255);
+  font-size: 20px;
+  line-height: 1.5rem;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.covidList {
+  padding: 16px;
+}
+
+/***********************CIRCUITS ***********************/
+.circuitContainer {
+  width: 96%;
+  margin-left: 28px;
+  margin-right: auto;
+}
+
+/***********************CIRCUITS ***********************/
+
+.airportList {
+  margin-right: 30px;
+  list-style-type: none;
+}
+
+.airportListItems {
+  border-radius: 10px;
+  background-color: whitesmoke;
+  width: 100%;
+  margin: 20px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  color: black;
+}
+.airportImage {
+  text-align: center;
+}
+
+.airportText {
+  text-align: center;
+}
+
+@media screen and (min-width: 820px) {
+  .titleText {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .mainText {
+    font-weight: 500;
+    width: 70%;
+    margin-left: auto;
+
+    color: rgb(237, 12, 12);
+  }
+
+  .covidContainer {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .covidDiv {
+    width: 80%;
+
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .covidText {
+    margin-bottom: 30px;
+    border-radius: 10px;
+  }
+
+  .airportList {
+    display: flex;
+  }
+
+  .airportList {
+    margin-right: 0px;
+  }
+
+  .airportListItems {
+    background-color: whitesmoke;
+    color: black;
+    margin: 20px;
+  }
+}
