@@ -6,10 +6,11 @@ import style from "../../styles/contact.module.css";
 import profilePicture from "../../public/images/input_profil.png";
 import email from "../../public/images/email.png";
 import message from "../../public/images/input_email.png";
+import { useRouter } from "next/router";
 
 export default function ContactUs() {
   const form = useRef();
-
+  const router = useRouter();
   const sendEmail = (e) => {
     e.preventDefault();
 
@@ -20,16 +21,8 @@ export default function ContactUs() {
         form.current,
         "AUafpo6N2PVFopqgz"
       )
-      .then(
-        (result) => {
-          console.log(result.text);
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
+      .then(() => router.push("/"));
   };
-
   return (
     <Layout pageTitle="Sign up">
       <h1 className={style.mainTitle}>Contact :</h1>
