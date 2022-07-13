@@ -75,6 +75,7 @@ export default function TrajectFormDetails({
   useEffect(() => {
     const loadAddress = async () => {
       if (text.length > 6) {
+        console.log("ah", text);
         const response = await axios.get(
           `/api/autocomplete/?address=${encodeURIComponent(text)}`
         );
@@ -84,12 +85,12 @@ export default function TrajectFormDetails({
       }
     };
     loadAddress();
-  }, [text]);
+  }, [text, originAdress]);
   const onSuggestHandler = (text) => {
-    setText(text);
-    setSuggestions([]);
-    setLatitude([""]);
-    setLongitude([""]);
+    console.log("Bouh", text);
+    return (
+      setSuggestions([]), setLatitude([""]), setLongitude([""]), setText(text)
+    );
   };
 
   const [distance, setDistance] = useState("");
@@ -220,7 +221,7 @@ export default function TrajectFormDetails({
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
                   onChange={(e) => setTextAndDestinationAdress(e.target.value)}
-                  value={text + ""}
+                  value={text}
                   onBlur={() => {
                     setTimeout(() => {
                       setSuggestions([]);
