@@ -16,7 +16,7 @@ export default function ButtonConfirmationCourseAndLoca({
           className={styleLocation.data}
           placeholder={data}
           name={nameData}
-          value={valueData}
+          defaultValue={valueData}
         />
       </div>
     </div>
