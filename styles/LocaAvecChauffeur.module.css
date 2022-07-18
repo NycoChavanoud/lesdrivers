@@ -330,8 +330,11 @@
 }
 
 .data {
-  color: #000000;
+  color: #100086;
   margin: 0;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .containerSectionLeft h1 {
@@ -376,6 +379,7 @@
   border: none;
   border-radius: 30px;
   margin-top: 30px;
+  cursor: pointer;
 }
 @media screen and (min-width: 1140px) {
   .containerSectionOn {

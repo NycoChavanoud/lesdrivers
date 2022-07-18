@@ -3,6 +3,22 @@ import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
 import React, { useState } from "react";
 import axios from "axios";
+import emailjs from "emailjs-com";
+
+function sendEmailCourse(e) {
+  e.preventDefault();
+
+  emailjs
+    .sendForm("gmail", "template_k8q0koh", e.target, "9DxrXnOWCy5E_C_XxouZa")
+    .then(
+      function (response) {
+        console.log("SUCCESS!", response.status, response.text);
+      },
+      function (error) {
+        console.log("FAILED...", error);
+      }
+    );
+}
 
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 
@@ -222,56 +238,62 @@ export default function CourseDansLyon() {
               : styleLocation.containerRecapOn
           }
         >
-          <ConfirmationLoca
-            dataDepart={departureAdress}
-            dataDate={departureOfDate}
-            dataTime={departureOfTime}
-            dataVehicule={selectedItem}
-            dataNbrPeople={numberOfPassengers}
-            dataForfait={selectedForfait}
-          />
-          <div className={styleLocation.containerUserInfo}>
-            <h1>Merci de remplir ces dernières informations !</h1>
-            <div className={styleLocation.containerInput}>
-              <p>Nom</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerName}
-                onChange={(e) => setPassengerName(e.target.value)}
-              />
+          <form onSubmit={sendEmailCourse}>
+            <ConfirmationLoca
+              dataDepart={departureAdress}
+              dataDate={departureOfDate}
+              dataTime={departureOfTime}
+              dataVehicule={selectedItem}
+              dataNbrPeople={numberOfPassengers}
+              dataForfait={selectedForfait}
+            />
+            <div className={styleLocation.containerUserInfo}>
+              <h1>Merci de remplir ces dernières informations !</h1>
+              <div className={styleLocation.containerInput}>
+                <p>Nom</p>
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={passengerName}
+                  onChange={(e) => setPassengerName(e.target.value)}
+                  name="lastname"
+                />
+              </div>
+              <div className={styleLocation.containerInput}>
+                <p>Prénom</p>
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={passengerFirstname}
+                  onChange={(e) => setPassengerFirstname(e.target.value)}
+                  name="firstname"
+                />
+              </div>
+              <div className={styleLocation.containerInput}>
+                <p>Numéro de téléphone</p>
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={passengerPhoneNumber}
+                  onChange={(e) => setPassengerPhoneNumber(e.target.value)}
+                  name="tel"
+                />
+              </div>
+              <div className={styleLocation.containerInput}>
+                <p>Adresse mail</p>
+                <input
+                  className={styleLocation.inputPlace}
+                  type="text"
+                  value={passengerMail}
+                  onChange={(e) => setPassengerMail(e.target.value)}
+                  name="mail"
+                />
+              </div>
+              <button type="submit" className={styleLocation.btnRecap}>
+                Valider mes informations
+              </button>
             </div>
-            <div className={styleLocation.containerInput}>
-              <p>Prénom</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerFirstname}
-                onChange={(e) => setPassengerFirstname(e.target.value)}
-              />
-            </div>
-            <div className={styleLocation.containerInput}>
-              <p>Numéro de téléphone</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerPhoneNumber}
-                onChange={(e) => setPassengerPhoneNumber(e.target.value)}
-              />
-            </div>
-            <div className={styleLocation.containerInput}>
-              <p>Adresse mail</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerMail}
-                onChange={(e) => setPassengerMail(e.target.value)}
-              />
-            </div>
-            <button className={styleLocation.btnRecap}>
-              Valider mes informations
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </Layout>
