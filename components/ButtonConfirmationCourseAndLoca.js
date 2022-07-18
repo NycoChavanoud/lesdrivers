@@ -5,13 +5,19 @@ export default function ButtonConfirmationCourseAndLoca({
   title,
   data,
   nameData,
+  valueData,
 }) {
   return (
     <div className={styleLocation.buttonContainer}>
       <div className={logo}></div>
-      <div className={styleLocation.ensembleTexte} name={nameData}>
+      <div className={styleLocation.ensembleTexte}>
         <p className={styleLocation.title}>{title}</p>
-        <input className={styleLocation.data} placeholder={data} />
+        <input
+          className={styleLocation.data}
+          placeholder={data}
+          name={nameData}
+          value={valueData}
+        />
       </div>
     </div>
   );
