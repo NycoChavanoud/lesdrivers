@@ -36,7 +36,7 @@ async function seed() {
       departureOfTime: "18:30",
       numberOfPassengers: 5,
       vehiculeNeeded: "Berline",
-      forfait: "journée entière",
+      numberOfHour: "3",
     },
   });
 

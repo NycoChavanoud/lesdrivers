@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
-
   const handlefunctionButton = () => {
     setButtonHandle(true);
   };
@@ -45,43 +44,68 @@ export default function LocationAvecChauffeur() {
     console.log("c'est envoyé");
   };
 
-  const [latitude, setLatitude] = useState([""]);
-  const [longitude, setLongitude] = useState([""]);
-  const [text, setText] = useState("");
-  const [suggestions, setSuggestions] = useState([]);
+  const [latitudeDepart, setLatitudeDepart] = useState([""]);
+  const [longitudeDepart, setLongitudeDepart] = useState([""]);
+  const [textDepart, setTextDepart] = useState("");
+  const [departSuggestions, setDepartSuggestions] = useState([]);
+  const [latitudeArrivee, setLatitudeArrivee] = useState([""]);
+  const [longitudeArrivee, setLongitudeArrivee] = useState([""]);
+  const [textArrivee, setTextArrivee] = useState("");
+  const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
   useEffect(() => {
-    const loadAddress = async () => {
-      if (text.length > 6) {
+    const loadAddressDepart = async () => {
+      if (textDepart.length > 10) {
         const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(text)}`
+          `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
         );
-        setSuggestions(response.data.features);
-        setLatitude(response.data.features[0].geometry.coordinates[1]);
-        setLongitude(response.data.features[0].geometry.coordinates[0]);
+        setDepartSuggestions(response.data.features);
+        setLatitudeDepart(response.data.features[0].geometry.coordinates[1]);
+        setLongitudeDepart(response.data.features[0].geometry.coordinates[0]);
       }
     };
-    loadAddress();
-  }, [text]);
-  const onSuggestHandler = (text) => {
-    setText(text);
-    setSuggestions([]);
-    setLatitude([""]);
-    setLongitude([""]);
+    loadAddressDepart();
+  }, [textDepart]);
+  const departureOnSuggestHandler = (textDepart) => {
+    setTextDepart(textDepart);
+    setDepartSuggestions([]);
+  };
+
+  useEffect(() => {
+    const loadAddressArrivee = async () => {
+      if (textArrivee.length > 10) {
+        const response = await axios.get(
+          `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
+        );
+        setArriveeSuggestions(response.data.features);
+        setLatitudeArrivee(response.data.features[0].geometry.coordinates[1]);
+        setLongitudeArrivee(response.data.features[0].geometry.coordinates[0]);
+      }
+    };
+    loadAddressArrivee();
+  }, [textArrivee]);
+  const arrivalOnSuggestHandler = (textArrivee) => {
+    setTextArrivee(textArrivee);
+    setArriveeSuggestions([]);
   };
 
   const [distance, setDistance] = useState("");
-  const aeroportCoordinates = "45.7220,5.0753";
   useEffect(() => {
     const loadDistance = async () => {
       const response = await axios.get(
-        `https://maps.open-street.com/api/route/?origin=${latitude},${longitude}&destination=${aeroportCoordinates}&mode=driving&key=b3a2ba39c14fa86f221d83a472f6b281`
+        `https://maps.open-street.com/api/route/?origin=${latitudeDepart},${longitudeDepart}&destination=${latitudeArrivee},${longitudeArrivee}&mode=driving&key=b3a2ba39c14fa86f221d83a472f6b281`
       );
       setDistance(response.data.total_distance);
     };
     loadDistance();
-  }, [latitude, longitude]);
+  }, [latitudeDepart, longitudeDepart, latitudeArrivee, longitudeArrivee]);
 
   let price = Math.round((distance / 1000) * 1.8);
+
+  if (selectedItem === "Hybride électrique")
+    price = Math.round((distance / 1000) * 2.7);
+  if (selectedItem === "Mini-bus") price = Math.round((distance / 1000) * 3.2);
+  if (selectedItem === "Van") price = Math.round((distance / 1000) * 2.7);
+  if (selectedItem === "Berline") price = Math.round((distance / 1000) * 1.8);
 
   if (
     parseFloat(departureOfTime) > parseFloat("21:00") ||
@@ -89,18 +113,13 @@ export default function LocationAvecChauffeur() {
   )
     price = Math.round(price * 1.15);
 
-  // if (vehicule === "berline-luxe") price = Math.round((distance / 1000) * 2.2);
-  // if (vehicule === "mini-van") price = Math.round((distance / 1000) * 2.2);
-  // if (vehicule === "van") price = Math.round((distance / 1000) * 2.7);
-  // if (vehicule === "van-luxe") price = Math.round((distance / 1000) * 3.2);
-
   const setTextAndDepartureAddress = (address) => {
-    setText(address);
+    setTextDepart(address);
     setDepartureAdress(address);
   };
 
   const setTextAndArrivalAddress = (address) => {
-    setText(address);
+    setTextArrivee(address);
     setArrivalAdress(address);
   };
 
@@ -122,27 +141,29 @@ export default function LocationAvecChauffeur() {
                   <div className={styleLocation.containerInput}>
                     <p>Départ</p>
                     <input
+                      id="Départ"
+                      style={{ marginTop: 6, width: 200 }}
                       className={styleLocation.inputPlace}
                       type="text"
-                      value={text}
+                      value={textDepart}
                       onChange={(e) =>
                         setTextAndDepartureAddress(e.target.value)
                       }
                       onBlur={() => {
                         setTimeout(() => {
-                          setSuggestions([]);
+                          setDepartSuggestions([]);
                         }, 100);
                       }}
                     />
                     <div>
-                      {suggestions.map((i, index) => {
+                      {departSuggestions.map((i, index) => {
                         return (
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 12, width: 400 }}
+                              style={{ marginTop: 6, width: 200 }}
                               onClick={() =>
-                                onSuggestHandler(i.properties.label)
+                                departureOnSuggestHandler(i.properties.label)
                               }
                             >
                               {i.properties.label}
@@ -155,25 +176,27 @@ export default function LocationAvecChauffeur() {
                   <div className={styleLocation.containerInput}>
                     <p>Arrivée</p>
                     <input
+                      id="Arrivée"
+                      style={{ marginTop: 6, width: 200 }}
                       className={styleLocation.inputPlace}
                       type="text"
-                      value={text}
+                      value={textArrivee}
                       onChange={(e) => setTextAndArrivalAddress(e.target.value)}
                       onBlur={() => {
                         setTimeout(() => {
-                          setSuggestions([]);
+                          setArriveeSuggestions([]);
                         }, 100);
                       }}
                     />
                     <div>
-                      {suggestions.map((i, index) => {
+                      {arriveeSuggestions.map((i, index) => {
                         return (
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 12, width: 400 }}
+                              style={{ marginTop: 6, width: 200 }}
                               onClick={() =>
-                                onSuggestHandler(i.properties.label)
+                                arrivalOnSuggestHandler(i.properties.label)
                               }
                             >
                               {i.properties.label}
@@ -209,6 +232,17 @@ export default function LocationAvecChauffeur() {
                     </p>
                     <div className={styleLocation.containerCardVehicules}>
                       <TypeVehiculeCard
+                        classPicture={styleLocation.vehi2}
+                        vehiculeName={"Berline"}
+                        handlefunction={() => setSelectedItem("Berline")}
+                        classContainer={
+                          selectedItem === "Berline"
+                            ? styleLocation.active
+                            : styleLocation.normal
+                        }
+                        onChange={(e) => setSelectedItem(e.target.value)}
+                      />
+                      <TypeVehiculeCard
                         classPicture={styleLocation.vehi1}
                         vehiculeName={"Hybride électrique"}
                         handlefunction={() =>
@@ -216,17 +250,6 @@ export default function LocationAvecChauffeur() {
                         }
                         classContainer={
                           selectedItem === "Hybride électrique"
-                            ? styleLocation.active
-                            : styleLocation.normal
-                        }
-                        onChange={(e) => setSelectedItem(e.target.value)}
-                      />
-                      <TypeVehiculeCard
-                        classPicture={styleLocation.vehi2}
-                        vehiculeName={"Berline"}
-                        handlefunction={() => setSelectedItem("Berline")}
-                        classContainer={
-                          selectedItem === "Berline"
                             ? styleLocation.active
                             : styleLocation.normal
                         }
@@ -288,7 +311,8 @@ export default function LocationAvecChauffeur() {
                           : styleLocation.buttonNormal
                       }
                     >
-                      Réserver
+                      Réserver{" "}
+                      <div>{isNaN(price) ? <span>...</span> : price}€</div>
                     </button>
                   </div>
                 </div>
@@ -297,7 +321,6 @@ export default function LocationAvecChauffeur() {
           </div>
         </div>
       </Layout>
-      <div>{price}</div>
     </>
   );
 }

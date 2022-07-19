@@ -42,7 +42,7 @@ model FormLocaChauff {
   departureOfTime    String
   numberOfPassengers Int
   vehiculeNeeded     String
-  forfait            String
+  numberOfHour       String
 }
 
 model ItineraryAirport {
