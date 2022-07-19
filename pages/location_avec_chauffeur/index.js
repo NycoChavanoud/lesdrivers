@@ -5,6 +5,7 @@ import React, { useState, useRef } from "react";
 import axios from "axios";
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 import emailjs from "@emailjs/browser";
+import { useRouter } from "next/router";
 
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("");
@@ -19,9 +20,22 @@ export default function LocationAvecChauffeur() {
 
   const [showConfirmation, setShowConfirmation] = useState(true);
   const [showMain, setShowMain] = useState(true);
+  const [showSent, setShowSent] = useState(false);
+  const [showUserInfo, setShowUserInfo] = useState(true);
+
+  const handlefunctionSent = () => {
+    setShowSent(true);
+    setShowUserInfo(false);
+  };
 
   const handlefunctionButton = () => {
     setButtonHandle(true);
+  };
+
+  const router = useRouter();
+
+  const goAccueil = () => {
+    router.push("/");
   };
 
   // all behind is useful for fetch data
@@ -236,7 +250,11 @@ export default function LocationAvecChauffeur() {
               : styleLocation.containerRecapOn
           }
         >
-          <form ref={form} onSubmit={sendEmailCourse}>
+          <form
+            ref={form}
+            onSubmit={sendEmailCourse}
+            className={styleLocation.containerRecapOnForm}
+          >
             <ConfirmationLoca
               dataDepart={departureAdress}
               dataDate={departureOfDate}
@@ -246,55 +264,87 @@ export default function LocationAvecChauffeur() {
               dataForfait={selectedForfait}
             />
             <div className={styleLocation.containerUserInfo}>
-              <h1>Merci de remplir ces dernières informations !</h1>
-
-              <div className={styleLocation.containerInput}>
-                <p>Nom</p>
-                <input
-                  className={styleLocation.inputPlace}
-                  type="text"
-                  value={passengerName}
-                  onChange={(e) => setPassengerName(e.target.value)}
-                  name="lastname"
-                />
-              </div>
-              <div className={styleLocation.containerInput}>
-                <p>Prénom</p>
-                <input
-                  className={styleLocation.inputPlace}
-                  type="text"
-                  value={passengerFirstname}
-                  onChange={(e) => setPassengerFirstname(e.target.value)}
-                  name="firstname"
-                />
-              </div>
-              <div className={styleLocation.containerInput}>
-                <p>Numéro de téléphone</p>
-                <input
-                  className={styleLocation.inputPlace}
-                  type="text"
-                  value={passengerPhoneNumber}
-                  onChange={(e) => setPassengerPhoneNumber(e.target.value)}
-                  name="tel"
-                />
-              </div>
-              <div className={styleLocation.containerInput}>
-                <p>Adresse mail</p>
-                <input
-                  className={styleLocation.inputPlace}
-                  type="text"
-                  value={passengerMail}
-                  onChange={(e) => setPassengerMail(e.target.value)}
-                  name="mail"
-                />
-              </div>
-              <button
-                onClick={sendEmailCourse}
-                type="submit"
-                className={styleLocation.btnRecap}
+              <div
+                className={
+                  showUserInfo
+                    ? styleLocation.containerFormUserInfoOn
+                    : styleLocation.containerFormUserInfoOff
+                }
               >
-                Valider mes informations
-              </button>
+                <h1>Merci de remplir ces dernières informations !</h1>
+
+                <div className={styleLocation.containerInput}>
+                  <p>Nom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerName}
+                    onChange={(e) => setPassengerName(e.target.value)}
+                    name="lastname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Prénom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerFirstname}
+                    onChange={(e) => setPassengerFirstname(e.target.value)}
+                    name="firstname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Numéro de téléphone</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerPhoneNumber}
+                    onChange={(e) => setPassengerPhoneNumber(e.target.value)}
+                    name="tel"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Adresse mail</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerMail}
+                    onChange={(e) => setPassengerMail(e.target.value)}
+                    name="mail"
+                  />
+                </div>
+                <button
+                  onClick={/*sendEmailCourse,*/ handlefunctionSent}
+                  type="submit"
+                  className={styleLocation.btnRecap}
+                >
+                  Valider mes informations
+                </button>
+              </div>
+              <div
+                className={
+                  showSent
+                    ? styleLocation.alertMessageOn
+                    : styleLocation.alertMessageOff
+                }
+              >
+                <div className={styleLocation.send}>
+                  <div className={styleLocation.sendImg}></div>
+                  <p className={styleLocation.sendtitle}>
+                    Votre message à été envoyé !
+                  </p>
+                  <p className={styleLocation.sendsubtitle}>
+                    Notre équipe à bien reçu votre mail et nous nous engageons à
+                    vous répondre dans les plus brefs délais !
+                  </p>
+                  <button
+                    className={styleLocation.sendbutton}
+                    onClick={goAccueil}
+                  >
+                    Retour à l{"'"}accueil
+                  </button>
+                </div>
+              </div>
             </div>
           </form>
         </div>

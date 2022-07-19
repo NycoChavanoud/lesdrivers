@@ -358,6 +358,9 @@
 }
 
 .containerUserInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 0px 30px 0px 30px;
 }
 
@@ -366,6 +369,13 @@
 }
 
 .containerRecapOff {
+  display: none;
+}
+
+.containerFormUserInfoOn {
+  display: block;
+}
+.containerFormUserInfoOff {
   display: none;
 }
 
@@ -381,6 +391,58 @@
   margin-top: 30px;
   cursor: pointer;
 }
+
+.alertMessageOn {
+  width: 100%;
+  height: 450px;
+  padding: 0px 10px 0px 10px;
+}
+
+.alertMessageOff {
+  display: none;
+}
+
+.send {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#d7f2a7, #aeeccb);
+  width: 100%;
+  height: 450px;
+  padding: 0px 30px 0px 30px;
+  color: #ffffff;
+  border-radius: 30px;
+}
+
+.sendImg {
+  width: 150px;
+  height: 150px;
+  background-image: url(../public/images/sent.png);
+  background-size: contain;
+}
+
+.sendtitle {
+  font-size: 20px;
+}
+
+.sendsubtitle {
+  text-align: center;
+}
+
+.sendbutton {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.sendbutton:hover {
+  background-color: #167d46;
+  color: rgb(255, 255, 255);
+}
+
 @media screen and (min-width: 1140px) {
   .containerSectionOn {
     display: flex;
@@ -468,8 +530,12 @@
 
   .containerRecapOn {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+  }
+
+  .containerRecapOnForm {
+    display: flex;
   }
 }
