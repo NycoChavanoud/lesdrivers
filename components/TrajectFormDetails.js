@@ -16,6 +16,8 @@ export default function TrajectFormDetails({
   const [tarifAppear, setTarifAppear] = useState(false);
   const { currentUserProfile } = useContext(CurrentUserContext);
   const tarifSection = useRef();
+  const [distance, setDistance] = useState("");
+  const aeroportCoordinates = "45.7220,5.0753";
 
   const goToTarif = () => {
     tarifSection.current.scrollIntoView({
@@ -23,6 +25,13 @@ export default function TrajectFormDetails({
     });
   };
   const AppearTarif = () => {
+    const loadDistance = async () => {
+      const response = await axios.get(
+        `https://maps.open-street.com/api/route/?origin=${latitude},${longitude}&destination=${aeroportCoordinates}&mode=driving&key=b3a2ba39c14fa86f221d83a472f6b281`
+      );
+      setDistance(response.data.total_distance);
+    };
+    loadDistance();
     setTarifAppear(true);
     goToTarif();
   };
@@ -84,26 +93,11 @@ export default function TrajectFormDetails({
       }
     };
     loadAddress();
-  }, [text]);
+  }, [text, originAdress]);
   const onSuggestHandler = (text) => {
-    setText(text);
     setSuggestions([]);
-    setLatitude([""]);
-    setLongitude([""]);
+    setText(text);
   };
-
-  const [distance, setDistance] = useState("");
-  const aeroportCoordinates = "45.7220,5.0753";
-  useEffect(() => {
-    const loadDistance = async () => {
-      const response = await axios.get(
-        `https://maps.open-street.com/api/route/?origin=${latitude},${longitude}&destination=${aeroportCoordinates}&mode=driving&key=b3a2ba39c14fa86f221d83a472f6b281`
-      );
-      setDistance(response.data.total_distance);
-    };
-    loadDistance();
-  }, [latitude, longitude]);
-
   let price = Math.round((distance / 1000) * 1.8);
 
   if (
@@ -117,6 +111,8 @@ export default function TrajectFormDetails({
   if (vehicule === "van") price = Math.round((distance / 1000) * 2.7);
   if (vehicule === "van-luxe") price = Math.round((distance / 1000) * 3.2);
 
+  if (originAdressDefault === "originAdressDefaultAirport") price = price + 5;
+
   const setTextAndOriginAdress = (address) => {
     setText(address);
     setOriginAdress(address);
@@ -126,6 +122,7 @@ export default function TrajectFormDetails({
     setText(address);
     setDestinationAdress(address);
   };
+  console.log({ price, distance });
 
   const handleCreateItin = (e) => {
     e.preventDefault();
