@@ -122,7 +122,6 @@ export default function TrajectFormDetails({
     setText(address);
     setDestinationAdress(address);
   };
-  console.log({ price, distance });
 
   const handleCreateItin = (e) => {
     e.preventDefault();

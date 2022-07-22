@@ -39,7 +39,6 @@ export default function LocationAvecChauffeur() {
 
   const fetchData = (e) => {
     e.preventDefault();
-    console.log("c'est envoyé");
   };
 
   const [latitudeDepart, setLatitudeDepart] = useState([""]);

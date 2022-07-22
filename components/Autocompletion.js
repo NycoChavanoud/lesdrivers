@@ -6,7 +6,7 @@ export default function Autocompletion() {
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     const loadAddress = async () => {
-      if (text.length > 10) {
+      if (text.length > 14) {
         const response = await axios.get(
           `/api/autocomplete/?address=${encodeURIComponent(text)}`
         );
