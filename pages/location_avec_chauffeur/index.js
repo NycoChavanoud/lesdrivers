@@ -14,8 +14,6 @@ export default function CourseDansLyon() {
     setButtonHandle(true);
   };
 
-  // all behind is useful for fetch data
-
   const [departureAdress, setDepartureAdress] = useState("");
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");

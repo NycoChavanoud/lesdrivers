@@ -12,8 +12,6 @@ export default function LocationAvecChauffeur() {
     setButtonHandle(true);
   };
 
-  // all behind is useful for fetch data
-
   const [departureAdress, setDepartureAdress] = useState("");
   const [arrivalAdress, setArrivalAdress] = useState("");
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
@@ -64,10 +62,10 @@ export default function LocationAvecChauffeur() {
       }
     };
     loadAddressDepart();
-  }, [textDepart]);
+  }, [textDepart, departureAdress]);
   const departureOnSuggestHandler = (textDepart) => {
-    setTextDepart(textDepart);
     setDepartSuggestions([]);
+    setTextDepart(textDepart);
   };
 
   useEffect(() => {
@@ -84,8 +82,8 @@ export default function LocationAvecChauffeur() {
     loadAddressArrivee();
   }, [textArrivee]);
   const arrivalOnSuggestHandler = (textArrivee) => {
-    setTextArrivee(textArrivee);
     setArriveeSuggestions([]);
+    setTextArrivee(textArrivee);
   };
 
   const [distance, setDistance] = useState("");
@@ -103,7 +101,7 @@ export default function LocationAvecChauffeur() {
 
   if (selectedItem === "Hybride électrique")
     price = Math.round((distance / 1000) * 2.7);
-  if (selectedItem === "Mini-bus") price = Math.round((distance / 1000) * 3.2);
+  if (selectedItem === "Mini-Bus") price = Math.round((distance / 1000) * 3.2);
   if (selectedItem === "Van") price = Math.round((distance / 1000) * 2.7);
   if (selectedItem === "Berline") price = Math.round((distance / 1000) * 1.8);
 
@@ -268,10 +266,10 @@ export default function LocationAvecChauffeur() {
                       />
                       <TypeVehiculeCard
                         classPicture={styleLocation.vehi4}
-                        vehiculeName={"Mini-bus"}
-                        handlefunction={() => setSelectedItem("Mini-bus")}
+                        vehiculeName={"Mini-Bus"}
+                        handlefunction={() => setSelectedItem("Mini-Bus")}
                         classContainer={
-                          selectedItem === "Mini-bus"
+                          selectedItem === "Mini-Bus"
                             ? styleLocation.active
                             : styleLocation.normal
                         }
