@@ -316,7 +316,7 @@ export default function LocationAvecChauffeur() {
                   />
                 </div>
                 <button
-                  onClick={(sendEmailLoca, handlefunctionSent)}
+                  onClick={handlefunctionSent}
                   type="submit"
                   className={styleLocation.btnRecap}
                 >

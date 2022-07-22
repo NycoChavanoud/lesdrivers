@@ -67,6 +67,7 @@ export default function LocationAvecChauffeur() {
   const form = useRef();
 
   const sendEmailCourse = (e) => {
+    console.log("ok");
     e.preventDefault();
 
     emailjs.sendForm(
@@ -301,7 +302,7 @@ export default function LocationAvecChauffeur() {
                   />
                 </div>
                 <button
-                  onClick={(sendEmailCourse, handlefunctionSent)}
+                  onClick={handlefunctionSent}
                   type="submit"
                   className={styleLocation.btnRecap}
                 >
