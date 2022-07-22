@@ -19,14 +19,14 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url1}
             title={"Lieu de départ"}
             data={dataDepart}
-            nameData={"dataDepart"}
+            nameData={"dataDepartLoca"}
             valueData={dataDepart}
           />
           <ButtonConfirmationCourseAndLoca
             logo={styleLocation.url3}
             title={"Date"}
             data={dataDate}
-            nameData={"dataDate"}
+            nameData={"dataDateLoca"}
             valueData={dataDate}
           />
 
@@ -34,7 +34,7 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url4}
             title={"Heure"}
             data={dataTime}
-            nameData={"dataTime"}
+            nameData={"dataTimeLoca"}
             valueData={dataTime}
           />
 
@@ -42,7 +42,7 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url5}
             title={"Véhicule"}
             data={dataVehicule}
-            nameData={"dataVehicule"}
+            nameData={"dataVehiculeLoca"}
             valueData={dataVehicule}
           />
 
@@ -50,7 +50,7 @@ export default function ConfirmationCourseAndLoca({
             logo={styleLocation.url6}
             title={"Nombre de personne"}
             data={dataNbrPeople}
-            nameData="dataNbrPeople"
+            nameData="dataNbrPeopleLoca"
             valueData={dataNbrPeople}
           />
 

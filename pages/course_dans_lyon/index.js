@@ -1,8 +1,10 @@
 import Layout from "../../components/Layout";
 import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
+import { useRouter } from "next/router";
 
 import ConfirmationCourse from "../../components/ConfirmationCourse";
 
@@ -10,10 +12,23 @@ export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
 
+  const [showSent, setShowSent] = useState(false);
+  const [showUserInfo, setShowUserInfo] = useState(true);
+
+  const handlefunctionSent = () => {
+    setShowSent(true);
+    setShowUserInfo(false);
+  };
+
   const handlefunctionButton = () => {
     setButtonHandle(true);
   };
 
+  const router = useRouter();
+
+  const goAccueil = () => {
+    router.push("/");
+  };
   // all behind is useful for fetch data
 
   const [departureAdress, setDepartureAdress] = useState("");
@@ -49,6 +64,19 @@ export default function LocationAvecChauffeur() {
       });
   };
 
+  const form = useRef();
+
+  const sendEmailCourse = (e) => {
+    e.preventDefault();
+
+    emailjs.sendForm(
+      "service_hwrw8hn",
+      "template_k8q0koh",
+      form.current,
+      "AUafpo6N2PVFopqgz"
+    );
+    //.then(() => router.push("/"));
+  };
   return (
     <Layout pageTitle="Les Drivers - Course dans Lyon">
       <div className={styleLocation.containerService}>
@@ -209,56 +237,103 @@ export default function LocationAvecChauffeur() {
               : styleLocation.containerRecapOn
           }
         >
-          <ConfirmationCourse
-            dataDepart={departureAdress}
-            dataArrive={arrivalAdress}
-            dataDate={departureOfDate}
-            dataTime={departureOfTime}
-            dataVehicule={selectedItem}
-            dataNbrPeople={numberOfPassengers}
-          />
-          <div className={styleLocation.containerUserInfo}>
-            <h1>Merci de remplir ces dernières informations !</h1>
-            <div className={styleLocation.containerInput}>
-              <p>Nom</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerName}
-                onChange={(e) => setPassengerName(e.target.value)}
-              />
+          <form
+            ref={form}
+            onSubmit={sendEmailCourse}
+            className={styleLocation.containerRecapOnForm}
+          >
+            <ConfirmationCourse
+              dataDepart={departureAdress}
+              dataArrive={arrivalAdress}
+              dataDate={departureOfDate}
+              dataTime={departureOfTime}
+              dataVehicule={selectedItem}
+              dataNbrPeople={numberOfPassengers}
+            />
+            <div className={styleLocation.containerUserInfo}>
+              <div
+                className={
+                  showUserInfo
+                    ? styleLocation.containerFormUserInfoOn
+                    : styleLocation.containerFormUserInfoOff
+                }
+              >
+                <h1>Merci de remplir ces dernières informations !</h1>
+
+                <div className={styleLocation.containerInput}>
+                  <p>Nom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerName}
+                    onChange={(e) => setPassengerName(e.target.value)}
+                    name="lastname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Prénom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerFirstname}
+                    onChange={(e) => setPassengerFirstname(e.target.value)}
+                    name="firstname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Numéro de téléphone</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerPhoneNumber}
+                    onChange={(e) => setPassengerPhoneNumber(e.target.value)}
+                    name="tel"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Adresse mail</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerMail}
+                    onChange={(e) => setPassengerMail(e.target.value)}
+                    name="mail"
+                  />
+                </div>
+                <button
+                  onClick={(sendEmailCourse, handlefunctionSent)}
+                  type="submit"
+                  className={styleLocation.btnRecap}
+                >
+                  Valider mes informations
+                </button>
+              </div>
+              <div
+                className={
+                  showSent
+                    ? styleLocation.alertMessageOn
+                    : styleLocation.alertMessageOff
+                }
+              >
+                <div className={styleLocation.send}>
+                  <div className={styleLocation.sendImg}></div>
+                  <p className={styleLocation.sendtitle}>
+                    Votre message à été envoyé !
+                  </p>
+                  <p className={styleLocation.sendsubtitle}>
+                    Notre équipe à bien reçu votre mail et nous nous engageons à
+                    vous répondre dans les plus brefs délais !
+                  </p>
+                  <button
+                    className={styleLocation.sendbutton}
+                    onClick={goAccueil}
+                  >
+                    Retour à l{"'"}accueil
+                  </button>
+                </div>
+              </div>
             </div>
-            <div className={styleLocation.containerInput}>
-              <p>Prénom</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerFirstname}
-                onChange={(e) => setPassengerFirstname(e.target.value)}
-              />
-            </div>
-            <div className={styleLocation.containerInput}>
-              <p>Numéro de téléphone</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerPhoneNumber}
-                onChange={(e) => setPassengerPhoneNumber(e.target.value)}
-              />
-            </div>
-            <div className={styleLocation.containerInput}>
-              <p>Adresse mail</p>
-              <input
-                className={styleLocation.inputPlace}
-                type="text"
-                value={passengerMail}
-                onChange={(e) => setPassengerMail(e.target.value)}
-              />
-            </div>
-            <button className={styleLocation.btnRecap}>
-              Valider mes informations
-            </button>
-          </div>
+          </form>
         </div>
       </div>
     </Layout>

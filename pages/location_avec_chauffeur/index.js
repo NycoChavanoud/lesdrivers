@@ -43,7 +43,9 @@ export default function LocationAvecChauffeur() {
   const [departureAdress, setDepartureAdress] = useState("");
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
-  const [numberOfPassengers, setNumberOfPassengers] = useState("0");
+  const [numberOfPassengers, setNumberOfPassengers] = useState(0);
+
+  console.log(numberOfPassengers);
 
   const handleCreateLocaChauff = (e) => {
     e.preventDefault();
@@ -65,7 +67,7 @@ export default function LocationAvecChauffeur() {
 
   const form = useRef();
 
-  const sendEmailCourse = (e) => {
+  const sendEmailLoca = (e) => {
     e.preventDefault();
 
     emailjs.sendForm(
@@ -252,7 +254,7 @@ export default function LocationAvecChauffeur() {
         >
           <form
             ref={form}
-            onSubmit={sendEmailCourse}
+            onSubmit={sendEmailLoca}
             className={styleLocation.containerRecapOnForm}
           >
             <ConfirmationLoca
@@ -314,7 +316,7 @@ export default function LocationAvecChauffeur() {
                   />
                 </div>
                 <button
-                  onClick={/*sendEmailCourse,*/ handlefunctionSent}
+                  onClick={(sendEmailLoca, handlefunctionSent)}
                   type="submit"
                   className={styleLocation.btnRecap}
                 >
