@@ -1,15 +1,22 @@
-.container {
-  background: yellow;
-  align-items: center;
-  margin-top: 150px;
-  padding: 10px;
+.containerDiv {
+  min-height: 83vh;
+  position: relative;
 }
+.container {
+  background: #dcb233;
+  align-items: center;
+  width: 100%;
+  height: 200px;
+  position: absolute;
+  bottom: 0;
+}
+
 .footer {
   display: flex;
+
   font-family: "Gabriela", serif;
-  margin: auto 5px;
-  justify-content: space-between;
 }
+
 .logoContainer {
   display: flex;
   justify-content: center;
