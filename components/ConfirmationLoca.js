@@ -56,8 +56,9 @@ export default function ConfirmationCourseAndLoca({
 
           <ButtonConfirmationCourseAndLoca
             logo={styleLocation.url7}
-            title={"Forfait"}
+            title={"Nombre d'heures"}
             data={dataForfait}
+            nameData="dataNbrHeure"
             valueData={dataForfait}
           />
         </div>

@@ -24,7 +24,7 @@ export default function Autocompletion() {
     <div>
       <input
         type="text"
-        style={{ marginTop: 6, width: 250 }}
+        style={{ marginTop: 6, width: 170 }}
         onChange={(e) => setText(e.target.value)}
         value={text}
         onBlur={() => {

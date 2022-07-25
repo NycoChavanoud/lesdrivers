@@ -1,12 +1,11 @@
 import Layout from "../../components/Layout";
 import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
-import Autocompletion from "../../components/Autocompletion";
 
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
@@ -45,7 +44,7 @@ export default function LocationAvecChauffeur() {
   const [numberOfPassengers, setNumberOfPassengers] = useState(0);
   let [hourNumber, setHourNumber] = useState("1");
 
-  console.log(numberOfPassengers);
+  console.log(departureAdress);
 
   const handleCreateLocaChauff = (e) => {
     e.preventDefault();
@@ -87,6 +86,27 @@ export default function LocationAvecChauffeur() {
     //.then(() => router.push("/"));
   };
 
+  // autocompletion //
+
+  const [suggestions, setSuggestions] = useState([]);
+  useEffect(() => {
+    const loadAddress = async () => {
+      if (departureAdress.length > 10) {
+        const response = await axios.get(
+          `/api/autocomplete/?address=${encodeURIComponent(departureAdress)}`
+        );
+        setSuggestions(response.data.features);
+      }
+    };
+    loadAddress();
+  }, [departureAdress]);
+  const onSuggestHandler = (departureAdress) => {
+    setDepartureAdress(departureAdress);
+    setSuggestions([]);
+  };
+
+  console.log(departureAdress);
+
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">
       <div className={styleLocation.containerService}>
@@ -110,12 +130,34 @@ export default function LocationAvecChauffeur() {
                   Point de <br />
                   rendez-vous
                 </p>
-                <Autocompletion
-                  type="input"
-                  className={styleLocation.inputPlace}
-                  value={departureAdress}
-                  onChange={(e) => setDepartureAdress(e.target.value)}
-                />
+                <div>
+                  <input
+                    type="text"
+                    onChange={(e) => setDepartureAdress(e.target.value)}
+                    value={departureAdress}
+                    className={styleLocation.inputAdress}
+                    onBlur={() => {
+                      setTimeout(() => {
+                        setSuggestions([]);
+                      }, 100);
+                    }}
+                  />
+                  <div>
+                    {suggestions.map((i, index) => {
+                      return (
+                        <div key={index}>
+                          <div
+                            type="button"
+                            className={styleLocation.containerSuggestion}
+                            onClick={() => onSuggestHandler(i.properties.label)}
+                          >
+                            {i.properties.label}
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
               </div>
               <div className={styleLocation.containerInput}>
                 <p>Date</p>
@@ -213,19 +255,24 @@ export default function LocationAvecChauffeur() {
                 </div>
                 <div className={styleLocation.containerForfait}>
                   <p className={styleLocation.sectionTitle}>
-                    Forfait horaire souhaité
+                    Nombre d{"'"}heures désirées
                   </p>
-                  <div className={styleLocation.containerButton}>
+                  <div className={styleLocation.containerButtonForfait}>
                     <input
                       type="number"
-                      min="0"
+                      min="1"
                       max="10"
                       value={hourNumber}
                       onChange={(e) => setHourNumber(e.target.value)}
+                      className={styleLocation.inputHourNumber}
                     />
                   </div>
                 </div>
                 <div className={styleLocation.containerEndingButton}>
+                  <div className={styleLocation.buttonPrix}>
+                    Prix actuel{" "}
+                    <div className={styleLocation.buttonPrixData}>{price}€</div>
+                  </div>
                   <button
                     onClick={(handlefunctionButton, handleCreateLocaChauff)}
                     className={
@@ -234,7 +281,7 @@ export default function LocationAvecChauffeur() {
                         : styleLocation.buttonNormal
                     }
                   >
-                    Réserver <div>{price}€</div>
+                    Réserver
                   </button>
                 </div>
               </div>
@@ -259,6 +306,7 @@ export default function LocationAvecChauffeur() {
               dataTime={departureOfTime}
               dataVehicule={selectedItem}
               dataNbrPeople={numberOfPassengers}
+              dataForfait={hourNumber}
             />
             <div className={styleLocation.containerUserInfo}>
               <div

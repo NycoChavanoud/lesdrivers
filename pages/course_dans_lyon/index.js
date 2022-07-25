@@ -330,7 +330,7 @@ export default function LocationAvecChauffeur() {
                       <div className={styleLocation.nbrPeople} />
                       <input
                         type="number"
-                        min="0"
+                        min="1"
                         max="500"
                         className={styleLocation.inputNbrPeople}
                         value={numberOfPassengers}
