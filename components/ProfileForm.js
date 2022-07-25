@@ -1,3 +1,4 @@
+import styleTransfert from "../styles/TransfertAeroport.module.css";
 import style from "../styles/signup.module.css";
 import Image from "next/image";
 import emailPicture from "../public/images/input_email.png";
@@ -5,31 +6,116 @@ import profilePicture from "../public/images/input_profil.png";
 import phonePicture from "../public/images/input_phone.png";
 import adressPicture from "../public/images/input_adress.png";
 import societyPicture from "../public/images/input_society.png";
-import createPersistedState from "use-persisted-state";
+// import createPersistedState from "use-persisted-state";
 
+import emailjs from "@emailjs/browser";
+
+import { CurrentUserContext } from "../contexts/CurrentUserContext";
+import { useContext, useState } from "react";
+
+// const useFirstNameState = createPersistedState("invite_form_firstName");
+// const useLastNameState = createPersistedState("invite_form_lastName");
+// const useEmailState = createPersistedState("invite_form_email");
+// const useAdressState = createPersistedState("invite_form_adress");
+// const usePhoneNumberState = createPersistedState("invite_form_phoneNumber");
+// const useSocietyState = createPersistedState("invite_form_society");
+
+// {
+//   firstNameDefault = "",
+//   lastNameDefault = "",
+//   emailDefault = "",
+//   adressDefault = "",
+//   phoneNumberDefault = "",
+//   societyDefault = "",
+// }
 export default function ProfilForm({
-  firstNameDefault = "",
-  lastNameDefault = "",
-  emailDefault = "",
-  adressDefault = "",
-  phoneNumberDefault = "",
-  societyDefault = "",
+  originAdress,
+  destinationAdress,
+  departureDate,
+  departureTime,
+  numberPassengers,
+  numberLuggages,
+  vehicule,
+  siegeBebe,
+  rehausseur,
+  porteSki,
+  flightNumber,
+  somethingToSay,
+  price,
 }) {
-  const useFirsNameState = createPersistedState("invite_form_firstName");
-  const useLastNameState = createPersistedState("invite_form_lastName");
-  const useEmailState = createPersistedState("invite_form_email");
-  const useAdressState = createPersistedState("invite_form_adress");
-  const usePhoneNumberState = createPersistedState("invite_form_phoneNumber");
-  const useSocietyState = createPersistedState("invite_form_society");
-  const [firstname, setFirstname] = useFirsNameState(firstNameDefault);
-  const [lastname, setLastname] = useLastNameState(lastNameDefault);
-  const [email, setEmail] = useEmailState(emailDefault);
-  const [address, setAddress] = useAdressState(adressDefault);
-  const [phoneNumber, setPhoneNumber] = usePhoneNumberState(phoneNumberDefault);
-  const [society, setSociety] = useSocietyState(societyDefault);
+  const { currentUserProfile } = useContext(CurrentUserContext);
 
+  const [firstname, setFirstname] = useState(
+    currentUserProfile?.firstname || ""
+  );
+  const [lastname, setLastname] = useState(currentUserProfile?.lastname || "");
+  const [email, setEmail] = useState(currentUserProfile?.email || "");
+  const [address, setAddress] = useState(currentUserProfile?.address || "");
+  const [phoneNumber, setPhoneNumber] = useState(
+    currentUserProfile?.phoneNumber || ""
+  );
+  const [society, setSociety] = useState(currentUserProfile?.society || "");
+
+  console.log(
+    "AHHHHHHHHHH",
+    currentUserProfile,
+    originAdress,
+    destinationAdress,
+    departureDate,
+    departureTime,
+    numberPassengers,
+    numberLuggages,
+    vehicule,
+    siegeBebe,
+    rehausseur,
+    porteSki,
+    flightNumber,
+    somethingToSay,
+    price
+  );
+  // if (!currentUserProfile) {
+  //   const [firstname, setFirstname] = useFirstNameState(firstNameDefault);
+  // }
+
+  // console.log(`firstNameDefault a la valeur : ${firstNameDefault}`);
+  // console.log(`firstname a la valeur : ${firstname}`);
+  // const [lastname, setLastname] = useLastNameState(lastNameDefault);
+  // const [email, setEmail] = useEmailState(emailDefault);
+  // // const [address, setAddress] = useAdressState(adressDefault);
+  // const [phoneNumber, setPhoneNumber] = usePhoneNumberState(phoneNumberDefault);
+  // const [society, setSociety] = useSocietyState(societyDefault);
+  // EMAILJS
+
+  const templateParams = {
+    user_name: firstname,
+    user_email: flightNumber,
+    // currentUserProfile.firstname,
+    // user_email: currentUserProfile.email,
+  };
+
+  // console.log(currentUserProfile.firstname);
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .send(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONTACT,
+        templateParams,
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        function (response) {
+          console.log("EMAILJS SUCCESS", response.status, response.text);
+        },
+        function (error) {
+          console.log("EMAILJS FAILED...", error);
+        }
+      );
+  };
   return (
-    <form className={style.signUpForm}>
+    <form className={style.signUpForm} onSubmit={sendEmail}>
       <div className={style.inputDivWith2InputsContainer}>
         <div className={style.inputDivWith2Inputs}>
           <label htmlFor="firstname">
@@ -116,6 +202,7 @@ export default function ProfilForm({
           onChange={(e) => setSociety(e.target.value)}
         />
       </div>
+      <button className={styleTransfert.buttonValidate}>Réserver</button>
     </form>
   );
 }

@@ -2,7 +2,6 @@ import styleTransfert from "../styles/TransfertAeroport.module.css";
 import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import RecapItinerary from "./RecapItinerary";
-
 import styleTarif from "../styles/Tarif.module.css";
 import ProfilForm from "./ProfileForm";
 import Link from "next/link";
@@ -401,12 +400,19 @@ export default function TrajectFormDetails({
                 pour réserver :
               </h3>
               <ProfilForm
-                firstNameDefault={currentUserProfile.firstname}
-                lastNameDefault={currentUserProfile.lastname}
-                emailDefault={currentUserProfile.email}
-                phoneNumberDefault={currentUserProfile.phoneNumber}
-                adressDefault={currentUserProfile.address}
-                societyDefault={currentUserProfile.society}
+                originAdress={originAdress}
+                destinationAdress={destinationAdress}
+                departureDate={departureDate}
+                departureTime={departureTime}
+                numberPassengers={numberPassengers}
+                numberLuggages={numberLuggages}
+                vehicule={vehicule}
+                siegeBebe={siegeBebe}
+                rehausseur={rehausseur}
+                porteSki={porteSki}
+                flightNumber={flightNumber}
+                somethingToSay={somethingToSay}
+                price={price}
               />
             </>
           ) : (
@@ -427,10 +433,23 @@ export default function TrajectFormDetails({
                   <li>... ou renseigner vos informations :</li>
                 </ul>
               </h3>
-              <ProfilForm />
+              <ProfilForm
+                originAdress={originAdress}
+                destinationAdress={destinationAdress}
+                departureDate={departureDate}
+                departureTime={departureTime}
+                numberPassengers={numberPassengers}
+                numberLuggages={numberLuggages}
+                vehicule={vehicule}
+                siegeBebe={siegeBebe}
+                rehausseur={rehausseur}
+                porteSki={porteSki}
+                flightNumber={flightNumber}
+                somethingToSay={somethingToSay}
+                price={price}
+              />
             </>
           )}
-          <button className={styleTransfert.buttonValidate}>Réserver</button>
         </div>
       </div>
       <span ref={tarifSection} />
