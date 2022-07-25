@@ -6,12 +6,11 @@ import axios from "axios";
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
+import Autocompletion from "../../components/Autocompletion";
 
 export default function LocationAvecChauffeur() {
-  const [selectedItem, setSelectedItem] = useState("");
+  const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
-
-  const [selectedForfait, setSelectedForfait] = useState("");
 
   const [passengerName, setPassengerName] = useState("");
   const [passengerFirstname, setPassengerFirstname] = useState("");
@@ -44,6 +43,7 @@ export default function LocationAvecChauffeur() {
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState(0);
+  let [hourNumber, setHourNumber] = useState("1");
 
   console.log(numberOfPassengers);
 
@@ -58,12 +58,20 @@ export default function LocationAvecChauffeur() {
         departureOfTime: departureOfTime,
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
-        forfait: selectedForfait,
+        numberOfHour: hourNumber,
       })
       .catch((err) => {
         console.error(err);
       });
   };
+  let price = Math.round(hourNumber * 55);
+
+  if (selectedItem === "Berline") price = Math.round(hourNumber * 55);
+
+  if (selectedItem === "Hybride électrique")
+    price = Math.round(hourNumber * 65);
+  if (selectedItem === "Mini-bus") price = Math.round(hourNumber * 100);
+  if (selectedItem === "Van") price = Math.round(hourNumber * 75);
 
   const form = useRef();
 
@@ -102,7 +110,8 @@ export default function LocationAvecChauffeur() {
                   Point de <br />
                   rendez-vous
                 </p>
-                <input
+                <Autocompletion
+                  type="input"
                   className={styleLocation.inputPlace}
                   value={departureAdress}
                   onChange={(e) => setDepartureAdress(e.target.value)}
@@ -180,67 +189,54 @@ export default function LocationAvecChauffeur() {
                     onChange={(e) => setSelectedItem(e.target.value)}
                   />
                 </div>
-              </div>
-              <div className={styleLocation.containerNumberPeople}>
-                <p className={styleLocation.sectionTitle}>
-                  Nombre de personnes
-                </p>
-                <p>
-                  Attention ! Merci de prendre en compte la capacité du véhicule
-                  suivant le nombre de personnes présente lors du trajet
-                </p>
-                <div className={styleLocation.containerImageAndInput}>
-                  <div className={styleLocation.nbrPeople} />
-                  <input
-                    type="number"
-                    min="0"
-                    max="500"
-                    className={styleLocation.inputNbrPeople}
-                    value={numberOfPassengers}
-                    onChange={(e) => setNumberOfPassengers(e.target.value)}
-                  />
+
+                <div className={styleLocation.containerNumberPeople}>
+                  <p className={styleLocation.sectionTitle}>
+                    Nombre de personnes
+                  </p>
+                  <p>
+                    Attention ! Merci de prendre en compte la capacité du
+                    véhicule suivant le nombre de personnes présente lors du
+                    trajet
+                  </p>
+                  <div className={styleLocation.containerImageAndInput}>
+                    <div className={styleLocation.nbrPeople} />
+                    <input
+                      type="number"
+                      min="0"
+                      max="500"
+                      className={styleLocation.inputNbrPeople}
+                      value={numberOfPassengers}
+                      onChange={(e) => setNumberOfPassengers(e.target.value)}
+                    />
+                  </div>
                 </div>
-              </div>
-              <div className={styleLocation.containerForfait}>
-                <p className={styleLocation.sectionTitle}>Forfait</p>
-                <div className={styleLocation.containerButton}>
+                <div className={styleLocation.containerForfait}>
+                  <p className={styleLocation.sectionTitle}>
+                    Forfait horaire souhaité
+                  </p>
+                  <div className={styleLocation.containerButton}>
+                    <input
+                      type="number"
+                      min="0"
+                      max="10"
+                      value={hourNumber}
+                      onChange={(e) => setHourNumber(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className={styleLocation.containerEndingButton}>
                   <button
-                    onClick={() => setSelectedForfait("forfait demi-journée")}
+                    onClick={(handlefunctionButton, handleCreateLocaChauff)}
                     className={
-                      selectedForfait === "forfait demi-journée"
-                        ? styleLocation.buttonForfaitActive
-                        : styleLocation.buttonForfaitNormal
+                      buttonHandle
+                        ? styleLocation.buttonActive
+                        : styleLocation.buttonNormal
                     }
-                    onChange={(e) => setSelectedForfait(e.target.value)}
                   >
-                    Demi-journée
-                  </button>
-                  <button
-                    onClick={() =>
-                      setSelectedForfait("forfait journée entière")
-                    }
-                    className={
-                      selectedForfait === "forfait journée entière"
-                        ? styleLocation.buttonForfaitActive
-                        : styleLocation.buttonForfaitNormal
-                    }
-                    onChange={(e) => setSelectedForfait(e.target.value)}
-                  >
-                    Journée entière
+                    Réserver <div>{price}€</div>
                   </button>
                 </div>
-              </div>
-              <div className={styleLocation.containerEndingButton}>
-                <button
-                  onClick={(handlefunctionButton, handleCreateLocaChauff)}
-                  className={
-                    buttonHandle
-                      ? styleLocation.buttonActive
-                      : styleLocation.buttonNormal
-                  }
-                >
-                  Réserver
-                </button>
               </div>
             </div>
           </div>
@@ -263,7 +259,6 @@ export default function LocationAvecChauffeur() {
               dataTime={departureOfTime}
               dataVehicule={selectedItem}
               dataNbrPeople={numberOfPassengers}
-              dataForfait={selectedForfait}
             />
             <div className={styleLocation.containerUserInfo}>
               <div

@@ -7,7 +7,7 @@ module.exports.createFormLocaChauff = async ({
   departureOfTime,
   numberOfPassengers,
   vehiculeNeeded,
-  forfait,
+  numberOfHour,
 }) => {
   console.log("VRAI MODEL POUR LOCA");
   return await db.FormLocaChauff.create({
@@ -18,7 +18,7 @@ module.exports.createFormLocaChauff = async ({
       departureOfTime,
       numberOfPassengers,
       vehiculeNeeded,
-      forfait,
+      numberOfHour,
     },
   });
 };
