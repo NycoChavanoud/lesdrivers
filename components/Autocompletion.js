@@ -6,7 +6,7 @@ export default function Autocompletion() {
   const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     const loadAddress = async () => {
-      if (text.length > 10) {
+      if (text.length > 6) {
         const response = await axios.get(
           `/api/autocomplete/?address=${encodeURIComponent(text)}`
         );
@@ -24,7 +24,7 @@ export default function Autocompletion() {
     <div>
       <input
         type="text"
-        style={{ marginTop: 6, width: 170 }}
+        style={{ marginTop: 6, width: 250 }}
         onChange={(e) => setText(e.target.value)}
         value={text}
         onBlur={() => {
