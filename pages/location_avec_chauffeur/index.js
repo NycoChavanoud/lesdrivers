@@ -75,10 +75,10 @@ export default function LocationAvecChauffeur() {
     e.preventDefault();
 
     emailjs.sendForm(
-      "service_hwrw8hn",
-      "template_k8q0koh",
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_FORM_RESERVATIONS,
       form.current,
-      "AUafpo6N2PVFopqgz"
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
     );
   };
 
@@ -124,7 +124,7 @@ export default function LocationAvecChauffeur() {
                   Point de <br />
                   rendez-vous
                 </p>
-                <div>
+                <div className={styleLocation.containerInputLoca}>
                   <input
                     required
                     type="text"

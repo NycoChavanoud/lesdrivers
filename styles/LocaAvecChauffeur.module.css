@@ -474,6 +474,11 @@
   color: white;
 }
 @media screen and (min-width: 1140px) {
+  .containerInputLoca,
+  .containerInputCourse {
+    display: flex;
+    flex-direction: column;
+  }
   .containerInput {
     display: flex;
     flex-direction: row;
