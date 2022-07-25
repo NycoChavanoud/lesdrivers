@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 
 import ConfirmationCourse from "../../components/ConfirmationCourse";
 
-export default function LocationAvecChauffeur() {
+export default function CoursedansLyon() {
   const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
 
@@ -26,7 +26,8 @@ export default function LocationAvecChauffeur() {
 
   const router = useRouter();
 
-  const goAccueil = () => {
+  const goAccueil = (e) => {
+    e.preventDefault();
     router.push("/");
   };
   // all behind is useful for fetch data
@@ -180,6 +181,7 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerInput}>
                   <p>Départ</p>
                   <input
+                    required
                     id="Départ"
                     style={{ marginTop: 6, width: 200 }}
                     className={styleLocation.inputPlace}
@@ -213,6 +215,7 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerInput}>
                   <p>Arrivée</p>
                   <input
+                    required
                     id="Arrivée"
                     style={{ marginTop: 6, width: 200 }}
                     className={styleLocation.inputPlace}
@@ -257,6 +260,7 @@ export default function LocationAvecChauffeur() {
                     <p>
                       Je souhaite réserver mon chauffeur à{" "}
                       <input
+                        required
                         className={styleLocation.inputTime}
                         type="time"
                         value={departureOfTime}
@@ -329,6 +333,7 @@ export default function LocationAvecChauffeur() {
                     <div className={styleLocation.containerImageAndInput}>
                       <div className={styleLocation.nbrPeople} />
                       <input
+                        required
                         type="number"
                         min="1"
                         max="500"
@@ -339,35 +344,28 @@ export default function LocationAvecChauffeur() {
                     </div>
                   </div>
                   <div className={styleLocation.containerEndingButton}>
+                    <div className={styleLocation.buttonPrix}>
+                      Prix actuel{" "}
+                      <div className={styleLocation.buttonPrixData}>
+                        {isNaN(price) ? <span>...</span> : price}€
+                      </div>
+                    </div>
                     <button
-                      onClick={(handlefunctionButton, handleCreateCourse)}
+                      onClick={
+                        (handlefunctionButton,
+                        setShowConfirmation,
+                        setShowMain,
+                        handleCreateCourse)
+                      }
                       className={
                         buttonHandle
                           ? styleLocation.buttonActive
                           : styleLocation.buttonNormal
                       }
                     >
-                      Réserver{" "}
-                      <div>{isNaN(price) ? <span>...</span> : price}€</div>
+                      Réserver
                     </button>
                   </div>
-                </div>
-                <div className={styleLocation.containerEndingButton}>
-                  <button
-                    onClick={
-                      (handlefunctionButton,
-                      setShowConfirmation,
-                      setShowMain,
-                      handleCreateCourse)
-                    }
-                    className={
-                      buttonHandle
-                        ? styleLocation.buttonActive
-                        : styleLocation.buttonNormal
-                    }
-                  >
-                    Réserver
-                  </button>
                 </div>
               </div>
             </form>
@@ -392,6 +390,7 @@ export default function LocationAvecChauffeur() {
               dataTime={departureOfTime}
               dataVehicule={selectedItem}
               dataNbrPeople={numberOfPassengers}
+              dataPrix={price}
             />
             <div className={styleLocation.containerUserInfo}>
               <div
@@ -445,7 +444,6 @@ export default function LocationAvecChauffeur() {
                 </div>
                 <button
                   onClick={handlefunctionSent}
-                  type="submit"
                   className={styleLocation.btnRecap}
                 >
                   Valider mes informations

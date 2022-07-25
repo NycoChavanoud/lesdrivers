@@ -280,7 +280,8 @@
 .url4,
 .url5,
 .url6,
-.url7 {
+.url7,
+.url8 {
   height: 60px;
   width: 60px;
 }
@@ -316,6 +317,11 @@
 
 .url7 {
   background-image: url(../public/images/confi_forfait.png);
+  background-size: contain;
+}
+
+.url8 {
+  background-image: url(../public/images/confi_price.png);
   background-size: contain;
 }
 

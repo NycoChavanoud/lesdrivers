@@ -32,7 +32,8 @@ export default function LocationAvecChauffeur() {
 
   const router = useRouter();
 
-  const goAccueil = () => {
+  const goAccueil = (e) => {
+    e.preventDefault();
     router.push("/");
   };
 
@@ -83,7 +84,8 @@ export default function LocationAvecChauffeur() {
       form.current,
       "AUafpo6N2PVFopqgz"
     );
-    //.then(() => router.push("/"));
+
+    console.log("ok");
   };
 
   // autocompletion //
@@ -132,6 +134,7 @@ export default function LocationAvecChauffeur() {
                 </p>
                 <div>
                   <input
+                    required
                     type="text"
                     onChange={(e) => setDepartureAdress(e.target.value)}
                     value={departureAdress}
@@ -162,6 +165,7 @@ export default function LocationAvecChauffeur() {
               <div className={styleLocation.containerInput}>
                 <p>Date</p>
                 <input
+                  required
                   type="date"
                   className={styleLocation.inputDate}
                   value={departureOfDate}
@@ -173,6 +177,7 @@ export default function LocationAvecChauffeur() {
                   Je souhaite être pris en charge à <br />
                   partir de{" "}
                   <input
+                    required
                     className={styleLocation.setDepartureOfDate}
                     type="time"
                     value={departureOfTime}
@@ -244,6 +249,7 @@ export default function LocationAvecChauffeur() {
                   <div className={styleLocation.containerImageAndInput}>
                     <div className={styleLocation.nbrPeople} />
                     <input
+                      required
                       type="number"
                       min="0"
                       max="500"
@@ -259,6 +265,7 @@ export default function LocationAvecChauffeur() {
                   </p>
                   <div className={styleLocation.containerButtonForfait}>
                     <input
+                      required
                       type="number"
                       min="1"
                       max="10"
@@ -271,7 +278,9 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerEndingButton}>
                   <div className={styleLocation.buttonPrix}>
                     Prix actuel{" "}
-                    <div className={styleLocation.buttonPrixData}>{price}€</div>
+                    <div name="price" className={styleLocation.buttonPrixData}>
+                      {price}€
+                    </div>
                   </div>
                   <button
                     onClick={(handlefunctionButton, handleCreateLocaChauff)}
@@ -307,6 +316,7 @@ export default function LocationAvecChauffeur() {
               dataVehicule={selectedItem}
               dataNbrPeople={numberOfPassengers}
               dataForfait={hourNumber}
+              dataPrix={price}
             />
             <div className={styleLocation.containerUserInfo}>
               <div
@@ -360,7 +370,6 @@ export default function LocationAvecChauffeur() {
                 </div>
                 <button
                   onClick={handlefunctionSent}
-                  type="submit"
                   className={styleLocation.btnRecap}
                 >
                   Valider mes informations

@@ -8,6 +8,7 @@ export default function ConfirmationCourseAndLoca({
   dataVehicule,
   dataNbrPeople,
   dataForfait,
+  dataPrix,
 }) {
   return (
     <div className={styleLocation.mainContainer}>
@@ -60,6 +61,14 @@ export default function ConfirmationCourseAndLoca({
             data={dataForfait}
             nameData="dataNbrHeure"
             valueData={dataForfait}
+          />
+
+          <ButtonConfirmationCourseAndLoca
+            logo={styleLocation.url8}
+            title={"Prix en euros"}
+            data={dataPrix}
+            nameData="dataPrix"
+            valueData={dataPrix}
           />
         </div>
       </div>
