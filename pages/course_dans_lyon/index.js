@@ -39,7 +39,6 @@ export default function LocationAvecChauffeur() {
 
   const fetchData = (e) => {
     e.preventDefault();
-    console.log("c'est envoyé");
   };
 
   const [latitudeDepart, setLatitudeDepart] = useState([""]);
@@ -52,7 +51,7 @@ export default function LocationAvecChauffeur() {
   const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
   useEffect(() => {
     const loadAddressDepart = async () => {
-      if (textDepart.length > 10) {
+      if (textDepart.length > 6) {
         const response = await axios.get(
           `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
         );
@@ -70,7 +69,7 @@ export default function LocationAvecChauffeur() {
 
   useEffect(() => {
     const loadAddressArrivee = async () => {
-      if (textArrivee.length > 10) {
+      if (textArrivee.length > 6) {
         const response = await axios.get(
           `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
         );
