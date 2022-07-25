@@ -67,7 +67,6 @@ export default function LocationAvecChauffeur() {
   const form = useRef();
 
   const sendEmailCourse = (e) => {
-    console.log("ok");
     e.preventDefault();
 
     emailjs.sendForm(
