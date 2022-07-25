@@ -37,15 +37,11 @@ export default function LocationAvecChauffeur() {
     router.push("/");
   };
 
-  // all behind is useful for fetch data
-
   const [departureAdress, setDepartureAdress] = useState("");
   const [departureOfDate, setDepartureOfDate] = useState("2022-08-02");
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState(0);
   let [hourNumber, setHourNumber] = useState("1");
-
-  console.log(departureAdress);
 
   const handleCreateLocaChauff = (e) => {
     e.preventDefault();
@@ -84,8 +80,6 @@ export default function LocationAvecChauffeur() {
       form.current,
       "AUafpo6N2PVFopqgz"
     );
-
-    console.log("ok");
   };
 
   // autocompletion //
@@ -106,8 +100,6 @@ export default function LocationAvecChauffeur() {
     setDepartureAdress(departureAdress);
     setSuggestions([]);
   };
-
-  console.log(departureAdress);
 
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">

@@ -30,7 +30,6 @@ export default function CoursedansLyon() {
     e.preventDefault();
     router.push("/");
   };
-  // all behind is useful for fetch data
 
   const [departureAdress, setDepartureAdress] = useState("");
   const [arrivalAdress, setArrivalAdress] = useState("");
@@ -76,7 +75,6 @@ export default function CoursedansLyon() {
       form.current,
       "AUafpo6N2PVFopqgz"
     );
-    //.then(() => router.push("/"));
   };
 
   const [latitudeDepart, setLatitudeDepart] = useState([""]);
