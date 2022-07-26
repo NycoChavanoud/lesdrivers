@@ -405,7 +405,7 @@ export default function CoursedansLyon() {
               >
                 <h1>Merci de remplir ces dernières informations !</h1>
 
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Nom</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -415,7 +415,7 @@ export default function CoursedansLyon() {
                     name="lastname"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Prénom</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -425,7 +425,7 @@ export default function CoursedansLyon() {
                     name="firstname"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Numéro de téléphone</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -435,7 +435,7 @@ export default function CoursedansLyon() {
                     name="tel"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Adresse mail</p>
                   <input
                     className={styleLocation.inputPlace}
