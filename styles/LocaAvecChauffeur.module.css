@@ -27,10 +27,18 @@
   color: #ed071d;
 }
 
-.containerSection {
+.titleInput {
+  width: 85px;
+}
+
+.containerSectionOn {
   background-color: #2a2a92;
   width: 100%;
   padding: 30px;
+}
+
+.containerSectionOff {
+  display: none;
 }
 
 .containerForm {
@@ -41,15 +49,15 @@
   padding: 30px 30px 30px 30px;
 }
 
-.containerInput {
+.containerInput,
+.containerInputUserInfo {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
   background-color: #f4f4fc;
   width: 100%;
-  height: 30px;
-  padding: 30px 0px 30px 0px;
+  padding: 10px 0px 20px 30px;
   font-weight: 600;
   color: #696999;
   font-size: 14px;
@@ -58,13 +66,6 @@
   margin: 0px 0px 15px 0px;
 }
 
-.containerInput input {
-  width: 150px;
-  margin-right: 20px;
-}
-.containerInput p {
-  margin-left: 20px;
-}
 .containerTime {
   font-size: 20px;
 }
@@ -179,6 +180,7 @@
   align-items: center;
   justify-content: space-around;
 }
+
 .buttonForfaitNormal {
   color: #696999;
   background-color: #e1e1ee;
@@ -202,9 +204,14 @@
 .containerEndingButton {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 60px;
+}
 
-  margin-top: 30px;
+.containerHours {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .buttonNormal {
@@ -226,15 +233,59 @@
   background-color: #2a2a92;
 }
 
+.inputHourNumber {
+  background-color: #f4f4fc;
+  border: none;
+  border-bottom: 1px solid #696999;
+  color: #696999;
+  width: 50px;
+}
+
+.imageHours {
+  background-image: url(../public/images/hours.png);
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin: 0px 50px 0px 10px;
+}
+
+.containerButtonHours {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
 .containerSectionLeftCourse,
 .containerSectionLeftLoca {
   display: none;
 }
 
-.inputTime {
+.containerInputLoca,
+.containerInputCourse {
+  width: 100%;
+}
+
+.containerInput {
+  padding: 20px 30px 20px 30px;
+}
+
+.inputDepart,
+.inputArrive {
+  background-color: #f4f4fc;
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
+  width: 100%;
+}
+
+.inputDepartSuggestion,
+.inputArriveSuggestion {
+  background-color: #f4f4fc;
+  border: none;
+  color: #696999;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .inputDate {
@@ -242,10 +293,11 @@
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
+  width: 100%;
 }
 
-.inputPlace {
-  background-color: #f4f4fc;
+.inputTime {
+  background-color: #ffffff;
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
@@ -256,13 +308,276 @@
   font-weight: 600;
 }
 
+/*form confi*/
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 20px 0px 20px;
+}
+
+.url1,
+.url2,
+.url3,
+.url4,
+.url5,
+.url6,
+.url7,
+.url8 {
+  height: 60px;
+  width: 60px;
+}
+.url1 {
+  background-image: url(../public/images/confi_depart.png);
+  background-size: contain;
+}
+
+.url2 {
+  background-image: url(../public/images/confi_arrival.png);
+  background-size: contain;
+}
+
+.url3 {
+  background-image: url(../public/images/confi_date.png);
+  background-size: contain;
+}
+
+.url4 {
+  background-image: url(../public/images/confi_time.png);
+  background-size: contain;
+}
+
+.url5 {
+  background-image: url(../public/images/confi_vehi.png);
+  background-size: contain;
+}
+
+.url6 {
+  background-image: url(../public/images/confi_people.png);
+  background-size: contain;
+}
+
+.url7 {
+  background-image: url(../public/images/confi_forfait.png);
+  background-size: contain;
+}
+
+.url8 {
+  background-image: url(../public/images/confi_price.png);
+  background-size: contain;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 15px 0px 15px 0px;
+}
+
+.ensembleTexte {
+  margin-left: 30px;
+}
+
+.title {
+  color: #a2a2a2;
+  margin: 0;
+}
+
+.data {
+  color: #100086;
+  margin: 0;
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.containerSectionLeft h1 {
+  color: #131d56;
+}
+
+.containerRecap button {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #131d56;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  margin-top: 30px;
+}
+
+.ensembleButton {
+  margin-left: 30px;
+}
+
+.containerUserInfo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0px 30px 0px 30px;
+}
+
+.containerRecapOn {
+  display: block;
+}
+
+.containerRecapOff {
+  display: none;
+}
+
+.containerFormUserInfoOn {
+  display: block;
+}
+.containerFormUserInfoOff {
+  display: none;
+}
+
+.btnRecap {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #131d56;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.alertMessageOn {
+  width: 100%;
+  height: 450px;
+  padding: 0px 10px 0px 10px;
+}
+
+.alertMessageOff {
+  display: none;
+}
+
+.send {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(#d7f2a7, #aeeccb);
+  width: 100%;
+  height: 450px;
+  padding: 0px 30px 0px 30px;
+  color: #ffffff;
+  border-radius: 30px;
+}
+
+.sendImg {
+  width: 150px;
+  height: 150px;
+  background-image: url(../public/images/sent.png);
+  background-size: contain;
+}
+
+.sendtitle {
+  font-size: 20px;
+}
+
+.sendsubtitle {
+  text-align: center;
+}
+
+.sendbutton {
+  background-color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 100px;
+  font-weight: 600;
+}
+
+.sendbutton:hover {
+  background-color: #167d46;
+  color: rgb(255, 255, 255);
+}
+
+.buttonPrix {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 160px;
+  font-size: 20px;
+}
+
+.buttonPrixData {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2a2a92;
+  border-radius: 50px;
+  width: 50px;
+  height: 50px;
+  color: white;
+}
 @media screen and (min-width: 1140px) {
-  .containerSection {
+  .titleInput {
+    width: 100px;
+    margin-right: 15px;
+  }
+  .containerInput {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .containerInputUserInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f4f4fc;
+    width: 100%;
+    font-weight: 600;
+    color: #696999;
+    font-size: 14px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 20px #bebebe, -1px -1px 20px #bebebe;
+    padding-right: 30px;
+  }
+
+  .containerInputUserInfo input {
+    background-color: #f4f4fc;
+    border: none;
+    border-bottom: 1px solid #696999;
+    color: #696999;
+  }
+
+  .inputDepart,
+  .inputArrive,
+  .inputDate {
+    background-color: #f4f4fc;
+    border: none;
+    border-bottom: 1px solid #696999;
+    color: #696999;
+    width: 100%;
+  }
+
+  .inputDepartSuggestion,
+  .inputArriveSuggestion {
+    background-color: #f4f4fc;
+    border: none;
+    color: #696999;
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .containerSectionOn {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     background-color: white;
   }
+
+  .containerSectionOff {
+    display: none;
+  }
+
   .containerSectionLeftCourse {
     display: block;
     padding: 220px 60px 0px 120px;
@@ -322,5 +637,28 @@
     background-color: #2a2a92;
     padding: 5px;
     border-radius: 60px;
+  }
+
+  .containerRecap {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerUserInfo {
+    width: 400px;
+    padding: 0px 30px 0px 30px;
+  }
+
+  .containerRecapOn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .containerRecapOnForm {
+    display: flex;
   }
 }

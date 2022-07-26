@@ -5,8 +5,9 @@ module.exports.createFormCourse = async ({
   arrivalAdress,
   departureOfDate,
   departureOfTime,
-  numberOfPassengers,
   vehiculeNeeded,
+  numberOfPassengers,
+  price,
 }) => {
   return await db.FormCourseLyon.create({
     data: {
@@ -14,8 +15,9 @@ module.exports.createFormCourse = async ({
       arrivalAdress,
       departureOfDate,
       departureOfTime,
-      numberOfPassengers,
       vehiculeNeeded,
+      numberOfPassengers,
+      price,
     },
   });
 };
