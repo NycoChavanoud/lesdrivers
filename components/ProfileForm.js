@@ -20,14 +20,6 @@ import { useContext, useState } from "react";
 // const usePhoneNumberState = createPersistedState("invite_form_phoneNumber");
 // const useSocietyState = createPersistedState("invite_form_society");
 
-// {
-//   firstNameDefault = "",
-//   lastNameDefault = "",
-//   emailDefault = "",
-//   adressDefault = "",
-//   phoneNumberDefault = "",
-//   societyDefault = "",
-// }
 export default function ProfilForm({
   originAdress,
   destinationAdress,
@@ -87,13 +79,26 @@ export default function ProfilForm({
   // EMAILJS
 
   const templateParams = {
-    user_name: firstname,
-    user_email: flightNumber,
-    // currentUserProfile.firstname,
-    // user_email: currentUserProfile.email,
+    dataDepartCourse: originAdress,
+    dataArriveCourse: destinationAdress,
+    dataDateCourse: departureDate,
+    dataTimeCourse: departureTime,
+    dataNbrPeopleCourse: numberPassengers,
+    numberLuggages: numberLuggages,
+    dataVehiculeCourse: vehicule,
+    siegeBebe: siegeBebe,
+    rehausseur: rehausseur,
+    porteSki: porteSki,
+    flightNumber: flightNumber,
+    somethingToSay: somethingToSay,
+    price: price,
+    firstname: firstname,
+    lastname: lastname,
+    tel: phoneNumber,
+    mail: email,
+    postalAdressClient: address,
+    societyClient: society,
   };
-
-  // console.log(currentUserProfile.firstname);
 
   const sendEmail = (e) => {
     e.preventDefault();
@@ -101,7 +106,7 @@ export default function ProfilForm({
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID_CONTACT,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_FORM_RESERVATIONS,
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
