@@ -1,15 +1,34 @@
 import Layout from "../../components/Layout";
 import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
+import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
 
-export default function LocationAvecChauffeur() {
+import ConfirmationCourse from "../../components/ConfirmationCourse";
+
+export default function CoursedansLyon() {
   const [selectedItem, setSelectedItem] = useState("Berline");
   const [buttonHandle, setButtonHandle] = useState(false);
+
+  const [showSent, setShowSent] = useState(false);
+  const [showUserInfo, setShowUserInfo] = useState(true);
+
+  const handlefunctionSent = () => {
+    setShowSent(true);
+    setShowUserInfo(false);
+  };
+
   const handlefunctionButton = () => {
     setButtonHandle(true);
+  };
+
+  const router = useRouter();
+
+  const goAccueil = (e) => {
+    e.preventDefault();
+    router.push("/");
   };
 
   const [departureAdress, setDepartureAdress] = useState("");
@@ -18,10 +37,18 @@ export default function LocationAvecChauffeur() {
   const [departureOfTime, setDepartureOfTime] = useState("10:00");
   const [numberOfPassengers, setNumberOfPassengers] = useState("0");
 
-  const router = useRouter();
+  const [passengerName, setPassengerName] = useState("");
+  const [passengerFirstname, setPassengerFirstname] = useState("");
+  const [passengerMail, setPassengerMail] = useState("");
+  const [passengerPhoneNumber, setPassengerPhoneNumber] = useState("");
+
+  const [showConfirmation, setShowConfirmation] = useState(true);
+  const [showMain, setShowMain] = useState(true);
 
   const handleCreateCourse = (e) => {
     e.preventDefault();
+    setShowConfirmation();
+    setShowMain();
     axios
       .post(`/api/courseLyon`, {
         departureAdress: departureAdress,
@@ -31,14 +58,23 @@ export default function LocationAvecChauffeur() {
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
       })
-      .then(() => router.push("/"))
+
       .catch((err) => {
         console.error(err);
       });
   };
 
-  const fetchData = (e) => {
+  const form = useRef();
+
+  const sendEmailCourse = (e) => {
     e.preventDefault();
+
+    emailjs.sendForm(
+      process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+      process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_FORM_RESERVATIONS,
+      form.current,
+      process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
+    );
   };
 
   const [latitudeDepart, setLatitudeDepart] = useState([""]);
@@ -121,26 +157,32 @@ export default function LocationAvecChauffeur() {
   };
 
   return (
-    <>
-      <Layout pageTitle="Les Drivers - Location avec chauffeur">
-        <div className={styleLocation.containerService}>
-          <p className={styleLocation.titlecourse}>
-            Course dans Lyon <br />
-            <span>et ses alentours</span>
-          </p>
-          <div className={styleLocation.containerSection}>
-            <div className={styleLocation.containerSectionLeftCourse}>
-              Laissez vous conduire, de jour comme de nuit en toute sécurité !
-            </div>
-            <div className={styleLocation.containerSectionRight}>
-              <form>
-                <div className={styleLocation.containerForm}>
-                  <div className={styleLocation.containerInput}>
-                    <p>Départ</p>
+    <Layout pageTitle="Les Drivers - Course dans Lyon">
+      <div className={styleLocation.containerService}>
+        <p className={styleLocation.titlecourse}>
+          Course dans Lyon <br />
+          <span>et ses alentours</span>
+        </p>
+        <div
+          className={
+            showMain
+              ? styleLocation.containerSectionOn
+              : styleLocation.containerSectionOff
+          }
+        >
+          <div className={styleLocation.containerSectionLeftCourse}>
+            Laissez vous conduire, de jour comme de nuit en toute sécurité !
+          </div>
+          <div className={styleLocation.containerSectionRight}>
+            <form>
+              <div className={styleLocation.containerForm}>
+                <div className={styleLocation.containerInput}>
+                  <p className={styleLocation.titleInput}>Départ</p>
+                  <div className={styleLocation.containerInputCourse}>
                     <input
+                      required
                       id="Départ"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputDepart}
                       type="text"
                       value={textDepart}
                       onChange={(e) =>
@@ -158,7 +200,7 @@ export default function LocationAvecChauffeur() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputDepartSuggestion}
                               onClick={() =>
                                 departureOnSuggestHandler(i.properties.label)
                               }
@@ -170,12 +212,14 @@ export default function LocationAvecChauffeur() {
                       })}
                     </div>
                   </div>
-                  <div className={styleLocation.containerInput}>
-                    <p>Arrivée</p>
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p className={styleLocation.titleInput}>Arrivée</p>
+                  <div className={styleLocation.containerInputCourse}>
                     <input
+                      required
                       id="Arrivée"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputArrive}
                       type="text"
                       value={textArrivee}
                       onChange={(e) => setTextAndArrivalAddress(e.target.value)}
@@ -191,7 +235,7 @@ export default function LocationAvecChauffeur() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputArriveSuggestion}
                               onClick={() =>
                                 arrivalOnSuggestHandler(i.properties.label)
                               }
@@ -203,19 +247,22 @@ export default function LocationAvecChauffeur() {
                       })}
                     </div>
                   </div>
-                  <div className={styleLocation.containerInput}>
-                    <p>Date</p>
-                    <input
-                      type="date"
-                      className={styleLocation.inputDate}
-                      value={departureOfDate}
-                      onChange={(e) => setDepartureOfDate(e.target.value)}
-                    />
-                  </div>
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p className={styleLocation.titleInput}>Date</p>
+                  <input
+                    type="date"
+                    className={styleLocation.inputDate}
+                    value={departureOfDate}
+                    onChange={(e) => setDepartureOfDate(e.target.value)}
+                  />
+                </div>
+                <div className={styleLocation.containerTime}>
                   <div className={styleLocation.containerTime}>
                     <p>
                       Je souhaite réserver mon chauffeur à{" "}
                       <input
+                        required
                         className={styleLocation.inputTime}
                         type="time"
                         value={departureOfTime}
@@ -288,8 +335,9 @@ export default function LocationAvecChauffeur() {
                     <div className={styleLocation.containerImageAndInput}>
                       <div className={styleLocation.nbrPeople} />
                       <input
+                        required
                         type="number"
-                        min="0"
+                        min="1"
                         max="500"
                         className={styleLocation.inputNbrPeople}
                         value={numberOfPassengers}
@@ -298,9 +346,18 @@ export default function LocationAvecChauffeur() {
                     </div>
                   </div>
                   <div className={styleLocation.containerEndingButton}>
+                    <div className={styleLocation.buttonPrix}>
+                      Prix actuel{" "}
+                      <div className={styleLocation.buttonPrixData}>
+                        {isNaN(price) ? <span>...</span> : price}€
+                      </div>
+                    </div>
                     <button
                       onClick={
-                        (handlefunctionButton, fetchData, handleCreateCourse)
+                        (handlefunctionButton,
+                        setShowConfirmation,
+                        setShowMain,
+                        handleCreateCourse)
                       }
                       className={
                         buttonHandle
@@ -308,16 +365,120 @@ export default function LocationAvecChauffeur() {
                           : styleLocation.buttonNormal
                       }
                     >
-                      Réserver{" "}
-                      <div>{isNaN(price) ? <span>...</span> : price}€</div>
+                      Réserver
                     </button>
                   </div>
                 </div>
-              </form>
-            </div>
+              </div>
+            </form>
           </div>
         </div>
-      </Layout>
-    </>
+        <div
+          className={
+            showConfirmation
+              ? styleLocation.containerRecapOff
+              : styleLocation.containerRecapOn
+          }
+        >
+          <form
+            ref={form}
+            onSubmit={sendEmailCourse}
+            className={styleLocation.containerRecapOnForm}
+          >
+            <ConfirmationCourse
+              dataDepart={departureAdress}
+              dataArrive={arrivalAdress}
+              dataDate={departureOfDate}
+              dataTime={departureOfTime}
+              dataVehicule={selectedItem}
+              dataNbrPeople={numberOfPassengers}
+              dataPrix={price}
+            />
+            <div className={styleLocation.containerUserInfo}>
+              <div
+                className={
+                  showUserInfo
+                    ? styleLocation.containerFormUserInfoOn
+                    : styleLocation.containerFormUserInfoOff
+                }
+              >
+                <h1>Merci de remplir ces dernières informations !</h1>
+
+                <div className={styleLocation.containerInput}>
+                  <p>Nom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerName}
+                    onChange={(e) => setPassengerName(e.target.value)}
+                    name="lastname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Prénom</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerFirstname}
+                    onChange={(e) => setPassengerFirstname(e.target.value)}
+                    name="firstname"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Numéro de téléphone</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerPhoneNumber}
+                    onChange={(e) => setPassengerPhoneNumber(e.target.value)}
+                    name="tel"
+                  />
+                </div>
+                <div className={styleLocation.containerInput}>
+                  <p>Adresse mail</p>
+                  <input
+                    className={styleLocation.inputPlace}
+                    type="text"
+                    value={passengerMail}
+                    onChange={(e) => setPassengerMail(e.target.value)}
+                    name="mail"
+                  />
+                </div>
+                <button
+                  onClick={handlefunctionSent}
+                  className={styleLocation.btnRecap}
+                >
+                  Valider mes informations
+                </button>
+              </div>
+              <div
+                className={
+                  showSent
+                    ? styleLocation.alertMessageOn
+                    : styleLocation.alertMessageOff
+                }
+              >
+                <div className={styleLocation.send}>
+                  <div className={styleLocation.sendImg}></div>
+                  <p className={styleLocation.sendtitle}>
+                    Votre message à été envoyé !
+                  </p>
+                  <p className={styleLocation.sendsubtitle}>
+                    Notre équipe à bien reçu votre mail et nous nous engageons à
+                    vous répondre dans les plus brefs délais !
+                  </p>
+                  <button
+                    className={styleLocation.sendbutton}
+                    onClick={goAccueil}
+                  >
+                    Retour à l{"'"}accueil
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </Layout>
   );
 }
