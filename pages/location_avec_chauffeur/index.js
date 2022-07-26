@@ -49,7 +49,7 @@ export default function CourseDansLyon() {
 
   return (
     <>
-      <Layout pageTitle="Les Drivers - Course dans Lyon">
+      <Layout pageTitle="Les Drivers - Location avec chauffeur">
         <div className={styleLocation.containerService}>
           <p className={styleLocation.titleloc}>
             Location <span>avec chauffeur</span>

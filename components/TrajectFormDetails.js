@@ -81,19 +81,19 @@ export default function TrajectFormDetails({
   const [longitude, setLongitude] = useState([""]);
   const [text, setText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  useEffect(() => {
-    const loadAddress = async () => {
-      if (text.length > 6) {
-        const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(text)}`
-        );
-        setSuggestions(response.data.features);
-        setLatitude(response.data.features[0].geometry.coordinates[1]);
-        setLongitude(response.data.features[0].geometry.coordinates[0]);
-      }
-    };
-    loadAddress();
-  }, [text, originAdress]);
+  // useEffect(() => {
+  //   const loadAddress = async () => {
+  //     if (text.length > 6) {
+  //       const response = await axios.get(
+  //         `/api/autocomplete/?address=${encodeURIComponent(text)}`
+  //       );
+  //       setSuggestions(response.data.features);
+  //       setLatitude(response.data.features[0].geometry.coordinates[1]);
+  //       setLongitude(response.data.features[0].geometry.coordinates[0]);
+  //     }
+  //   };
+  //   loadAddress();
+  // }, [text, originAdress]);
   const onSuggestHandler = (text) => {
     setSuggestions([]);
     setText(text);
@@ -113,14 +113,30 @@ export default function TrajectFormDetails({
 
   if (originAdressDefault === "originAdressDefaultAirport") price = price + 5;
 
-  const setTextAndOriginAdress = (address) => {
+  const setTextAndOriginAdress = async (address) => {
     setText(address);
     setOriginAdress(address);
+    if (text.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(text)}`
+      );
+      setSuggestions(response.data.features);
+      setLatitude(response.data.features[0].geometry.coordinates[1]);
+      setLongitude(response.data.features[0].geometry.coordinates[0]);
+    }
   };
 
-  const setTextAndDestinationAdress = (address) => {
+  const setTextAndDestinationAdress = async (address) => {
     setText(address);
     setDestinationAdress(address);
+    if (text.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(text)}`
+      );
+      setSuggestions(response.data.features);
+      setLatitude(response.data.features[0].geometry.coordinates[1]);
+      setLongitude(response.data.features[0].geometry.coordinates[0]);
+    }
   };
 
   const handleCreateItin = (e) => {
@@ -173,7 +189,6 @@ export default function TrajectFormDetails({
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
                   onChange={(e) => setTextAndOriginAdress(e.target.value)}
-                  onClick={(e) => setTextAndOriginAdress(e.target.value)}
                   value={text}
                   required
                   onBlur={() => {
@@ -216,8 +231,8 @@ export default function TrajectFormDetails({
                 <input
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
-                  onChange={(e) => setTextAndDestinationAdress(e.target.value)}
                   value={text}
+                  onChange={(e) => setTextAndDestinationAdress(e.target.value)}
                   onClick={(e) => setTextAndDestinationAdress(e.target.value)}
                   onBlur={() => {
                     setTimeout(() => {

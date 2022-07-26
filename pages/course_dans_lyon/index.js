@@ -49,37 +49,37 @@ export default function LocationAvecChauffeur() {
   const [longitudeArrivee, setLongitudeArrivee] = useState([""]);
   const [textArrivee, setTextArrivee] = useState("");
   const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
-  useEffect(() => {
-    const loadAddressDepart = async () => {
-      if (textDepart.length > 6) {
-        const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
-        );
-        setDepartSuggestions(response.data.features);
-        setLatitudeDepart(response.data.features[0].geometry.coordinates[1]);
-        setLongitudeDepart(response.data.features[0].geometry.coordinates[0]);
-      }
-    };
-    loadAddressDepart();
-  }, [textDepart, departureAdress]);
+
+  const setTextAndDepartureAddress = async (textDepart, address) => {
+    if (textDepart.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
+      );
+      setDepartSuggestions(response.data.features);
+      setLatitudeDepart(response.data.features[0].geometry.coordinates[1]);
+      setLongitudeDepart(response.data.features[0].geometry.coordinates[0]);
+    }
+    setTextDepart(address);
+    setDepartureAdress(address);
+  };
+
+  const setTextAndArrivalAddress = async (textArrivee, address) => {
+    if (textArrivee.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
+      );
+      setArriveeSuggestions(response.data.features);
+      setLatitudeArrivee(response.data.features[0].geometry.coordinates[1]);
+      setLongitudeArrivee(response.data.features[0].geometry.coordinates[0]);
+    }
+    setTextArrivee(address);
+    setArrivalAdress(address);
+  };
   const departureOnSuggestHandler = (textDepart) => {
     setDepartSuggestions([]);
     setTextDepart(textDepart);
   };
 
-  useEffect(() => {
-    const loadAddressArrivee = async () => {
-      if (textArrivee.length > 6) {
-        const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
-        );
-        setArriveeSuggestions(response.data.features);
-        setLatitudeArrivee(response.data.features[0].geometry.coordinates[1]);
-        setLongitudeArrivee(response.data.features[0].geometry.coordinates[0]);
-      }
-    };
-    loadAddressArrivee();
-  }, [textArrivee]);
   const arrivalOnSuggestHandler = (textArrivee) => {
     setArriveeSuggestions([]);
     setTextArrivee(textArrivee);
@@ -110,19 +110,9 @@ export default function LocationAvecChauffeur() {
   )
     price = Math.round(price * 1.15);
 
-  const setTextAndDepartureAddress = (address) => {
-    setTextDepart(address);
-    setDepartureAdress(address);
-  };
-
-  const setTextAndArrivalAddress = (address) => {
-    setTextArrivee(address);
-    setArrivalAdress(address);
-  };
-
   return (
     <>
-      <Layout pageTitle="Les Drivers - Location avec chauffeur">
+      <Layout pageTitle="Les Drivers - Course dans Lyon">
         <div className={styleLocation.containerService}>
           <p className={styleLocation.titlecourse}>
             Course dans Lyon <br />
