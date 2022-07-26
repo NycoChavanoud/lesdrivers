@@ -33,8 +33,10 @@
   display: flex;
   flex-direction: column;
   width: 90%;
+  max-width: 700px;
   padding: 0px 20px 0px 20px;
   background-color: #2a2a92;
+  border-radius: 2em;
 }
 
 .titleButton {
@@ -73,6 +75,7 @@
 .FormBlockGoToAirportContainer {
   color: white;
 }
+
 .InputDepartDate,
 .InputDepartLieu,
 .InputDepartArrive,
@@ -138,8 +141,37 @@
   text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .ButtForm {
     width: 40%;
+  }
+
+  .InputDepartLieu,
+  .InputDepartArrive {
+    width: 45%;
+  }
+  .containerAddress {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .PersonLuggagesFlightNumberContainer {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .timeAndDateContainer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .InputEquipments {
+    flex-direction: row;
+    justify-content: space-around;
   }
 }
