@@ -25,6 +25,7 @@ async function seed() {
       departureOfTime: "18:30",
       numberOfPassengers: 5,
       vehiculeNeeded: "Berline",
+      price: 125,
     },
   });
 
@@ -37,6 +38,7 @@ async function seed() {
       numberOfPassengers: 5,
       vehiculeNeeded: "Berline",
       numberOfHour: "3",
+      price: 75,
     },
   });
 
