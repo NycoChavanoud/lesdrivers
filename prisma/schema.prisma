@@ -31,8 +31,9 @@ model FormCourseLyon {
   arrivalAdress      String
   departureOfDate    String
   departureOfTime    String
-  numberOfPassengers Int
   vehiculeNeeded     String
+  numberOfPassengers Int
+  price              Int
 }
 
 model FormLocaChauff {
@@ -40,9 +41,10 @@ model FormLocaChauff {
   departureAdress    String
   departureOfDate    String
   departureOfTime    String
-  numberOfPassengers Int
   vehiculeNeeded     String
+  numberOfPassengers Int
   numberOfHour       String
+  price              Int
 }
 
 model ItineraryAirport {

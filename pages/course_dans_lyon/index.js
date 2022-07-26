@@ -57,6 +57,7 @@ export default function CoursedansLyon() {
         departureOfTime: departureOfTime,
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
+        price: parseInt(price, 10),
       })
 
       .catch((err) => {

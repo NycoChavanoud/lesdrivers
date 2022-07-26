@@ -54,7 +54,8 @@ export default function LocationAvecChauffeur() {
         departureOfTime: departureOfTime,
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
-        numberOfHour: hourNumber,
+        numberOfHour: parseInt(hourNumber, 10),
+        price: parseInt(price, 10),
       })
       .catch((err) => {
         console.error(err);
