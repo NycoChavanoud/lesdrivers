@@ -5,9 +5,10 @@ module.exports.createFormLocaChauff = async ({
   arrivalAdress,
   departureOfDate,
   departureOfTime,
-  numberOfPassengers,
   vehiculeNeeded,
+  numberOfPassengers,
   numberOfHour,
+  price,
 }) => {
   return await db.FormLocaChauff.create({
     data: {
@@ -18,6 +19,7 @@ module.exports.createFormLocaChauff = async ({
       numberOfPassengers,
       vehiculeNeeded,
       numberOfHour,
+      price,
     },
   });
 };
