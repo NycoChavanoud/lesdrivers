@@ -8,7 +8,7 @@ export default function footer() {
     <div className={styles.containerDiv}>
       <div className={styles.container}>
         <div className={styles.footer}>
-          <div>
+          <div className={styles.footerDiv1}>
             <h5 className={styles.footerTitle}>Nous contacter</h5>
             <div className={styles.footerContact}>
               &#9990; + 33 4 69 96 60 80{" "}
@@ -71,21 +71,6 @@ export default function footer() {
                       height={40}
                     />
                   </a>
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h5 className={styles.footerTitle}>Mentions legales</h5>
-            <div className={styles.links}>
-              <div>
-                <Link href="/course_dans_lyon">
-                  <a>Réservation</a>
-                </Link>
-              </div>
-              <div>
-                <Link href="/Mes informations">
-                  <a style={{ opacity: "0.4" }}>Politique de confidentialite</a>
                 </Link>
               </div>
             </div>
