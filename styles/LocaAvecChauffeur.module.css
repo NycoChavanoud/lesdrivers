@@ -515,29 +515,33 @@
   color: white;
 }
 @media screen and (min-width: 1140px) {
-  .containerInputLoca,
-  .containerInputCourse {
-    display: flex;
-    flex-direction: column;
+  .titleInput {
+    width: 100px;
+    margin-right: 15px;
   }
-
   .containerInput {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    padding: 10px 0px 10px 0px;
   }
 
-  .inputAdress {
+  .inputDepart,
+  .inputArrive,
+  .inputDate {
     background-color: #f4f4fc;
     border: none;
     border-bottom: 1px solid #696999;
     color: #696999;
+    width: 100%;
   }
 
-  .containerInput p {
-    margin: 0px 30px 0px 30px;
+  .inputDepartSuggestion,
+  .inputArriveSuggestion {
+    background-color: #f4f4fc;
+    border: none;
+    color: #696999;
+    width: 100%;
+    margin-top: 10px;
   }
 
   .containerSectionOn {
