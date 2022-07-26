@@ -141,7 +141,7 @@
   text-align: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 700px) {
   .ButtForm {
     width: 40%;
   }
