@@ -27,6 +27,10 @@
   color: #ed071d;
 }
 
+.titleInput {
+  width: 85px;
+}
+
 .containerSectionOn {
   background-color: #2a2a92;
   width: 100%;
@@ -203,7 +207,7 @@
   margin-top: 60px;
 }
 
-.containerForfait {
+.containerHours {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -229,11 +233,26 @@
 }
 
 .inputHourNumber {
-  background-color: #e1e1ee;
+  background-color: #f4f4fc;
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
-  width: 60px;
+  width: 50px;
+}
+
+.imageHours {
+  background-image: url(../public/images/hours.png);
+  background-size: contain;
+  width: 50px;
+  height: 50px;
+  margin: 0px 50px 0px 10px;
+}
+
+.containerButtonHours {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
 
 .containerSectionLeftCourse,
@@ -241,10 +260,31 @@
   display: none;
 }
 
-.inputTime {
+.containerInputLoca,
+.containerInputCourse {
+  width: 100%;
+}
+
+.containerInput {
+  padding: 20px 30px 20px 30px;
+}
+
+.inputDepart,
+.inputArrive {
+  background-color: #f4f4fc;
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
+  width: 100%;
+}
+
+.inputDepartSuggestion,
+.inputArriveSuggestion {
+  background-color: #f4f4fc;
+  border: none;
+  color: #696999;
+  width: 100%;
+  margin-top: 10px;
 }
 
 .inputDate {
@@ -252,10 +292,11 @@
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
+  width: 100%;
 }
 
-.inputPlace {
-  background-color: #f4f4fc;
+.inputTime {
+  background-color: #ffffff;
   border: none;
   border-bottom: 1px solid #696999;
   color: #696999;
@@ -479,6 +520,7 @@
     display: flex;
     flex-direction: column;
   }
+
   .containerInput {
     display: flex;
     flex-direction: row;

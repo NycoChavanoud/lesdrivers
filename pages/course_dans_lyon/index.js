@@ -177,13 +177,12 @@ export default function CoursedansLyon() {
             <form>
               <div className={styleLocation.containerForm}>
                 <div className={styleLocation.containerInput}>
-                  <p>Départ</p>
+                  <p className={styleLocation.titleInput}>Départ</p>
                   <div className={styleLocation.containerInputCourse}>
                     <input
                       required
                       id="Départ"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputDepart}
                       type="text"
                       value={textDepart}
                       onChange={(e) =>
@@ -201,7 +200,7 @@ export default function CoursedansLyon() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputDepartSuggestion}
                               onClick={() =>
                                 departureOnSuggestHandler(i.properties.label)
                               }
@@ -215,13 +214,12 @@ export default function CoursedansLyon() {
                   </div>
                 </div>
                 <div className={styleLocation.containerInput}>
-                  <p>Arrivée</p>
+                  <p className={styleLocation.titleInput}>Arrivée</p>
                   <div className={styleLocation.containerInputCourse}>
                     <input
                       required
                       id="Arrivée"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputArrive}
                       type="text"
                       value={textArrivee}
                       onChange={(e) => setTextAndArrivalAddress(e.target.value)}
@@ -237,7 +235,7 @@ export default function CoursedansLyon() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputArriveSuggestion}
                               onClick={() =>
                                 arrivalOnSuggestHandler(i.properties.label)
                               }
@@ -251,7 +249,7 @@ export default function CoursedansLyon() {
                   </div>
                 </div>
                 <div className={styleLocation.containerInput}>
-                  <p>Date</p>
+                  <p className={styleLocation.titleInput}>Date</p>
                   <input
                     type="date"
                     className={styleLocation.inputDate}
