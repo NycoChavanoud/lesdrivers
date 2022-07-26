@@ -8,7 +8,6 @@ module.exports.createFormCourse = async ({
   numberOfPassengers,
   vehiculeNeeded,
 }) => {
-  console.log("VRAI MODEL");
   return await db.FormCourseLyon.create({
     data: {
       departureAdress,
