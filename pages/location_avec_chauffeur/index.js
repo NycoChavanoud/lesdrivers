@@ -120,7 +120,7 @@ export default function LocationAvecChauffeur() {
           <div className={styleLocation.containerSectionRight}>
             <div className={styleLocation.containerForm}>
               <div className={styleLocation.containerInput}>
-                <p>
+                <p className={styleLocation.titleInput}>
                   Point de <br />
                   rendez-vous
                 </p>
@@ -130,7 +130,7 @@ export default function LocationAvecChauffeur() {
                     type="text"
                     onChange={(e) => setDepartureAdress(e.target.value)}
                     value={departureAdress}
-                    className={styleLocation.inputAdress}
+                    className={styleLocation.inputDepart}
                     onBlur={() => {
                       setTimeout(() => {
                         setSuggestions([]);
@@ -143,7 +143,7 @@ export default function LocationAvecChauffeur() {
                         <div key={index}>
                           <div
                             type="button"
-                            className={styleLocation.containerSuggestion}
+                            className={styleLocation.inputDepartSuggestion}
                             onClick={() => onSuggestHandler(i.properties.label)}
                           >
                             {i.properties.label}
@@ -155,7 +155,7 @@ export default function LocationAvecChauffeur() {
                 </div>
               </div>
               <div className={styleLocation.containerInput}>
-                <p>Date</p>
+                <p className={styleLocation.titleInput}>Date</p>
                 <input
                   required
                   type="date"
@@ -170,7 +170,7 @@ export default function LocationAvecChauffeur() {
                   partir de{" "}
                   <input
                     required
-                    className={styleLocation.setDepartureOfDate}
+                    className={styleLocation.inputTime}
                     type="time"
                     value={departureOfTime}
                     onChange={(e) => setDepartureOfTime(e.target.value)}
@@ -251,11 +251,12 @@ export default function LocationAvecChauffeur() {
                     />
                   </div>
                 </div>
-                <div className={styleLocation.containerForfait}>
+                <div className={styleLocation.containerHours}>
                   <p className={styleLocation.sectionTitle}>
                     Nombre d{"'"}heures désirées
                   </p>
-                  <div className={styleLocation.containerButtonForfait}>
+                  <div className={styleLocation.containerButtonHours}>
+                    <div className={styleLocation.imageHours}></div>
                     <input
                       required
                       type="number"
