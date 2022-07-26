@@ -154,151 +154,179 @@ export default function TrajectFormDetails({
             tarifAppear ? styleTransfert.tarifOff : styleTransfert.tarifOn
           }
         >
-          <div className={styleTransfert.InputDepartLieu}>
-            <label className={styleTransfert.label}>Lieu de départ</label>
-            {originAdressDefault === "originAdressDefaultAirport" ? (
-              <select onChange={(e) => setOriginAdress(e.target.value)}>
-                <option defaultValue value="Aéroport Lyon-Saint Exupéry">
-                  Aéroport Lyon-Saint Exupéry
-                </option>
-                <option value="Gare Lyon-Saint Exupéry">
-                  Gare Lyon-Saint Exupéry
-                </option>
-              </select>
-            ) : (
-              <>
-                <input
-                  className={styleTransfert.InputDeparturePlace}
-                  type="text"
-                  placeholder="ex : 14 rue des oliviers Villeurbanne"
-                  onChange={(e) => setTextAndOriginAdress(e.target.value)}
-                  value={text}
-                  required
-                  onBlur={() => {
-                    setTimeout(() => {
-                      setSuggestions([]);
-                    }, 100);
-                  }}
-                />
-                <div>
-                  {suggestions.map((i, index) => {
-                    return (
-                      <div key={index}>
-                        <div
-                          type="button"
-                          style={{ marginTop: 12, width: 400 }}
-                          onClick={() => onSuggestHandler(i.properties.label)}
-                        >
-                          {i.properties.label}
+          <div className={styleTransfert.containerAddress}>
+            <div className={styleTransfert.InputDepartLieu}>
+              <label className={styleTransfert.label}>Lieu de départ</label>
+              {originAdressDefault === "originAdressDefaultAirport" ? (
+                <select onChange={(e) => setOriginAdress(e.target.value)}>
+                  <option defaultValue value="Aéroport Lyon-Saint Exupéry">
+                    Aéroport Lyon-Saint Exupéry
+                  </option>
+                  <option value="Gare Lyon-Saint Exupéry">
+                    Gare Lyon-Saint Exupéry
+                  </option>
+                </select>
+              ) : (
+                <>
+                  <input
+                    className={styleTransfert.InputDeparturePlace}
+                    type="text"
+                    placeholder="ex : 14 rue des oliviers Villeurbanne"
+                    onChange={(e) => setTextAndOriginAdress(e.target.value)}
+                    value={text}
+                    required
+                    onBlur={() => {
+                      setTimeout(() => {
+                        setSuggestions([]);
+                      }, 100);
+                    }}
+                  />
+                  <div>
+                    {suggestions.map((i, index) => {
+                      return (
+                        <div key={index}>
+                          <div
+                            type="button"
+                            style={{ marginTop: 12, width: 400 }}
+                            onClick={() => onSuggestHandler(i.properties.label)}
+                          >
+                            {i.properties.label}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            )}
-          </div>
-          <div className={styleTransfert.InputDepartArrive}>
-            <label className={styleTransfert.label}>Lieu d&apos;arrivée</label>
-            {destinationAdressDefault === "destinationAdressDefaultAirport" ? (
-              <select onChange={(e) => changeDestinationAdress(e.target.value)}>
-                <option defaultValue value="Aéroport Lyon-Saint Exupéry">
-                  Aéroport Lyon-Saint Exupéry
-                </option>
-                <option value="Gare Lyon-Saint Exupéry">
-                  Gare Lyon-Saint Exupéry
-                </option>
-              </select>
-            ) : (
-              <>
-                <input
-                  type="text"
-                  placeholder="ex : 14 rue des oliviers Villeurbanne"
-                  onChange={(e) => setTextAndDestinationAdress(e.target.value)}
-                  value={text}
-                  onBlur={() => {
-                    setTimeout(() => {
-                      setSuggestions([]);
-                    }, 100);
-                  }}
-                />
-                <div>
-                  {suggestions.map((i, index) => {
-                    return (
-                      <div key={index}>
-                        <div
-                          type="button"
-                          style={{ marginTop: 12, width: 400 }}
-                          onClick={() => onSuggestHandler(i.properties.label)}
-                        >
-                          {i.properties.label}
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+            </div>
+            <div className={styleTransfert.InputDepartArrive}>
+              <label className={styleTransfert.label}>
+                Lieu d&apos;arrivée
+              </label>
+              {destinationAdressDefault ===
+              "destinationAdressDefaultAirport" ? (
+                <select
+                  onChange={(e) => changeDestinationAdress(e.target.value)}
+                >
+                  <option defaultValue value="Aéroport Lyon-Saint Exupéry">
+                    Aéroport Lyon-Saint Exupéry
+                  </option>
+                  <option value="Gare Lyon-Saint Exupéry">
+                    Gare Lyon-Saint Exupéry
+                  </option>
+                </select>
+              ) : (
+                <>
+                  <input
+                    type="text"
+                    placeholder="ex : 14 rue des oliviers Villeurbanne"
+                    onChange={(e) =>
+                      setTextAndDestinationAdress(e.target.value)
+                    }
+                    value={text}
+                    onBlur={() => {
+                      setTimeout(() => {
+                        setSuggestions([]);
+                      }, 100);
+                    }}
+                  />
+                  <div>
+                    {suggestions.map((i, index) => {
+                      return (
+                        <div key={index}>
+                          <div
+                            type="button"
+                            style={{ marginTop: 12, width: 400 }}
+                            onClick={() => onSuggestHandler(i.properties.label)}
+                          >
+                            {i.properties.label}
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
-                </div>
-              </>
-            )}
+                      );
+                    })}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
-          <div className={styleTransfert.InputDepartDate}>
-            <label className={styleTransfert.label}>Date de départ</label>
-            <input
-              type="date"
-              value={departureDate}
-              onChange={(e) => setDepartureDate(e.target.value)}
-            />
+          <div className={styleTransfert.timeAndDateContainer}>
+            <div className={styleTransfert.InputDepartDate}>
+              <label className={styleTransfert.label}>Date de départ</label>
+              <input
+                type="date"
+                value={departureDate}
+                onChange={(e) => setDepartureDate(e.target.value)}
+              />
+            </div>
+            <div className={styleTransfert.InputTimeLeave}>
+              <label className={styleTransfert.label}>Heure de départ</label>
+              <input
+                type="time"
+                value={departureTime}
+                onChange={(e) => setDepartureTime(e.target.value)}
+              />
+            </div>
+            <div className={styleTransfert.InputVehiculeType}>
+              <label className={styleTransfert.label}>Type de véhicule</label>
+              <select
+                value={vehicule}
+                onChange={(e) => setVehicule(e.target.value)}
+              >
+                <option defaultValue value="berline">
+                  Berline
+                </option>
+                <option value="berline-luxe">Berline Luxe</option>
+                <option value="mini-van">Mini-van</option>
+                <option value="van">Van</option>
+                <option value="van-luxe">Van Luxe</option>
+              </select>
+            </div>
           </div>
-          <div className={styleTransfert.InputTimeLeave}>
-            <label className={styleTransfert.label}>Heure de départ</label>
-            <input
-              type="time"
-              value={departureTime}
-              onChange={(e) => setDepartureTime(e.target.value)}
-            />
-          </div>
-          <div className={styleTransfert.InputNumberPerson}>
-            <label className={styleTransfert.label}>Nombre de passagers</label>
-            <input
-              type="number"
-              value={numberPassengers}
-              onChange={(e) =>
-                setNumberPassengers(parseInt(e.target.value, 10))
-              }
-            />
-          </div>
-          <div className={styleTransfert.InputNumberLuggage}>
-            <label className={styleTransfert.label}>Nombre de bagages</label>
-            <select
-              value={numberLuggages}
-              onChange={(e) => setNumberLuggages(e.target.value)}
-            >
-              <option defaultValue value="0 - 2">
-                Entre 0 et 2 bagages
-              </option>
-              <option value="2 - 4 ">Entre 2 et 4 bagages</option>
-              <option value="4 - 6">Entre 4 et 6 bagages</option>
-              <option value="+ de 6">Plus de 6 bagages</option>
-            </select>
+          <div className={styleTransfert.PersonLuggagesFlightNumberContainer}>
+            <div className={styleTransfert.InputNumberPerson}>
+              <label className={styleTransfert.label}>
+                Nombre de passagers
+              </label>
+              <input
+                type="number"
+                value={numberPassengers}
+                onChange={(e) =>
+                  setNumberPassengers(parseInt(e.target.value, 10))
+                }
+              />
+            </div>
+            <div className={styleTransfert.InputNumberLuggage}>
+              <label className={styleTransfert.label}>Nombre de bagages</label>
+              <select
+                value={numberLuggages}
+                onChange={(e) => setNumberLuggages(e.target.value)}
+              >
+                <option defaultValue value="0 - 2">
+                  Entre 0 et 2 bagages
+                </option>
+                <option value="2 - 4 ">Entre 2 et 4 bagages</option>
+                <option value="4 - 6">Entre 4 et 6 bagages</option>
+                <option value="+ de 6">Plus de 6 bagages</option>
+              </select>
+            </div>
+            <div className={styleTransfert.InputFlightNumber}>
+              <label className={styleTransfert.label}>
+                N° Vol (obligatoire pour l&rsquo;aéroport)
+              </label>
+              <input
+                type="text"
+                placeholder="ex : KE453JR"
+                id="numFlight"
+                required={isNumFlightRequired}
+                value={flightNumber}
+                onChange={(e) => setFlightNumber(e.target.value)}
+              />
+            </div>
           </div>
 
-          <div className={styleTransfert.InputVehiculeType}>
-            <label className={styleTransfert.label}>Type de véhicule</label>
-            <select
-              value={vehicule}
-              onChange={(e) => setVehicule(e.target.value)}
-            >
-              <option defaultValue value="berline">
-                Berline
-              </option>
-              <option value="berline-luxe">Berline Luxe</option>
-              <option value="mini-van">Mini-van</option>
-              <option value="van">Van</option>
-              <option value="van-luxe">Van Luxe</option>
-            </select>
-          </div>
           <div className={styleTransfert.InputEquipments}>
             <label className={styleTransfert.label}>
-              Equipements spécifiques
+              Equipements spécifiques :
             </label>
             <div className={styleTransfert.FormInput}>
               <input
@@ -328,19 +356,7 @@ export default function TrajectFormDetails({
               <label htmlFor="porteSki">Porte-skis</label>
             </div>
           </div>
-          <div className={styleTransfert.InputFlightNumber}>
-            <label className={styleTransfert.label}>
-              N° Vol (obligatoire pour l&rsquo;aéroport)
-            </label>
-            <input
-              type="text"
-              placeholder="ex : KE453JR"
-              id="numFlight"
-              required={isNumFlightRequired}
-              value={flightNumber}
-              onChange={(e) => setFlightNumber(e.target.value)}
-            />
-          </div>
+
           <div className={styleTransfert.InputSomethingToSay}>
             <label className={styleTransfert.label}>
               Quelque chose à nous spécifier ?

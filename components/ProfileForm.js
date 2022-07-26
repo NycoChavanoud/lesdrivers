@@ -6,19 +6,11 @@ import profilePicture from "../public/images/input_profil.png";
 import phonePicture from "../public/images/input_phone.png";
 import adressPicture from "../public/images/input_adress.png";
 import societyPicture from "../public/images/input_society.png";
-// import createPersistedState from "use-persisted-state";
-
+import { useRouter } from "next/router";
 import emailjs from "@emailjs/browser";
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { useContext, useState } from "react";
-
-// const useFirstNameState = createPersistedState("invite_form_firstName");
-// const useLastNameState = createPersistedState("invite_form_lastName");
-// const useEmailState = createPersistedState("invite_form_email");
-// const useAdressState = createPersistedState("invite_form_adress");
-// const usePhoneNumberState = createPersistedState("invite_form_phoneNumber");
-// const useSocietyState = createPersistedState("invite_form_society");
 
 export default function ProfilForm({
   originAdress,
@@ -35,7 +27,10 @@ export default function ProfilForm({
   somethingToSay,
   price,
 }) {
+  const router = useRouter();
   const { currentUserProfile } = useContext(CurrentUserContext);
+
+  const [isResaSent, setIsResaSent] = useState(false);
 
   const [firstname, setFirstname] = useState(
     currentUserProfile?.firstname || ""
@@ -47,36 +42,6 @@ export default function ProfilForm({
     currentUserProfile?.phoneNumber || ""
   );
   const [society, setSociety] = useState(currentUserProfile?.society || "");
-
-  console.log(
-    "AHHHHHHHHHH",
-    currentUserProfile,
-    originAdress,
-    destinationAdress,
-    departureDate,
-    departureTime,
-    numberPassengers,
-    numberLuggages,
-    vehicule,
-    siegeBebe,
-    rehausseur,
-    porteSki,
-    flightNumber,
-    somethingToSay,
-    price
-  );
-  // if (!currentUserProfile) {
-  //   const [firstname, setFirstname] = useFirstNameState(firstNameDefault);
-  // }
-
-  // console.log(`firstNameDefault a la valeur : ${firstNameDefault}`);
-  // console.log(`firstname a la valeur : ${firstname}`);
-  // const [lastname, setLastname] = useLastNameState(lastNameDefault);
-  // const [email, setEmail] = useEmailState(emailDefault);
-  // // const [address, setAddress] = useAdressState(adressDefault);
-  // const [phoneNumber, setPhoneNumber] = usePhoneNumberState(phoneNumberDefault);
-  // const [society, setSociety] = useSocietyState(societyDefault);
-  // EMAILJS
 
   const templateParams = {
     dataDepartCourse: originAdress,
@@ -100,7 +65,7 @@ export default function ProfilForm({
     societyClient: society,
   };
 
-  const sendEmail = (e) => {
+  const sendReservation = (e) => {
     e.preventDefault();
 
     emailjs
@@ -113,6 +78,10 @@ export default function ProfilForm({
       .then(
         function (response) {
           console.log("EMAILJS SUCCESS", response.status, response.text);
+          setIsResaSent(true);
+          setTimeout(() => {
+            router.push("/");
+          }, 2000);
         },
         function (error) {
           console.log("EMAILJS FAILED...", error);
@@ -120,7 +89,7 @@ export default function ProfilForm({
       );
   };
   return (
-    <form className={style.signUpForm} onSubmit={sendEmail}>
+    <form className={style.signUpForm} onSubmit={sendReservation}>
       <div className={style.inputDivWith2InputsContainer}>
         <div className={style.inputDivWith2Inputs}>
           <label htmlFor="firstname">
@@ -150,7 +119,6 @@ export default function ProfilForm({
           />
         </div>
       </div>
-
       <div className={style.inputDiv}>
         <label htmlFor="email">
           <Image src={emailPicture} alt="Email" />
@@ -179,7 +147,6 @@ export default function ProfilForm({
           onChange={(e) => setPhoneNumber(e.target.value)}
         />
       </div>
-
       <div className={style.inputDiv}>
         <label htmlFor="address">
           <Image src={adressPicture} alt="Phone number" />
@@ -193,7 +160,6 @@ export default function ProfilForm({
           onChange={(e) => setAddress(e.target.value)}
         />
       </div>
-
       <div className={style.inputDiv}>
         <label htmlFor="society">
           <Image src={societyPicture} alt="Society" />
@@ -208,6 +174,13 @@ export default function ProfilForm({
         />
       </div>
       <button className={styleTransfert.buttonValidate}>Réserver</button>
+      <div
+        className={
+          isResaSent ? styleTransfert.tarifOn : styleTransfert.tarifOff
+        }
+      >
+        Merci, votre réservation a bien été envoyée aux Drivers !
+      </div>
     </form>
   );
 }
