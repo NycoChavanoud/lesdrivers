@@ -541,6 +541,13 @@
     padding-right: 30px;
   }
 
+  .containerInputUserInfo input {
+    background-color: #f4f4fc;
+    border: none;
+    border-bottom: 1px solid #696999;
+    color: #696999;
+  }
+
   .inputDepart,
   .inputArrive,
   .inputDate {
