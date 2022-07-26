@@ -24,9 +24,10 @@ export default function Autocompletion() {
     <div>
       <input
         type="text"
-        style={{ marginTop: 6, width: 250 }}
+        style={{ marginTop: 6, width: 280 }}
         onChange={(e) => setText(e.target.value)}
         value={text}
+        onClick={(e) => setText(e.target.value)}
         onBlur={() => {
           setTimeout(() => {
             setSuggestions([]);

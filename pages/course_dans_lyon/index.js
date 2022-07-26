@@ -139,11 +139,14 @@ export default function LocationAvecChauffeur() {
                     <p>Départ</p>
                     <input
                       id="Départ"
-                      style={{ marginTop: 6, width: 200 }}
+                      style={{ marginTop: 6, width: 280 }}
                       className={styleLocation.inputPlace}
                       type="text"
                       value={textDepart}
                       onChange={(e) =>
+                        setTextAndDepartureAddress(e.target.value)
+                      }
+                      onClick={(e) =>
                         setTextAndDepartureAddress(e.target.value)
                       }
                       onBlur={() => {
@@ -158,7 +161,7 @@ export default function LocationAvecChauffeur() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              style={{ marginTop: 6, width: 220 }}
                               onClick={() =>
                                 departureOnSuggestHandler(i.properties.label)
                               }
@@ -174,11 +177,12 @@ export default function LocationAvecChauffeur() {
                     <p>Arrivée</p>
                     <input
                       id="Arrivée"
-                      style={{ marginTop: 6, width: 200 }}
+                      style={{ marginTop: 6, width: 280 }}
                       className={styleLocation.inputPlace}
                       type="text"
                       value={textArrivee}
                       onChange={(e) => setTextAndArrivalAddress(e.target.value)}
+                      onClick={(e) => setTextAndArrivalAddress(e.target.value)}
                       onBlur={() => {
                         setTimeout(() => {
                           setArriveeSuggestions([]);
@@ -191,7 +195,7 @@ export default function LocationAvecChauffeur() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              style={{ marginTop: 6, width: 220 }}
                               onClick={() =>
                                 arrivalOnSuggestHandler(i.properties.label)
                               }

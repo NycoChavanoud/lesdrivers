@@ -173,6 +173,7 @@ export default function TrajectFormDetails({
                   type="text"
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
                   onChange={(e) => setTextAndOriginAdress(e.target.value)}
+                  onClick={(e) => setTextAndOriginAdress(e.target.value)}
                   value={text}
                   required
                   onBlur={() => {
@@ -217,6 +218,7 @@ export default function TrajectFormDetails({
                   placeholder="ex : 14 rue des oliviers Villeurbanne"
                   onChange={(e) => setTextAndDestinationAdress(e.target.value)}
                   value={text}
+                  onClick={(e) => setTextAndDestinationAdress(e.target.value)}
                   onBlur={() => {
                     setTimeout(() => {
                       setSuggestions([]);
