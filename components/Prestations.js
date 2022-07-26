@@ -55,17 +55,19 @@ export default function Prestation() {
             bgPresta={diffVocation}
           />
         </div>
-        <ButtPresta
-          icon={icon4}
-          titleBlock={"Combien ça coûte ?"}
-          textePrestation={
-            "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
-          }
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"ESTIMER VOTRE TRAJET"}
-          bgPresta={map}
-        />
+        <div onClick={() => router.push("/transfert_aeroport")}>
+          <ButtPresta
+            icon={icon4}
+            titleBlock={"Combien ça coûte ?"}
+            textePrestation={
+              "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
+            }
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"ESTIMER VOTRE TRAJET"}
+            bgPresta={map}
+          />
+        </div>
       </div>
     </div>
   );
