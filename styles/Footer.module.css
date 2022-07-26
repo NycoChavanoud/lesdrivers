@@ -53,6 +53,7 @@
 @media screen and (min-width: 980px) {
   .container {
     display: flex;
+    height: 50px;
     padding: 100px;
     justify-content: space-between;
     margin-top: 70px;
