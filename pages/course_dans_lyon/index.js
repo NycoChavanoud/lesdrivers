@@ -57,6 +57,7 @@ export default function CoursedansLyon() {
         departureOfTime: departureOfTime,
         numberOfPassengers: parseInt(numberOfPassengers, 10),
         vehiculeNeeded: selectedItem,
+        price: parseInt(price, 10),
       })
 
       .catch((err) => {
@@ -177,13 +178,12 @@ export default function CoursedansLyon() {
             <form>
               <div className={styleLocation.containerForm}>
                 <div className={styleLocation.containerInput}>
-                  <p>Départ</p>
+                  <p className={styleLocation.titleInput}>Départ</p>
                   <div className={styleLocation.containerInputCourse}>
                     <input
                       required
                       id="Départ"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputDepart}
                       type="text"
                       value={textDepart}
                       onChange={(e) =>
@@ -201,7 +201,7 @@ export default function CoursedansLyon() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputDepartSuggestion}
                               onClick={() =>
                                 departureOnSuggestHandler(i.properties.label)
                               }
@@ -215,13 +215,12 @@ export default function CoursedansLyon() {
                   </div>
                 </div>
                 <div className={styleLocation.containerInput}>
-                  <p>Arrivée</p>
+                  <p className={styleLocation.titleInput}>Arrivée</p>
                   <div className={styleLocation.containerInputCourse}>
                     <input
                       required
                       id="Arrivée"
-                      style={{ marginTop: 6, width: 200 }}
-                      className={styleLocation.inputPlace}
+                      className={styleLocation.inputArrive}
                       type="text"
                       value={textArrivee}
                       onChange={(e) => setTextAndArrivalAddress(e.target.value)}
@@ -237,7 +236,7 @@ export default function CoursedansLyon() {
                           <div key={index}>
                             <div
                               type="button"
-                              style={{ marginTop: 6, width: 200 }}
+                              className={styleLocation.inputArriveSuggestion}
                               onClick={() =>
                                 arrivalOnSuggestHandler(i.properties.label)
                               }
@@ -251,7 +250,7 @@ export default function CoursedansLyon() {
                   </div>
                 </div>
                 <div className={styleLocation.containerInput}>
-                  <p>Date</p>
+                  <p className={styleLocation.titleInput}>Date</p>
                   <input
                     type="date"
                     className={styleLocation.inputDate}
@@ -406,7 +405,7 @@ export default function CoursedansLyon() {
               >
                 <h1>Merci de remplir ces dernières informations !</h1>
 
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Nom</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -416,7 +415,7 @@ export default function CoursedansLyon() {
                     name="lastname"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Prénom</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -426,7 +425,7 @@ export default function CoursedansLyon() {
                     name="firstname"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Numéro de téléphone</p>
                   <input
                     className={styleLocation.inputPlace}
@@ -436,7 +435,7 @@ export default function CoursedansLyon() {
                     name="tel"
                   />
                 </div>
-                <div className={styleLocation.containerInput}>
+                <div className={styleLocation.containerInputUserInfo}>
                   <p>Adresse mail</p>
                   <input
                     className={styleLocation.inputPlace}
