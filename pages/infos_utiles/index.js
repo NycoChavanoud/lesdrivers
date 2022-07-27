@@ -21,7 +21,7 @@ export default function infos_utiles() {
       <h3 className={style.mainText}>
         Si vous avez des questions, envoyez-nous un message et nous vous
         répondrons dans
-        <span className={style.redText}>les plus brefs délais.</span>
+        <span className={style.redText}> les plus brefs délais.</span>
       </h3>
       <div className={style.covidContainer}>
         <div className={style.title}>
@@ -69,7 +69,8 @@ export default function infos_utiles() {
       </div>
       <div className={style.covidContainer}>
         <div className={style.title}>
-          Se rendre à laéroport<span className={style.redText}> de Lyon</span>
+          Se rendre à l&apos;aéroport
+          <span className={style.redText}> de Lyon</span>
         </div>
 
         <div className={style.airportDiv}>
@@ -77,15 +78,19 @@ export default function infos_utiles() {
             <div>
               <h1 className={style.title}>
                 Comment aller à l’aéroport de
-                <span className={style.redText}> de Lyon Saint-Éxupery ?</span>
+                <span className={style.redText}> Lyon Saint-Éxupery ?</span>
               </h1>
               <h3 className={style.titleText}>
                 Vous vous demandez comment rejoindre
-                <span className={style.redText}>l’aéroport de Lyon ?</span>{" "}
+                <span className={style.redText}>
+                  {" "}
+                  l’aéroport de Lyon ?
+                </span>{" "}
                 Évitez le stress des départs en réservant votre trajet auprès de
-                nos chauffeurs privés. L’aéroport de Lyon, véritable carrefour
-                de l’Europe de l’Ouest, est un endroit très fréquenté par les
-                voyageurs de tous les horizons et à toute heure de la journée.
+                nos chauffeurs privés.
+                <br /> L’aéroport de Lyon, véritable carrefour de l’Europe de
+                l’Ouest, est un endroit très fréquenté par des voyageurs de tout
+                horizon et à toute heure de la journée. <br />
                 En pleine journée, il est très facile de se rendre jusqu’à
                 l’aéroport de
                 <span className={style.redText}>Lyon Saint-Exupéry</span>,
@@ -153,7 +158,7 @@ export default function infos_utiles() {
                 Voici les circuits touristiques que notre équipe
                 <span className={style.redText}> VTC </span>
                 vous propose
-                <span className={style.redText}> aux aletours de Lyon</span>,
+                <span className={style.redText}> aux alentours de Lyon</span>,
               </h3>
             </div>
             <div className={style.covidText}>
@@ -169,24 +174,24 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    Beaujolais: Situé à 15 minutes de Lyon, s’étendant jusqu’à
-                    Mâcon, la région du Beaujolais abrite de nombreuses
-                    surprises, des vignobles pittoresques, une nouvelle vague de
-                    jeunes vignerons, ainsi que des bistrots et des chambres
-                    d’hôte. La région se divise parfaitement en deux sections.
-                    Au nord se trouvent les 10 crus célèbres, nommés d’après
-                    leur propre village, comme la fleurie, le Morgon, le
-                    Chirouble ou le Régnié. Tandis que plus au sud, en dessous
-                    de l’imposant Mont Brouilly, vous entrez dans le Beaujolais
-                    classique. Vous pourrez y découvrir le pays des « pierres
-                    dorées », surnommée la petite Toscane française, des
-                    paysages magnifiques avec les villages de pierre et de
-                    roches calcaires, teintées par des oxydes de fer… Le temps
-                    du déjeuner, profitez d’une pause pour pousser la porte d’un
-                    petit restaurant local… La plupart des villages ont des
+                    Situé à 15 minutes de Lyon, la région du Beaujolais
+                    s’étendant jusqu’à Mâcon, abrite de nombreuses surprises,
+                    des vignobles pittoresques, une nouvelle vague de jeunes
+                    vignerons, ainsi que des bistrots et des chambres d’hôtes.
+                    La région se divise parfaitement en deux sections. Au nord
+                    se trouvent les 10 crus célèbres, nommés d’après leur propre
+                    village, comme la fleurie, le Morgon, le Chirouble ou le
+                    Régnié. Tandis que plus au sud, en dessous de l’imposant
+                    Mont Brouilly, vous entrez dans le Beaujolais classique.
+                    Vous pourrez y découvrir le pays des « pierres dorés »,
+                    surnommée la petite Toscane française, des paysages
+                    magnifiques avec les villages de pierre et de roches
+                    calcaires, teintées par des oxydes de fer. Le temps du
+                    déjeuner, profitez d’une pause pour pousser la porte d’un
+                    petit restaurant local, la plupart des villages ont des
                     bistrots à l’ancienne où vous pourrez vous régaler de
-                    spécialités, comme le saucisson beaujolais, les saucisses
-                    mijotées au vin rouge
+                    spécialités, comme le saucisson beaujolais ou les saucisses
+                    mijotées au vin rouge.
                   </div>
                 </li>
                 <li className={style.airportListItems}>
@@ -215,10 +220,10 @@ export default function infos_utiles() {
                     une rue à l’autre. N’oublions pas le shopping ! Avec des
                     thématiques aussi variées que la gastronomie avec les Halles
                     Paul Bocuse ou celles du nouvel Hôtel Dieu, magnifiquement
-                    rénovées… Des marques de vêtements dans les centres
-                    commerciaux de la Part-Dieu ou le Village des Marques de
-                    Villefontaine, des créations originales dans les boutiques
-                    d’artistes de la Croix rousse…
+                    rénovées, des grandes marques de vêtements dans les centres
+                    commerciaux de la Part-Dieu ou le Village Outlet de
+                    Villefontaine jusqu&apos;aux créations originales dans les
+                    petites boutiques d’artistes de la Croix rousse…
                   </div>
                 </li>
                 <li className={style.airportListItems}>
@@ -232,8 +237,8 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    Depuis l’aéroport LYON Saint-Exupéry, découvrez le temps
-                    d’une journée, d’un weekend ou d’une semaine les charmes
+                    Depuis l’aéroport Lyon Saint-Exupéry, découvrez le temps
+                    d’une journée, d’un week-end ou d’une semaine les charmes
                     d’une région naturelle. L’aéroport Saint-Exupéry est
                     l’aéroport idéal pour atterrir en mode sports d’hiver !
                     Situé à proximité des Alpes et de la Savoie et à seulement 1
@@ -260,13 +265,13 @@ export default function infos_utiles() {
           <div className={style.ButtPrestaWrapper}>
             <div>
               <h1 className={style.title}>
-                Les avantages de
-                <span className={style.redText}> The Drivers airport</span>
+                Les avantages des
+                <span className={style.redText}> Drivers airport</span>
               </h1>
               <h3 className={style.titleText}>
                 Voici les avantages des
                 <span className={style.redText}> VTC </span>
-                pour votre Trajet depuis l’aéroport
+                pour votre trajet depuis l’aéroport
                 <span className={style.redText}> Lyon Saint-Exupéry</span>,
               </h3>
             </div>
@@ -287,14 +292,14 @@ export default function infos_utiles() {
                     Nous pouvons mettre à votre disposition un minibus avec
                     chauffeur de 19 places. Le minibus se révèle aujourd’hui
                     comme la solution la plus adaptée pour se déplacer à
-                    plusieurs sur un court ou un long trajet. Aucunes
-                    contraintes en termes d’horaires ou d’enregistrement des
-                    bagages. e Mercedes Sprinter est le must en termes de
-                    confort et d’équipement. L’aménagement intérieur permet un
-                    voyage agréable et serein. Le transport de groupes est bien
-                    plus agréable quand tous les participants partagent le même
-                    véhicule : Votre tribu, collègues ou amis conserveront un
-                    très bon souvenir de leur trajet.
+                    plusieurs sur un court ou un long trajet. Aucune contrainte
+                    en terme d’horaire ou d’enregistrement des bagages. Le
+                    Mercedes Sprinter est le must en terme de confort et
+                    d’équipement. L’aménagement intérieur permet un voyage
+                    agréable et serein. Le transport de groupes est bien plus
+                    agréable quand tous les participants partagent le même
+                    véhicule : idéal pour créer de très bons souvenirs avec
+                    votre tribu, vos collègues ou amis.
                   </div>
                 </li>
                 <li className={style.airportListItems}>
@@ -308,16 +313,16 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    Le Rhônexpress a réduit ses amplitudes horaires, le premier
-                    départ se fait à 05h00 et il n’y a que des départs toutes
-                    les 30 minutes. Les horaires du Rhônexpress sont d’autant
-                    plus contraignantes pour ceux souhaitant voyager le soir. En
-                    effet le dernier départ de l’aéroport se fait à 22h00 ! Ce
-                    qui veut dire qu’un passager ayant un vol arrivant après
-                    21h30 risque de devoir prendre un taxi et payer bien plus
-                    cher. C’est pourquoi vous pouvez faire confiance à l’équipe
-                    des Drivers Airport qui est à votre disposition 24h/24 et
-                    7j/7.
+                    Le Rhône Express a réduit ses amplitudes horaires, le
+                    premier départ se fait à 05h00 et il n’y a que des départs
+                    toutes les 30 minutes. Les horaires du Rhône Express sont
+                    d’autant plus contraignantes pour ceux souhaitant voyager le
+                    soir. En effet le dernier départ de l’aéroport se fait à
+                    22h00 ! Ce qui veut dire qu’un passager ayant un vol
+                    arrivant après 21h30 risque de devoir prendre un taxi et
+                    payer bien plus cher. C’est pourquoi vous pouvez faire
+                    confiance à l’équipe des Drivers Airport qui est à votre
+                    disposition 24h/24 et 7j/7.
                   </div>
                 </li>
                 <li className={style.airportListItems}>
@@ -333,15 +338,15 @@ export default function infos_utiles() {
                   <div className={style.airportText}>
                     Né en 2009, le pionnier Uber revendique une offre importante
                     avec des centaines de milliers de chauffeurs. La société
-                    assure ainsi le traiter les commandes avec un faible temps
-                    d’attente. En revanche, la société traite seulement les
-                    réservations immédiates. De notre côté, nous sommes partis
-                    du constat inverse. Notre équipe locale à Lyon, composée de
-                    chauffeurs professionnels mise sur la réservation validée
-                    dans un agenda. Notre expérience des trajets aéroport nous
-                    montre que ces trajets spécifiques nécessitent de pouvoir
-                    compter sur un chauffeur présent à une date et un horaire
-                    donné.
+                    assure ainsi le traitement des commandes avec un faible
+                    temps d’attente. En revanche, la société traite seulement
+                    les réservations immédiates. De notre côté, nous sommes
+                    partis du constat inverse. Notre équipe locale à Lyon,
+                    composée de chauffeurs professionnels va plutôt miser sur la
+                    réservation validée dans un agenda. Notre expérience des
+                    trajets aéroport nous montre que ces trajets spécifiques
+                    nécessitent de pouvoir compter sur un chauffeur présent à
+                    une date et un horaire donné.
                   </div>
                 </li>
                 <li className={style.airportListItems}>
@@ -355,13 +360,13 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    Le Rhône express a été beaucoup décrié pour ses niveaux de
-                    tarifs et ses faibles fréquences, aujourd’hui les choses
-                    s’améliorent… Cependant, lorsque l’on doit prendre un avion,
-                    on doit pouvoir compter sur un mode de transport fiable. Ce
-                    qui comprend aussi les ruptures de charge’ entre différents
-                    modes de transport en commun ou correspondances. En
-                    emprunter les transports en commun pour vous rendre à
+                    Le Rhône Express a été beaucoup décrié pour ses niveaux de
+                    tarifs onéreux et ses faibles fréquences, aujourd’hui les
+                    choses s’améliorent… Cependant, lorsque l’on doit prendre un
+                    avion, on doit pouvoir compter sur un mode de transport
+                    fiable. Ce qui comprend aussi les ruptures de charge entre
+                    différents modes de transport en commun ou correspondances.
+                    En emprunter les transports en commun pour vous rendre à
                     l’aéroport de Lyon, c’est l’éventuelle possibilité d’arriver
                     trop tard… Voyager avec les Drivers Airport c’est
                     l’assurance de ne pas être sujet à des interruptions de

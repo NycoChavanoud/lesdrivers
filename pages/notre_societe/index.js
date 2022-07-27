@@ -29,7 +29,7 @@ export default function NosServices() {
         </p>
       </div>
       <div className={styles.photo_container}>
-        <h2 className={styles.photo_title}>Les services comme vocation</h2>
+        <h2 className={styles.photo_title}>Le service comme vocation</h2>
         <div className={styles.photo_divs}>
           <Image
             src={binh}

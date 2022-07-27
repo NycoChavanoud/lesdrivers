@@ -86,7 +86,6 @@ export default function CoursedansLyon() {
   const [longitudeArrivee, setLongitudeArrivee] = useState([""]);
   const [textArrivee, setTextArrivee] = useState("");
   const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
-
   const setTextAndDepartureAddress = async (textDepart, address) => {
     if (textDepart.length > 6) {
       const response = await axios.get(
@@ -116,7 +115,6 @@ export default function CoursedansLyon() {
     setDepartSuggestions([]);
     setTextDepart(textDepart);
   };
-
   const arrivalOnSuggestHandler = (textArrivee) => {
     setArriveeSuggestions([]);
     setTextArrivee(textArrivee);
