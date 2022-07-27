@@ -83,6 +83,7 @@
   background-image: url(../public/images/service3.webp);
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: 50%;
   font-size: 20px;
 }
 .titleService4 {
