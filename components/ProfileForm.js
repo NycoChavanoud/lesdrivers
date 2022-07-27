@@ -32,6 +32,7 @@ export default function ProfilForm({
   const { currentUserProfile } = useContext(CurrentUserContext);
 
   const [isResaSent, setIsResaSent] = useState(false);
+  const [problemWithEmail, setProblemWithEmail] = useState(false);
 
   const [firstname, setFirstname] = useState(
     currentUserProfile?.firstname || ""
@@ -101,8 +102,7 @@ export default function ProfilForm({
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
       .then(
-        function (response) {
-          console.log("EMAILJS SUCCESS", response.status, response.text);
+        function () {
           setIsResaSent(true);
           setTimeout(() => {
             router.push("/");
@@ -110,6 +110,7 @@ export default function ProfilForm({
         },
         function (error) {
           console.log("EMAILJS FAILED...", error);
+          setProblemWithEmail(true);
         }
       );
   };
@@ -205,6 +206,13 @@ export default function ProfilForm({
         }
       >
         Merci, votre réservation a bien été envoyée aux Drivers !
+      </div>
+      <div
+        className={
+          problemWithEmail ? styleTransfert.tarifOn : styleTransfert.tarifOff
+        }
+      >
+        Oups ! Un problème a été détécté pour valider la réservation.
       </div>
     </form>
   );
