@@ -34,7 +34,7 @@ export default function SignupPage() {
 
     if (["Too Weak", "Weak"].includes(passwordStrength(password).value))
       return setError(
-        "password is too weak. It must contain an uppercase letter, a lowercase letter, a symbol and a number"
+        "Mot de passe trop faible, il doit contenir 1 lettre Minuscule, 1 Majuscule, 1 chiffre et un caractère spécial "
       );
 
     axios
