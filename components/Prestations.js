@@ -32,15 +32,16 @@ export default function Prestation() {
             bgPresta={ourVehicles}
           />
         </div>
-
-        <ButtPresta
-          icon={icon2}
-          titleBlock={"Le service comme vocation"}
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
-          bgPresta={serviceVocation}
-        />
+        <div onClick={() => router.push("/notre_societe")}>
+          <ButtPresta
+            icon={icon2}
+            titleBlock={"Le service comme vocation"}
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
+            bgPresta={serviceVocation}
+          />
+        </div>
 
         <div onClick={() => router.push("/nos_services")}>
           <ButtPresta

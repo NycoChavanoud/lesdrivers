@@ -1,5 +1,6 @@
 .prestationContainer {
   margin-left: 20px;
+  margin-bottom: 150px;
   opacity: 80%;
   cursor: pointer;
 }
@@ -119,6 +120,7 @@
     justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
+    margin-bottom: 60px;
     width: 70%;
   }
   .prestationh1 {
