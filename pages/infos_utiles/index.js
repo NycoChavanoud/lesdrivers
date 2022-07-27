@@ -77,7 +77,7 @@ export default function infos_utiles() {
             <div>
               <h1 className={style.title}>
                 Comment aller à l’aéroport de
-                <span className={style.redText}> de Lyon Saint-Éxupery ?</span>
+                <span className={style.redText}> Lyon Saint-Éxupery ?</span>
               </h1>
               <h3 className={style.titleText}>
                 Vous vous demandez comment rejoindre
