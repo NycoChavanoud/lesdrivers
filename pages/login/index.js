@@ -32,20 +32,6 @@ export default function LoginPage({ csrfToken }) {
               <p>Adresse : {currentUserProfile.address} </p>
               <p>Société : {currentUserProfile.society}</p>
             </div>
-            <div className={style.containerCourse}>
-              <p className={style.title}>Récapitulatif de vos trajets</p>
-              <table className={style.containerTable}>
-                <tr>
-                  <th>Trajet effectué le</th>
-                  <th>Type de trajet</th>
-                  <th>Chauffeur</th>
-                  <th>Prix</th>
-                </tr>
-              </table>
-              <div className={style.subtitle}>
-                Vous n{"'"}avez pas encore de trajet !
-              </div>
-            </div>
             <button
               className={style.buttonSignOut}
               data-cy="disconnectBtn"
