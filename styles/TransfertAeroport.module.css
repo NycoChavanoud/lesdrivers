@@ -33,7 +33,6 @@
   display: flex;
   flex-direction: column;
   width: 90%;
-  max-width: 700px;
   padding: 0px 20px 0px 20px;
   background-color: #2a2a92;
   border-radius: 2em;
@@ -71,7 +70,6 @@
   cursor: pointer;
 }
 
-/*Form Block*/
 .FormBlockGoToAirportContainer {
   color: white;
 }
@@ -148,7 +146,7 @@
 
   .InputDepartLieu,
   .InputDepartArrive {
-    width: 45%;
+    width: 49%;
   }
   .containerAddress {
     display: flex;
@@ -167,11 +165,22 @@
     display: flex;
     width: 100%;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
   }
 
   .InputEquipments {
     flex-direction: row;
     justify-content: space-around;
+  }
+  .trajectFormContainer {
+    max-width: 75%;
+  }
+  .InputDepartDate,
+  .InputTimeLeave,
+  .InputNumberPerson,
+  .InputNumberLuggage,
+  .InputVehiculeType,
+  .InputFlightNumber {
+    width: 30%;
   }
 }
