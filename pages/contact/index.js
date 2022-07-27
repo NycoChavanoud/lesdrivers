@@ -6,6 +6,7 @@ import style from "../../styles/contact.module.css";
 import profilePicture from "../../public/images/input_profil.png";
 import email from "../../public/images/email.png";
 import message from "../../public/images/input_email.png";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function ContactUs() {
   const form = useRef();
@@ -26,6 +27,7 @@ export default function ContactUs() {
   };
   return (
     <Layout pageTitle="Contact">
+      <PhoneButton />
       <div className={formIsSent ? style.mainFormContactOff : ""}>
         <h1 className={style.mainTitle}>Contact :</h1>
         <h3 className={style.mainText}>

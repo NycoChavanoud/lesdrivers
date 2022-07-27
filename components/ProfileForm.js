@@ -11,6 +11,7 @@ import emailjs from "@emailjs/browser";
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { useContext, useState } from "react";
+import axios from "axios";
 
 export default function ProfilForm({
   originAdress,
@@ -31,6 +32,7 @@ export default function ProfilForm({
   const { currentUserProfile } = useContext(CurrentUserContext);
 
   const [isResaSent, setIsResaSent] = useState(false);
+  const [problemWithEmail, setProblemWithEmail] = useState(false);
 
   const [firstname, setFirstname] = useState(
     currentUserProfile?.firstname || ""
@@ -67,7 +69,31 @@ export default function ProfilForm({
 
   const sendReservation = (e) => {
     e.preventDefault();
-
+    axios
+      .post(`/api/itineraryAirport`, {
+        originAdress,
+        destinationAdress,
+        departureDate,
+        departureTime,
+        numberPassengers,
+        numberLuggages,
+        vehicule,
+        siegeBebe,
+        rehausseur,
+        porteSki,
+        flightNumber,
+        somethingToSay,
+        price,
+        firstname,
+        lastname,
+        phoneNumber,
+        email,
+        address,
+        society,
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
@@ -75,12 +101,18 @@ export default function ProfilForm({
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
-      .then(function () {
-        setIsResaSent(true);
-        setTimeout(() => {
-          router.push("/");
-        }, 2000);
-      });
+      .then(
+        function () {
+          setIsResaSent(true);
+          setTimeout(() => {
+            router.push("/");
+          }, 2000);
+        },
+        function (error) {
+          console.log("EMAILJS FAILED...", error);
+          setProblemWithEmail(true);
+        }
+      );
   };
   return (
     <form className={style.signUpForm} onSubmit={sendReservation}>
@@ -174,6 +206,13 @@ export default function ProfilForm({
         }
       >
         Merci, votre réservation a bien été envoyée aux Drivers !
+      </div>
+      <div
+        className={
+          problemWithEmail ? styleTransfert.tarifOn : styleTransfert.tarifOff
+        }
+      >
+        Oups ! Un problème a été détécté pour valider la réservation.
       </div>
     </form>
   );

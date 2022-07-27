@@ -6,6 +6,7 @@ import axios from "axios";
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function LocationAvecChauffeur() {
   const [selectedItem, setSelectedItem] = useState("Berline");
@@ -101,6 +102,7 @@ export default function LocationAvecChauffeur() {
 
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">
+      <PhoneButton />
       <div className={styleLocation.containerService}>
         <p className={styleLocation.titleloc}>
           Location de véhicule <span>avec chauffeur</span>
@@ -182,22 +184,22 @@ export default function LocationAvecChauffeur() {
                 <div className={styleLocation.containerCardVehicules}>
                   {" "}
                   <TypeVehiculeCard
-                    classPicture={styleLocation.vehi1}
-                    vehiculeName={"Hybride électrique"}
-                    handlefunction={() => setSelectedItem("Hybride électrique")}
+                    classPicture={styleLocation.vehi2}
+                    vehiculeName={"Berline"}
+                    handlefunction={() => setSelectedItem("Berline")}
                     classContainer={
-                      selectedItem === "Hybride électrique"
+                      selectedItem === "Berline"
                         ? styleLocation.active
                         : styleLocation.normal
                     }
                     onChange={(e) => setSelectedItem(e.target.value)}
                   />
                   <TypeVehiculeCard
-                    classPicture={styleLocation.vehi2}
-                    vehiculeName={"Berline"}
-                    handlefunction={() => setSelectedItem("Berline")}
+                    classPicture={styleLocation.vehi1}
+                    vehiculeName={"Hybride électrique"}
+                    handlefunction={() => setSelectedItem("Hybride électrique")}
                     classContainer={
-                      selectedItem === "Berline"
+                      selectedItem === "Hybride électrique"
                         ? styleLocation.active
                         : styleLocation.normal
                     }

@@ -127,24 +127,6 @@ export default function TrajectFormDetails({
   const handleCreateItin = (e) => {
     e.preventDefault();
     AppearTarif();
-    axios
-      .post(`/api/itineraryAirport`, {
-        originAdress,
-        destinationAdress,
-        departureDate,
-        departureTime,
-        numberPassengers,
-        numberLuggages,
-        vehicule,
-        siegeBebe,
-        rehausseur,
-        porteSki,
-        flightNumber,
-        somethingToSay,
-      })
-      .catch((err) => {
-        console.error(err);
-      });
   };
 
   return (
@@ -160,7 +142,10 @@ export default function TrajectFormDetails({
             <div className={styleTransfert.InputDepartLieu}>
               <label className={styleTransfert.label}>Lieu de départ</label>
               {originAdressDefault === "originAdressDefaultAirport" ? (
-                <select onChange={(e) => setOriginAdress(e.target.value)}>
+                <select
+                  onChange={(e) => setOriginAdress(e.target.value)}
+                  className={styleTransfert.borderRadius}
+                >
                   <option defaultValue value="Aéroport Lyon-Saint Exupéry">
                     Aéroport Lyon-Saint Exupéry
                   </option>
@@ -171,7 +156,7 @@ export default function TrajectFormDetails({
               ) : (
                 <>
                   <input
-                    className={styleTransfert.InputDeparturePlace}
+                    className={styleTransfert.borderRadius}
                     type="text"
                     placeholder="ex : 14 rue des oliviers Villeurbanne"
                     onChange={(e) => setTextAndOriginAdress(e.target.value)}
@@ -209,6 +194,7 @@ export default function TrajectFormDetails({
               "destinationAdressDefaultAirport" ? (
                 <select
                   onChange={(e) => changeDestinationAdress(e.target.value)}
+                  className={styleTransfert.borderRadius}
                 >
                   <option defaultValue value="Aéroport Lyon-Saint Exupéry">
                     Aéroport Lyon-Saint Exupéry
@@ -220,6 +206,7 @@ export default function TrajectFormDetails({
               ) : (
                 <>
                   <input
+                    className={styleTransfert.borderRadius}
                     type="text"
                     placeholder="ex : 14 rue des oliviers Villeurbanne"
                     onChange={(e) =>
@@ -258,6 +245,7 @@ export default function TrajectFormDetails({
                 type="date"
                 value={departureDate}
                 onChange={(e) => setDepartureDate(e.target.value)}
+                className={styleTransfert.borderRadius}
               />
             </div>
             <div className={styleTransfert.InputTimeLeave}>
@@ -266,6 +254,7 @@ export default function TrajectFormDetails({
                 type="time"
                 value={departureTime}
                 onChange={(e) => setDepartureTime(e.target.value)}
+                className={styleTransfert.borderRadius}
               />
             </div>
             <div className={styleTransfert.InputVehiculeType}>
@@ -273,6 +262,7 @@ export default function TrajectFormDetails({
               <select
                 value={vehicule}
                 onChange={(e) => setVehicule(e.target.value)}
+                className={styleTransfert.borderRadius}
               >
                 <option defaultValue value="berline">
                   Berline
@@ -295,6 +285,7 @@ export default function TrajectFormDetails({
                 onChange={(e) =>
                   setNumberPassengers(parseInt(e.target.value, 10))
                 }
+                className={styleTransfert.borderRadius}
               />
             </div>
             <div className={styleTransfert.InputNumberLuggage}>
@@ -302,6 +293,7 @@ export default function TrajectFormDetails({
               <select
                 value={numberLuggages}
                 onChange={(e) => setNumberLuggages(e.target.value)}
+                className={styleTransfert.borderRadius}
               >
                 <option defaultValue value="0 - 2">
                   Entre 0 et 2 bagages
@@ -322,6 +314,7 @@ export default function TrajectFormDetails({
                 required={isNumFlightRequired}
                 value={flightNumber}
                 onChange={(e) => setFlightNumber(e.target.value)}
+                className={styleTransfert.borderRadius}
               />
             </div>
           </div>
@@ -367,6 +360,7 @@ export default function TrajectFormDetails({
               type="text"
               value={somethingToSay}
               onChange={(e) => setSomethingToSay(e.target.value)}
+              className={styleTransfert.borderRadius}
             />
           </div>
           <button className={styleTransfert.buttonValidate}>

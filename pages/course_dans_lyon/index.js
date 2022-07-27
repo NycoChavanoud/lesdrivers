@@ -5,7 +5,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import emailjs from "@emailjs/browser";
 import { useRouter } from "next/router";
-
+import PhoneButton from "../../components/PhoneButton.js";
 import ConfirmationCourse from "../../components/ConfirmationCourse";
 
 export default function CoursedansLyon() {
@@ -86,7 +86,9 @@ export default function CoursedansLyon() {
   const [longitudeArrivee, setLongitudeArrivee] = useState([""]);
   const [textArrivee, setTextArrivee] = useState("");
   const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
-  const setTextAndDepartureAddress = async (textDepart, address) => {
+  const setTextAndDepartureAddress = async (textDepart) => {
+    setTextDepart(textDepart);
+    setDepartureAdress(textDepart);
     if (textDepart.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
@@ -95,11 +97,11 @@ export default function CoursedansLyon() {
       setLatitudeDepart(response.data.features[0].geometry.coordinates[1]);
       setLongitudeDepart(response.data.features[0].geometry.coordinates[0]);
     }
-    setTextDepart(address);
-    setDepartureAdress(address);
   };
 
-  const setTextAndArrivalAddress = async (textArrivee, address) => {
+  const setTextAndArrivalAddress = async (textArrivee) => {
+    setTextArrivee(textArrivee);
+    setArrivalAdress(textArrivee);
     if (textArrivee.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
@@ -108,8 +110,6 @@ export default function CoursedansLyon() {
       setLatitudeArrivee(response.data.features[0].geometry.coordinates[1]);
       setLongitudeArrivee(response.data.features[0].geometry.coordinates[0]);
     }
-    setTextArrivee(address);
-    setArrivalAdress(address);
   };
   const departureOnSuggestHandler = (textDepart) => {
     setDepartSuggestions([]);
@@ -147,6 +147,7 @@ export default function CoursedansLyon() {
 
   return (
     <Layout pageTitle="Les Drivers - Course dans Lyon">
+      <PhoneButton />
       <div className={styleLocation.containerService}>
         <p className={styleLocation.titlecourse}>
           Course dans Lyon <br />

@@ -6,10 +6,12 @@ import amr from "../../public/images/amr.webp";
 import maxime from "../../public/images/maxime.webp";
 import magid from "../../public/images/magid.webp";
 import styles from "../../styles/nosServices.module.css";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function NosServices() {
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
+      <PhoneButton />
       <div className={styles.mainContainer}>
         <div className={styles.bgImage} />
         <Image

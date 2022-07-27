@@ -37,7 +37,7 @@ async function seed() {
       departureOfTime: "18:30",
       numberOfPassengers: 5,
       vehiculeNeeded: "Berline",
-      numberOfHour: "3",
+      numberOfHour: 3,
       price: 75,
     },
   });
@@ -57,6 +57,13 @@ async function seed() {
       porteSki: false,
       flightNumber: "195-Easyjet",
       somethingToSay: "je suis très pressé",
+      price: 50,
+      firstname: "Jean",
+      lastname: "Dujardin",
+      phoneNumber: "0606060606",
+      email: "jean.dujardin@gmail.com",
+      address: "1 rue Delandine, Lyon",
+      society: "Dujardin SA",
     },
   });
 }

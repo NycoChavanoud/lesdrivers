@@ -1,6 +1,7 @@
 import Layout from "../../components/Layout";
 import styleFAQ from "../../styles/faq.module.css";
 import Faq from "react-faq-component";
+import PhoneButton from "../../components/PhoneButton.js";
 
 const data = {
   rows: [
@@ -63,6 +64,7 @@ const styles = {
 export default function FAQ() {
   return (
     <Layout pageTitle="Les Drivers - FAQ">
+      <PhoneButton />
       <div className={styleFAQ.faqMainContainer}>
         <div className={styleFAQ.faqMainTitre}>
           <p className={styleFAQ.title}>

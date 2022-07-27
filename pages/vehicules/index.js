@@ -2,6 +2,7 @@ import Layout from "../../components/Layout.js";
 import VehiculeCard from "../../components/VehiculeCard.js";
 import styleVehicules from "../../styles/Vehicules.module.css";
 import React, { useState } from "react";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function Vehicules() {
   const [textCallToAction, setTextCallToAction] = useState(true);
@@ -44,6 +45,7 @@ export default function Vehicules() {
 
   return (
     <Layout pageTitle="vehicules">
+      <PhoneButton />
       <div className={styleVehicules.vehiculeContainer}>
         <h3 className={styleVehicules.vehiculetext1}>
           Des véhicules haut de gamme pour <br />

@@ -2,6 +2,7 @@ import Layout from "../../components/Layout";
 import ServicesCard from "../../components/ServicesCard.js";
 import styleService from "../../styles/Services.module.css";
 import React, { useState } from "react";
+import PhoneButton from "../../components/PhoneButton.js";
 import { useRouter } from "next/router";
 
 export default function NosServices() {
@@ -52,6 +53,7 @@ export default function NosServices() {
 
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
+      <PhoneButton />
       <div className={styleService.containerService}>
         <p className={styleService.title}>
           Nos différents <span>services</span>
