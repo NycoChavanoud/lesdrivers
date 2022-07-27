@@ -71,10 +71,10 @@ export default function Vehicules() {
                   <h1>L{"'"}hybride électrique</h1>
                   <p>
                     Vous serez séduits par le silence et le confort de nos
-                    véhicules hybrides électriques. En ville ces véhicules
-                    peuvent rouler jusqu’à 50 % du trajet en mode électrique.
-                    Exemple pour une Toyota Prius + Hybride ou Peugeot 508
-                    hybride Break
+                    véhicules hybrides électriques.Par exemple en ville des
+                    véhicules comme une Toyota Prius + Hybride ou Peugeot 508
+                    hybride Break peuvent rouler jusqu’à 50 % du trajet en mode
+                    électrique.
                   </p>
                 </div>
               ) : (
@@ -85,7 +85,7 @@ export default function Vehicules() {
                   <h1>La berline grand tourisme</h1>
                   <p>
                     Nous avons également des berlines grand tourisme type
-                    Renault TALISMAN. Le véhicule haut de gamme de RENAULT !
+                    Renault Talisman. Le véhicule haut de gamme de Renault !
                     Vous apprécierez le confort toutes options et son intérieur
                     cuir. Débutez votre voyage de la meilleure des manières ou
                     prenez place à bord après votre vol. Et laissez-vous
@@ -116,8 +116,9 @@ export default function Vehicules() {
                   <h1>Les mini-bus</h1>
                   <p>
                     Vous avez besoin de vous déplacer en groupe ? Découvrez
-                    notre service de location de mini-bus ! Chaque mini-bus peut
-                    acceuillir une vingtaine de personnes assises.
+                    notre service de location de mini-bus avec chauffeur !
+                    Chaque mini-bus peut acceuillir une vingtaine de personnes
+                    assises.
                   </p>
                 </div>
               ) : (
@@ -130,7 +131,7 @@ export default function Vehicules() {
               classeImage={styleVehicules.img1}
               nomVehicule={"L'hybride électrique"}
               descriptionVehicule={
-                " Vous serez séduits par le silence et le confort de nos véhicules hybrides électriques. En ville ces véhicules peuvent rouler jusqu’à 50 % du trajet en mode électrique. Exemple pour une Toyota Prius + Hybride ou Peugeot 508 hybride Break"
+                " Vous serez séduits par le silence et le confort de nos véhicules hybrides électriques. Par exemple en ville des véhicules comme une Toyota Prius + Hybride ou Peugeot 508 hybride Break peuvent rouler jusqu’à 50 % du trajet en mode électrique."
               }
               showText={showText1}
             />
@@ -139,7 +140,7 @@ export default function Vehicules() {
               classeImage={styleVehicules.img2}
               nomVehicule={"La berline grand tourisme"}
               descriptionVehicule={
-                " Nous avons également des berlines grand tourisme type Renault TALISMAN. Le véhicule haut de gamme de RENAULT ! Vous apprécierez le confort toutes options et son intérieur cuir. Débutez votre voyage de la meilleure des manières ou prenez place à bord après votre vol. Et laissez-vous simplement conduire…"
+                " Nous avons également des berlines grand tourisme type Renault Talisman. Le véhicule haut de gamme de Renault ! Vous apprécierez le confort toutes options et son intérieur cuir. Débutez votre voyage de la meilleure des manières ou prenez place à bord après votre vol. Et laissez-vous simplement conduire…"
               }
               showText={showText2}
             />
