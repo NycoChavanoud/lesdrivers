@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout";
 import TypeVehiculeCard from "../../components/TypeVehiculeCard";
 import styleLocation from "../../styles/LocaAvecChauffeur.module.css";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import axios from "axios";
 import ConfirmationLoca from "../../components/ConfirmationLoca.js";
 import emailjs from "@emailjs/browser";
@@ -83,30 +83,27 @@ export default function LocationAvecChauffeur() {
     );
   };
 
-  // autocompletion //
-
   const [suggestions, setSuggestions] = useState([]);
-  useEffect(() => {
-    const loadAddress = async () => {
-      if (departureAdress.length > 10) {
-        const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(departureAdress)}`
-        );
-        setSuggestions(response.data.features);
-      }
-    };
-    loadAddress();
-  }, [departureAdress]);
-  const onSuggestHandler = (departureAdress) => {
+  const onSuggestHandler = async (departureAdress) => {
     setDepartureAdress(departureAdress);
     setSuggestions([]);
+  };
+
+  const setTextOriginAdress = async (address) => {
+    setDepartureAdress(address);
+    if (departureAdress.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(departureAdress)}`
+      );
+      setSuggestions(response.data.features);
+    }
   };
 
   return (
     <Layout pageTitle="Les Drivers - Location avec chauffeur">
       <div className={styleLocation.containerService}>
         <p className={styleLocation.titleloc}>
-          Location <span>avec chauffeur</span>
+          Location de véhicule <span>avec chauffeur</span>
         </p>
         <div
           className={
@@ -129,7 +126,7 @@ export default function LocationAvecChauffeur() {
                   <input
                     required
                     type="text"
-                    onChange={(e) => setDepartureAdress(e.target.value)}
+                    onChange={(e) => setTextOriginAdress(e.target.value)}
                     value={departureAdress}
                     className={styleLocation.inputDepart}
                     onBlur={() => {

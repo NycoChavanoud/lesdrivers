@@ -71,7 +71,8 @@ export default function infos_utiles() {
       </div>
       <div className={style.covidContainer}>
         <div className={style.title}>
-          Se rendre à laéroport<span className={style.blueText}> de Lyon</span>
+          Se rendre à l&apos;aéroport
+          <span className={style.redText}> de Lyon</span>
         </div>
 
         <div className={style.airportDiv}>
@@ -85,9 +86,10 @@ export default function infos_utiles() {
                 Vous vous demandez comment rejoindre
                 <span className={style.redText}> l’aéroport de Lyon ?</span>
                 Évitez le stress des départs en réservant votre trajet auprès de
-                nos chauffeurs privés. L’aéroport de Lyon, véritable carrefour
-                de l’Europe de l’Ouest, est un endroit très fréquenté par les
-                voyageurs de tous les horizons et à toute heure de la journée.
+                nos chauffeurs privés.
+                <br /> L’aéroport de Lyon, véritable carrefour de l’Europe de
+                l’Ouest, est un endroit très fréquenté par des voyageurs de tout
+                horizon et à toute heure de la journée. <br />
                 En pleine journée, il est très facile de se rendre jusqu’à
                 l’aéroport de
                 <span className={style.blueText}> Lyon Saint-Exupéry</span>,
@@ -155,7 +157,7 @@ export default function infos_utiles() {
                 Voici les circuits touristiques que notre équipe
                 <span className={style.blueText}> VTC </span>
                 vous propose
-                <span className={style.redText}> aux aletours de Lyon</span>,
+                <span className={style.redText}> aux alentours de Lyon</span>,
               </h3>
             </div>
             <div className={style.covidText}>
@@ -264,8 +266,8 @@ export default function infos_utiles() {
           <div className={style.ButtPrestaWrapper}>
             <div>
               <h1 className={style.title}>
-                Les avantages de
-                <span className={style.redText}> The Drivers airport</span>
+                Les avantages des
+                <span className={style.redText}> Drivers airport</span>
               </h1>
               <h3 className={style.titleText}>
                 Voici les avantages des
@@ -362,8 +364,8 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    <span className={style.redText}>Le Rhôneexpress:</span> À
-                    été beaucoup décrié pour ses niveaux de tarifs et ses
+                    <span className={style.redText}>Le Rhônexpress:</span> À été
+                    beaucoup décrié pour ses niveaux de tarifs onéreux et ses
                     faibles fréquences, aujourd’hui les choses s’améliorent…
                     Cependant, lorsque l’on doit prendre un avion, on doit
                     pouvoir compter sur un mode de transport fiable. Ce qui

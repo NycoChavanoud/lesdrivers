@@ -75,18 +75,12 @@ export default function ProfilForm({
         templateParams,
         process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        function (response) {
-          console.log("EMAILJS SUCCESS", response.status, response.text);
-          setIsResaSent(true);
-          setTimeout(() => {
-            router.push("/");
-          }, 2000);
-        },
-        function (error) {
-          console.log("EMAILJS FAILED...", error);
-        }
-      );
+      .then(function () {
+        setIsResaSent(true);
+        setTimeout(() => {
+          router.push("/");
+        }, 2000);
+      });
   };
   return (
     <form className={style.signUpForm} onSubmit={sendReservation}>
