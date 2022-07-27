@@ -80,19 +80,31 @@ export default function TrajectFormDetails({
   const [longitude, setLongitude] = useState([""]);
   const [text, setText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
-  useEffect(() => {
-    const loadAddress = async () => {
-      if (text.length > 6) {
-        const response = await axios.get(
-          `/api/autocomplete/?address=${encodeURIComponent(text)}`
-        );
-        setSuggestions(response.data.features);
-        setLatitude(response.data.features[0].geometry.coordinates[1]);
-        setLongitude(response.data.features[0].geometry.coordinates[0]);
-      }
-    };
-    loadAddress();
-  }, [text, originAdress]);
+  const setTextAndOriginAdress = async (address) => {
+    setText(address);
+    setOriginAdress(address);
+    if (text.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(text)}`
+      );
+      setSuggestions(response.data.features);
+      setLatitude(response.data.features[0].geometry.coordinates[1]);
+      setLongitude(response.data.features[0].geometry.coordinates[0]);
+    }
+  };
+
+  const setTextAndDestinationAdress = async (address) => {
+    setText(address);
+    setDestinationAdress(address);
+    if (text.length > 6) {
+      const response = await axios.get(
+        `/api/autocomplete/?address=${encodeURIComponent(text)}`
+      );
+      setSuggestions(response.data.features);
+      setLatitude(response.data.features[0].geometry.coordinates[1]);
+      setLongitude(response.data.features[0].geometry.coordinates[0]);
+    }
+  };
   const onSuggestHandler = (text) => {
     setSuggestions([]);
     setText(text);
@@ -111,16 +123,6 @@ export default function TrajectFormDetails({
   if (vehicule === "van-luxe") price = Math.round((distance / 1000) * 3.2);
 
   if (originAdressDefault === "originAdressDefaultAirport") price = price + 5;
-
-  const setTextAndOriginAdress = (address) => {
-    setText(address);
-    setOriginAdress(address);
-  };
-
-  const setTextAndDestinationAdress = (address) => {
-    setText(address);
-    setDestinationAdress(address);
-  };
 
   const handleCreateItin = (e) => {
     e.preventDefault();

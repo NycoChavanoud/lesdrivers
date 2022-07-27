@@ -27,7 +27,6 @@ export default function Trajectform() {
   return (
     <div className={styleTransfert.trajectFormContainer}>
       <h3 className={styleTransfert.titleForm}>Votre trajet</h3>
-      {/* Ensemble button */}
       <div className={styleTransfert.buttonContainer}>
         <div
           className={
@@ -59,7 +58,6 @@ export default function Trajectform() {
         </div>
       </div>
 
-      {/* Go Airport*/}
       <div
         className={
           goAirport ? styleTransfert.goAirportOn : styleTransfert.goAirportOff
@@ -68,7 +66,6 @@ export default function Trajectform() {
         <TrajectFormDetails destinationAdressDefault="destinationAdressDefaultAirport" />
       </div>
 
-      {/* Leave Airport*/}
       <div
         className={
           leaveAirport
