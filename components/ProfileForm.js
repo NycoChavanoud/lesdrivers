@@ -11,6 +11,7 @@ import emailjs from "@emailjs/browser";
 
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { useContext, useState } from "react";
+import axios from "axios";
 
 export default function ProfilForm({
   originAdress,
@@ -67,7 +68,31 @@ export default function ProfilForm({
 
   const sendReservation = (e) => {
     e.preventDefault();
-
+    axios
+      .post(`/api/itineraryAirport`, {
+        originAdress,
+        destinationAdress,
+        departureDate,
+        departureTime,
+        numberPassengers,
+        numberLuggages,
+        vehicule,
+        siegeBebe,
+        rehausseur,
+        porteSki,
+        flightNumber,
+        somethingToSay,
+        price,
+        firstname,
+        lastname,
+        phoneNumber,
+        email,
+        address,
+        society,
+      })
+      .catch((err) => {
+        console.error(err);
+      });
     emailjs
       .send(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,

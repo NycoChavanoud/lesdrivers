@@ -5,6 +5,10 @@
   text-align: justify;
 }
 
+.borderRadius {
+  border-radius: 8px;
+}
+
 .mainTitle {
   font-family: "Gabriela", serif;
 }

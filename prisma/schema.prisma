@@ -61,4 +61,11 @@ model ItineraryAirport {
   porteSki          Boolean
   flightNumber      String?
   somethingToSay    String?
+  price             Int
+  firstname         String
+  lastname          String
+  phoneNumber       String
+  email             String
+  address           String?
+  society           String?
 }

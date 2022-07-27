@@ -13,6 +13,13 @@ module.exports.createItineraryAirport = async ({
   porteSki,
   flightNumber,
   somethingToSay,
+  price,
+  firstname,
+  lastname,
+  phoneNumber,
+  email,
+  address,
+  society,
 }) => {
   return await db.ItineraryAirport.create({
     data: {
@@ -28,6 +35,13 @@ module.exports.createItineraryAirport = async ({
       porteSki,
       flightNumber,
       somethingToSay,
+      price,
+      firstname,
+      lastname,
+      phoneNumber,
+      email,
+      address,
+      society,
     },
   });
 };
