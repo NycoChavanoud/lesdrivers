@@ -17,10 +17,29 @@ export default function LoginPage({ csrfToken }) {
     <Layout pageTitle={"Login"}>
       {currentUserProfile ? (
         <>
-          Connecté en tant que {currentUserProfile.email} <br />
-          <button data-cy="disconnectBtn" onClick={() => signOut()}>
-            Log out
-          </button>{" "}
+          <div className={style.mainContainerUserLogged}>
+            <div className={style.containerTitle}>
+              <p className={style.title}>
+                Bienvenue {currentUserProfile.firstname}!
+              </p>
+            </div>
+            <div className={style.containerInfos}>
+              <p className={style.title}>Vos informations</p>
+              <p>Prénom : {currentUserProfile.firstname} </p>
+              <p>Nom : {currentUserProfile.lastname} </p>
+              <p>Mail : {currentUserProfile.email} </p>
+              <p>N° de tel : {currentUserProfile.phoneNumber} </p>
+              <p>Adresse : {currentUserProfile.address} </p>
+              <p>Société : {currentUserProfile.society}</p>
+            </div>
+            <button
+              className={style.buttonSignOut}
+              data-cy="disconnectBtn"
+              onClick={() => signOut()}
+            >
+              Déconnexion
+            </button>{" "}
+          </div>
         </>
       ) : (
         <>

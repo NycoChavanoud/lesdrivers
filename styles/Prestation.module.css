@@ -2,7 +2,7 @@
   margin-left: 20px;
   margin-bottom: 150px;
   opacity: 80%;
-  cursor: pointer;
+  margin-bottom: 150px;
 }
 
 .prestationh1 {
@@ -104,7 +104,7 @@
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin: 0;
+    margin-bottom: 100px;
   }
 
   .prestationContainerButton {
@@ -123,6 +123,7 @@
     margin-bottom: 60px;
     width: 70%;
   }
+
   .prestationh1 {
     font-size: 30px;
   }
