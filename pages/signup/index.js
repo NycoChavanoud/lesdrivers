@@ -12,7 +12,6 @@ import phonePicture from "../../public/images/input_phone.png";
 import adressPicture from "../../public/images/input_adress.png";
 import societyPicture from "../../public/images/input_society.png";
 import passwordPicture from "../../public/images/input_password.png";
-const notifyRegisterSuccess = () => toast("Thanks ! You can now log in !");
 
 export default function SignupPage() {
   const [firstname, setFirstname] = useState("");
@@ -25,16 +24,18 @@ export default function SignupPage() {
   const [society, setSociety] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
+  const notifyRegisterSuccess = () =>
+    toast("Merci vous pouvez désormais vous connecter");
 
   const handleSubmit = (e) => {
     setError("");
     e.preventDefault();
     if (password !== passwordConfirmation)
-      return setError("passwords do not match");
+      return setError("Les mots de passe ne sont pas les mêmes !");
 
     if (["Too Weak", "Weak"].includes(passwordStrength(password).value))
       return setError(
-        "password is too weak. It must contain an uppercase letter, a lowercase letter, a symbol and a number"
+        "Votre mot de passe doit contenir 1 lettre Minuscule, 1 Majuscule, un chiffre et un caractère spécial."
       );
 
     axios
@@ -50,7 +51,7 @@ export default function SignupPage() {
       .then(() => router.push("/login"))
       .then(notifyRegisterSuccess)
       .catch((err) => {
-        if (err.response.status === 409) setError("This email already exists");
+        if (err.response.status === 409) setError("Cet email existe déjà !");
       });
   };
 
@@ -178,7 +179,7 @@ export default function SignupPage() {
 
         <p className={style.wrongDatas}>{error}</p>
         <button data-cy="registerBtn" type="submit">
-          Register
+          S&apos;inscrire
         </button>
       </form>
     </Layout>
