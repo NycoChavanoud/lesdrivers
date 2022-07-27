@@ -109,7 +109,6 @@
 
 .testService {
   display: none;
-  background-color: red;
   width: 30px;
   height: 30px;
 }
@@ -237,24 +236,29 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 60%;
+    height: 200px;
   }
 
   .backgroundCard2 {
     background-image: url(../public/images/service2.webp);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 200px;
   }
 
   .backgroundCard3 {
     background-image: url(../public/images/service3.webp);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 60%;
+    height: 200px;
   }
 
   .backgroundCard4 {
     background-image: url(../public/images/service4.webp);
     background-size: cover;
     background-repeat: no-repeat;
+    height: 200px;
   }
 
   .backgroundCardBase {
