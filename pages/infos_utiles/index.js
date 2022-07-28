@@ -84,7 +84,7 @@ export default function infos_utiles() {
               </h1>
               <h3 className={style.titleText}>
                 Vous vous demandez comment rejoindre
-                <span className={style.redText}> l’aéroport de Lyon ?</span>
+                <span className={style.redText}> l’aéroport de Lyon ? </span>
                 Évitez le stress des départs en réservant votre trajet auprès de
                 nos chauffeurs privés.
                 <br /> L’aéroport de Lyon, véritable carrefour de l’Europe de
@@ -204,7 +204,7 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    <span className={style.redText}>Lyon:</span> À été bâtie sur
+                    <span className={style.redText}>Lyon</span> a été bâtie sur
                     un site exceptionnel qui abrite deux fleuves et deux
                     collines : la colline « qui prie » : Fourvière » et la
                     colline « qui travaille » : la Croix-rousse. Cette dernière
@@ -238,7 +238,7 @@ export default function infos_utiles() {
                 </div>
                 <div className={style.airportText3}>
                   <span className={style.redText}>
-                    Depuis l’aéroport LYON Saint-Exupéry:
+                    Depuis l’aéroport Lyon Saint-Exupéry:
                   </span>{" "}
                   Découvrez le temps d’une journée, d’un weekend ou d’une
                   semaine les charmes d’une région naturelle. L’aéroport
@@ -315,10 +315,10 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    <span className={style.redText}>Le Rhônexpress:</span> À
+                    <span className={style.redText}>Le RhôneExpress:</span> À
                     réduit ses amplitudes horaires, le premier départ se fait à
                     05h00 et il n’y a que des départs toutes les 30 minutes. Les
-                    horaires du Rhônexpress sont d’autant plus contraignantes
+                    horaires du RhôneExpress sont d’autant plus contraignantes
                     pour ceux souhaitant voyager le soir. En effet le dernier
                     départ de l’aéroport se fait à 22h00 ! Ce qui veut dire
                     qu’un passager ayant un vol arrivant après 21h30 risque de
@@ -364,9 +364,9 @@ export default function infos_utiles() {
                     />
                   </div>
                   <div className={style.airportText}>
-                    <span className={style.redText}>Le Rhônexpress:</span> À été
-                    beaucoup décrié pour ses niveaux de tarifs onéreux et ses
-                    faibles fréquences, aujourd’hui les choses s’améliorent…
+                    <span className={style.redText}>Le RhôneExpress:</span> a
+                    été beaucoup décrié pour ses niveaux de tarifs onéreux et
+                    ses faibles fréquences, aujourd’hui les choses s’améliorent…
                     Cependant, lorsque l’on doit prendre un avion, on doit
                     pouvoir compter sur un mode de transport fiable. Ce qui
                     comprend aussi les ruptures de charge’ entre différents
