@@ -48,7 +48,15 @@ export default function NosServices() {
   };
 
   const linkToService2 = () => {
-    router.push("/transfert_aeroport");
+    router.push("/course_dans_lyon");
+  };
+
+  const linkToService3 = () => {
+    router.push("/location_avec_chauffeur");
+  };
+
+  const linkToService4 = () => {
+    router.push("/location_avec_chauffeur");
   };
 
   return (
@@ -93,6 +101,7 @@ export default function NosServices() {
               }
               style={styleService.containerCardService3}
               showService={showService3}
+              linkTo={linkToService3}
               backgroundDesktopMobile={styleService.titleService3}
             />
             <ServicesCard
@@ -102,6 +111,7 @@ export default function NosServices() {
               }
               style={styleService.containerCardService4}
               showService={showService4}
+              linkTo={linkToService4}
               backgroundDesktopMobile={styleService.titleService4}
             />
           </div>
