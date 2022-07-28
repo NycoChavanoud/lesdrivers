@@ -1,4 +1,4 @@
-Welcome on our project Les Drivers Lyon !
+Welcome on project Les Drivers Lyon !
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
@@ -54,3 +54,4 @@ yarn run test
 ```sh
 yarn run test:gui
 ```
+
