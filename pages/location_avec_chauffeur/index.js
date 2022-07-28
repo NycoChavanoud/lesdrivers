@@ -91,11 +91,11 @@ export default function LocationAvecChauffeur() {
   };
 
   const setTextOriginAdress = async (address) => {
+    setDepartureAdress(address);
     if (departureAdress.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(departureAdress)}`
       );
-      setDepartureAdress(address);
       setSuggestions(response.data.features);
     }
   };

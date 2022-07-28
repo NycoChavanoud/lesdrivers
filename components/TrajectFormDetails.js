@@ -81,12 +81,12 @@ export default function TrajectFormDetails({
   const [text, setText] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const setTextAndOriginAdress = async (address) => {
+    setText(address);
+    setOriginAdress(address);
     if (text.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(text)}`
       );
-      setText(address);
-      setOriginAdress(address);
       setSuggestions(response.data.features);
       setLatitude(response.data.features[0].geometry.coordinates[1]);
       setLongitude(response.data.features[0].geometry.coordinates[0]);
@@ -94,12 +94,12 @@ export default function TrajectFormDetails({
   };
 
   const setTextAndDestinationAdress = async (address) => {
+    setText(address);
+    setDestinationAdress(address);
     if (text.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(text)}`
       );
-      setText(address);
-      setDestinationAdress(address);
       setSuggestions(response.data.features);
       setLatitude(response.data.features[0].geometry.coordinates[1]);
       setLongitude(response.data.features[0].geometry.coordinates[0]);

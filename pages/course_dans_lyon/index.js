@@ -87,12 +87,12 @@ export default function CoursedansLyon() {
   const [textArrivee, setTextArrivee] = useState("");
   const [arriveeSuggestions, setArriveeSuggestions] = useState([]);
   const setTextAndDepartureAddress = async (textDepart) => {
+    setTextDepart(textDepart);
+    setDepartureAdress(textDepart);
     if (textDepart.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(textDepart)}`
       );
-      setTextDepart(textDepart);
-      setDepartureAdress(textDepart);
       setDepartSuggestions(response.data.features);
       setLatitudeDepart(response.data.features[0].geometry.coordinates[1]);
       setLongitudeDepart(response.data.features[0].geometry.coordinates[0]);
@@ -100,12 +100,12 @@ export default function CoursedansLyon() {
   };
 
   const setTextAndArrivalAddress = async (textArrivee) => {
+    setTextArrivee(textArrivee);
+    setArrivalAdress(textArrivee);
     if (textArrivee.length > 6) {
       const response = await axios.get(
         `/api/autocomplete/?address=${encodeURIComponent(textArrivee)}`
       );
-      setTextArrivee(textArrivee);
-      setArrivalAdress(textArrivee);
       setArriveeSuggestions(response.data.features);
       setLatitudeArrivee(response.data.features[0].geometry.coordinates[1]);
       setLongitudeArrivee(response.data.features[0].geometry.coordinates[0]);
