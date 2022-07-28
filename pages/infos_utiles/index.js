@@ -84,7 +84,7 @@ export default function infos_utiles() {
               </h1>
               <h3 className={style.titleText}>
                 Vous vous demandez comment rejoindre
-                <span className={style.redText}> l’aéroport de Lyon ?</span>
+                <span className={style.redText}> l’aéroport de Lyon ? </span>
                 Évitez le stress des départs en réservant votre trajet auprès de
                 nos chauffeurs privés.
                 <br /> L’aéroport de Lyon, véritable carrefour de l’Europe de
