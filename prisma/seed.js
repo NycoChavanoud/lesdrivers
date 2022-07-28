@@ -59,7 +59,7 @@ async function seed() {
       somethingToSay: "je suis très pressé",
       price: 50,
       firstname: "Jean",
-      lastname: "Dujardin",
+      lastname: "Dujardinne",
       phoneNumber: "0606060606",
       email: "jean.dujardin@gmail.com",
       address: "1 rue Delandine, Lyon",
