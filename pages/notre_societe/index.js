@@ -4,13 +4,14 @@ import logo from "../../public/images/logo-lesdrivers.png";
 import binh from "../../public/images/binh.webp";
 import amr from "../../public/images/amr.webp";
 import maxime from "../../public/images/maxime.webp";
-import tayeb from "../../public/images/tayeb.webp";
 import magid from "../../public/images/magid.webp";
 import styles from "../../styles/nosServices.module.css";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function NosServices() {
   return (
     <Layout pageTitle="Les Drivers - Nos Services">
+      <PhoneButton />
       <div className={styles.mainContainer}>
         <div className={styles.bgImage} />
         <Image
@@ -30,7 +31,7 @@ export default function NosServices() {
         </p>
       </div>
       <div className={styles.photo_container}>
-        <h2 className={styles.photo_title}>Les services comme vocation</h2>
+        <h2 className={styles.photo_title}>Le service comme vocation</h2>
         <div className={styles.photo_divs}>
           <Image
             src={binh}
@@ -93,26 +94,6 @@ export default function NosServices() {
               une formation de cuisinier et exercé 7 ans en gastronomie
               traditionnelle, ce qui m’a inculqué une grande rigueur et un sens
               de l’effort qui sont toujours utiles !
-            </p>
-          </div>
-        </div>
-        <div className={styles.photo_divs}>
-          <Image
-            src={tayeb}
-            width={450}
-            height={350}
-            className={styles.logo_img}
-            alt="logo"
-          />
-          <div className={styles.description_div}>
-            <h2 className={styles.name_title}>TAYEB</h2>
-            <p className={styles.name_description}>
-              54 ans, autodidacte. Technicien frigoriste, freelance marketing
-              hôtelier, chef d’entreprise déménagement, responsable logistique
-              pièce détachées automobile. Aujourd’hui je mets mon expérience et
-              mes qualités au service du transport de personnes. Un travail que
-              j’apprécie particulièrement pour son côté relationnel avec des
-              personnes de tout horizons.
             </p>
           </div>
         </div>

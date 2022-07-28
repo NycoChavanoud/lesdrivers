@@ -2,10 +2,19 @@
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 html,
-body {
+body,
+#__next {
   padding: 0;
   margin: 0;
   font-family: "League Spartan", sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+main {
+  flex-grow: 1;
+  padding-bottom: 30px;
 }
 
 a {

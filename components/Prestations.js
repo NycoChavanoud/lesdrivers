@@ -32,15 +32,16 @@ export default function Prestation() {
             bgPresta={ourVehicles}
           />
         </div>
-
-        <ButtPresta
-          icon={icon2}
-          titleBlock={"Le service comme vocation"}
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
-          bgPresta={serviceVocation}
-        />
+        <div onClick={() => router.push("/notre_societe")}>
+          <ButtPresta
+            icon={icon2}
+            titleBlock={"Le service comme vocation"}
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"NOS ENGAGEMENTS ET NOS VALEURS"}
+            bgPresta={serviceVocation}
+          />
+        </div>
 
         <div onClick={() => router.push("/nos_services")}>
           <ButtPresta
@@ -55,17 +56,19 @@ export default function Prestation() {
             bgPresta={diffVocation}
           />
         </div>
-        <ButtPresta
-          icon={icon4}
-          titleBlock={"Combien ça coûte ?"}
-          textePrestation={
-            "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
-          }
-          bgPrestaWidth={200}
-          bgPrestaHeight={130}
-          callToActionTexte={"ESTIMER VOTRE TRAJET"}
-          bgPresta={map}
-        />
+        <div onClick={() => router.push("/transfert_aeroport")}>
+          <ButtPresta
+            icon={icon4}
+            titleBlock={"Combien ça coûte ?"}
+            textePrestation={
+              "Estimer et réserver votre chauffeur suivant votre zone géographique et votre région."
+            }
+            bgPrestaWidth={200}
+            bgPrestaHeight={130}
+            callToActionTexte={"ESTIMER VOTRE TRAJET"}
+            bgPresta={map}
+          />
+        </div>
       </div>
     </div>
   );

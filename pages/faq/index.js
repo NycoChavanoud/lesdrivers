@@ -1,18 +1,19 @@
 import Layout from "../../components/Layout";
 import styleFAQ from "../../styles/faq.module.css";
 import Faq from "react-faq-component";
+import PhoneButton from "../../components/PhoneButton.js";
 
 const data = {
   rows: [
     {
-      title: "Quels sont les horaires du Rhônexpress ? ",
+      title: "Quels sont les horaires du Rhône Express ? ",
       content:
-        "Le Rhônexpress dessert la gare TGV de l’aéroport Saint-Exupéry depuis Lyon Part-Dieu. <br/><br/>La navette a réduit ses horaires récemment : <br/>Le premier départ se fait à 05h00 <br/> - Le dernier départ de l’aéroport se fait à 22h00 <br/> - Il y a des départs toutes les 30 minutes <br/><br/>Un passager ayant un vol arrivant après 21h30 risque de devoir prendre un taxi et payer bien plus cher. De plus, le fait d’attendre 30 minutes entre chaque passage peut considérablement augmenter votre temps de trajet. ",
+        "Le Rhône Express dessert la gare TGV de l’aéroport Saint-Exupéry depuis Lyon Part-Dieu. <br/><br/>La navette a réduit ses horaires récemment : <br/>Le premier départ se fait à 05h00 <br/> - Le dernier départ de l’aéroport se fait à 22h00 <br/> - Il y a des départs toutes les 30 minutes <br/><br/>Un passager ayant un vol arrivant après 21h30 risque de devoir prendre un taxi et payer bien plus cher. De plus, le fait d’attendre 30 minutes entre chaque passage peut considérablement augmenter votre temps de trajet. ",
     },
     {
       title: "Comment réserver un chauffeur ?",
       content:
-        "Vous pouvez réserver une navette en 3 clics sur Drivers Airport, ou en nous appelant directement au 07 82 75 25 36. Vous tomberez directement sur des conseillers dédiés.<br/>Vous pouvez alors prendre rendez-vous et vous recevrez par mail une confirmation de votre réservation.<br/>La navigation facile sur notre site vous permet de réserver vous-même votre navette en choisissant votre créneau et le lieu de destination. <br/>De la même manière vous recevez e-mail pour confirmer la réservation de votre chauffeur.",
+        "Vous pouvez réserver une navette en quelques clics sur Drivers Airport ou en nous appelant directement au 07 82 75 25 36. Des conseillers dédiés vous répondront.<br/>Vous pouvez alors prendre rendez-vous et vous recevrez par mail une confirmation de votre réservation.<br/>La navigation facile sur notre site vous permet de réserver vous-même votre navette en choisissant votre créneau et le lieu de destination. <br/>De la même manière vous recevez e-mail pour confirmer la réservation de votre chauffeur.",
     },
     {
       title: "Comment retrouver mon chauffeur",
@@ -22,12 +23,12 @@ const data = {
     {
       title: "Comment être sûr de ne pas rater mon vol ?",
       content:
-        "Vous avez réservé votre chauffeur sur notre site. Vous avez reçu un e-mail de confirmation de votre réservation. Il est par contre normal si vous avez réservé longtemps avant, que vous soyez inquiet pour votre transport, ou que vous pensiez que l’on vous oublie ! <br/><br/>Heureusement votre réservation est bien notée dans nos services. De votre côté, vous recevez un e-mail de confirmation 24 h avant votre départ, récapitulant toutes les informations concernant votre trajet à venir. De plus, le chauffeur vous contacte 10 minutes avant son arrivée par SMS pour vous avertir de son arrivée. Vous êtes alors rassuré. ",
+        "Vous avez réservé votre chauffeur sur notre site. Vous avez reçu un e-mail de confirmation de votre réservation. Il est par contre normal si vous avez réservé longtemps avant, que vous soyez inquiet pour votre transport, ou que vous pensiez que l’on vous oublie ! <br/><br/>Heureusement votre réservation est bien notée dans nos services. De votre côté, vous recevez un e-mail de confirmation 24 h avant votre départ, récapitulant toutes les informations concernant votre trajet à venir. De plus, le chauffeur vous contacte 10 minutes avant son arrivée par SMS pour vous avertir. Vous êtes alors rassuré. ",
     },
     {
       title: "Comment régler ma course ?",
       content:
-        "Nous vous offrons plusieurs possibilités pour payer votre course. Vous pouvez payer en espèces ou par carte bancaire une fois arrivé à destination avec le chauffeur.<br/><br/>Il est également possible de payer en avance, si vous demandez un RIB, ou pour des groupes.<br/><br/> Votre paiement suivra votre course dans votre dossier, ainsi si vous avez payé en ligne, votre chauffeur ne vous demandera pas de payer à la fin de la course.",
+        "Nous vous offrons plusieurs possibilités pour payer votre course. Vous pouvez payer en espèce ou par carte bancaire une fois arrivé à destination avec le chauffeur.<br/><br/>Il est également possible de payer en avance, si vous demandez un RIB, ou pour des groupes.<br/><br/> Votre paiement suivra votre course dans votre dossier, ainsi si vous avez payé en ligne, votre chauffeur ne vous demandera pas de payer à la fin de la course.",
     },
     {
       title: "Puis-je annuler ma course ?",
@@ -42,7 +43,7 @@ const data = {
     {
       title: "Des frais supplémentaires sont-ils être appliqués de nuit ? ",
       content:
-        "Oui la nuit les prix de base sont majorés de 10 %, entre 22 heures et 6 heures.",
+        "Oui la nuit les prix de base sont majorés de 15 %, entre 21 heures et 6 heures.",
     },
     {
       title: "Si mon avion a du retard, mon chauffeur va t'il m'attendre ?",
@@ -63,6 +64,7 @@ const styles = {
 export default function FAQ() {
   return (
     <Layout pageTitle="Les Drivers - FAQ">
+      <PhoneButton />
       <div className={styleFAQ.faqMainContainer}>
         <div className={styleFAQ.faqMainTitre}>
           <p className={styleFAQ.title}>

@@ -1,10 +1,12 @@
 import Layout from "../../components/Layout";
 import Trajectform from "../../components/Trajectform";
 import styleTransfert from "../../styles/TransfertAeroport.module.css";
+import PhoneButton from "../../components/PhoneButton.js";
 
 export default function TransfertAeroport() {
   return (
     <Layout pageTitle="Transfert aeroport">
+      <PhoneButton />
       <div className={styleTransfert.transfertContainer}>
         <h1 className={styleTransfert.mainTitle}>Transport aéroport</h1>
         <div className={styleTransfert.transfertFirstSection}>

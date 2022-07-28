@@ -16,6 +16,32 @@ async function seed() {
     },
   });
 
+  await db.FormCourseLyon.deleteMany();
+  await db.FormCourseLyon.create({
+    data: {
+      departureAdress: "3 rue de la république",
+      arrivalAdress: "12 avenue des commissaires",
+      departureOfDate: "2022-01-01",
+      departureOfTime: "18:30",
+      numberOfPassengers: 5,
+      vehiculeNeeded: "Berline",
+      price: 125,
+    },
+  });
+
+  await db.FormLocaChauff.deleteMany();
+  await db.FormLocaChauff.create({
+    data: {
+      departureAdress: "3 rue de la république",
+      departureOfDate: "2022-01-01",
+      departureOfTime: "18:30",
+      numberOfPassengers: 5,
+      vehiculeNeeded: "Berline",
+      numberOfHour: 3,
+      price: 75,
+    },
+  });
+
   await db.itineraryAirport.deleteMany();
   await db.itineraryAirport.create({
     data: {
@@ -31,6 +57,13 @@ async function seed() {
       porteSki: false,
       flightNumber: "195-Easyjet",
       somethingToSay: "je suis très pressé",
+      price: 50,
+      firstname: "Jean",
+      lastname: "Dujardinne",
+      phoneNumber: "0606060606",
+      email: "jean.dujardin@gmail.com",
+      address: "1 rue Delandine, Lyon",
+      society: "Dujardin SA",
     },
   });
 }

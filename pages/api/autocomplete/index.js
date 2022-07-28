@@ -2,7 +2,7 @@ import axios from "axios";
 
 async function handleGet(req, res) {
   const response = await axios.get(
-    `https://api-adresse.data.gouv.fr/search/?q=${req.query.address}&autocomplete=1&limit=10`
+    `https://api-adresse.data.gouv.fr/search/?q=${req.query.address}&autocomplete=1&limit=2`
   );
   res.send(response.data);
 }
